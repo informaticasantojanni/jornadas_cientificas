@@ -1,0 +1,6 @@
+/* Reset some basic elements for consistency across browsers */
+
+.container {
+  width: auto !important;
+  margin: 0 auto;
+}
