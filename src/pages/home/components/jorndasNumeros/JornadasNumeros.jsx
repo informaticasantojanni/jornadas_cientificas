@@ -7,8 +7,8 @@ const JornadasNumeros = () => {
   return (
     <section ref={ref} className="bg-White pt-24 laptop1:ms-40">
       <div>
-        <p className="font-bold text-xl mt-10 mb-1 px-3 text-center text-White"><span className="bg-Green p-2 rounded-sm">Las jornadas 2023 en números</span></p>
-        {/* <p className="mt-10 mb-1 px-3 text-center">Las jornadas 2023 en números</p> */}
+        <p className="font-bold text-xl mt-10 mb-1 px-3 text-center text-White"><span className="bg-Green p-2 rounded-sm">Las jornadas 2024 en números</span></p>
+        {/* <p className="mt-10 mb-1 px-3 text-center">Las jornadas 2024 en números</p> */}
         {/* Course Hightligh */}
         <div className="w-full flex flex-wrap">
           {/* Box_1 */}

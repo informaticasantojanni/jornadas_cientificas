@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
 export const useBanner = () => {
-  const COUNTDOWN_TARGET = new Date("2024-11-08T08:00:00");
+  const COUNTDOWN_TARGET = new Date("2025-09-29T08:00:00");
 
   const getTimeLeft = () => {
     const totalTimeLeft = COUNTDOWN_TARGET - new Date();
@@ -34,8 +34,8 @@ export const useBanner = () => {
       title: `Aranceles`,
       html: `
       <div class="flex flex-col items-start ps-10">
-        <p class="pe-5 pb-3">Médicos: <span></span>12.000 pesos</p>
-        <p class="pe-5 pb-3">Residentes: <span></span>6.000 pesos</p>
+        <p class="pe-5 pb-3">Médicos: <span></span>20.000 pesos</p>
+        <p class="pe-5 pb-3">Residentes: <span></span>10.000 pesos</p>
         <p class="pe-5">Estudiantes: <span></span>sin costo</p>
       </div>
     `,

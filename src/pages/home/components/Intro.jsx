@@ -14,7 +14,7 @@ const Intro = () => {
     <section className=" bg-White rounded-tl-xl mt-3 laptop1:ms-40">
       <div className="px-2 pt-10">
         <h2 className="main-title text-center py-5">
-          Mensaje de la presidenta
+          Mensaje del presidente
         </h2>
 
         <div className="w-full laptop1:w-3/4 m-auto">
@@ -44,28 +44,28 @@ const Intro = () => {
             </p>
           </div>
 
-          <div className="flex items-center flex justify-center tablet:justify-start flex-wrap pb-20">
+          <div className="flex items-center justify-center tablet:justify-start flex-wrap pb-20">
             <img
               className="rounded-full w-[150px]"
-              src="/images/presidenta.png"
-              alt="Presidenta Jornadas"
+              src="/images/daniel_coso.png"
+              alt="Presidente Jornadas"
             />
             <div className="ps-10 flex flex-col items-center">
               {/* <img className="w-[150px]" src="/images/signature.png" alt="" /> */}
-              <p className="pt-5 tablet:pt-24">Presidenta XXXIX Jornadas Científicas</p>
-              <p>Dra. María Vivona</p>
+              <p className="pt-5 tablet:pt-24">Presidente XXXX Jornadas Científicas</p>
+              <p>Dra. Daniel Coso</p>
             </div>
           </div>
-
+{/* 
           <div
-            className="flex items-center flex justify-center bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out w-[250px] m-auto p-2"
+            className="items-center flex justify-center bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out w-[250px] m-auto p-2"
             onClick={openModal}
           >
             <button className="w-full flex justify-center items-center   ">
               <CamaraIcon width="25px" height="25px" />
               <p className="text-xl font-bold ps-2">Ver video</p>
             </button>
-          </div>
+          </div> */}
           <ModalVideo
             show={isModalOpen}
             onClose={closeModal}

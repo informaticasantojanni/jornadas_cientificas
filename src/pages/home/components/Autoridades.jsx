@@ -10,10 +10,10 @@ const Autoridades = () => {
       title: "President AMM Filial Santojanni",
       name: "Dr. Marcelo Struminger",
     },
-    { title: "Presidenta", name: "Dra. María Vivona" },
-    { title: "Vicepresidente", name: "Dr. Daniel Coso" },
-    { title: "Secretario General", name: "Dr. Fernando Saldarini" },
-    { title: "Secretario Adjunto", name: "Dr. José Retamozo" },
+    { title: "Presidenta", name: "Dr. Daniel Coso" },
+    { title: "Vicepresidente", name: "" },
+    { title: "Secretario General", name: "" },
+    { title: "Secretario Adjunto", name: "" },
     { title: "Tesorero", name: "Dr. Lucas Landolfi" },
   ];
 

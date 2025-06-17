@@ -38,7 +38,7 @@ const Banner = () => {
       {/* Titles */}
       <div className="relative flex flex-col items-center justify-center h-full">
         <h1 className="text-center text-White  text-4xl font-bold laptop1:text-6xl">
-          XXXIX JORNADAS
+          XXXX JORNADAS
         </h1>
         <h1 className="text-center text-White  text-4xl font-bold laptop1:text-6xl">
           CIENTIFICAS
@@ -46,17 +46,17 @@ const Banner = () => {
         <h1 className="text-center text-White text-3xl font-semibold pb-10 laptop1:text-5xl">
           HOSPITAL SANTOJANNI
         </h1>
-        <h2 className="text-White text-3xl md:text-3xl font-bold pb-10">
-          8 al 15 de noviembre de 2024
+        <h2 className="text-White text-xl text-center md:text-3xl font-bold pb-10">
+          29 de septiembre al 3 de octubre de 2025
         </h2>
         <h2 className="text-White text-center text-2xl  font-bold laptop1:text-5xl">
-          Estrategias para abordar los retos actuales en salud:
+          Ciencia que forma, transforma y cuida:
         </h2>
         <h2 className="text-White text-2xl  font-bold mb-10 laptop1:text-5xl">
-          Rol del sistema público
+          40 años de salud pública
         </h2>
         {/* Countdown box */}
-        {/* <div className="flex pb-10 space-x-3">
+        <div className="flex pb-10 space-x-3">
           <div className="w-[70px] h-[70px] flex flex-col items-center justify-center rounded-full shadow-lightShadowGrey bg-White bg-opacity-30 text-White">
             <p className="text-lg">{timeLeft.dias}</p>
             <p className="text-xs">dias</p>
@@ -73,12 +73,12 @@ const Banner = () => {
             <p className="text-lg">{timeLeft.segundos}</p>
             <p className="text-xs">segundos</p>
           </div>
-        </div> */}
+        </div>
 
         <div className="gap-y-5 flex flex-col items-center laptop1:flex-row laptop1:justify-center laptop1:space-x-10">
 
-          {/* <ButtonBlueMD onClick = {handleClickAranceles} label={"Aranceles"}/>
-          <ButtonVioletMD onClick = {handleInscripcion} label={"Incribirme"}/> */}
+          <ButtonBlueMD onClick = {handleClickAranceles} label={"Aranceles"}/>
+          <ButtonVioletMD onClick = {handleInscripcion} label={"Incribirme"}/>
         </div>
       </div>
     </div>
