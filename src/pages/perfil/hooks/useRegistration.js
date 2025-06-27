@@ -13,7 +13,9 @@ export const useRegistration = () => {
   /*******************************************************
    * DECLARACION DE VARIABLES
    *******************************************************/
-  const eventId = "ZbclMy93Cs9jzEYAgVui"; //eventId Jornadas 2024
+  // const eventId = "ZbclMy93Cs9jzEYAgVui"; //eventId Jornadas 2024
+  const eventId = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
+  
   const [userRegistration, setUserRegistration] = useState(null);
   const [reload, setReload] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);

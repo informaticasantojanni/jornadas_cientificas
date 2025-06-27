@@ -25,7 +25,7 @@ const PerfilView = () => {
         <>
           <UserProfile />
           <Registration />
-          <Certificates />
+          {/* <Certificates /> */}
         </>
       )}
       <Spinner />
