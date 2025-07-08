@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export const useInscripcionForm = () => {
 
-    // hook state declaration
+    // Form Data
     const [formData, setFormData] = useState({
         titulo: "",
         areaTematica: "",
@@ -14,6 +14,12 @@ export const useInscripcionForm = () => {
         contactoEmail: ""
     });
 
+    // Otros hooks
+    const [captchaValue, setCaptchaValue] = useState(null);
+    const [errors, setErrors] = useState({});
+
+
+    // Metodo handleChange
     const handleChange = (e) => {
         const { name, value } = e.target;
         if (name == "presentaPremio") {
@@ -28,19 +34,31 @@ export const useInscripcionForm = () => {
                 [name]: value,
             });
         }
-
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-    }
 
-    const [errors, setErrors] = useState({});
-
+    // Metodo handleCaptchaChange
     const handleCaptchaChange = (value) => {
         setCaptchaValue(value);
     };
 
+
+    // Metodo handleSubmit
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        try {
+            if (!captchaValue) {
+                throw new Error("Debe completar el Captcha");
+            }
+            console.log("Inscripción exitosa")
+        } catch (error) {
+            console.log(`ERROR: Submit ${error}`)
+        }
+    }
+
+
+    // Retornos
     return {
         handleChange,
         handleSubmit,

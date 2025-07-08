@@ -1,6 +1,3 @@
-import React, { useState } from "react";
-import VisibilityOffIcon from "./VisibilityOffIcon";
-import VisibilityOnIcon from "./VisibilityOnIcon";
 import { useInscripcionForm } from "../hooks/useInscripcionForm";
 import ReCAPTCHA from "react-google-recaptcha";
 
