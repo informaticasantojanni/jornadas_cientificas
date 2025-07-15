@@ -60,8 +60,9 @@ export const useInscripcionForm = () => {
             formData.id = uuidv4(); // Generar un ID único para la inscripción
             // LLAMAR A FUNCION QUE INSERTA EN EL DOCUMENTO
             const respuesta = await setInscripcionTemasLibres(EVENT_ID_2025, formData);
-
-            console.log("Respuesta de la inscripción:", respuesta);
+            if (!respuesta.status) {
+                throw new Error(respuesta.error);
+            }
             console.log("Inscripción exitosa")
         } catch (error) {
             console.log(`ERROR: Submit ${error}`)
