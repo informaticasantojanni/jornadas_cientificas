@@ -10,6 +10,7 @@ const InscripcionForm = () => {
     handleCaptchaChange
   } = useInscripcionForm();
 
+
   return (
     <div className="w-full">
       <form onSubmit={handleSubmit}>

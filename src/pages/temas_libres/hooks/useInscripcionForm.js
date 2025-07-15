@@ -1,14 +1,20 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { setInscripcionTemasLibres } from "../../../services/firebase.services";
 
 export const useInscripcionForm = () => {
 
+    const EVENT_ID_2025 = "3lZN9Pf5Jvdgc3GX4h2e";
+
     // Form Data
     const [formData, setFormData] = useState({
+        id: "",
         titulo: "",
         areaTematica: "",
         autores: "",
         presentaPremio: true,
         lugar: "",
+        abstract: "",
         contactoNombre: "",
         contactoCelular: "",
         contactoEmail: ""
@@ -51,6 +57,11 @@ export const useInscripcionForm = () => {
             if (!captchaValue) {
                 throw new Error("Debe completar el Captcha");
             }
+            formData.id = uuidv4(); // Generar un ID único para la inscripción
+            // LLAMAR A FUNCION QUE INSERTA EN EL DOCUMENTO
+            const respuesta = await setInscripcionTemasLibres(EVENT_ID_2025, formData);
+
+            console.log("Respuesta de la inscripción:", respuesta);
             console.log("Inscripción exitosa")
         } catch (error) {
             console.log(`ERROR: Submit ${error}`)
