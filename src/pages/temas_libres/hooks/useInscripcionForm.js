@@ -11,6 +11,7 @@ export const useInscripcionForm = () => {
         id: "",
         titulo: "",
         areaTematica: "",
+        servicio: "",
         autores: "",
         presentaPremio: true,
         lugar: "",

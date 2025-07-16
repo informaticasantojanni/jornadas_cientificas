@@ -1,5 +1,6 @@
 import { useInscripcionForm } from "../hooks/useInscripcionForm";
 import ReCAPTCHA from "react-google-recaptcha";
+import { serviciosList } from "./serviciosList"; // Assuming you have a list of services
 
 const InscripcionForm = () => {
   const {
@@ -40,6 +41,27 @@ const InscripcionForm = () => {
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
                 }`}
             />
+          </div>
+
+          {/* Autores */}
+          <div className="flex flex-col mb-5">
+            <label className="text-White pb-2">Servicio:</label>
+            <select
+              name="servicio"
+              value={formData.servicio} // Assuming you have state in your formData
+              onChange={handleChange}
+              className={`rounded-lg shadow-lightShadowGrey shadow appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${
+                errors.servicio && "focus:outline border border-Red"
+              }`}
+            >
+              <option value="">Seleccione...</option> {/* Placeholder option */}
+              {serviciosList.map((servicio, index) => (
+                <option key={index} value={servicio}>{servicio}</option>
+              ))}
+            </select>
+            {errors.servicio && (
+              <span className="text-sm text-Red">{errors.servicio}</span>
+            )}
           </div>
 
           {/* Autores */}
