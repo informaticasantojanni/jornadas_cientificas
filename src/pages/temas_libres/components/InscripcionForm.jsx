@@ -43,7 +43,7 @@ const InscripcionForm = () => {
             />
           </div>
 
-          {/* Autores */}
+          {/* Servicios */}
           <div className="flex flex-col mb-5">
             <label className="text-White pb-2">Servicio:</label>
             <select
