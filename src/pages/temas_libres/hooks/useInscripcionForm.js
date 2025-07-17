@@ -1,6 +1,9 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { setInscripcionTemasLibres } from "../../../services/firebase.services";
+import { useAuth } from "../../../core/auth/hooks/useAuth";
+import { getUserById } from "../../../services/firebase.services";
 
 export const useInscripcionForm = () => {
 
@@ -10,13 +13,15 @@ export const useInscripcionForm = () => {
     const [formData, setFormData] = useState({
         id: "",
         titulo: "",
-        areaTematica: "",
         servicio: "",
-        autores: "",
+        serviciosList: [],
+        autor: "",
+        autoresList: [],
         presentaPremio: true,
         lugar: "",
         abstract: "",
         contactoNombre: "",
+        contactoApellido: "",
         contactoCelular: "",
         contactoEmail: ""
     });
@@ -24,6 +29,31 @@ export const useInscripcionForm = () => {
     // Otros hooks
     const [captchaValue, setCaptchaValue] = useState(null);
     const [errors, setErrors] = useState({});
+    const { user } = useAuth();
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            if (!user || !user.uid) return;
+            // setShowSpinner(true);
+            try {
+                const res = await getUserById(user.uid);
+                setFormData({
+                    ...formData,
+                    contactoNombre: res?.name || "",
+                    contactoApellido: res?.lastName || "",
+                    contactoCelular: res?.cell || "",
+                    contactoEmail: res?.email || "",
+                });
+            } catch (error) {
+                console.log("Unable to retrieve user data");
+            } finally {
+                setShowSpinner(false);
+            }
+        };
+
+        fetchUserData();
+    }, [user]);
+
 
 
     // Metodo handleChange
@@ -41,6 +71,50 @@ export const useInscripcionForm = () => {
                 [name]: value,
             });
         }
+    };
+
+    const handleAddService = (e) => {
+        e.preventDefault();
+        const newService = formData.servicio.trim();
+
+        if (newService && !formData.serviciosList.includes(newService)) {
+            setFormData({
+                ...formData,
+                serviciosList: [...formData.serviciosList, newService],
+                servicio: "" // se resetea en el mismo setFormData
+            });
+        }
+    };
+
+    const handleDeleteService = (e, servicio) => {
+        e.preventDefault();
+
+        setFormData({
+            ...formData,
+            serviciosList: formData.serviciosList.filter(service => service !== servicio)
+        });
+    };
+
+    const handleAddAutor = (e) => {
+        e.preventDefault();
+        const newAutor = formData.autor.trim();
+
+        if (newAutor && !formData.autoresList.includes(newAutor)) {
+            setFormData({
+                ...formData,
+                autoresList: [...formData.autoresList, newAutor],
+                autor: "" // se resetea en el mismo setFormData
+            });
+        }
+    };
+
+    const handleDeleteAutor = (e, autorDelete) => {
+        e.preventDefault();
+
+        setFormData({
+            ...formData,
+            autoresList: formData.autoresList.filter(autor => autor !== autorDelete)
+        });
     };
 
 
@@ -77,6 +151,10 @@ export const useInscripcionForm = () => {
         handleSubmit,
         formData,
         errors,
-        handleCaptchaChange
+        handleCaptchaChange,
+        handleAddService,
+        handleDeleteService,
+        handleAddAutor,
+        handleDeleteAutor
     }
 }
