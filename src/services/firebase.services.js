@@ -287,3 +287,18 @@ export const recoverPassword = async (email) => {
 //     console.log("Error fetching registrations", error);
 //   }
 // };
+
+/*
+Este metodo inserta un documento en la subcollection registration del evento de las jornadas que se indican con eventId
+*/
+export const setInscripcionTemasLibres = async (eventId, temasLibresData) => {
+  const inscripcionTemasLibresData = {
+    parentDocId: eventId,
+    childDocId: temasLibresData.id,
+    parentCollection: COLLECTIONS.EVENTS,
+    childCollection: COLLECTIONS.TEMAS_LIBRES,
+    persistData: temasLibresData
+  };
+  const res = await setSubcollectionDocument(inscripcionTemasLibresData);
+  return res;
+};
