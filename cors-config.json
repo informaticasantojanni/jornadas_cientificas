@@ -1,14 +1,19 @@
 [
   {
-    "origin": ["localhost:5173"],
-    "method": ["GET", "PUT", "POST", "DELETE", "HEAD"],
-    "maxAgeSeconds": 3600,
-    "responseHeader": ["Content-Type", "Firebase-Storage-Resumable-Upload-Protocol", "X-Firebase-Storage-Upload-Chunk-Size"]
-  },
-  {
-    "origin": ["https://jornadascientificassantojanni.com"],
-    "method": ["GET", "PUT", "POST", "DELETE", "HEAD"],
-    "maxAgeSeconds": 3600,
-    "responseHeader": ["Content-Type", "Firebase-Storage-Resumable-Upload-Protocol", "X-Firebase-Storage-Upload-Chunk-Size"]
+    "method": [
+      "GET",
+      "PUT",
+      "POST",
+      "DELETE"
+    ],
+    "origin": [
+      "http://localhost:5137",
+      "https://jornadas2024-6fda3.firebaseapp.com",
+      "https://jornadascientificassantojanni.com"
+    ],
+    "responseHeader": [
+      "Content-Type",
+      "Content-Disposition"
+    ]
   }
 ]

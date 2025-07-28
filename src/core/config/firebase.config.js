@@ -30,3 +30,13 @@ export const db = getFirestore(app);
 
 // Initialize Cloud Storage and get a reference to the service
 export const storage = getStorage(app);
+
+const getStorageBucketName = async () => {
+  if (storage && storage.app && storage.app.options && storage.app.options.storageBucket) {
+    return storage.app.options.storageBucket;
+  }
+  return null; // O lanza un error si el bucket no se encuentra
+};
+
+const bucket = await getStorageBucketName()
+console.log("Firebase Storage Bucket:", bucket);
