@@ -17,6 +17,7 @@ const InscripcionForm = () => {
     handleDeleteService,
     handleAddAutor,
     handleDeleteAutor,
+    handleFileChange
   } = useInscripcionForm();
 
 
@@ -31,7 +32,7 @@ const InscripcionForm = () => {
             <input
               type="text"
               name="titulo"
-              value={formData.titulo}
+              value={formData.titulo ?? ""}
               onChange={handleChange}
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
                 }`}
@@ -87,7 +88,7 @@ const InscripcionForm = () => {
             <div className="flex items-center gap-4 mb-1">
               <input
                 name="autor"
-                value={formData.autor}
+                value={formData.autor ?? ""}
                 onChange={handleChange}
                 rows={3}
                 className={`w-[80%] rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
@@ -124,7 +125,7 @@ const InscripcionForm = () => {
               type="file"
               name="abstract"
               accept=".pdf"
-              onChange={handleChange}
+              onChange={handleFileChange}
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
                 }`}
             />
@@ -167,7 +168,7 @@ const InscripcionForm = () => {
             <input
               type="text"
               name="lugar"
-              value={formData.lugar}
+              value={formData.lugar ?? ""}
               onChange={handleChange}
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
                 }`}
@@ -181,7 +182,7 @@ const InscripcionForm = () => {
               type="text"
               name="contactoNombre"
               placeholder="Nombre"
-              value={formData.contactoNombre}
+              value={formData.contactoNombre ?? ""}
               onChange={handleChange}
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
                 }`}
@@ -199,7 +200,7 @@ const InscripcionForm = () => {
               type="text"
               name="contactoCelular"
               placeholder="Celular"
-              value={formData.contactoCelular}
+              value={formData.contactoCelular ?? ""}
               onChange={handleChange}
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
                 }`}
@@ -208,7 +209,7 @@ const InscripcionForm = () => {
               type="text"
               name="contactoEmail"
               placeholder="Email"
-              value={formData.contactoEmail}
+              value={formData.contactoEmail ?? ""}
               onChange={handleChange}
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
                 }`}

@@ -1,0 +1,14 @@
+[
+  {
+    "origin": ["localhost:5173"],
+    "method": ["GET", "PUT", "POST", "DELETE", "HEAD"],
+    "maxAgeSeconds": 3600,
+    "responseHeader": ["Content-Type", "Firebase-Storage-Resumable-Upload-Protocol", "X-Firebase-Storage-Upload-Chunk-Size"]
+  },
+  {
+    "origin": ["https://jornadascientificassantojanni.com"],
+    "method": ["GET", "PUT", "POST", "DELETE", "HEAD"],
+    "maxAgeSeconds": 3600,
+    "responseHeader": ["Content-Type", "Firebase-Storage-Resumable-Upload-Protocol", "X-Firebase-Storage-Upload-Chunk-Size"]
+  }
+]

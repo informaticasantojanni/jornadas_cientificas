@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { setInscripcionTemasLibres } from "../../../services/firebase.services";
 import { useAuth } from "../../../core/auth/hooks/useAuth";
 import { getUserById } from "../../../services/firebase.services";
+import { uploadPdf } from "../../../services/firebase.services";
 
 export const useInscripcionForm = () => {
 
@@ -18,13 +19,14 @@ export const useInscripcionForm = () => {
         autor: "",
         autoresList: [],
         presentaPremio: true,
-        lugar: "",
-        abstract: "",
         contactoNombre: "",
         contactoApellido: "",
         contactoCelular: "",
         contactoEmail: ""
     });
+
+    // Hooks para manejar el archivo PDF
+    const [file, setFile] = useState(null);
 
     // Otros hooks
     const [captchaValue, setCaptchaValue] = useState(null);
@@ -118,6 +120,39 @@ export const useInscripcionForm = () => {
     };
 
 
+    /*
+    Metodo para actualizar el estado del archivo seleccionado
+    */
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0]);
+        console.log("Archivo seleccionado:", e.target.files[0]);
+    };
+
+    /*
+    Metodo para subir un archivo PDF a la carpete asociada al Evento
+    Por eso paso como argumento path = EVENT_ID_2025
+    */
+    const handleUpload = async () => {
+        const respuesta = {
+            status: false,
+            data: null,
+            error: null
+        }
+        try {
+            if (!file) throw new Error("No se proporcionó ningún archivo");
+
+            const pdfUrl = await uploadPdf(file, EVENT_ID_2025);
+            respuesta.status = true;
+            respuesta.data = pdfUrl;
+        } catch (error) {
+            console.error("Error al subir el PDF:", error);
+            respuesta.error = error.message;
+        } finally {
+            return respuesta;
+        }
+    };
+
+
     // Metodo handleCaptchaChange
     const handleCaptchaChange = (value) => {
         setCaptchaValue(value);
@@ -128,13 +163,38 @@ export const useInscripcionForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+
         try {
-            if (!captchaValue) {
-                throw new Error("Debe completar el Captcha");
+            // Validamos el Captcha suspendido
+            // if (!captchaValue) {
+            //     throw new Error("Debe completar el Captcha");
+            // }
+
+            //Upload Abstract PDF
+            if (file) {
+                const resUpdloadAbstract = await handleUpload();
+
+                if (resUpdloadAbstract.status) {
+                    const abstractUrl = resUpdloadAbstract.data
+                    console.log("Abstract subido, URL retornada:", abstractUrl);
+                } else {
+                    throw new Error(resUpdloadAbstract.error);
+                }
+            } else {
+                throw new Error("Debe subir un archivo PDF del Abstract");
             }
-            formData.id = uuidv4(); // Generar un ID único para la inscripción
-            // LLAMAR A FUNCION QUE INSERTA EN EL DOCUMENTO
-            const respuesta = await setInscripcionTemasLibres(EVENT_ID_2025, formData);
+
+            // Generar un ID único para la inscripción
+            formData.id = uuidv4();
+
+            // Filtrar campos que no se deben enviar y hacer el submit
+            const formDataFiltrado = {
+                ...Object.fromEntries(
+                    Object.entries(formData).filter(([key]) => !camposExcluidos.includes(key))
+                ),
+                abstractUrl: abstractUrl // o el valor que tengas
+            };
+            const respuesta = await setInscripcionTemasLibres(EVENT_ID_2025, formDataFiltrado);
             if (!respuesta.status) {
                 throw new Error(respuesta.error);
             }
@@ -155,6 +215,7 @@ export const useInscripcionForm = () => {
         handleAddService,
         handleDeleteService,
         handleAddAutor,
-        handleDeleteAutor
+        handleDeleteAutor,
+        handleFileChange
     }
 }
