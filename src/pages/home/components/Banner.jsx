@@ -37,8 +37,9 @@ const Banner = () => {
 
       {/* Titles */}
       <div className="relative flex flex-col items-center justify-center h-full">
-        <div className="flex  flex-col laptop1:flex-row items-center justify-center mt-[4rem]">
-          <img className="w-[200px]" src="images/logo_40_aniversario.svg" alt="" />
+        <div className="flex  flex-col laptop1:flex-row items-center justify-center mt-[6rem]">
+          {/* <img className="w-[200px]" src="images/logo_40_aniversario.svg" alt="" /> */}
+          <img className="w-[200px]" src="images/logo_40_aniversario_allWhite.svg" alt="" />
           <div className="w-1 h-[90%] bg-White"></div>
           <div className="flex flex-col items-center justify-center ml-5">
             <h1 className="text-center text-White  text-4xl font-bold laptop1:text-6xl">
