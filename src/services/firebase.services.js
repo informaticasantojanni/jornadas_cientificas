@@ -314,8 +314,6 @@ export const uploadPdf = async (file, path) => {
   if (!file) throw new Error("No se proporcionó ningún archivo");
 
   const storageRef = ref(storage, `${path}/${file.name}`);
-  console.log(`File ${file}`)
-  console.log(`Subiendo a ${path}/${file.name}`)
   await uploadBytes(storageRef, file);
   const url = await getDownloadURL(storageRef);
   return url;

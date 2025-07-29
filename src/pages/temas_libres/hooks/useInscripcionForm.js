@@ -5,10 +5,14 @@ import { setInscripcionTemasLibres } from "../../../services/firebase.services";
 import { useAuth } from "../../../core/auth/hooks/useAuth";
 import { getUserById } from "../../../services/firebase.services";
 import { uploadPdf } from "../../../services/firebase.services";
+import { useGlobal } from "../../../hooks/useGlobal";
+import Swal from "sweetalert2";
 
 export const useInscripcionForm = () => {
 
     const EVENT_ID_2025 = "3lZN9Pf5Jvdgc3GX4h2e";
+
+    const { showSpinner, setShowSpinner } = useGlobal();
 
     // Form Data
     const [formData, setFormData] = useState({
@@ -36,7 +40,7 @@ export const useInscripcionForm = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             if (!user || !user.uid) return;
-            // setShowSpinner(true);
+            setShowSpinner(true);
             try {
                 const res = await getUserById(user.uid);
                 setFormData({
@@ -57,6 +61,23 @@ export const useInscripcionForm = () => {
     }, [user]);
 
 
+    const resetFormData = () => {
+        setFormData({
+            id: "",
+            titulo: "",
+            servicio: "",
+            serviciosList: [],
+            autor: "",
+            autoresList: [],
+            presentaPremio: true,
+            contactoNombre: "",
+            contactoApellido: "",
+            contactoCelular: "",
+            contactoEmail: ""
+        });
+        setFile(null);
+        setCaptchaValue(null);
+    };
 
     // Metodo handleChange
     const handleChange = (e) => {
@@ -162,8 +183,8 @@ export const useInscripcionForm = () => {
     // Metodo handleSubmit
     const handleSubmit = async (e) => {
         e.preventDefault()
-
-
+        let abstractUrl = null;
+        setShowSpinner(true);
         try {
             // Validamos el Captcha suspendido
             // if (!captchaValue) {
@@ -175,7 +196,7 @@ export const useInscripcionForm = () => {
                 const resUpdloadAbstract = await handleUpload();
 
                 if (resUpdloadAbstract.status) {
-                    const abstractUrl = resUpdloadAbstract.data
+                    abstractUrl = resUpdloadAbstract.data
                     console.log("Abstract subido, URL retornada:", abstractUrl);
                 } else {
                     throw new Error(resUpdloadAbstract.error);
@@ -188,6 +209,10 @@ export const useInscripcionForm = () => {
             formData.id = uuidv4();
 
             // Filtrar campos que no se deben enviar y hacer el submit
+            const camposExcluidos = [
+                "servicio",
+                "autor"
+            ];
             const formDataFiltrado = {
                 ...Object.fromEntries(
                     Object.entries(formData).filter(([key]) => !camposExcluidos.includes(key))
@@ -198,9 +223,27 @@ export const useInscripcionForm = () => {
             if (!respuesta.status) {
                 throw new Error(respuesta.error);
             }
+
+            // Envio exitoso
             console.log("Inscripción exitosa")
+            resetFormData();
+            const userInput = await Swal.fire({
+                title: "Envío exitoso!",
+                text: `Hemos recibido su inscripción. En breve nos pondremos en contacto con usted.`,
+                background: "#FAFAFA",
+                color: "#025951",
+                iconColor: "#025951",
+                icon: "success",
+                allowOutsideClick: false, // No permite hacer clic fuera del modal
+                allowEscapeKey: false, // No permite cerrar con la tecla Escape
+                allowEnterKey: false, // No permite cerrar con la tecla Enter
+                confirmButtonText: "Aceptar",
+                confirmButtonColor: "#038C7F",
+            });
         } catch (error) {
             console.log(`ERROR: Submit ${error}`)
+        } finally {
+            setShowSpinner(false);
         }
     }
 

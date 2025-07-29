@@ -40,7 +40,7 @@ export const useSignUpForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setShowSpinner(true);
     try {
       const formErrors = validate();
       if (Object.keys(formErrors).length != 0) {
@@ -51,7 +51,6 @@ export const useSignUpForm = () => {
         throw new Error("Debe completar el Captcha");
       }
 
-      setShowSpinner(true);
       const responseSignUpEmail = await signUpEmail(formData);
 
       if (responseSignUpEmail.status) {
@@ -164,7 +163,7 @@ export const useSignUpForm = () => {
       formErrors.password = "Contraseña es requerida";
     } else if (formData.password.length < 6) {
       formErrors.password = "La contraseña debe tener al menos 6 caracteres";
-    }else{
+    } else {
       cleanedData.password = formData.password.trim()
     }
 
