@@ -22,7 +22,7 @@ export const useInscripcionForm = () => {
         serviciosList: [],
         autor: "",
         autoresList: [],
-        presentaPremio: true,
+        presentaPremio: false,
         contactoNombre: "",
         contactoApellido: "",
         contactoCelular: "",
@@ -70,7 +70,7 @@ export const useInscripcionForm = () => {
             serviciosList: [],
             autor: "",
             autoresList: [],
-            presentaPremio: true,
+            presentaPremio: false,
             lugar: "",
             contactoNombre: "",
             contactoApellido: "",
@@ -88,9 +88,9 @@ export const useInscripcionForm = () => {
         if (name == "presentaPremio") {
             setFormData({
                 ...formData,
-                [name]: !formData.presentaPremio,
+                [name]: !formData.presentaPremio
             });
-            setAbstractFile(null); // Resetea el archivo si cambia la opción de premio
+            setTrabajoPremioFile(null); // Reseteamos el archivo de trabajo a premio si se cambia el estado
         }
         else {
             setFormData({
@@ -165,16 +165,16 @@ export const useInscripcionForm = () => {
     Metodo para subir un archivo PDF a la carpete asociada al Evento
     Por eso paso como argumento path = EVENT_ID_2025
     */
-    const handleUpload = async () => {
+    const handleUpload = async (uploadFile) => {
         const respuesta = {
             status: false,
             data: null,
             error: null
         }
         try {
-            if (!abstractFilefile) throw new Error("No se proporcionó ningún archivo");
+            if (!uploadFile) throw new Error("No se proporcionó ningún archivo");
 
-            const pdfUrl = await uploadPdf(abstractFile, EVENT_ID_2025);
+            const pdfUrl = await uploadPdf(uploadFile, EVENT_ID_2025);
             respuesta.status = true;
             respuesta.data = pdfUrl;
         } catch (error) {
@@ -192,7 +192,7 @@ export const useInscripcionForm = () => {
         // Titulo validation
         if (!formData.titulo || formData.titulo.trim() === "") {
             formErrors.titulo = "El título es obligatorio";
-        } 
+        }
 
         // Servicios validation
         if (formData.serviciosList.length === 0) {
@@ -210,8 +210,10 @@ export const useInscripcionForm = () => {
         }
 
         // Trabajo a premio validation
-        if (formData.presentaPremio && !trabajoPremioFile) {
-            formErrors.trabajoPremio = "Debe subir un archivo PDF del Trabajo a Premio";
+        if (formData.presentaPremio) {
+            if (!trabajoPremioFile) {
+                formErrors.trabajoPremio = "Debe subir un archivo PDF del Trabajo a Premio";
+            }
         }
 
         // Lugar vallidation
@@ -244,6 +246,8 @@ export const useInscripcionForm = () => {
         e.preventDefault()
 
         let abstractUrl = null;
+        let trabajoPremioUrl = null;
+
         setShowSpinner(true);
         try {
             // Validamos el Captcha suspendido
@@ -258,8 +262,9 @@ export const useInscripcionForm = () => {
             }
 
             //Upload Abstract PDF
+            console.log("Evaluo archivo Abstract:", abstractFile);
             if (abstractFile) {
-                const resUpdloadAbstract = await handleUpload();
+                const resUpdloadAbstract = await handleUpload(abstractFile);
 
                 if (resUpdloadAbstract.status) {
                     abstractUrl = resUpdloadAbstract.data
@@ -271,6 +276,21 @@ export const useInscripcionForm = () => {
                 throw new Error("Debe subir un archivo PDF del Abstract");
             }
 
+            //Upload Trabajo a premio PDF
+            console.log("Evaluo archivo Trabajo a premio:", trabajoPremioFile);
+            console.log("Evaluo state:", formData.presentaPremio);
+
+            if (formData.presentaPremio && trabajoPremioFile) {
+                const resUpdloadTrabajoPremio = await handleUpload(trabajoPremioFile);
+
+                if (resUpdloadTrabajoPremio.status) {
+                    trabajoPremioUrl = resUpdloadTrabajoPremio.data
+                    console.log("Trabajo a premio subido, URL retornada:", trabajoPremioUrl);
+                } else {
+                    throw new Error(resUpdloadTrabajoPremio.error);
+                }
+            }
+
             // Generar un ID único para la inscripción
             formData.id = uuidv4();
 
@@ -279,12 +299,15 @@ export const useInscripcionForm = () => {
                 "servicio",
                 "autor"
             ];
+
             const formDataFiltrado = {
                 ...Object.fromEntries(
                     Object.entries(formData).filter(([key]) => !camposExcluidos.includes(key))
                 ),
-                abstractUrl: abstractUrl // o el valor que tengas
+                abstractUrl: abstractUrl, // agregamos la URL del abstract
+                trabajoPremioUrl: trabajoPremioUrl // agreamos la URL del trabajo a premio
             };
+
             const respuesta = await setInscripcionTemasLibres(EVENT_ID_2025, formDataFiltrado);
             if (!respuesta.status) {
                 throw new Error(respuesta.error);
@@ -320,6 +343,8 @@ export const useInscripcionForm = () => {
                 confirmButtonText: "Aceptar",
                 confirmButtonColor: "#038C7F",
             });
+            // Reseteamos los archivos y el captcha
+
         } finally {
             setShowSpinner(false);
         }

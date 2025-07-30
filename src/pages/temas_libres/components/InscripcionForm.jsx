@@ -18,8 +18,7 @@ const InscripcionForm = () => {
     handleAddAutor,
     handleDeleteAutor,
     handleAbstractFileChange,
-    handleTrabajoPremioFileChange,
-    trabajoPremioFile
+    handleTrabajoPremioFileChange
   } = useInscripcionForm();
 
 
@@ -146,7 +145,6 @@ const InscripcionForm = () => {
             <button
               type="button"
               name="presentaPremio"
-              value={formData.presentaPremio}
               onClick={handleChange}
               className="text-White"
 
