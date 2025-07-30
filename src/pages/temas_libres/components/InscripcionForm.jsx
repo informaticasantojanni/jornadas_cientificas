@@ -17,7 +17,9 @@ const InscripcionForm = () => {
     handleDeleteService,
     handleAddAutor,
     handleDeleteAutor,
-    handleFileChange
+    handleAbstractFileChange,
+    handleTrabajoPremioFileChange,
+    trabajoPremioFile
   } = useInscripcionForm();
 
 
@@ -34,9 +36,12 @@ const InscripcionForm = () => {
               name="titulo"
               value={formData.titulo ?? ""}
               onChange={handleChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
-                }`}
+              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.titulo ? "border border-Red" : ""}`}
+
             />
+            {errors.titulo && (
+              <span className="text-sm text-Red">{errors.titulo}</span>
+            )}
           </div>
 
           {/* Servicios */}
@@ -61,12 +66,12 @@ const InscripcionForm = () => {
                 onClick={handleAddService}><AddIcon width={35} /></button>
             </div>
 
-
-            {errors.servicio && (
-              <span className="text-sm text-Red">{errors.servicio}</span>
+            {/* Error message for servicios */}
+            {errors.servicios && (
+              <span className="text-sm text-Red">{errors.servicios}</span>
             )}
 
-            {/* Seleccionados */}
+            {/* Servicios seleecionados */}
             <div className="mt-2">
               {formData.serviciosList.length > 0 && (
                 <span className="text-White">Servicios seleccionados:</span>
@@ -91,15 +96,16 @@ const InscripcionForm = () => {
                 value={formData.autor ?? ""}
                 onChange={handleChange}
                 rows={3}
-                className={`w-[80%] rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
+                className={`w-[80%] rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.autores && "focus:outline border border-Red"
                   }`}
               />
               <button
                 onClick={handleAddAutor}><AddIcon width={35} /></button>
             </div>
 
-            {errors.servicio && (
-              <span className="text-sm text-Red">{errors.servicio}</span>
+            {/* Error message for autores */}
+            {errors.autores && (
+              <span className="text-sm text-Red">{errors.autores}</span>
             )}
 
             {/* Seleccionados */}
@@ -125,10 +131,13 @@ const InscripcionForm = () => {
               type="file"
               name="abstract"
               accept=".pdf"
-              onChange={handleFileChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
+              onChange={handleAbstractFileChange}
+              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.abstract && "focus:outline border border-Red"
                 }`}
             />
+            {errors.abstract && (
+              <span className="text-sm text-Red">{errors.abstract}</span>
+            )}
           </div>
 
 
@@ -155,10 +164,13 @@ const InscripcionForm = () => {
                 type="file"
                 name="trabajoCompleto"
                 accept=".pdf"
-                onChange={handleChange}
-                className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
+                onChange={handleTrabajoPremioFileChange}
+                className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.trabajoPremio ? "border border-Red" : ""
                   }`}
               />
+              {errors.trabajoPremio && (
+                <span className="text-sm text-Red">{errors.trabajoPremio}</span>
+              )}
             </div>
           )}
 
@@ -170,9 +182,12 @@ const InscripcionForm = () => {
               name="lugar"
               value={formData.lugar ?? ""}
               onChange={handleChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
+              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.lugar && "focus:outline border border-Red"
                 }`}
             />
+            {errors.lugar && (
+              <span className="text-sm text-Red">{errors.lugar}</span>
+            )}
           </div>
 
           {/* Contacto */}
@@ -184,8 +199,7 @@ const InscripcionForm = () => {
               placeholder="Nombre"
               value={formData.contactoNombre ?? ""}
               onChange={handleChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
-                }`}
+              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`}
             />
             <input
               type="text"
@@ -193,8 +207,7 @@ const InscripcionForm = () => {
               placeholder="Apellido"
               value={formData.contactoApellido}
               onChange={handleChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
-                }`}
+              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow `}
             />
             <input
               type="text"
@@ -202,8 +215,7 @@ const InscripcionForm = () => {
               placeholder="Celular"
               value={formData.contactoCelular ?? ""}
               onChange={handleChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
-                }`}
+              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow `}
             />
             <input
               type="text"
@@ -211,8 +223,7 @@ const InscripcionForm = () => {
               placeholder="Email"
               value={formData.contactoEmail ?? ""}
               onChange={handleChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.name && "focus:outline border border-Red"
-                }`}
+              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow `}
             />
           </div>
         </div>

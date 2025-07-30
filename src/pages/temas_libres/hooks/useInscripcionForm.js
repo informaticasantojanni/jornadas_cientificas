@@ -30,7 +30,8 @@ export const useInscripcionForm = () => {
     });
 
     // Hooks para manejar el archivo PDF
-    const [file, setFile] = useState(null);
+    const [abstractFile, setAbstractFile] = useState(null);
+    const [trabajoPremioFile, setTrabajoPremioFile] = useState(null);
 
     // Otros hooks
     const [captchaValue, setCaptchaValue] = useState(null);
@@ -70,12 +71,14 @@ export const useInscripcionForm = () => {
             autor: "",
             autoresList: [],
             presentaPremio: true,
+            lugar: "",
             contactoNombre: "",
             contactoApellido: "",
             contactoCelular: "",
             contactoEmail: ""
         });
-        setFile(null);
+        setAbstractFile(null);
+        setTrabajoPremioFile(null);
         setCaptchaValue(null);
     };
 
@@ -87,6 +90,7 @@ export const useInscripcionForm = () => {
                 ...formData,
                 [name]: !formData.presentaPremio,
             });
+            setAbstractFile(null); // Resetea el archivo si cambia la opción de premio
         }
         else {
             setFormData({
@@ -144,8 +148,16 @@ export const useInscripcionForm = () => {
     /*
     Metodo para actualizar el estado del archivo seleccionado
     */
-    const handleFileChange = (e) => {
-        setFile(e.target.files[0]);
+    const handleAbstractFileChange = (e) => {
+        setAbstractFile(e.target.files[0]);
+        console.log("Archivo seleccionado:", e.target.files[0]);
+    };
+
+    /*
+    Metodo para actualizar el estado del archivo seleccionado
+    */
+    const handleTrabajoPremioFileChange = (e) => {
+        setTrabajoPremioFile(e.target.files[0]);
         console.log("Archivo seleccionado:", e.target.files[0]);
     };
 
@@ -160,9 +172,9 @@ export const useInscripcionForm = () => {
             error: null
         }
         try {
-            if (!file) throw new Error("No se proporcionó ningún archivo");
+            if (!abstractFilefile) throw new Error("No se proporcionó ningún archivo");
 
-            const pdfUrl = await uploadPdf(file, EVENT_ID_2025);
+            const pdfUrl = await uploadPdf(abstractFile, EVENT_ID_2025);
             respuesta.status = true;
             respuesta.data = pdfUrl;
         } catch (error) {
@@ -174,6 +186,53 @@ export const useInscripcionForm = () => {
     };
 
 
+    const validate = () => {
+        let formErrors = {};
+
+        // Titulo validation
+        if (!formData.titulo || formData.titulo.trim() === "") {
+            formErrors.titulo = "El título es obligatorio";
+        } 
+
+        // Servicios validation
+        if (formData.serviciosList.length === 0) {
+            formErrors.servicios = "Debe agregar al menos un servicio";
+        }
+
+        // Autores validation
+        if (formData.autoresList.length === 0) {
+            formErrors.autores = "Debe agregar al menos un autor";
+        }
+
+        // Abstract validation
+        if (!abstractFile) {
+            formErrors.abstract = "Debe subir un archivo PDF del Abstract";
+        }
+
+        // Trabajo a premio validation
+        if (formData.presentaPremio && !trabajoPremioFile) {
+            formErrors.trabajoPremio = "Debe subir un archivo PDF del Trabajo a Premio";
+        }
+
+        // Lugar vallidation
+        if (!formData.lugar || formData.lugar.trim() === "") {
+            formErrors.lugar = "El lugar es obligatorio";
+        }
+
+        // Set errors and return them
+        setErrors(formErrors);
+        console.log("Errores de validación:", formErrors);
+
+        // If no errors, update formData with cleaned values
+        if (Object.keys(formErrors).length === 0) {
+            return true
+        } else {
+            return false;
+        }
+
+    }
+
+
     // Metodo handleCaptchaChange
     const handleCaptchaChange = (value) => {
         setCaptchaValue(value);
@@ -183,6 +242,7 @@ export const useInscripcionForm = () => {
     // Metodo handleSubmit
     const handleSubmit = async (e) => {
         e.preventDefault()
+
         let abstractUrl = null;
         setShowSpinner(true);
         try {
@@ -191,8 +251,14 @@ export const useInscripcionForm = () => {
             //     throw new Error("Debe completar el Captcha");
             // }
 
+            // Validamos los campos del formulario
+            const isValid = validate();
+            if (!isValid) {
+                throw new Error("Debe completar todos los campos obligatorios");
+            }
+
             //Upload Abstract PDF
-            if (file) {
+            if (abstractFile) {
                 const resUpdloadAbstract = await handleUpload();
 
                 if (resUpdloadAbstract.status) {
@@ -241,7 +307,19 @@ export const useInscripcionForm = () => {
                 confirmButtonColor: "#038C7F",
             });
         } catch (error) {
-            console.log(`ERROR: Submit ${error}`)
+            Swal.fire({
+                title: "Error",
+                text: `${error} !`,
+                background: "#FAFAFA",
+                color: "#025951",
+                iconColor: "#DC143C",
+                icon: "error",
+                allowOutsideClick: false, // No permite hacer clic fuera del modal
+                allowEscapeKey: false, // No permite cerrar con la tecla Escape
+                allowEnterKey: false, // No permite cerrar con la tecla Enter
+                confirmButtonText: "Aceptar",
+                confirmButtonColor: "#038C7F",
+            });
         } finally {
             setShowSpinner(false);
         }
@@ -259,6 +337,7 @@ export const useInscripcionForm = () => {
         handleDeleteService,
         handleAddAutor,
         handleDeleteAutor,
-        handleFileChange
+        handleAbstractFileChange,
+        handleTrabajoPremioFileChange
     }
 }
