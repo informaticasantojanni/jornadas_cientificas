@@ -76,11 +76,11 @@ export const appRouter = createHashRouter([
   {
     path: "/temasLibres",
     element: (
-      <PublicRoute>
+      <PrivateRoute>
         <Layout>
           <TemasLibresView />
         </Layout>
-      </PublicRoute>
+      </PrivateRoute>
     ),
   },
   {

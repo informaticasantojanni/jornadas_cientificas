@@ -26,6 +26,10 @@ import {
 } from "../core/db/firestore.db";
 import { collection } from "firebase/firestore";
 
+
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from "../core/config/firebase.config";
+
 // Authentication Functions
 export const signUpWithEmail = async (email, password) => {
   const response = await createUserWithEmailAndPassword(auth, email, password);
@@ -301,4 +305,16 @@ export const setInscripcionTemasLibres = async (eventId, temasLibresData) => {
   };
   const res = await setSubcollectionDocument(inscripcionTemasLibresData);
   return res;
+};
+
+
+/*
+Este metodo hace el upload de un documento a Firestore */
+export const uploadPdf = async (file, path) => {
+  if (!file) throw new Error("No se proporcionó ningún archivo");
+
+  const storageRef = ref(storage, `${path}/${file.name}`);
+  await uploadBytes(storageRef, file);
+  const url = await getDownloadURL(storageRef);
+  return url;
 };

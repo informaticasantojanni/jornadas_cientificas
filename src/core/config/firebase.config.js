@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"
+import { getStorage } from "firebase/storage";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -26,3 +27,16 @@ const analytics = getAnalytics(app);
 
 //Initialize Cloud Firestore and get a referene to the service
 export const db = getFirestore(app);
+
+// Initialize Cloud Storage and get a reference to the service
+export const storage = getStorage(app);
+
+const getStorageBucketName = async () => {
+  if (storage && storage.app && storage.app.options && storage.app.options.storageBucket) {
+    return storage.app.options.storageBucket;
+  }
+  return null; // O lanza un error si el bucket no se encuentra
+};
+
+const bucket = await getStorageBucketName()
+console.log("Firebase Storage Bucket:", bucket);

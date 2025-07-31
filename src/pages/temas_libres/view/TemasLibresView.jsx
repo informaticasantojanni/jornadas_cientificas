@@ -1,6 +1,7 @@
 import React from 'react'
 import PagesBannerView from '../../../components/pagesBanner/view/PagesBannerView'
 import InscripcionForm from '../components/InscripcionForm'
+import Spinner from '../../../components/spinner/Spinner'
 
 const TemasLibresView = () => {
     return (
@@ -12,6 +13,7 @@ const TemasLibresView = () => {
                     <InscripcionForm></InscripcionForm>
                 </div>
             </section>
+            <Spinner />
         </div>
     )
 }
