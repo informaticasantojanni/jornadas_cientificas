@@ -38,5 +38,3 @@ const getStorageBucketName = async () => {
   return null; // O lanza un error si el bucket no se encuentra
 };
 
-const bucket = await getStorageBucketName()
-console.log("Firebase Storage Bucket:", bucket);
