@@ -147,7 +147,6 @@ const InscripcionForm = () => {
               name="presentaPremio"
               onClick={handleChange}
               className="text-White"
-
             >
               {formData.presentaPremio ? "✅ Presenta a premio" : "☐ Presenta a premio"}
             </button>

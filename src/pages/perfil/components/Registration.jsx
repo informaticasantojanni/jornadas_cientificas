@@ -16,7 +16,7 @@ const Registration = () => {
           {userRegistration?.payment == "paid" && (
             <SuccessIcon width={"40px"} height={"40px"} />
           )}
-          <h1 className="text-xl ps-5">Jornadas 2025</h1>
+          <h1 className="text-xl ps-5">Inscripción Jornadas 2025</h1>
         </div>
         <div className="p-5">
           {userRegistration ? (
