@@ -7,6 +7,8 @@ import { getUserById } from "../../../services/firebase.services";
 import { uploadPdf } from "../../../services/firebase.services";
 import { useGlobal } from "../../../hooks/useGlobal";
 import Swal from "sweetalert2";
+import { sendEmail, sendEmailActions } from "../../../services/gmail.services";
+
 
 export const useInscripcionForm = () => {
 
@@ -251,9 +253,9 @@ export const useInscripcionForm = () => {
         setShowSpinner(true);
         try {
             // Validamos el Captcha suspendido
-            // if (!captchaValue) {
-            //     throw new Error("Debe completar el Captcha");
-            // }
+            if (!captchaValue) {
+                throw new Error("Debe completar el Captcha");
+            }
 
             // Validamos los campos del formulario
             const isValid = validate();
@@ -315,6 +317,13 @@ export const useInscripcionForm = () => {
 
             // Envio exitoso
             console.log("Inscripción exitosa")
+
+            // Enviar email de confirmación
+            const sendEmailResponse = await sendEmail(sendEmailActions.recepcion_temas_libres, formDataFiltrado)
+            if (!sendEmailResponse.sendEmailStatus) {
+                throw new Error(sendEmailResponse.sendEmailError || "Error al enviar el email de confirmación");
+            }
+
             resetFormData();
             const userInput = await Swal.fire({
                 title: "Envío exitoso!",
@@ -329,6 +338,12 @@ export const useInscripcionForm = () => {
                 confirmButtonText: "Aceptar",
                 confirmButtonColor: "#038C7F",
             });
+
+            // Después del clic en "Aceptar", recargar la página
+            if (userInput.isConfirmed) {
+                window.location.reload();
+            }
+
         } catch (error) {
             Swal.fire({
                 title: "Error",
