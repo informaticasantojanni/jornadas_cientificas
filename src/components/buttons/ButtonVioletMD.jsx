@@ -1,16 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ButtonVioletMD = ({ onClick, label, type = "button", disable = false}) => {
+const LinkToVioletMD = ({ to, label, type = "button", disable = false }) => {
   return (
-    <button
-      type={type} // Set the button type here
-      className="w-[250px] text-xl font-bold px-10 py-3 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
-      onClick={onClick}
-      disable={disable}
+    <Link
+      className="w-[250px] text-center text-xl font-bold px-10 py-3 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
+      to={to}
     >
       {label}
-    </button>
+    </Link>
   );
 };
 
-export default ButtonVioletMD;
+export default LinkToVioletMD;

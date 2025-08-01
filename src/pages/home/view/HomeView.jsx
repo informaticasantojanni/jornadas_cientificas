@@ -8,6 +8,7 @@ import Colaboran from "../components/Colaboran";
 import JornadasNumeros from "../components/jorndasNumeros/JornadasNumeros";
 import PopupStreaming from "../components/PopupStreaming";
 import PopupCertificados from "../components/PopupCertificados";
+import PopupInscripcion from "../components/PopupInscripcion";
 
 const HomeView = () => {
 
@@ -27,6 +28,7 @@ const HomeView = () => {
       {/* <Invitados />
       <Conferencias /> */}
       <Colaboran />
+      <PopupInscripcion />
     </div>
   );
 };
