@@ -15,7 +15,7 @@ export const useRegistration = () => {
    *******************************************************/
   // const eventId = "ZbclMy93Cs9jzEYAgVui"; //eventId Jornadas 2024
   const eventId = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
-  
+
   const [userRegistration, setUserRegistration] = useState(null);
   const [reload, setReload] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -113,20 +113,25 @@ export const useRegistration = () => {
           icon: "success",
           confirmButtonText: "Aceptar",
           confirmButtonColor: "#038C7F",
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          allowEnterKey: false,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }
         });
       } else {
         Swal.fire({
           title: `Ups, Algo ha salido mal!`,
-          html: `<p>Estado registración: ${
-            registrationActions.setRegistrationStatus
-              ? "exitoso"
-              : registrationActions.setRegistrationError
-          }</p>
-          <p>Envío de email de confirmación: ${
-            registrationActions.sendEmailStatus
+          html: `<p>Estado registración: ${registrationActions.setRegistrationStatus
+            ? "exitoso"
+            : registrationActions.setRegistrationError
+            }</p>
+          <p>Envío de email de confirmación: ${registrationActions.sendEmailStatus
               ? "exitoso"
               : registrationActions.sendEmailError
-          }</p>
+            }</p>
           `,
           background: "#FAFAFA",
           color: "#025951",
