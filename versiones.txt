@@ -1,0 +1,7 @@
+Junio 2025
+Para la 40 edicion de las jornadas se realiza una nueva version del codigo
+
+Version 2.1
+Comenzamos ajustando los datos de la portada
+
+Pensamos el formulario de carga de los Trabajos a premio

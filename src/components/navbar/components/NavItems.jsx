@@ -5,6 +5,7 @@ import ComisionesIcon from "./svgIcons/ComisionesIcon";
 import DownloadIcon from "./svgIcons/DownloadIcon";
 import GaleriaIcon from "./svgIcons/GaleriaIcon";
 
+
 const navItems = [
     { id: 1, name: 'Inicio', link: '/', icon: HomeIcon },
     { id: 2, name: 'Programa', link: '/programa', icon: ProgramaIcon },

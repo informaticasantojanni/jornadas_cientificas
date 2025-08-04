@@ -1,113 +1,103 @@
 export const comites = [
     {
-        "comiteNombre" : "Comité cientifico",
-        "mostrarCargos" : "true",
-        "presidenteNombre": "Javier Castillo",
-        "presidenteGenero": "Dr.",
-        "secretarioNombre": "Beatriz Lauge",
-        "secretarioGenero": "Dra.",
-        "vocales": [
-            { "nombre": "Silvina Lucili", "genero": "Dra." },
-            { "nombre": "Fernando Cataneo", "genero": "Dr." },
-            { "nombre": "Ada Vaccareza", "genero": "Dra." },
-            { "nombre": "Guillermo Keller", "genero": "Dr." },
-            { "nombre": "Florencia Gregorio", "genero": "Ts." },
-            { "nombre": "Carlos Ruano", "genero": "Dr." },
-            { "nombre": "Valeria Larralda", "genero": "Dra." },
-            { "nombre": "Noelia Citate", "genero": "Dra." },
-            { "nombre": "Elizabeth Sanguinetti", "genero": "Dra." },
-            { "nombre": "Marcelo Strin", "genero": "Dr." },
-            { "nombre": "Gisela Sesa", "genero": "Ts." },
-            { "nombre": "Agustína Verdamin", "genero": "Dra." },
-            { "nombre": "Vernónica Varela", "genero": "Dra." },
-            { "nombre": "Daniela D’ Alessandro", "genero": "Dra." }
-        ]
-    },
-    {
-        "comiteNombre" : "Comité de mesas redondas",
-        "mostrarCargos" : "true",
-        "presidenteNombre": "Marcelo Katz",
-        "presidenteGenero": "Dr.",
-        "secretarioNombre": "Dafne López",
-        "secretarioGenero": "Dra.",
-        "vocales": [
-            { "nombre": "Patricia Del Nero", "genero": "Dra." },
-            { "nombre": "Claudia Alfonso", "genero": "Bq." },
-            { "nombre": "Cinthia Guzmán", "genero": "Dra." },
-            { "nombre": "Guadalupe Aranda", "genero": "Ts." }
-        ]
-    },
-    {
-        "comiteNombre" : "Comité de conferencias",
-        "mostrarCargos" : "true",
-        "presidenteNombre": "Pamela Rossi",
+        "comiteNombre": "Comité cientifico",
+        "mostrarCargos": "true",
+        "presidenteNombre": "Patricia Delnero",
         "presidenteGenero": "Dra.",
-        "secretarioNombre": "Flavia Scibetta",
-        "secretarioGenero": "Dra.",
+        "secretarioNombre": "Fabricio Ochoa",
+        "secretarioGenero": "Dr.",
         "vocales": [
-            { "nombre": "Mara De Bernardi", "genero": "Dra." },
-            { "nombre": "Federico Gauna", "genero": "Dr." },
-            { "nombre": "Wamba Eugenia", "genero": "Dra." }
+            { "nombre": "Karina Ramirez Echarry", "genero": "Dra." },
+            { "nombre": "Carla López Baltare ", "genero": "Dra." },
+            { "nombre": "Federico Labanca ", "genero": "Dr." },
+            { "nombre": "Jimena Figoni ", "genero": "Dra." },
+            { "nombre": "Alejandra Greco", "genero": "Dra." },
+            { "nombre": "Verónica Alonso", "genero": "Dra." },
+            { "nombre": "Gonzalo Frutos", "genero": "Dr." },
+            { "nombre": "Guillermo Parisi ", "genero": "Dr." },
+            { "nombre": "Javier Castillo ", "genero": "Dr." },
+            { "nombre": "Erica Mux", "genero": "Dr." },
+            { "nombre": "Ana Camporini", "genero": "Dra." },
+            { "nombre": "Valeria Bertaza", "genero": "Dra." },
+            { "nombre": "Gastón Gómez", "genero": "Dr." },
+            { "nombre": "Mauro Andreu ", "genero": "Lic." },
+            { "nombre": "Florencia Gregorio", "genero": "Lic." },
+            { "nombre": "Dafne López", "genero": "Dra." },
+            { "nombre": "Débora Vílchez", "genero": "Lic." },
+            { "nombre": "Elizabeth Sanguinetti", "genero": "Dra." }
         ]
     },
     {
-        "comiteNombre" : "Comité de temas libres",
-        "mostrarCargos" : "true",
-        "presidenteNombre": "Alvaro Otreras",
-        "presidenteGenero": "Dr.",
-        "secretarioNombre": "Aldana Rondinella",
-        "secretarioGenero": "Dra.",
-        "vocales": [
-            { "nombre": "Verónica Geronazo", "genero": "Dra." },
-            { "nombre": "Mariana Vincenzino", "genero": "Ts." },
-            { "nombre": "Noemí Guerra", "genero": "Dra." },
-            { "nombre": "Analía Innacio", "genero": "Dra." },
-            { "nombre": "Ornela Caruso", "genero": "Dra." }
-        ]
-    },
-    {
-        "comiteNombre" : "Comité de relaciones publicas",
-        "mostrarCargos" : "true",
-        "presidenteNombre": "Sandra Gonzalez",
+        "comiteNombre": "Comité de mesas redondas",
+        "mostrarCargos": "true",
+        "presidenteNombre": "Daniela Gil",
         "presidenteGenero": "Dra.",
-        "secretarioNombre": "Soledad Elías",
+        "secretarioNombre": "Gisela Morel Rossi",
         "secretarioGenero": "Dra.",
-        "vocales": []
+        "vocales": [
+            { "nombre": "Silvina Mazzeo", "genero": "Dra." },
+            { "nombre": "Mariana Ayos", "genero": "Dra." },
+            { "nombre": "Noemí Guerra", "genero": "Dra." }
+        ]
     },
     {
-        "comiteNombre" : "Comité de Informàtica y redes sociales",
-        "mostrarCargos" : "true",
-        "presidenteNombre": "Juan Pablo Rigotti",
+        "comiteNombre": "Comité de conferencias",
+        "mostrarCargos": "true",
+        "presidenteNombre": "Guillermo Keller",
+        "presidenteGenero": "Dr.",
+        "secretarioNombre": "Marcelo Katz",
+        "secretarioGenero": "Dr.",
+        "vocales": [
+            { "nombre": "Romina Hemadi", "genero": "Dra." },
+            { "nombre": "Olga Caballero", "genero": "Dra." }
+        ]
+    },
+    {
+        "comiteNombre": "Comité de temas libres",
+        "mostrarCargos": "true",
+        "presidenteNombre": "Flavia Scibeta",
+        "presidenteGenero": "Dra.",
+        "secretarioNombre": "Lila Blanco",
+        "secretarioGenero": "Dra.",
+        "vocales": [
+            { "nombre": "Sofía Pisano", "genero": "Dra." },
+            { "nombre": "Nadia Bérgamo", "genero": "Dra." }
+        ]
+    },
+    {
+        "comiteNombre": "Comité de relaciones publicas",
+        "mostrarCargos": "true",
+        "presidenteNombre": "Aldana Rondinela ",
+        "presidenteGenero": "Dra.",
+        "secretarioNombre": "",
+        "secretarioGenero": "",
+        "vocales": [{ "nombre": "" , "genero": "" }]
+    },
+    {
+        "comiteNombre": "Comité de Informàtica y redes sociales",
+        "mostrarCargos": "true",
+        "presidenteNombre": "Julián Nardi",
         "presidenteGenero": "",
-        "secretarioNombre": "Julián Nardi",
+        "secretarioNombre": "Juan Pablo Rigotti",
         "secretarioGenero": "",
         "vocales": [
-            { "nombre": "Romina Plafnik", "genero": "Dra." },
-            { "nombre": "Daiana Cichello", "genero": "Ts." },
             { "nombre": "Paola Lo Schiavo", "genero": "" },
             { "nombre": "Marcelo Corigliano", "genero": "" },
             { "nombre": "Santiago Fiorino", "genero": "" }
-
         ]
     },
     {
-        "comiteNombre" : "Comité de recepciòn y actos publicos",
-        "mostrarCargos" : "true",
-        "presidenteNombre": "Silvia Birnembaum",
-        "presidenteGenero": "Bioquimica",
-        "secretarioNombre": "Nancy Di Biasi",
-        "secretarioGenero": "Dra.",
-        "vocales": [
-            { "nombre": "Juliana Caccavo", "genero": "Dra." },
-            { "nombre": "María Inés Marquez", "genero": "Ts." },
-            { "nombre": "Sandra Arcieri", "genero": "Dra." },
-            { "nombre": "Amhed Sabrá", "genero": "Dr." },
-            { "nombre": "Estela Gonzalez", "genero": "Dra." }
-        ]
+        "comiteNombre": "Comité de recepciòn y actos publicos",
+        "mostrarCargos": "true",
+        "presidenteNombre": "Sandra Petruceli",
+        "presidenteGenero": "Dra.",
+        "secretarioNombre": "",
+        "secretarioGenero": "",
+        "vocales": []
     },
     {
-        "comiteNombre" : "Comité de Cultura",
-        "mostrarCargos" : "true",
+        "comiteNombre": "Comité de Cultura",
+        "mostrarCargos": "true",
         "presidenteNombre": "Gachy Suarez",
         "presidenteGenero": "Bq.",
         "secretarioNombre": "Cecilia Ormazabal",
@@ -119,48 +109,45 @@ export const comites = [
         ]
     },
     {
-        "comiteNombre" : "Comité asesor",
-        "mostrarCargos" : "false",
+        "comiteNombre": "Comité asesor",
+        "mostrarCargos": "false",
         "asesores": [
             { "nombre": "Ruben Luca", "genero": "Dr." },
             { "nombre": "Teresa Rodriguez Brieschke", "genero": "Dra." },
-            { "nombre": "Guillermina Améstica", "genero": "Dra." }
+            { "nombre": "Guillermina Améstica", "genero": "Dra." },
+            { "nombre": "María Vivona", "genero": "Dra." }
         ]
     },
     {
-        "comiteNombre" : "Comité de area programàtica",
-        "mostrarCargos" : "true",
-        "presidenteNombre": "Claudia Falotico",
+        "comiteNombre": "Comité de area programàtica",
+        "mostrarCargos": "true",
+        "presidenteNombre": "Sandra Eidner",
         "presidenteGenero": "Dra.",
-        "secretarioNombre": "Sandra Eidner",
-        "secretarioGenero": "Dra.",
-        "vocales": [
-            { "nombre": "Paula Evangelina Donadio", "genero": "Lic." },
-            { "nombre": "María Natalia González", "genero": "Ts." },
-            { "nombre": "Daniela Tiburi", "genero": "Lic." },
-            { "nombre": "Felipe Aguero", "genero": "Dr." }
-        ]
+        "secretarioNombre": "",
+        "secretarioGenero": "",
+        "vocales": []
     },
     {
-        "comiteNombre" : "Comité Residentes y concurrentes",
-        "mostrarCargos" : "true",
-        "coordinadorGeneral" : "Dr. Gonzalo Barbieri",
-        "presidenteNombre": "Sofía Pisano",
+        "comiteNombre": "Comité Residentes y concurrentes",
+        "mostrarCargos": "true",
+        "coordinadorGeneral": " Dra. Daniela Rey / Ks. Lourdes Laurens ",
+        "presidenteNombre": "Fernanda Aseijas (Clínica Médica)",
         "presidenteGenero": "Dra.",
-        "secretarioNombre": "Jimena González Alije",
-        "secretarioGenero": "Ts.",
+        "secretarioNombre": "Jorge García (Anatomía Patológica) ",
+        "secretarioGenero": "Dr.",
         "vocales": [
-            { "nombre": "Jorge García", "genero": "Dr." },
-            { "nombre": "Yanina Pastori", "genero": "Dra." },
-            { "nombre": "Virginia Scarano", "genero": "Dra." },
-            { "nombre": "Anthony Capcha", "genero": "Dr." },
-            { "nombre": "Rada Micaela", "genero": "Dra." },
-            { "nombre": "Victoria Lipera", "genero": "Dra." },
-            { "nombre": "Martín García", "genero": "Dr." },
-            { "nombre": "Giovanni Ávila", "genero": "Dr." },
-            { "nombre": "Erika Nogales", "genero": "Dra." },
-            { "nombre": "Lucas Agrazzo", "genero": "Dr." },
-            { "nombre": "Antonella Guerrica Goitia", "genero": "Dra." }
+            { "nombre": "Mariela Bovone (Cardiología) ", "genero": "Dra." },
+            { "nombre": "Ivana Guendjian (Cirugía General)", "genero": "Dra." },
+            { "nombre": "Camila Zoanni (Clínica Médica)", "genero": "Dra." },
+            { "nombre": "Paula Menotti (Infectología)", "genero": "Dra." },
+            { "nombre": "Camila Cervetto (Anatomía Patológica)", "genero": "Dra." },
+            { "nombre": "Pablo Herbas (Nefrología)", "genero": "Dr." },
+            { "nombre": "Sofía Folmer (Neurocirugía) ", "genero": "Dra." },
+            { "nombre": "Lucas Agrazzo (Traumatología)", "genero": "Dra." },
+            { "nombre": "Giovanni Ávila (Neumonología)", "genero": "Dra." },
+            { "nombre": "Julieta Salas (Ginecología)", "genero": "Dra." },
+            { "nombre": "Gabriela Mosquera (Hematología)", "genero": "Dra." },
+            { "nombre": "Delfina De Luca (Servicio Social)", "genero": "Ts." }
         ]
     }
 ];

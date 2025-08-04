@@ -1,0 +1,19 @@
+[
+  {
+    "method": [
+      "GET",
+      "PUT",
+      "POST",
+      "DELETE"
+    ],
+    "origin": [
+      "http://localhost:5137",
+      "https://jornadas2024-6fda3.firebaseapp.com",
+      "https://jornadascientificassantojanni.com"
+    ],
+    "responseHeader": [
+      "Content-Type",
+      "Content-Disposition"
+    ]
+  }
+]

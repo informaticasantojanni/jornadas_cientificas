@@ -18,14 +18,14 @@ const HomeView = () => {
 
   return (
     <div>
-      <PopupCertificados />
+      {/* <PopupCertificados /> */}
       {/* Contenido de la página */}
       <Banner />
       <Intro />
       <JornadasNumeros />
       <Autoridades />
-      <Invitados />
-      <Conferencias />
+      {/* <Invitados />
+      <Conferencias /> */}
       <Colaboran />
     </div>
   );

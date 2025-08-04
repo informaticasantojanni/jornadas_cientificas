@@ -9,21 +9,21 @@ const Autoridades = () => {
 
       <div className="p-3">
         <p className="font-semiBold">
-          Presidenta: <span className="font-regular">Dra. María Vivona</span>
+          Presidente: <span className="font-regular">Dr. Daniel Coso</span>
         </p>
         <p className="font-semiBold">
-          Vicepresidente: <span className="font-regular">Dr. Daniel Coso</span>
+          Vicepresidente: <span className="font-regular">Dra. Silvina Lucilli</span>
         </p>
         <p className="font-semiBold">
           Secretario General:{" "}
-          <span className="font-regular">Dr. Fernando Saldarini</span>
-        </p>
-        <p className="font-semiBold">
-          Secretario Adjunto:{" "}
           <span className="font-regular">Dr. José Retamoso</span>
         </p>
         <p className="font-semiBold">
-          Tesorero: <span className="font-regular">Dr. Lucas Landolfi</span>
+          Secretario Adjunto:{" "}
+          <span className="font-regular">Dr. Lucas Landolfi</span>
+        </p>
+        <p className="font-semiBold">
+          Tesorero: <span className="font-regular">Dr. Sergio Brandemburgo</span>
         </p>
         <p className="font-semiBold">
           Presidente AMM:{" "}

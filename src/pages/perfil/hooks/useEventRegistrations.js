@@ -28,7 +28,8 @@ export const useEventRegistrations = (searchDni) => {
     sendEmailError: null,
   };
 
-  const eventId = "ZbclMy93Cs9jzEYAgVui";
+  // const eventId = "ZbclMy93Cs9jzEYAgVui"; //eventId Jornadas 2024
+  const eventId = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
   const urlFetchAPI =
     "https://script.google.com/macros/s/AKfycby7UEKG0qsW81lVPB8Cx7rG96bGSqW9lsS5GQdKZTXLwh-0XJCUtnUOJQB0mwJtgI4FPA/exec";
   //   Link Spreadsheet https://docs.google.com/spreadsheets/d/1i7ULoXCjNaLVKFfaDxGUTUZEXzhI9trsJPiaJYO5Ndc/edit?gid=0#gid=0

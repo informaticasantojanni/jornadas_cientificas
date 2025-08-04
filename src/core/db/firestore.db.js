@@ -15,7 +15,8 @@ import {
 export const COLLECTIONS = {
     USERS: "users",
     EVENTS: "events",
-    REGISTRATION: "registration"
+    REGISTRATION: "registration",
+    TEMAS_LIBRES: "temasLibres"
 };
 
 export const DOCUMENTS = {

@@ -7,6 +7,7 @@ import { useProfile } from "../hooks/useProfile";
 import AdminProfile from "../components/AdminProfile";
 import Spinner from "../../../components/spinner/Spinner";
 import Certificates from "../components/Certificates";
+import TemasLibres from "../components/TemasLibres";
 
 const PerfilView = () => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const PerfilView = () => {
         <>
           <UserProfile />
           <Registration />
+          <TemasLibres />
           <Certificates />
         </>
       )}

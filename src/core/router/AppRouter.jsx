@@ -10,6 +10,7 @@ import Download from "../../pages/download/view/DownloadView";
 import Galeria from "../../pages/galeria/view/GaleriaView";
 import Login from "../../pages/login/view/LoginView";
 import PerfilView from "../../pages/perfil/view/PerfilView";
+import TemasLibresView from "../../pages/temas_libres/view/TemasLibresView";
 
 export const appRouter = createHashRouter([
   {
@@ -70,6 +71,16 @@ export const appRouter = createHashRouter([
           <Galeria />
         </Layout>
       </PublicRoute>
+    ),
+  },
+  {
+    path: "/temasLibres",
+    element: (
+      <PrivateRoute>
+        <Layout>
+          <TemasLibresView />
+        </Layout>
+      </PrivateRoute>
     ),
   },
   {
