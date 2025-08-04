@@ -82,9 +82,8 @@ export const comites = [
         "secretarioNombre": "Julián Nardi",
         "secretarioGenero": "",
         "vocales": [
-            { "nombre": "Romina Plafnik", "genero": "Dra." },
-            { "nombre": "Daiana Cichello", "genero": "Ts." },
             { "nombre": "Paola Lo Schiavo", "genero": "" },
+            { "nombre": "Lucia Lioi", "genero": "" },
             { "nombre": "Marcelo Corigliano", "genero": "" },
             { "nombre": "Santiago Fiorino", "genero": "" }
 
