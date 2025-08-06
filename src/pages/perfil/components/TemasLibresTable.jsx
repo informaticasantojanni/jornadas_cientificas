@@ -25,6 +25,7 @@ const TemasLibresTable = () => {
     "Contacto Apellido",
     "Contacto Cell",
     "Contacto Email",
+    "Procesar",
   ];
 
   return (
@@ -64,24 +65,53 @@ const TemasLibresTable = () => {
                       renderTemaLibre.id % 2 === 0 ? "#f9f9f9" : "#fff",
                   }}
                 >
-                  <TableCell component="th" scope="row" align="center">
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre.titulo} {/* Asumiendo que hay un campo dni */}
                   </TableCell>
-                  <TableCell align="center" sx={{ fontSize: 18 }}>
-                    {renderTemaLibre.servicios}
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {
+                      Array.isArray(renderTemaLibre.serviciosList)
+                        ? renderTemaLibre.serviciosList.join(", ")
+                        : "-"
+                    }
                   </TableCell>
-                  <TableCell align="center" sx={{ fontSize: 18 }}>
-                    {Array.isArray(renderTemaLibre.autores)
-                      ? renderTemaLibre.autores.join(", ")
-                      : "-"}
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {
+                      Array.isArray(renderTemaLibre.autoresList)
+                        ? renderTemaLibre.autoresList.join(", ")
+                        : "-"
+                    }
                   </TableCell>
-                  <TableCell align="center" sx={{ fontSize: 18 }}>
-                    {renderTemaLibre.presentaPremio}
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {<a href={renderTemaLibre.abstractUrl} target="_blank" rel="noopener noreferrer">
+                      Descargar PDF
+                    </a>}
                   </TableCell>
-                  <TableCell align="center" sx={{ fontSize: 18 }}>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre.presentaPremio ? "si" : "no"}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {<a href={renderTemaLibre.
+                      trabajoPremioUrl} target="_blank" rel="noopener noreferrer">
+                      Descargar PDF
+                    </a>}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre.lugar}
                   </TableCell>
-                  <TableCell align="center" sx={{ fontSize: 18 }}>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre.contactoNombre} {/* Asumiendo que hay un campo dni */}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre.contactoApellido} {/* Asumiendo que hay un campo dni */}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre.contactoEmail} {/* Asumiendo que hay un campo dni */}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre.contactoCelular} {/* Asumiendo que hay un campo dni */}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
                     {<Button
                       variant="contained"
                       size="small"
