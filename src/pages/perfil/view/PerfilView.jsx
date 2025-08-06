@@ -8,31 +8,45 @@ import AdminProfile from "../components/AdminProfile";
 import Spinner from "../../../components/spinner/Spinner";
 import Certificates from "../components/Certificates";
 import TemasLibres from "../components/TemasLibres";
+import AdminTemasLibres from "../components/AdminTemasLibres";
 
 const PerfilView = () => {
   useEffect(() => {
-    window.scrollTo(0, 0); // Scroll al top de la página
-  }, []); // El array vacío asegura que se ejecute solo al montar el componente
+    window.scrollTo(0, 0);
+  }, []);
 
   const { user } = useAuth();
   const { userData } = useProfile();
 
+  const renderProfile = () => {
+    if (!userData?.role) return null; // Evita renderizar hasta tener los datos
+
+    switch (userData.role) {
+      case "admin":
+        return <AdminProfile userId={user.uid} />;
+      case "temasLibres":
+        return <AdminTemasLibres />;
+      case "user":
+      default:
+        return (
+          <>
+            <UserProfile />
+            <Registration />
+            <TemasLibres />
+            <Certificates />
+          </>
+        );
+    }
+  };
+
   return (
     <>
-      <PagesBannerView title={"Mi perfil"} />
-      {userData?.role === "admin" ? (
-        <AdminProfile userId={user.uid} />
-      ) : (
-        <>
-          <UserProfile />
-          <Registration />
-          <TemasLibres />
-          <Certificates />
-        </>
-      )}
+      <PagesBannerView title="Mi perfil" />
+      {renderProfile()}
       <Spinner />
     </>
   );
 };
+
 
 export default PerfilView;

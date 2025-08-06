@@ -307,6 +307,14 @@ export const setInscripcionTemasLibres = async (eventId, temasLibresData) => {
   return res;
 };
 
+/*
+Este metodo hace un retrieve de todos los documents de la collection temasLibres
+*/
+export const getTemasLibres = async (eventId) => {
+  const response = await getDocumentsFromSubcollection(COLLECTIONS.EVENTS, eventId, COLLECTIONS.TEMAS_LIBRES);
+  return response
+}
+
 
 /*
 Este metodo hace el upload de un documento a Firestore */
