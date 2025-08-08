@@ -28,12 +28,21 @@ export const useTemasLibres = () => {
 
 
 
-    const handleProcesarTemaLibre = async (temaId) => {
+    const handleProcesarTemaLibre = async (setInternalView, id) => {
+        setInternalView("procesarTemasLibres");
+        console.log("Procesando tema libre con ID: ", id);
     }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // Aquí puedes manejar el envío del formulario
+        console.log("Formulario enviado");
+    };
 
     return {
         renderTemasLibres,
-        handleProcesarTemaLibre
+        handleProcesarTemaLibre,
+        handleSubmit
     }
 }
 
