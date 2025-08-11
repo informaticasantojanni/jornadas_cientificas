@@ -9,7 +9,7 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import { useTemasLibres } from "../hooks/useTemasLibres";
 
-const TemasLibresTable = ({setInternalView}) => {
+const TemasLibresTable = () => {
   const { renderTemasLibres, handleProcesarTemaLibre } = useTemasLibres();
 
 
@@ -115,7 +115,7 @@ const TemasLibresTable = ({setInternalView}) => {
                     {<Button
                       variant="contained"
                       size="small"
-                      onClick={() => handleProcesarTemaLibre(setInternalView, renderTemaLibre.id)}
+                      onClick={() => handleProcesarTemaLibre(renderTemaLibre.id)}
                       sx={{
                         backgroundColor: "#005996",
                         color: "#fff",

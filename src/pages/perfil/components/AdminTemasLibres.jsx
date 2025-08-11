@@ -2,15 +2,16 @@ import React, { useState, useRef } from "react";
 import { useProfile } from "../hooks/useProfile";
 import TemasLibresTable from "./TemasLibresTable";
 import TemasLibresProcess from "./TemasLibresProcess";
+import { useGlobal } from "../../../hooks/useGlobal";
 
 
 const AdminTemasLibres = ({ userId }) => {
-  const [internalView, setInternalView] = useState("temasLibres");
-  const { userData } = useProfile(userId);
 
+  const { userData } = useProfile(userId);
+  const { internalView } = useGlobal();
   let content;
   if (internalView === "temasLibres") {
-    content = <TemasLibresTable setInternalView={setInternalView} />;
+    content = <TemasLibresTable />;
   } else if (internalView === "procesarTemasLibres") {
     content = <TemasLibresProcess />;
   }
