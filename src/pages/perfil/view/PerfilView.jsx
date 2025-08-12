@@ -24,8 +24,10 @@ const PerfilView = () => {
     switch (userData.role) {
       case "admin":
         return <AdminProfile userId={user.uid} />;
-      case "temasLibres":
-        return <AdminTemasLibres />;
+      case "temasLibresPresidente":
+        return <AdminTemasLibres userId={user.uid}/>;
+      case "temasLibresVocal":
+        return <AdminTemasLibres userId={user.uid}/>;
       case "user":
       default:
         return (

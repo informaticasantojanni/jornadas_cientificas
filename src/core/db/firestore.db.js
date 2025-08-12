@@ -92,23 +92,23 @@ export const getDocumentByField = async (collectionName, field, value) => {
     try {
         // Reference to the Firestore collection
         const docsRef = collection(db, collectionName);
-        
+
         // Create a query where the specified field matches the given value
         const docsQuery = query(docsRef, where(field, '==', value));
-        
+
         // Execute the query
         const querySnapshot = await getDocs(docsQuery);
-        
+
         // Map through the query results and construct the data array
         const documents = querySnapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         }));
-        
+
         // If documents are found, return them in the response
         response.status = true;
         response.data = documents;
-        
+
     } catch (error) {
         // Handle any errors that occur during the query
         response.status = false;
@@ -237,10 +237,11 @@ export const updateSubcollectionDocument = async (data) => {
     try {
         // Create a reference to the document in the subcollection
         const docRef = doc(db, data.parentCollection, data.parentDocId, data.childCollection, data.childDocId);
-        // Update the specific field in the document
-        const updateData = {
-            [data.field]: data.value
-        }
+        // Prioridad: si viene 'updates', úsalo; si no, usa field/value
+        const updateData =
+            data.updateData && typeof data.updateData === "object"
+                ? data.updateData
+                : { [data.field]: data.value }
         await updateDoc(docRef, updateData);
         response.status = true;
     } catch (error) {

@@ -25,6 +25,12 @@ const TemasLibresTable = () => {
     "Contacto Apellido",
     "Contacto Cell",
     "Contacto Email",
+    "Vocal Asignado",
+    "Revisión",
+    "Comentarios",
+    "Dia Presentación",
+    "Hora Presentación",  
+    "Aula Presentación",
     "Procesar",
   ];
 
@@ -100,16 +106,34 @@ const TemasLibresTable = () => {
                     {renderTemaLibre.lugar}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre.contactoNombre} {/* Asumiendo que hay un campo dni */}
+                    {renderTemaLibre.contactoNombre} {/* */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre.contactoApellido} {/* Asumiendo que hay un campo dni */}
+                    {renderTemaLibre.contactoApellido} {/* */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre.contactoEmail} {/* Asumiendo que hay un campo dni */}
+                    {renderTemaLibre.contactoEmail} {/* */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre.contactoCelular} {/* Asumiendo que hay un campo dni */}
+                    {renderTemaLibre.contactoCelular} {/* */}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre?.vocalAsignado ?? "Pendiente"} {/* */}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre?.vocalRevision ?? "Pendiente"} {/* */}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre?.vocalComentarios ?? "Pendiente"} {/* */}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre?.presentacionDia ?? "Pendiente"} {/* */}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre?.presentacionHora ?? "Pendiente"} {/* */}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre?.presentacionLugar ?? "Pendiente"} {/* */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {<Button

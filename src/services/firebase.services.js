@@ -339,3 +339,18 @@ export const uploadPdf = async (file, path) => {
   const url = await getDownloadURL(storageRef);
   return url;
 };
+
+
+/*
+Este metodo hace el upload de un documento a Firestore */
+export const updateTrabajo = async (eventId, trabajoId, formData) => {
+  const data = {
+    parentCollection: COLLECTIONS.EVENTS,
+    parentDocId: eventId,
+    childCollection: COLLECTIONS.TEMAS_LIBRES,
+    childDocId: trabajoId,
+    updateData: formData,
+  };
+  const res = updateSubcollectionDocument(data);
+  return res;
+};
