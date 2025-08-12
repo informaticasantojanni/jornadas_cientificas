@@ -23,7 +23,7 @@ const Intro = () => {
               ¡Hola a todas y todos!
             </p>
             <p className="text-indent indent-6 text-justify font-poppins text-[14px] laptop1:text-[18px]">
-              Con muchísima alegría les doy la bienvenida a las XL Jornadas Científicas de nuestro querido Hospital Dr. F. Santojanni.
+              Con muchísima alegría les doy la bienvenida a las XL Jornadas Científicas de nuestro querido Hospital Donación F. Santojanni.
             </p>
             <p className="text-indent indent-6 text-justify font-poppins text-[14px] laptop1:text-[18px]">
               Este año nos reunimos bajo un lema que nos inspira profundamente:

@@ -1,12 +1,10 @@
 import React from "react";
 
 const ComisionCard = ({ comite }) => {
-  const presidente = `${
-    comite.presidenteGenero == "Dra." ? "Presidenta" : "Presidente"
-  } ${comite.presidenteGenero} ${comite.presidenteNombre}`;
-  const secretario = `${
-    comite.secretarioGenero == "Dra." ? "Secretaria" : "Secretario"
-  } ${comite.secretarioGenero} ${comite.secretarioNombre}`;
+  const presidente = `${comite.presidenteGenero == "Dra." ? "Presidenta:" : "Presidente:"
+    } ${comite.presidenteGenero} ${comite.presidenteNombre}`;
+  const secretario = `${comite.secretarioGenero == "Dra." ? "Secretaria:" : "Secretario:"
+    } ${comite.secretarioGenero} ${comite.secretarioNombre}`;
   const vocales = comite.vocales;
   return (
     <div className="rounded-lg m-5 shadow-lightShadowGrey">
@@ -15,23 +13,23 @@ const ComisionCard = ({ comite }) => {
       </p>
       {comite.mostrarCargos == "true" ? (
         <div className="p-3">
-          {comite.coordinadorGeneral != "" && (<p>{comite.coordinadorGeneral}</p>)}
           <p>{presidente}</p>
+          {comite?.coordinadorGeneral?.trim() && (
+            <p>Coordinador General: {comite.coordinadorGeneral.trim()}</p>
+          )}
           <p>{secretario}</p>
           <p>Vocales:</p>
           {vocales.map((vocal, index) => (
-            <p key={index} className="ps-2">{`${
-              vocal.genero == "Dra." ? "Dra." : vocal.genero
-            } ${vocal.nombre}`}</p>
+            <p key={index} className="ps-2">{`${vocal.genero == "Dra." ? "Dra." : vocal.genero
+              } ${vocal.nombre}`}</p>
           ))}
         </div>
       ) : (
         <div className="p-3">
           <p>Asesores:</p>
           {comite.asesores.map((asesor, index) => (
-            <p key={index} className="ps-2">{`${
-              asesor.genero == "Dra." ? "Dra." : asesor.genero
-            } ${asesor.nombre}`}</p>
+            <p key={index} className="ps-2">{`${asesor.genero == "Dra." ? "Dra." : asesor.genero
+              } ${asesor.nombre}`}</p>
           ))}
         </div>
       )}
