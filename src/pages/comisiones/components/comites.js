@@ -24,7 +24,8 @@ export const comites = [
             { "nombre": "Florencia Gregorio", "genero": "Lic." },
             { "nombre": "Dafne López", "genero": "Dra." },
             { "nombre": "Débora Vílchez", "genero": "Lic." },
-            { "nombre": "Elizabeth Sanguinetti", "genero": "Dra." }
+            { "nombre": "Elizabeth Sanguinetti", "genero": "Dra." },
+            { "nombre": "Paola Villán", "genero": "Dra." },
         ]
     },
     {
@@ -55,17 +56,19 @@ export const comites = [
     {
         "comiteNombre": "Comité de temas libres",
         "mostrarCargos": "true",
-        "presidenteNombre": "Flavia Scibeta",
+        "presidenteNombre": "Flavia Scibetta",
         "presidenteGenero": "Dra.",
         "secretarioNombre": "Lila Blanco",
         "secretarioGenero": "Dra.",
         "vocales": [
             { "nombre": "Sofía Pisano", "genero": "Dra." },
-            { "nombre": "Nadia Bérgamo", "genero": "Dra." }
+            { "nombre": "Nadia Bérgamo", "genero": "Dra." },
+            { "nombre": "Joaquín Saldaño", "genero": "Dr." },
+            { "nombre": "Gonzalo Barbieri", "genero": "Dr." }
         ]
     },
     {
-        "comiteNombre": "Comité de relaciones publicas",
+        "comiteNombre": "Comité de relaciones públicas",
         "mostrarCargos": "true",
         "presidenteNombre": "Aldana Rondinela ",
         "presidenteGenero": "Dra.",
@@ -74,16 +77,16 @@ export const comites = [
         "vocales": [{ "nombre": "" , "genero": "" }]
     },
     {
-        "comiteNombre": "Comité de Informàtica y redes sociales",
+        "comiteNombre": "Comité de Informática y redes sociales",
         "mostrarCargos": "true",
-        "presidenteNombre": "Julián Nardi",
+        "presidenteNombre": "Lic. Julián Nardi",
         "presidenteGenero": "",
-        "secretarioNombre": "Juan Pablo Rigotti",
+        "secretarioNombre": "Ing. Juan Pablo Rigotti",
         "secretarioGenero": "",
         "vocales": [
             { "nombre": "Paola Lo Schiavo", "genero": "" },
             { "nombre": "Lucia Lioi", "genero": "" },
-            { "nombre": "Marcelo Corigliano", "genero": "" },
+            { "nombre": "Ing. Marcelo Corigliano", "genero": "" },
             { "nombre": "Santiago Fiorino", "genero": "" }
         ]
     },
@@ -131,7 +134,7 @@ export const comites = [
     {
         "comiteNombre": "Comité Residentes y concurrentes",
         "mostrarCargos": "true",
-        "coordinadorGeneral": " Dra. Daniela Rey / Ks. Lourdes Laurens ",
+        "coordinadorGeneral": "Dra. Daniela Rey | Lic. Lourdes Laurens ",
         "presidenteNombre": "Fernanda Aseijas (Clínica Médica)",
         "presidenteGenero": "Dra.",
         "secretarioNombre": "Jorge García (Anatomía Patológica) ",
