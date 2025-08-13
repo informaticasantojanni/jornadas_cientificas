@@ -34,7 +34,7 @@ export const comites = [
         "presidenteNombre": "Daniela Gil",
         "presidenteGenero": "Dra.",
         "secretarioNombre": "Gisela Morel Rossi",
-        "secretarioGenero": "Dra.",
+        "secretarioGenero": "Lic.",
         "vocales": [
             { "nombre": "Silvina Mazzeo", "genero": "Dra." },
             { "nombre": "Mariana Ayos", "genero": "Dra." },
