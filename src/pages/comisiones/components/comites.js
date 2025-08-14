@@ -1,6 +1,6 @@
 export const comites = [
     {
-        "comiteNombre": "Comité cientifico",
+        "comiteNombre": "Comité Científico",
         "mostrarCargos": "true",
         "presidenteNombre": "Patricia Delnero",
         "presidenteGenero": "Dra.",
@@ -29,7 +29,7 @@ export const comites = [
         ]
     },
     {
-        "comiteNombre": "Comité de mesas redondas",
+        "comiteNombre": "Comité de Mesas Redondas",
         "mostrarCargos": "true",
         "presidenteNombre": "Daniela Gil",
         "presidenteGenero": "Dra.",
@@ -42,7 +42,7 @@ export const comites = [
         ]
     },
     {
-        "comiteNombre": "Comité de conferencias",
+        "comiteNombre": "Comité de Conferencias",
         "mostrarCargos": "true",
         "presidenteNombre": "Guillermo Keller",
         "presidenteGenero": "Dr.",
@@ -54,7 +54,7 @@ export const comites = [
         ]
     },
     {
-        "comiteNombre": "Comité de temas libres",
+        "comiteNombre": "Comité de Temas Libres",
         "mostrarCargos": "true",
         "presidenteNombre": "Flavia Scibetta",
         "presidenteGenero": "Dra.",
@@ -68,7 +68,7 @@ export const comites = [
         ]
     },
     {
-        "comiteNombre": "Comité de relaciones públicas",
+        "comiteNombre": "Comité de Relaciones Públicas",
         "mostrarCargos": "true",
         "presidenteNombre": "Aldana Rondinela ",
         "presidenteGenero": "Dra.",
@@ -77,7 +77,7 @@ export const comites = [
         "vocales": [{ "nombre": "" , "genero": "" }]
     },
     {
-        "comiteNombre": "Comité de Informática y redes sociales",
+        "comiteNombre": "Comité de Informática y Redes Sociales",
         "mostrarCargos": "true",
         "presidenteNombre": "Lic. Julián Nardi",
         "presidenteGenero": "",
@@ -91,13 +91,25 @@ export const comites = [
         ]
     },
     {
-        "comiteNombre": "Comité de recepciòn y actos publicos",
+        "comiteNombre": "Comité de Recepción y Actos Públicos",
         "mostrarCargos": "true",
         "presidenteNombre": "Sandra Petruceli",
         "presidenteGenero": "Dra.",
-        "secretarioNombre": "",
+        "secretarioNombre": "Lic. María Inés Marquez | Dra. Victoria Bronzatti",
         "secretarioGenero": "",
-        "vocales": []
+        "vocales": [
+            { "nombre": "Andrea Suarez", "genero": "Dra." },
+            { "nombre": "Valeria Dávila", "genero": "Dra." },
+            { "nombre": "Susana Gonzalez", "genero": "Dra." },
+            { "nombre": "Alejandra Salvatierra", "genero": "Dra." },
+            { "nombre": "Noelia Citate", "genero": "Dra." },
+            { "nombre": "Laura Nieto", "genero": "Dra." },
+            { "nombre": "Paula Scliar", "genero": "Dra." },
+            { "nombre": "Beatriz Lauge", "genero": "Dra." },
+            { "nombre": "Juliana Caccavo", "genero": "Dra." },
+            { "nombre": "Marcela Cilio", "genero": "Dra." },
+            { "nombre": "Graciela Frontera", "genero": "Dra." },
+        ]
     },
     {
         "comiteNombre": "Comité de Cultura",
