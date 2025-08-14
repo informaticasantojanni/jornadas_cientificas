@@ -13,12 +13,12 @@ const ComisionCard = ({ comite }) => {
       </p>
       {comite.mostrarCargos == "true" ? (
         <div className="p-3">
-          <p>{presidente}</p>
+          <p className="font-semiBold">{presidente}</p>
           {comite?.coordinadorGeneral?.trim() && (
-            <p>Coordinador General: {comite.coordinadorGeneral.trim()}</p>
+            <p><span className="font-semiBold">Coordinador General:</span>{comite.coordinadorGeneral.trim()}</p>
           )}
-          <p>{secretario}</p>
-          <p>Vocales:</p>
+          <p className="font-semiBold">{secretario}</p>
+          <p className="font-semiBold">Vocales:</p>
           {vocales.map((vocal, index) => (
             <p key={index} className="ps-2">{`${vocal.genero == "Dra." ? "Dra." : vocal.genero
               } ${vocal.nombre}`}</p>
@@ -26,7 +26,7 @@ const ComisionCard = ({ comite }) => {
         </div>
       ) : (
         <div className="p-3">
-          <p>Asesores:</p>
+          <p className="font-semiBold">Asesores:</p>
           {comite.asesores.map((asesor, index) => (
             <p key={index} className="ps-2">{`${asesor.genero == "Dra." ? "Dra." : asesor.genero
               } ${asesor.nombre}`}</p>
