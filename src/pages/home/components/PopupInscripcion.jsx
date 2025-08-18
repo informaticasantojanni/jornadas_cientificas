@@ -41,7 +41,7 @@ const PopupInscripcion = () => {
             </div>
 
             <h2 className="text-2xl font-bold mb-4 text-Violet">
-              Ya podes incribirte a las Jornadas 2025!
+              Ultima Prórroga Trabajos Temas Libres hasta el 1 de septiembre!
             </h2>
 
             <p className="my-5 font-semiBold text-lg p-3 text-Violet">
