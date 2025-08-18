@@ -6,6 +6,8 @@ const GlobalProvider = ({ children }) => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [desktopView, setDesktopView] = useState(false);
     const [showSpinner, setShowSpinner] = useState(false)
+    const [internalView, setInternalView] = useState("temasLibres");
+    const [processTrabajoId, setProcessTrabajoId] = useState("");
 
     useEffect(() => {
         function handleResize() {
@@ -26,7 +28,11 @@ const GlobalProvider = ({ children }) => {
                 {
                     desktopView,
                     showSpinner,
-                    setShowSpinner
+                    setShowSpinner,
+                    internalView,
+                    setInternalView,
+                    processTrabajoId,
+                    setProcessTrabajoId
                 }
             }>
 
