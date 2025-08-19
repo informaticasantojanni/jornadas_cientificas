@@ -17,8 +17,10 @@ export const useTemasLibres = () => {
     const [renderTemasLibres, setRenderTemasLibres] = useState([]);
     const [formData, setFormData] = useState({
         titulo: "",
+        serviciosList: "",
         vocalAsignado: "",
         vocalRevision: "",
+        autoresList: ""
     });
     const [selectedValue, setSelectedValue] = useState("");
     const { setShowSpinner, internalView, setInternalView, processTrabajoId, setProcessTrabajoId } = useGlobal()
@@ -41,8 +43,6 @@ export const useTemasLibres = () => {
                         console.log("Temas Libres Data: ", temasLibresResponse.data);
                         setRenderTemasLibres(temasLibresResponse.data.filter(trabajo => trabajo.vocalAsignado == userData.id));
                     }
-
-
                 }
             } catch (error) {
                 console.error("Error: ", error);
@@ -64,8 +64,10 @@ export const useTemasLibres = () => {
                     const trabajo = trabajoResponse.data;
                     setFormData({
                         titulo: trabajo?.titulo || "",
+                        serviciosList: trabajo?.serviciosList || "",
                         vocalAsignado: trabajo?.vocalAsignado || "",
                         vocalRevision: trabajo?.vocalRevision || "",
+                        autoresList: trabajo?.autoresList || ""
                     });
                     setInternalView("procesarTemasLibres");
                 }

@@ -38,11 +38,11 @@ const TemasLibresTable = () => {
     <div className="w-full pb-20">
       <TableContainer
         component={Paper}
-        sx={{ boxShadow: 3, borderRadius: 2, maxHeight: 900 }}
+        sx={{ height: '70vh',  overflow: 'auto', boxShadow: 3, borderRadius: 2 }}
       >
-        <Table sx={{ minWidth: 650 }}>
+        <Table stickyHeader>
           <TableHead>
-            <TableRow sx={{ backgroundColor: "#005996" }}>
+            <TableRow >
               {tableItems.map((header, index) => (
                 <TableCell
                   key={index}
@@ -52,6 +52,7 @@ const TemasLibresTable = () => {
                     color: "#fff",
                     padding: "10px 16px",
                     width: 150,
+                    backgroundColor: "#005996",
                   }}
                 >
                   {header}
