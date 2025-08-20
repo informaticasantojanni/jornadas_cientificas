@@ -9,7 +9,7 @@ const TemasLibres = () => {
     useRegistration();
 
   return (
-    <div className="laptop1:ms-40 bg-White flex flex-col items-center py-10 px-3">
+    <div className="w-full bg-White flex flex-col items-center py-10 px-3">
       <div className="w-full bg-white rounded-lg shadow-lightShadowGrey max-w-[600px]">
         <div className="w-full bg-LightGreen text-White p-5 font-semiBold rounded-lg flex justify-start items-center">
           {userRegistration?.status == "registered" ? (

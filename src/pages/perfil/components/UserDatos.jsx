@@ -19,7 +19,7 @@ const UserDatos = () => {
   } = useProfile(user.uid);
 
   return (
-    <div className="laptop1:ms-40 mt-3 rounded-tl-xl bg-White flex flex-col items-center pt-10 px-3">
+    <div className="w-full mt-3 rounded-tl-xl bg-White flex flex-col items-center pt-10 px-3">
       <div className="w-full bg-white rounded-lg shadow-lightShadowGrey max-w-[600px]">
         <div className="w-full bg-LightGreen text-White p-5 font-semiBold rounded-lg flex justify-between">
           <h1 className="text-xl">Mis datos:</h1>

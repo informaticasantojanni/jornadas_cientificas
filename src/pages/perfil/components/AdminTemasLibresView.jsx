@@ -1,28 +1,49 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import AdminUserProfile from './AdminUserProfile';
 import AdminTemasLibres from './AdminTemasLibres';
 import { useAuth } from '../../../core/auth/hooks/useAuth';
+import ButtonVioletSM from '../../../components/buttons/ButtonVioletSM';
 
 const AdminTemasLibresView = () => {
     const { user } = useAuth();
     const [perfilTemasLibresView, setPerfilTemasLibresView] = useState("");
 
     return (
-        <div className="w-full pb-20">
+        <div className="laptop1:ms-40 mt-3 rounded-tl-xl bg-White flex flex-col items-center py-10 px-3 justify-center">
             <div>
-                <button
-                    onClick={() => setPerfilTemasLibresView("AdminUserProfile")}>
-                    Mi Perfil
-                </button>
-                <button
-                    onClick={() => setPerfilTemasLibresView("AdminTemasLibres")}>
-                    Temas Libres
-                </button>
+                {perfilTemasLibresView === "" && (
+                    <div className="flex flex-row items-center gap-5">
+                        <ButtonVioletSM
+                            onClick={() => setPerfilTemasLibresView("AdminUserProfile")}
+                            label="Mi Perfil"
+                        />
+                        <ButtonVioletSM
+                            onClick={() => setPerfilTemasLibresView("AdminTemasLibres")}
+                            label="Temas Libres"
+                        />
+                    </div>
+                )}
+                {perfilTemasLibresView === "AdminUserProfile" && (
+                    <div className="flex flex-col items-center">
+                        <ButtonVioletSM
+                            onClick={() => setPerfilTemasLibresView("")}
+                            label="Volver"
+                        />
+                    </div>
+                )}
+                {perfilTemasLibresView === "AdminTemasLibres" && (
+                    <div className="flex flex-col items-center">
+                        <ButtonVioletSM
+                            onClick={() => setPerfilTemasLibresView("")}
+                            label="Volver"
+                        />
+                    </div>
+                )}
             </div>
 
-            <div>
+            <div className='w-full'>
                 {perfilTemasLibresView === "AdminUserProfile" && <AdminUserProfile />}
-                {perfilTemasLibresView === "AdminTemasLibres" && <AdminTemasLibres userId={user.uid}/>}
+                {perfilTemasLibresView === "AdminTemasLibres" && <AdminTemasLibres userId={user.uid} />}
             </div>
 
         </div>

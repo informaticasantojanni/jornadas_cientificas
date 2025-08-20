@@ -6,12 +6,12 @@ import Certificates from '../components/Certificates'
 
 const AdminUserProfile = () => {    
     return (
-        <>
+        <div className='w-full flex flex-col items-center'>
             <UserDatos />
             <Registration />
             <TemasLibres />
             <Certificates />
-        </>
+        </div>
     )
 }
 
