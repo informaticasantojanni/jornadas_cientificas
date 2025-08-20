@@ -6,7 +6,7 @@ import ButtonVioletSM from "../../../components/buttons/ButtonVioletSM";
 import ButtonBlueSM from "../../../components/buttons/ButtonBlueSM";
 import { serviciosList } from "../../login/components/serviciosList";
 
-const UserProfile = () => {
+const UserDatos = () => {
   const { user } = useAuth();
   const {
     convert_category,
@@ -153,4 +153,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default UserDatos;

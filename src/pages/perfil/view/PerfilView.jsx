@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
-import UserProfile from "../components/UserProfile";
+import UserDatos from "../components/UserDatos";
 import { useAuth } from "../../../core/auth/hooks/useAuth";
 import Registration from "../components/Registration";
 import PagesBannerView from "../../../components/pagesBanner/view/PagesBannerView";
 import { useProfile } from "../hooks/useProfile";
-import AdminProfile from "../components/AdminProfile";
+import AdminPagos from "../components/AdminPagos";
 import Spinner from "../../../components/spinner/Spinner";
 import Certificates from "../components/Certificates";
 import TemasLibres from "../components/TemasLibres";
 import AdminTemasLibres from "../components/AdminTemasLibres";
+import AdminUserProfile from "../components/AdminUserProfile";
+import AdminTemasLibresView from "../components/AdminTemasLibresView";
 
 const PerfilView = () => {
   useEffect(() => {
@@ -23,20 +25,19 @@ const PerfilView = () => {
 
     switch (userData.role) {
       case "admin":
-        return <AdminProfile userId={user.uid} />;
+        return <AdminPagos userId={user.uid} />;
       case "temasLibresPresidente":
-        return <AdminTemasLibres userId={user.uid}/>;
+        return (
+          <AdminTemasLibresView />
+        )
       case "temasLibresVocal":
-        return <AdminTemasLibres userId={user.uid}/>;
+        return (
+          <AdminTemasLibresView />
+        )
       case "user":
       default:
         return (
-          <>
-            <UserProfile />
-            <Registration />
-            <TemasLibres />
-            <Certificates />
-          </>
+          <AdminUserProfile />
         );
     }
   };

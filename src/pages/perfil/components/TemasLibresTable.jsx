@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import { useTemasLibres } from "../hooks/useTemasLibres";
 
 const TemasLibresTable = () => {
-  const { renderTemasLibres, handleProcesarTemaLibre } = useTemasLibres();
+  const { renderTemasLibres, handleProcesarTemaLibre, formatAutores } = useTemasLibres();
 
 
   const tableItems = [
@@ -85,7 +85,7 @@ const TemasLibresTable = () => {
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {
                       Array.isArray(renderTemaLibre.autoresList)
-                        ? renderTemaLibre.autoresList.join(", ")
+                        ? formatAutores(renderTemaLibre.autoresList, 1)
                         : "-"
                     }
                   </TableCell>

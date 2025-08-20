@@ -9,7 +9,7 @@ export const useGlobal = () => {
         internalView,
         setInternalView,
         processTrabajoId,
-        setProcessTrabajoId
+        setProcessTrabajoId,
     } = useContext(GlobalContext)
 
     return {
@@ -19,7 +19,7 @@ export const useGlobal = () => {
         internalView,
         setInternalView,
         processTrabajoId,
-        setProcessTrabajoId
+        setProcessTrabajoId,
     };
 }
 

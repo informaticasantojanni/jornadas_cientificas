@@ -9,7 +9,7 @@ import { Typography, Box } from "@mui/material";
 
 const TemasLibresProcess = () => {
 
-  const { handleGuardarTrabajo, formData, handleChange, REVISION_ESTADOS
+  const { handleGuardarTrabajo, formData, handleChange, REVISION_ESTADOS, handleVolver
   } = useTemasLibres();
   const { listaVocales, estadosRevision } = useProcessTL();
   console.log(formData)
@@ -78,10 +78,27 @@ const TemasLibresProcess = () => {
             </select>
           </div>
 
+          <div className="flex flex-col mb-5">
+            <label className="text-White w-full pb-2">Devolución revisión (cuerpo del email)</label>
+            <textarea
+              name="comentariosRevision"
+              value={formData.comentariosRevision ?? ""}
+              onChange={handleChange}
+              rows={4} // cantidad de líneas visibles
+              className="rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow resize-none"
+              placeholder="Escriba sus comentarios aquí..."
+            />
+          </div>
 
         </div>
 
         <div className="w-full flex justify-center pt-5">
+          <button
+            className="w-[150px] text-xl font-bold px-5 py-3 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
+            onClick={handleVolver}
+          >
+            Volver
+          </button>
           <button
             className="w-[150px] text-xl font-bold px-5 py-3 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
             type="submit"

@@ -20,7 +20,8 @@ export const useTemasLibres = () => {
         serviciosList: "",
         vocalAsignado: "",
         vocalRevision: "",
-        autoresList: ""
+        autoresList: "",
+        comentariosRevision: ""
     });
     const [selectedValue, setSelectedValue] = useState("");
     const { setShowSpinner, internalView, setInternalView, processTrabajoId, setProcessTrabajoId } = useGlobal()
@@ -67,7 +68,8 @@ export const useTemasLibres = () => {
                         serviciosList: trabajo?.serviciosList || "",
                         vocalAsignado: trabajo?.vocalAsignado || "",
                         vocalRevision: trabajo?.vocalRevision || "",
-                        autoresList: trabajo?.autoresList || ""
+                        autoresList: trabajo?.autoresList || "",
+                        comentariosRevision: trabajo?.comentariosRevision || ""
                     });
                     setInternalView("procesarTemasLibres");
                 }
@@ -137,7 +139,25 @@ export const useTemasLibres = () => {
         console.log("Form Data Submitted: ", formData);
     };
 
+    const formatAutores = (arr, n = 3, maxLen = 30) => {
+        if (!Array.isArray(arr)) return "-";
 
+        // función corta para truncar texto
+        const truncate = (str) =>
+            str.length > maxLen ? str.slice(0, maxLen) + "…" : str;
+
+        const sliced = arr.slice(0, n).map(truncate);
+
+        return arr.length > n
+            ? sliced.join(", ") + ` y ${arr.length - n} más`
+            : arr.map(truncate).join(", ");
+    };
+
+
+    const handleVolver = () => {
+        setInternalView("temasLibres");
+        setProcessTrabajoId("");
+    };
 
     return {
         renderTemasLibres,
@@ -146,7 +166,9 @@ export const useTemasLibres = () => {
         selectedValue,
         handleChange,
         formData,
-        REVISION_ESTADOS
+        REVISION_ESTADOS,
+        formatAutores,
+        handleVolver
     }
 }
 

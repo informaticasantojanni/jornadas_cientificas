@@ -32,7 +32,7 @@ const GlobalProvider = ({ children }) => {
                     internalView,
                     setInternalView,
                     processTrabajoId,
-                    setProcessTrabajoId
+                    setProcessTrabajoId,
                 }
             }>
 
