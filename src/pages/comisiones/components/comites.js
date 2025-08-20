@@ -72,9 +72,12 @@ export const comites = [
         "mostrarCargos": "true",
         "presidenteNombre": "Aldana Rondinela ",
         "presidenteGenero": "Dra.",
-        "secretarioNombre": "",
+        "secretarioNombre": "Mónica Sierra",
         "secretarioGenero": "",
-        "vocales": [{ "nombre": "" , "genero": "" }]
+        "vocales": [
+            { "nombre": "Sandra Gonzales" , "genero": "Dra." },
+            { "nombre": "Fernando García" , "genero": "Dr." }
+        ]
     },
     {
         "comiteNombre": "Comité de Informática y Redes Sociales",
@@ -125,7 +128,7 @@ export const comites = [
         ]
     },
     {
-        "comiteNombre": "Comité asesor",
+        "comiteNombre": "Comité Asesor",
         "mostrarCargos": "false",
         "asesores": [
             { "nombre": "Ruben Luca", "genero": "Dr." },
@@ -135,7 +138,7 @@ export const comites = [
         ]
     },
     {
-        "comiteNombre": "Comité de area programàtica",
+        "comiteNombre": "Comité de Area Programática",
         "mostrarCargos": "true",
         "presidenteNombre": "Sandra Eidner",
         "presidenteGenero": "Dra.",
@@ -144,7 +147,7 @@ export const comites = [
         "vocales": []
     },
     {
-        "comiteNombre": "Comité Residentes y concurrentes",
+        "comiteNombre": "Comité Residentes y Concurrentes",
         "mostrarCargos": "true",
         "coordinadorGeneral": "Dra. Daniela Rey | Lic. Lourdes Laurens ",
         "presidenteNombre": "Fernanda Aseijas (Clínica Médica)",
