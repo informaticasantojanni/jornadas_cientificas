@@ -3,9 +3,11 @@ import AdminUserProfile from './AdminUserProfile';
 import AdminTemasLibres from './AdminTemasLibres';
 import { useAuth } from '../../../core/auth/hooks/useAuth';
 import ButtonVioletSM from '../../../components/buttons/ButtonVioletSM';
+import { useGlobal } from '../../../hooks/useGlobal';
 
 const AdminTemasLibresView = () => {
     const { user } = useAuth();
+    const { internalView } = useGlobal();
     const [perfilTemasLibresView, setPerfilTemasLibresView] = useState("");
 
     return (
@@ -23,6 +25,7 @@ const AdminTemasLibresView = () => {
                         />
                     </div>
                 )}
+
                 {perfilTemasLibresView === "AdminUserProfile" && (
                     <div className="flex flex-col items-center">
                         <ButtonVioletSM
@@ -31,7 +34,7 @@ const AdminTemasLibresView = () => {
                         />
                     </div>
                 )}
-                {perfilTemasLibresView === "AdminTemasLibres" && (
+                {(perfilTemasLibresView === "AdminTemasLibres"  && internalView == "temasLibres") && (
                     <div className="flex flex-col items-center">
                         <ButtonVioletSM
                             onClick={() => setPerfilTemasLibresView("")}

@@ -11,7 +11,6 @@ import { useTemasLibres } from "../hooks/useTemasLibres";
 
 const TemasLibresTable = () => {
   const { renderTemasLibres, handleProcesarTemaLibre, formatAutores, tableItems, listaVocales, REVISION_ESTADOS } = useTemasLibres();
-  console.log("listaVocales", listaVocales)
 
   return (
     <div className="w-full pb-20">
@@ -101,7 +100,7 @@ const TemasLibresTable = () => {
                     {renderTemaLibre?.vocalAsignado ? listaVocales.find((vocal) => vocal.id == renderTemaLibre.vocalAsignado )?.label : "Pendiente"} {/* */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre?.vocalRevision ? REVISION_ESTADOS[renderTemaLibre?.vocalRevision] : "Pendiente"} {/* */}
+                    {renderTemaLibre?.vocalRevision ? REVISION_ESTADOS.find((estado) => estado.id == renderTemaLibre.vocalRevision)?.label : "Pendiente"} {/* */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre?.vocalComentarios ?? "Pendiente"} {/* */}

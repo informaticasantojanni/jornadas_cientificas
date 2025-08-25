@@ -4,15 +4,12 @@
 // import AddIcon from "../svgIcons/AddIcon";
 // import DeleteIcon from "../svgIcons/DeleteIcon"; // Assuming you have a delete icon
 import { useTemasLibres } from "../hooks/useTemasLibres";
-import { useProcessTL } from "../hooks/useProcessTL";
 import { Typography, Box } from "@mui/material";
 
 const TemasLibresProcess = () => {
 
-  const { handleGuardarTrabajo, formData, handleChange, REVISION_ESTADOS, handleVolver, listaVocales
+  const { handleGuardarTrabajo, formData, handleChange, handleVolver, listaVocales, REVISION_ESTADOS
   } = useTemasLibres();
-  const { estadosRevision } = useProcessTL();
-
 
   return (
     <div className="w-full">
@@ -70,7 +67,7 @@ const TemasLibresProcess = () => {
               onChange={handleChange}
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`}
             >
-              {estadosRevision.map((estado) => (
+              {REVISION_ESTADOS.map((estado) => (
                 <option key={estado.id} value={estado.id}>
                   {estado.label}
                 </option>
@@ -92,7 +89,7 @@ const TemasLibresProcess = () => {
 
         </div>
 
-        <div className="w-full flex justify-center pt-5">
+        <div className="w-full flex justify-center pt-5 gap-5">
           <button
             className="w-[150px] text-xl font-bold px-5 py-3 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
             onClick={handleVolver}

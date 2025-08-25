@@ -173,11 +173,13 @@ export const useTemasLibres = () => {
     };
 
 
-    const REVISION_ESTADOS = {
-        PENDIENTE: "Pendiente",
-        ACEPTADO: "Aceptado",
-        RECHAZADO: "Rechazado"
-    }
+
+    const REVISION_ESTADOS = [
+        { id: 1, label: "Pendiente" },
+        { id: 2, label: "Aceptado" },
+        { id: 3, label: "Observado" },
+        { id: 4, label: "Rechazado" }
+    ];
 
     const tableItems = [
         "Título",
@@ -212,7 +214,8 @@ export const useTemasLibres = () => {
         formatAutores,
         handleVolver,
         tableItems,
-        listaVocales
+        listaVocales,
+        REVISION_ESTADOS
     }
 }
 
