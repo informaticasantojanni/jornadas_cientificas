@@ -9,10 +9,10 @@ import { Typography, Box } from "@mui/material";
 
 const TemasLibresProcess = () => {
 
-  const { handleGuardarTrabajo, formData, handleChange, REVISION_ESTADOS, handleVolver
+  const { handleGuardarTrabajo, formData, handleChange, REVISION_ESTADOS, handleVolver, listaVocales
   } = useTemasLibres();
-  const { listaVocales, estadosRevision } = useProcessTL();
-  console.log(formData)
+  const { estadosRevision } = useProcessTL();
+
 
   return (
     <div className="w-full">

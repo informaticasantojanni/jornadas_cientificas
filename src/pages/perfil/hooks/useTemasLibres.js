@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
-import { getTemasLibres, getTemasLibresById, getUserById } from "../../../services/firebase.services";
+import { getTemasLibres, getTemasLibresById, getUserById, getAllUsers } from "../../../services/firebase.services";
 import { useGlobal } from "../../../hooks/useGlobal";
 import { updateTrabajo } from "../../../services/firebase.services";
 import Swal from "sweetalert2";
 import { useAuth } from "../../../core/auth/hooks/useAuth";
+import { use } from "react";
 
 export const useTemasLibres = () => {
-    const REVISION_ESTADOS = {
-        PENDIENTE: "Pendiente",
-        ACEPTADO: "Aceptado",
-        RECHAZADO: "Rechazado"
-    }
 
     const { user } = useAuth();
+    const { setShowSpinner, internalView, setInternalView, processTrabajoId, setProcessTrabajoId } = useGlobal()
+
     const eventId = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
     const [renderTemasLibres, setRenderTemasLibres] = useState([]);
     const [formData, setFormData] = useState({
@@ -24,7 +22,7 @@ export const useTemasLibres = () => {
         comentariosRevision: ""
     });
     const [selectedValue, setSelectedValue] = useState("");
-    const { setShowSpinner, internalView, setInternalView, processTrabajoId, setProcessTrabajoId } = useGlobal()
+    const [listaVocales, setListaVocales] = useState([]);
 
     useEffect(() => {
         const fetchTemasLibres = async () => {
@@ -36,7 +34,6 @@ export const useTemasLibres = () => {
                 } else {
                     console.log("User ID: ", user.uid);
                     const userData = await getUserById(user.uid);
-                    console.log("User Data: ", userData);
                     if (userData.role == "temasLibresPresidente") {
                         setRenderTemasLibres(temasLibresResponse.data);
                     } else if (userData.role == "temasLibresVocal") {
@@ -49,6 +46,22 @@ export const useTemasLibres = () => {
                 console.error("Error: ", error);
             }
         };
+
+        const fetchVocales = async () => {
+            try {
+                const usersResponse = await getAllUsers();
+                const usersVocales = usersResponse.filter(user => user.role.includes("temasLibresVocal"));
+                console.log("Vocales: ", usersVocales);
+                const vocales = usersVocales.map(vocal => {
+                    return { id: vocal.id, label: vocal.name + " " + vocal.lastName };
+                })
+
+                setListaVocales(vocales);
+            } catch (error) {
+            }
+        }
+
+        fetchVocales();
         fetchTemasLibres();
     }, []);
 
@@ -159,6 +172,35 @@ export const useTemasLibres = () => {
         setProcessTrabajoId("");
     };
 
+
+    const REVISION_ESTADOS = {
+        PENDIENTE: "Pendiente",
+        ACEPTADO: "Aceptado",
+        RECHAZADO: "Rechazado"
+    }
+
+    const tableItems = [
+        "Título",
+        "Servicios",
+        "Autores",
+        "Link Abstract",
+        "Presenta a premio",
+        "Link Premio",
+        "Lugar de realización",
+        "Contacto Nombre",
+        "Contacto Apellido",
+        "Contacto Email",
+        "Contacto Cell",
+        "Vocal Asignado",
+        "Revisión",
+        "Comentarios",
+        "Dia Presentación",
+        "Hora Presentación",
+        "Aula Presentación",
+        "Procesar",
+    ];
+
+
     return {
         renderTemasLibres,
         handleProcesarTemaLibre,
@@ -168,7 +210,9 @@ export const useTemasLibres = () => {
         formData,
         REVISION_ESTADOS,
         formatAutores,
-        handleVolver
+        handleVolver,
+        tableItems,
+        listaVocales
     }
 }
 

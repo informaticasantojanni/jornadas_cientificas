@@ -10,35 +10,14 @@ import Button from "@mui/material/Button";
 import { useTemasLibres } from "../hooks/useTemasLibres";
 
 const TemasLibresTable = () => {
-  const { renderTemasLibres, handleProcesarTemaLibre, formatAutores } = useTemasLibres();
-
-
-  const tableItems = [
-    "Título",
-    "Servicios",
-    "Autores",
-    "Link Abstract",
-    "Presenta a premio",
-    "Link Premio",
-    "Lugar de realización",
-    "Contacto Nombre",
-    "Contacto Apellido",
-    "Contacto Cell",
-    "Contacto Email",
-    "Vocal Asignado",
-    "Revisión",
-    "Comentarios",
-    "Dia Presentación",
-    "Hora Presentación",  
-    "Aula Presentación",
-    "Procesar",
-  ];
+  const { renderTemasLibres, handleProcesarTemaLibre, formatAutores, tableItems, listaVocales, REVISION_ESTADOS } = useTemasLibres();
+  console.log("listaVocales", listaVocales)
 
   return (
     <div className="w-full pb-20">
       <TableContainer
         component={Paper}
-        sx={{ height: '70vh',  overflow: 'auto', boxShadow: 3, borderRadius: 2 }}
+        sx={{ height: '70vh', overflow: 'auto', boxShadow: 3, borderRadius: 2 }}
       >
         <Table stickyHeader>
           <TableHead>
@@ -118,11 +97,11 @@ const TemasLibresTable = () => {
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre.contactoCelular} {/* */}
                   </TableCell>
-                  <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre?.vocalAsignado ?? "Pendiente"} {/* */}
+                  <TableCell align="center" sx={{ fontSize: 12, color: renderTemaLibre?.vocalAsignado ? "inherit" : "red" }}>
+                    {renderTemaLibre?.vocalAsignado ? listaVocales.find((vocal) => vocal.id == renderTemaLibre.vocalAsignado )?.label : "Pendiente"} {/* */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre?.vocalRevision ?? "Pendiente"} {/* */}
+                    {renderTemaLibre?.vocalRevision ? REVISION_ESTADOS[renderTemaLibre?.vocalRevision] : "Pendiente"} {/* */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre?.vocalComentarios ?? "Pendiente"} {/* */}
