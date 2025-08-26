@@ -8,9 +8,10 @@ export const useReports = () => {
   const generateReport = async () => {
     const urlFetchAPI =
       "https://script.google.com/macros/s/AKfycbzsxURPEfQ1XYdYWEKU9iv4xhL1PFl_NBFJVVkMiV0vQwiHxgvFarKvrqbPl9lI9Kcz4g/exec";
-    const EVENT_ID = "ZbclMy93Cs9jzEYAgVui";
+    const EVENT_ID = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
 
     try {
+      console.log("Generating report...");
       const users = await getAllUsers();
       const usersRegistration = [];
       for (const user of users) {

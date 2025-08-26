@@ -13,8 +13,12 @@ export const useTemasLibres = () => {
 
     const eventId = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
     const [renderTemasLibres, setRenderTemasLibres] = useState([]);
+    const [listaTemasLibres, setListaTemasLibres] = useState([]);
     const [formData, setFormData] = useState({
         titulo: "",
+        nombre: "",
+        apellido: "",
+        contactoEmail: "",
         serviciosList: "",
         vocalAsignado: "",
         vocalRevision: "",
@@ -23,6 +27,15 @@ export const useTemasLibres = () => {
     });
     const [selectedValue, setSelectedValue] = useState("");
     const [listaVocales, setListaVocales] = useState([]);
+    const [filtrarTemaLibre, setFiltrarTemaLibre] = useState("");
+    const urlFetchAPI = "https://script.google.com/macros/s/AKfycbx9WaHUgXm3YiOo0x_NT0Lu-NFsgGB6Ej9TbrPzOJ2f32fl6XBtJm_6xMSY9uH8NUBd/exec"
+
+    const REVISION_ESTADOS = [
+        { id: 1, label: "Pendiente" },
+        { id: 2, label: "Aceptado" },
+        { id: 3, label: "Observado" },
+        { id: 4, label: "Rechazado" }
+    ];
 
     useEffect(() => {
         const fetchTemasLibres = async () => {
@@ -36,10 +49,12 @@ export const useTemasLibres = () => {
                     const userData = await getUserById(user.uid);
                     if (userData.role == "temasLibresPresidente") {
                         setRenderTemasLibres(temasLibresResponse.data);
+                        setListaTemasLibres(temasLibresResponse.data);
                     } else if (userData.role == "temasLibresVocal") {
                         console.log("User Data ID: ", userData.id);
                         console.log("Temas Libres Data: ", temasLibresResponse.data);
                         setRenderTemasLibres(temasLibresResponse.data.filter(trabajo => trabajo.vocalAsignado == userData.id));
+                        setListaTemasLibres(temasLibresResponse.data.filter(trabajo => trabajo.vocalAsignado == userData.id));
                     }
                 }
             } catch (error) {
@@ -78,6 +93,9 @@ export const useTemasLibres = () => {
                     const trabajo = trabajoResponse.data;
                     setFormData({
                         titulo: trabajo?.titulo || "",
+                        nombre: trabajo?.nombre || "",
+                        apellido: trabajo?.apellido || "",
+                        contactoEmail: trabajo?.contactoEmail || "",
                         serviciosList: trabajo?.serviciosList || "",
                         vocalAsignado: trabajo?.vocalAsignado || "",
                         vocalRevision: trabajo?.vocalRevision || "",
@@ -96,6 +114,23 @@ export const useTemasLibres = () => {
     }, [processTrabajoId]);
 
 
+    useEffect(() => {
+        const filterTemasLibres = () => {
+            const filtered = listaTemasLibres.filter(tema =>
+                tema.titulo.toLowerCase().includes(filtrarTemaLibre.toLowerCase()) ||
+                (Array.isArray(tema.autoresList) && tema.autoresList.some(autor => autor.toLowerCase().includes(filtrarTemaLibre.toLowerCase()))) ||
+                (Array.isArray(tema.serviciosList) && tema.serviciosList.some(servicio => servicio.toLowerCase().includes(filtrarTemaLibre.toLowerCase()))) ||
+                tema.contactoNombre.toLowerCase().includes(filtrarTemaLibre.toLowerCase()) ||
+                tema.contactoApellido.toLowerCase().includes(filtrarTemaLibre.toLowerCase()) ||
+                tema.contactoEmail.toLowerCase().includes(filtrarTemaLibre.toLowerCase()) ||
+                tema.contactoCelular.toLowerCase().includes(filtrarTemaLibre.toLowerCase())
+            );
+            setRenderTemasLibres(filtered);
+        }
+
+        filterTemasLibres();
+    }, [filtrarTemaLibre]);
+
     const handleProcesarTemaLibre = async (id) => {
         setProcessTrabajoId(id);
     }
@@ -112,26 +147,35 @@ export const useTemasLibres = () => {
     const handleGuardarTrabajo = async (e) => {
         e.preventDefault();
         setShowSpinner(true);
-        const response = await updateTrabajo(eventId, processTrabajoId, formData);
-        if (!response.status) {
-            Swal.fire({
-                title: "Error",
-                text: `${response.error} !`,
-                background: "#FAFAFA",
-                color: "#025951",
-                iconColor: "#DC143C",
-                icon: "error",
-                allowOutsideClick: false, // No permite hacer clic fuera del modal
-                allowEscapeKey: false, // No permite cerrar con la tecla Escape
-                allowEnterKey: false, // No permite cerrar con la tecla Enter
-                confirmButtonText: "Aceptar",
-                confirmButtonColor: "#038C7F",
-            });
-            return;
-        } else {
-            const userInput = await Swal.fire({
-                title: "Cambio exitoso!",
-                text: `Se han actualizado los datos del trabajo.`,
+        let error = "";
+        let userInput = null;
+
+        // TO DO:
+        // Antes de guardar agregar un pop de confirmación
+
+        try {
+            const updateTrabajoresponse = await updateTrabajo(eventId, processTrabajoId, formData);
+            if (!updateTrabajoresponse.status) {
+                error = updateTrabajoresponse.error;
+                throw new Error(error);
+            }
+
+            const enviarEmailResponse = await enviarEmailRevisionTemasLibres();
+            if (!enviarEmailResponse.status) {
+                error = enviarEmailResponse.error;
+                throw new Error(error);
+            }
+
+        } catch (e) {
+            error = e;
+            console.error("Error saving trabajo: ", error);
+
+        } finally {
+            setShowSpinner(false);
+            // Después del clic en "Aceptar", recargar la página
+            userInput = await Swal.fire({
+                title: error == "" ? "Cambio exitoso!" : "Error",
+                text: error == "" ? `Se han actualizado los datos del trabajo.` : error,
                 background: "#FAFAFA",
                 color: "#025951",
                 iconColor: "#025951",
@@ -142,25 +186,19 @@ export const useTemasLibres = () => {
                 confirmButtonText: "Aceptar",
                 confirmButtonColor: "#038C7F",
             });
-
-            // Después del clic en "Aceptar", recargar la página
             if (userInput.isConfirmed) {
                 window.location.reload();
             }
         }
-
-        console.log("Form Data Submitted: ", formData);
     };
+
 
     const formatAutores = (arr, n = 3, maxLen = 30) => {
         if (!Array.isArray(arr)) return "-";
-
         // función corta para truncar texto
         const truncate = (str) =>
             str.length > maxLen ? str.slice(0, maxLen) + "…" : str;
-
         const sliced = arr.slice(0, n).map(truncate);
-
         return arr.length > n
             ? sliced.join(", ") + ` y ${arr.length - n} más`
             : arr.map(truncate).join(", ");
@@ -173,13 +211,55 @@ export const useTemasLibres = () => {
     };
 
 
+    const handleTableFilter = (e) => {
+        console.log(e.target.value)
+        setFiltrarTemaLibre(e.target.value);
+    }
 
-    const REVISION_ESTADOS = [
-        { id: 1, label: "Pendiente" },
-        { id: 2, label: "Aceptado" },
-        { id: 3, label: "Observado" },
-        { id: 4, label: "Rechazado" }
-    ];
+    const enviarEmailRevisionTemasLibres = async () => {
+        const response = { status: true, error: "" };
+
+        // Step 1: Create a new object to avoid modifying the original formData
+        // and set the vocalRevision property correctly.
+        const userDataPrep = {
+            ...formData,
+            vocalRevision: REVISION_ESTADOS.find(estado => estado.id == formData.vocalRevision)?.label || "",
+        };
+
+        // Step 2: Create the fetchData object using the prepared data
+        const fetchData = {
+            userData: userDataPrep,
+            action: "revision_temas_libres",
+        };
+
+        // Fetch Gmail to send email
+        const jsonResponse = await fetch(urlFetchAPI, {
+            method: "POST",
+            redirect: "follow",
+            dataType: "json",
+            accepts: "application/json",
+            body: JSON.stringify(fetchData),
+        });
+
+        // Handle the response from the Google Apps Script endpoint
+        if (jsonResponse.ok) {
+            const objectResponse = await jsonResponse.json();
+
+            // Handle the response from the Google Apps Script App
+            if (objectResponse.status) {
+                response.status = true;
+            } else {
+                response.status = false;
+                response.error = objectResponse.error;
+            }
+        } else {
+            response.status = false;
+            response.error = objectResponse.error;
+        }
+        return response;
+    }
+
+
 
     const tableItems = [
         "Título",
@@ -215,7 +295,8 @@ export const useTemasLibres = () => {
         handleVolver,
         tableItems,
         listaVocales,
-        REVISION_ESTADOS
+        REVISION_ESTADOS,
+        handleTableFilter
     }
 }
 

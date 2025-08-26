@@ -10,10 +10,31 @@ import Button from "@mui/material/Button";
 import { useTemasLibres } from "../hooks/useTemasLibres";
 
 const TemasLibresTable = () => {
-  const { renderTemasLibres, handleProcesarTemaLibre, formatAutores, tableItems, listaVocales, REVISION_ESTADOS } = useTemasLibres();
+  const { renderTemasLibres, handleProcesarTemaLibre, formatAutores, tableItems, listaVocales, REVISION_ESTADOS, handleTableFilter } = useTemasLibres();
 
   return (
     <div className="w-full pb-20">
+
+      {/* Form filtrar contenido */}
+      <div className="w-full pb-10">
+          <div className="w-full m-auto rounded-xl p-5 bg-gradient-to-b from-LightGreen to-Green text-white tablet:w-1/2 laptop1:w-1/2 laptop2:w-[500px]">
+            <div className="flex flex-col">
+              <label htmlFor="email" className="w-full text-White pb-2">
+                Filtrar contenido
+              </label>
+              <input
+                id="dni"
+                name="dni"
+                type="text"
+                className="w-full px-2 py-2 mb-5  rounded-lg shadow-lightShadowGrey"
+                onChange={handleTableFilter}
+                // ref={dniInputRef}
+              />
+              <p className="text-White">Mostrando: {renderTemasLibres?.length} registros</p>
+            </div>
+          </div>
+      </div>
+
       <TableContainer
         component={Paper}
         sx={{ height: '70vh', overflow: 'auto', boxShadow: 3, borderRadius: 2 }}

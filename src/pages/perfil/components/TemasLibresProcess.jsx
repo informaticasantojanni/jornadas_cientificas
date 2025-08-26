@@ -32,7 +32,7 @@ const TemasLibresProcess = () => {
             </Typography>
           </Box>
 
-          {/* Atores */}
+          {/* Autores */}
           <label className="text-White w-full py-2">Autores:</label>
           <Box sx={{ p: 1.5, border: '1px solid', borderColor: 'divider', borderRadius: 2, bgcolor: 'grey.50' }}>
             <Typography variant="body1" sx={{ wordBreak: 'break-word' }}>
@@ -94,7 +94,7 @@ const TemasLibresProcess = () => {
             className="w-[150px] text-xl font-bold px-5 py-3 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
             onClick={handleVolver}
           >
-            Volver
+            Cancelar
           </button>
           <button
             className="w-[150px] text-xl font-bold px-5 py-3 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
