@@ -46,7 +46,7 @@ export const datos_certificados = [
     },
     {
         tipo: "autores_temas_libres",
-        autores: "Dr. Córdoba Juan Pablo, Dr. Cuello Martín, Dra. Conde María, Dr. Ambrosis Juan Ignacio",
+        autores: "Dra. Mary Almendras, Kalousek Marcelo, Garralda Valeria, Fullone Pedro, Galetti Facundo, Casavilla Gustavo",
         titulo: "Terapia endoscópica de vacío para manejo de defectos transmurales en el tracto digestivo superior como alternativa terapéutica costo efectiva"
     },
     {
@@ -686,7 +686,7 @@ export const datos_certificados = [
     },
     {
         tipo: "autores_temas_libres",
-        autores: "Bavio Juan Pablo, Sabattini Leandro, Sproviero Jorge",
+        autores: "Carla Croccita, Julieta Tortone, Loreley Toresan, Valeria Garralda, Gustavo Casavilla, Pedro Fullone",
         titulo: "NEUMOTÓRAX TRAUMÁTICO: EXPERIENCIA DEL HOSPITAL DONACIÓN SANTOJANNI."
     },
     {

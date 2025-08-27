@@ -4,7 +4,7 @@ import EventRegistrationsTable from "./EventRegistrationsTable";
 import { useEventRegistrations } from "../hooks/useEventRegistrations";
 import { useReports } from "../hooks/useReports";
 
-const AdminProfile = ({ userId }) => {
+const AdminPagos = ({ userId }) => {
   const { generateReport } = useReports();
   const { userData } = useProfile(userId);
   const [searchDni, setSearchDni] = useState("");
@@ -62,4 +62,4 @@ const AdminProfile = ({ userId }) => {
   );
 };
 
-export default AdminProfile;
+export default AdminPagos;

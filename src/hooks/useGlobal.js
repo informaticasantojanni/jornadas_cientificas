@@ -5,13 +5,23 @@ export const useGlobal = () => {
     const {
         desktopView,
         showSpinner,
-        setShowSpinner
+        setShowSpinner,
+        internalView,
+        setInternalView,
+        processTrabajoId,
+        setProcessTrabajoId,
+        PERFILES
     } = useContext(GlobalContext)
 
     return {
         desktopView,
         showSpinner,
-        setShowSpinner
+        setShowSpinner,
+        internalView,
+        setInternalView,
+        processTrabajoId,
+        setProcessTrabajoId,
+        PERFILES
     };
 }
 
