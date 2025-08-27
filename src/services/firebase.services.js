@@ -24,7 +24,6 @@ import {
   getDocumentsFromSubcollection,
   getDocumentsByIdsFromCollection,
 } from "../core/db/firestore.db";
-import { collection } from "firebase/firestore";
 
 
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -307,6 +306,28 @@ export const setInscripcionTemasLibres = async (eventId, temasLibresData) => {
   return res;
 };
 
+/*
+Este metodo hace un retrieve de todos los documents de la collection temasLibres
+*/
+export const getTemasLibres = async (eventId) => {
+  const response = await getDocumentsFromSubcollection(COLLECTIONS.EVENTS, eventId, COLLECTIONS.TEMAS_LIBRES);
+  return response
+}
+
+/*
+Este metodo hace un retrieve de un documento segun el id de la collection temasLibres
+*/
+export const getTemasLibresById = async (eventId, temaLibreId) => {
+  const data = {
+    parentCollection: COLLECTIONS.EVENTS,
+    parentDocId: eventId,
+    childCollection: COLLECTIONS.TEMAS_LIBRES,
+    childDocId: temaLibreId,
+  }
+  const response = await getDocumentByIdFromSubcollection(data);
+  return response
+}
+
 
 /*
 Este metodo hace el upload de un documento a Firestore */
@@ -317,4 +338,19 @@ export const uploadPdf = async (file, path) => {
   await uploadBytes(storageRef, file);
   const url = await getDownloadURL(storageRef);
   return url;
+};
+
+
+/*
+Este metodo hace el upload de un documento a Firestore */
+export const updateTrabajo = async (eventId, trabajoId, formData) => {
+  const data = {
+    parentCollection: COLLECTIONS.EVENTS,
+    parentDocId: eventId,
+    childCollection: COLLECTIONS.TEMAS_LIBRES,
+    childDocId: trabajoId,
+    updateData: formData,
+  };
+  const res = updateSubcollectionDocument(data);
+  return res;
 };
