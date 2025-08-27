@@ -5,8 +5,7 @@ import { useAuth } from '../../../core/auth/hooks/useAuth';
 import ButtonVioletSM from '../../../components/buttons/ButtonVioletSM';
 import { useGlobal } from '../../../hooks/useGlobal';
 
-const AdminTemasLibresView = () => {
-    const { user } = useAuth();
+const AdminTemasLibresView = ({userData}) => {
     const { internalView } = useGlobal();
     const [perfilTemasLibresView, setPerfilTemasLibresView] = useState("");
 
@@ -46,7 +45,7 @@ const AdminTemasLibresView = () => {
 
             <div className='w-full'>
                 {perfilTemasLibresView === "AdminUserProfile" && <AdminUserProfile />}
-                {perfilTemasLibresView === "AdminTemasLibres" && <AdminTemasLibres userId={user.uid} />}
+                {perfilTemasLibresView === "AdminTemasLibres" && <AdminTemasLibres userData={userData} />}
             </div>
 
         </div>

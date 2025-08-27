@@ -6,8 +6,8 @@ import { updateUserData } from "../../../services/firebase.services";
 
 export const useProfile = () => {
   const { user } = useAuth();
-  const [userData, setUserData] = useState(null);
   const { setShowSpinner } = useGlobal();
+  const [userData, setUserData] = useState({});
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
@@ -16,6 +16,7 @@ export const useProfile = () => {
     servicio: "",
     category: "",
     email: "",
+    role: ""
   });
   const [editing, setEditing] = useState(false);
 
@@ -46,6 +47,7 @@ export const useProfile = () => {
           servicio: res?.servicio || "",
           category: res?.category || "",
           email: res?.email || "",
+          role: res?.role || "",
         });
       } catch (error) {
         console.log("Unable to retrieve user data");

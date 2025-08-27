@@ -10,14 +10,14 @@ import { updateTrabajo } from "../../../services/firebase.services";
 import Swal from "sweetalert2";
 import { useAuth } from "../../../core/auth/hooks/useAuth";
 
-export const useTemasLibres = () => {
-    const { user } = useAuth();
+export const useTemasLibres = (userData) => {
     const {
         setShowSpinner,
         internalView,
         setInternalView,
         processTrabajoId,
         setProcessTrabajoId,
+        PERFILES
     } = useGlobal();
 
     const eventId = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
@@ -33,6 +33,11 @@ export const useTemasLibres = () => {
         contactoNombre: "",
         contactoApellido: "",
         contactoEmail: "",
+        presentacionDia: "",
+        presentacionHora: "",
+        presentacionAula: "",
+        trabajoEvaluacion: "",
+        trabajoEvaluacionObservaciones: ""
     });
     const [selectedValue, setSelectedValue] = useState("");
     const [listaVocales, setListaVocales] = useState([]);
@@ -42,7 +47,7 @@ export const useTemasLibres = () => {
         pendientesRevision: false,
     });
     const urlFetchAPI =
-        "https://script.google.com/macros/s/AKfycbx9WaHUgXm3YiOo0x_NT0Lu-NFsgGB6Ej9TbrPzOJ2f32fl6XBtJm_6xMSY9uH8NUBd/exec";
+        "https://script.google.com/macros/s/AKfycby_hX8CP5S-dn8JIbBe37JmL2sBKjNhH5V0p2dixtfDkSKuM6L4zXVSinWoPImhYvSNEQ/exec";
 
     const REVISION_ESTADOS = [
         { id: 1, label: "Pendiente" },
@@ -53,22 +58,21 @@ export const useTemasLibres = () => {
 
     useEffect(() => {
         const fetchTemasLibres = async () => {
+            setShowSpinner(true);
+            console.log("User Data en fetch Temas Libres: ", userData);
             try {
                 // Llamar al servicio para obtener los temas libres
                 const temasLibresResponse = await getTemasLibres(eventId); // Asegúrate de definir esta función
                 if (!temasLibresResponse.status) {
                     throw new Error(
-                        "Error leyendo temas libres",
+                        "Error leyendo temas libres: ",
                         temasLibresResponse.error
                     );
                 } else {
-                    console.log("User ID: ", user.uid);
-                    const userData = await getUserById(user.uid);
-                    if (userData.role == "temasLibresPresidente") {
+                    if (userData?.role == "temasLibresPresidente") {
                         setRenderTemasLibres(temasLibresResponse.data);
                         setListaTemasLibres(temasLibresResponse.data);
-                    } else if (userData.role == "temasLibresVocal") {
-                        console.log("User Data ID: ", userData.id);
+                    } else if (userData?.role == "temasLibresVocal") {
                         console.log("Temas Libres Data: ", temasLibresResponse.data);
                         setRenderTemasLibres(
                             temasLibresResponse.data.filter(
@@ -99,9 +103,13 @@ export const useTemasLibres = () => {
                 });
 
                 setListaVocales(vocales);
-            } catch (error) { }
+            } catch (error) {
+                console.error("Error: ", error);
+            }
+            finally {
+                setShowSpinner(false);
+            }
         };
-
         fetchVocales();
         fetchTemasLibres();
     }, []);
@@ -129,11 +137,15 @@ export const useTemasLibres = () => {
                         serviciosList: trabajo?.serviciosList ?? "",
                         vocalAsignado: trabajo?.vocalAsignado ?? "",
                         vocalRevision: trabajo?.vocalRevision ?? "",
-                        vocalRevisionObservaciones:
-                            trabajo?.vocalRevisionObservaciones ?? "",
+                        vocalRevisionObservaciones: trabajo?.vocalRevisionObservaciones ?? "",
                         contactoNombre: trabajo?.contactoNombre ?? "",
                         contactoApellido: trabajo?.contactoApellido ?? "",
                         contactoEmail: trabajo?.contactoEmail ?? "",
+                        presentacionDia: trabajo?.presentacionDia ?? "",
+                        presentacionHora: trabajo?.presentacionHora ?? "",
+                        presentacionAula: trabajo?.presentacionAula ?? "",
+                        trabajoEvaluacion: trabajo?.trabajoEvaluacion ?? "",
+                        trabajoEvaluacionObservaciones: trabajo?.trabajoEvaluacionObservaciones ?? "",
                     });
                     setInternalView("procesarTemasLibres");
                 }
@@ -346,5 +358,6 @@ export const useTemasLibres = () => {
         REVISION_ESTADOS,
         handleTableFilter,
         filtrarTrabajos,
+        userData
     };
 };
