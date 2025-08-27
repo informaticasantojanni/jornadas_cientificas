@@ -8,6 +8,7 @@ const GlobalProvider = ({ children }) => {
     const [showSpinner, setShowSpinner] = useState(false)
     const [internalView, setInternalView] = useState("temasLibres");
     const [processTrabajoId, setProcessTrabajoId] = useState("");
+    const [userData, setUserData] = useState({});
     const PERFILES = {
         ADMIN: "admin",
         USER: "user",
@@ -15,7 +16,7 @@ const GlobalProvider = ({ children }) => {
         TEMAS_LIBRES_PRESIDENTE: "temasLibresPresidente",
         TEMAS_LIBRES_COMITE: "temasLibresComite"
     }
-    
+
     useEffect(() => {
         function handleResize() {
             setWindowWidth(window.innerWidth);

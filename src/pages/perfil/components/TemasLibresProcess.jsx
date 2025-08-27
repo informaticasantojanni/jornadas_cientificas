@@ -5,11 +5,10 @@
 // import DeleteIcon from "../svgIcons/DeleteIcon"; // Assuming you have a delete icon
 import { useTemasLibres } from "../hooks/useTemasLibres";
 import { Typography, Box } from "@mui/material";
-import { useAuth } from "../../../core/auth/hooks/useAuth";
 import { useGlobal } from "../../../hooks/useGlobal";
 
-const TemasLibresProcess = () => {
-  const { user } = useAuth();
+
+const TemasLibresProcess = ({userData}) => {
   const { PERFILES } = useGlobal();
   const {
     handleGuardarTrabajo,
@@ -85,7 +84,7 @@ const TemasLibresProcess = () => {
               name="vocalAsignado"
               value={formData.vocalAsignado ?? ""}
               onChange={handleChange}
-              disabled={[PERFILES.TEMAS_LIBRES_PRESIDENTE].includes(user.role)}
+              disabled={![PERFILES.TEMAS_LIBRES_PRESIDENTE].includes(userData.role)}
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`}
             >
               <option value="">Seleccione una opción</option>
@@ -104,7 +103,7 @@ const TemasLibresProcess = () => {
               name="vocalRevision"
               value={formData.vocalRevision ?? ""}
               onChange={handleChange}
-              disabled={[PERFILES.TEMAS_LIBRES_PRESIDENTE, PERFILES.TEMAS_LIBRES_VOCAL].includes(user.role)}
+              disabled={![PERFILES.TEMAS_LIBRES_PRESIDENTE,PERFILES.TEMAS_LIBRES_VOCAL ].includes(userData.role)}
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`}
             >
               {REVISION_ESTADOS.map((estado) => (
@@ -124,7 +123,7 @@ const TemasLibresProcess = () => {
               name="vocalRevisionObservaciones"
               value={formData.vocalRevisionObservaciones ?? ""}
               onChange={handleChange}
-              disabled={[PERFILES.TEMAS_LIBRES_PRESIDENTE, PERFILES.TEMAS_LIBRES_VOCAL].includes(user.role)}
+              disabled={![PERFILES.TEMAS_LIBRES_PRESIDENTE,PERFILES.TEMAS_LIBRES_VOCAL ].includes(userData.role)}
               rows={4} // cantidad de líneas visibles
               className="rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow resize-none"
               placeholder="Escriba sus comentarios aquí..."
