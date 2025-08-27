@@ -10,6 +10,7 @@ export const useGlobal = () => {
         setInternalView,
         processTrabajoId,
         setProcessTrabajoId,
+        PERFILES
     } = useContext(GlobalContext)
 
     return {
@@ -20,6 +21,7 @@ export const useGlobal = () => {
         setInternalView,
         processTrabajoId,
         setProcessTrabajoId,
+        PERFILES
     };
 }
 

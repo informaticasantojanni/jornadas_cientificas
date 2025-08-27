@@ -8,40 +8,83 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import { useTemasLibres } from "../hooks/useTemasLibres";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import { styled } from "@mui/material/styles";
 
 const TemasLibresTable = () => {
-  const { renderTemasLibres, handleProcesarTemaLibre, formatAutores, tableItems, listaVocales, REVISION_ESTADOS, handleTableFilter } = useTemasLibres();
+  const {
+    renderTemasLibres,
+    handleProcesarTemaLibre,
+    formatAutores,
+    tableItems,
+    listaVocales,
+    REVISION_ESTADOS,
+    handleTableFilter,
+    filtrarTrabajos,
+  } = useTemasLibres();
 
   return (
     <div className="w-full pb-20">
-
       {/* Form filtrar contenido */}
       <div className="w-full pb-10">
-          <div className="w-full m-auto rounded-xl p-5 bg-gradient-to-b from-LightGreen to-Green text-white tablet:w-1/2 laptop1:w-1/2 laptop2:w-[500px]">
-            <div className="flex flex-col">
-              <label htmlFor="email" className="w-full text-White pb-2">
-                Filtrar contenido
-              </label>
-              <input
-                id="dni"
-                name="dni"
-                type="text"
-                className="w-full px-2 py-2 mb-5  rounded-lg shadow-lightShadowGrey"
-                onChange={handleTableFilter}
-                // ref={dniInputRef}
+        <div className="w-full m-auto rounded-xl p-5 bg-gradient-to-b from-LightGreen to-Green text-white tablet:w-1/2 laptop1:w-1/2 laptop2:w-[500px]">
+          <div className="flex flex-col">
+            <label htmlFor="email" className="w-full text-White pb-2">
+              Filtrar contenido
+            </label>
+            <input
+              id="query"
+              name="query"
+              type="text"
+              className="w-full px-2 py-2 mb-5  rounded-lg shadow-lightShadowGrey"
+              onChange={handleTableFilter}
+            />
+
+            <div className="flex items-center">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="pendientesAsignacion"
+                    checked={filtrarTrabajos.pendientesAsignacion}
+                    onChange={handleTableFilter}
+                    sx={{ "&.Mui-checked": { color: "#FFF" } }}
+                  />
+                }
               />
-              <p className="text-White">Mostrando: {renderTemasLibres?.length} registros</p>
+              <p>Pendientes asignacion</p>
             </div>
+
+            <div className="flex items-center">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="pendientesRevision"
+                    type="checkbox"
+                    checked={filtrarTrabajos.pendientesRevision}
+                    onChange={handleTableFilter}
+                    sx={{ "&.Mui-checked": { color: "#FFF" } }}
+                  />
+                }
+              />
+              <p>Pendientes Revisiôn</p>
+            </div>
+
+            <p className="text-White mt-5">
+              Mostrando: {renderTemasLibres?.length} registros
+            </p>
           </div>
+        </div>
       </div>
 
       <TableContainer
         component={Paper}
-        sx={{ height: '70vh', overflow: 'auto', boxShadow: 3, borderRadius: 2 }}
+        sx={{ height: "70vh", overflow: "auto", boxShadow: 3, borderRadius: 2 }}
       >
         <Table stickyHeader>
           <TableHead>
-            <TableRow >
+            <TableRow>
               {tableItems.map((header, index) => (
                 <TableCell
                   key={index}
@@ -60,7 +103,10 @@ const TemasLibresTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {console.log("renderTemasLibres from table component; ", renderTemasLibres)}
+            {console.log(
+              "renderTemasLibres from table component; ",
+              renderTemasLibres
+            )}
             {renderTemasLibres?.length > 0 ? (
               renderTemasLibres?.map((renderTemaLibre) => (
                 <TableRow
@@ -72,35 +118,43 @@ const TemasLibresTable = () => {
                   }}
                 >
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre.titulo} {/* Asumiendo que hay un campo dni */}
+                    {renderTemaLibre.titulo}{" "}
+                    {/* Asumiendo que hay un campo dni */}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {Array.isArray(renderTemaLibre.serviciosList)
+                      ? renderTemaLibre.serviciosList.join(", ")
+                      : "-"}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {Array.isArray(renderTemaLibre.autoresList)
+                      ? formatAutores(renderTemaLibre.autoresList, 1)
+                      : "-"}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {
-                      Array.isArray(renderTemaLibre.serviciosList)
-                        ? renderTemaLibre.serviciosList.join(", ")
-                        : "-"
+                      <a
+                        href={renderTemaLibre.abstractUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Descargar PDF
+                      </a>
                     }
-                  </TableCell>
-                  <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {
-                      Array.isArray(renderTemaLibre.autoresList)
-                        ? formatAutores(renderTemaLibre.autoresList, 1)
-                        : "-"
-                    }
-                  </TableCell>
-                  <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {<a href={renderTemaLibre.abstractUrl} target="_blank" rel="noopener noreferrer">
-                      Descargar PDF
-                    </a>}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre.presentaPremio ? "si" : "no"}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {<a href={renderTemaLibre.
-                      trabajoPremioUrl} target="_blank" rel="noopener noreferrer">
-                      Descargar PDF
-                    </a>}
+                    {
+                      <a
+                        href={renderTemaLibre.trabajoPremioUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Descargar PDF
+                      </a>
+                    }
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre.lugar}
@@ -117,14 +171,31 @@ const TemasLibresTable = () => {
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre.contactoCelular} {/* */}
                   </TableCell>
-                  <TableCell align="center" sx={{ fontSize: 12, color: renderTemaLibre?.vocalAsignado ? "inherit" : "red" }}>
-                    {renderTemaLibre?.vocalAsignado ? listaVocales.find((vocal) => vocal.id == renderTemaLibre.vocalAsignado )?.label : "Pendiente"} {/* */}
+                  <TableCell
+                    align="center"
+                    sx={{
+                      fontSize: 12,
+                      color: renderTemaLibre?.vocalAsignado ? "inherit" : "red",
+                    }}
+                  >
+                    {renderTemaLibre?.vocalAsignado
+                      ? listaVocales.find(
+                          (vocal) => vocal.id == renderTemaLibre.vocalAsignado
+                        )?.label
+                      : "Pendiente"}{" "}
+                    {/* */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre?.vocalRevision ? REVISION_ESTADOS.find((estado) => estado.id == renderTemaLibre.vocalRevision)?.label : "Pendiente"} {/* */}
+                    {renderTemaLibre?.vocalRevision
+                      ? REVISION_ESTADOS.find(
+                          (estado) => estado.id == renderTemaLibre.vocalRevision
+                        )?.label
+                      : "Pendiente"}{" "}
+                    {/* */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre?.vocalComentarios ?? "Pendiente"} {/* */}
+                    {renderTemaLibre?.vocalRevisionObservaciones ?? "Pendiente"}{" "}
+                    {/* */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre?.presentacionDia ?? "Pendiente"} {/* */}
@@ -136,20 +207,23 @@ const TemasLibresTable = () => {
                     {renderTemaLibre?.presentacionLugar ?? "Pendiente"} {/* */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {<Button
-                      variant="contained"
-                      size="small"
-                      onClick={() => handleProcesarTemaLibre(renderTemaLibre.id)}
-                      sx={{
-                        backgroundColor: "#005996",
-                        color: "#fff",
-                        "&:hover": {
-                          backgroundColor: "#584ba0",
-                        },
-                      }}
-                    >
-                      Procesar
-                    </Button>
+                    {
+                      <Button
+                        variant="contained"
+                        size="small"
+                        onClick={() =>
+                          handleProcesarTemaLibre(renderTemaLibre.id)
+                        }
+                        sx={{
+                          backgroundColor: "#005996",
+                          color: "#fff",
+                          "&:hover": {
+                            backgroundColor: "#584ba0",
+                          },
+                        }}
+                      >
+                        Procesar
+                      </Button>
                     }
                   </TableCell>
                 </TableRow>

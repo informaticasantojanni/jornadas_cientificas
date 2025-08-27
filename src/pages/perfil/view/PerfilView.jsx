@@ -1,16 +1,12 @@
 import React, { useEffect } from "react";
-import UserDatos from "../components/UserDatos";
 import { useAuth } from "../../../core/auth/hooks/useAuth";
-import Registration from "../components/Registration";
 import PagesBannerView from "../../../components/pagesBanner/view/PagesBannerView";
 import { useProfile } from "../hooks/useProfile";
 import AdminPagos from "../components/AdminPagos";
 import Spinner from "../../../components/spinner/Spinner";
-import Certificates from "../components/Certificates";
-import TemasLibres from "../components/TemasLibres";
-import AdminTemasLibres from "../components/AdminTemasLibres";
 import AdminUserProfile from "../components/AdminUserProfile";
 import AdminTemasLibresView from "../components/AdminTemasLibresView";
+import { useGlobal } from "../../../hooks/useGlobal";
 
 const PerfilView = () => {
   useEffect(() => {
@@ -19,22 +15,24 @@ const PerfilView = () => {
 
   const { user } = useAuth();
   const { userData } = useProfile();
+  const {PERFILES} = useGlobal()
 
   const renderProfile = () => {
     if (!userData?.role) return null; // Evita renderizar hasta tener los datos
+    const userRole = userData.role;
 
     switch (userData.role) {
-      case "admin":
+      case PERFILES.ADMIN:
         return <AdminPagos userId={user.uid} />;
-      case "temasLibresPresidente":
+      case PERFILES.TEMAS_LIBRES_PRESIDENTE:
         return (
           <AdminTemasLibresView />
         )
-      case "temasLibresVocal":
+      case PERFILES.TEMAS_LIBRES_VOCAL:
         return (
           <AdminTemasLibresView />
         )
-      case "user":
+      case PERFILES.USER:
       default:
         return (
           <AdminUserProfile />
