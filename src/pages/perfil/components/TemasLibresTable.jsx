@@ -12,6 +12,8 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { styled } from "@mui/material/styles";
+import DownloadFile from "../components/icons/DownloadFile";
+import { Box } from "@mui/material";
 
 const TemasLibresTable = () => {
   const {
@@ -27,6 +29,7 @@ const TemasLibresTable = () => {
 
   return (
     <div className="w-full pb-20">
+
       {/* Form filtrar contenido */}
       <div className="w-full pb-10">
         <div className="w-full m-auto rounded-xl p-5 bg-gradient-to-b from-LightGreen to-Green text-white tablet:w-1/2 laptop1:w-1/2 laptop2:w-[500px]">
@@ -42,21 +45,21 @@ const TemasLibresTable = () => {
               onChange={handleTableFilter}
             />
 
-            <div className="flex items-center">
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    name="pendientesAsignacion"
-                    checked={filtrarTrabajos.pendientesAsignacion}
-                    onChange={handleTableFilter}
-                    sx={{ "&.Mui-checked": { color: "#FFF" } }}
-                  />
-                }
-              />
-              <p>Pendientes asignacion</p>
-            </div>
+              {/* <div className="flex items-center">
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      name="pendientesAsignacion"
+                      checked={filtrarTrabajos.pendientesAsignacion}
+                      onChange={handleTableFilter}
+                      sx={{ "&.Mui-checked": { color: "#FFF" } }}
+                    />
+                  }
+                />
+                <p>Pendientes asignacion</p>
+              </div> */}
 
-            <div className="flex items-center">
+            {/* <div className="flex items-center">
               <FormControlLabel
                 control={
                   <Checkbox
@@ -69,7 +72,7 @@ const TemasLibresTable = () => {
                 }
               />
               <p>Pendientes Revisiôn</p>
-            </div>
+            </div> */}
 
             <p className="text-White mt-5">
               Mostrando: {renderTemasLibres?.length} registros
@@ -132,30 +135,48 @@ const TemasLibresTable = () => {
                       : "-"}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {
+                    <Box display="flex" justifyContent="center" alignItems="center">
                       <a
                         href={renderTemaLibre.abstractUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Descargar PDF
+                        <DownloadFile width={20} height={20} />
                       </a>
-                    }
+                    </Box>
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre.presentaPremio ? "si" : "no"}
                   </TableCell>
+
+
                   <TableCell align="center" sx={{ fontSize: 12 }}>
+                    <Box display="flex" justifyContent="center" alignItems="center">
+                      <a
+                        href={renderTemaLibre.trabajoPremioUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {renderTemaLibre.trabajoPremioUrl ? <DownloadFile width={20} height={20} /> : "-"}
+                      </a>
+                    </Box>
+                  </TableCell>
+
+                  {/* <TableCell align="center" sx={{ fontSize: 12 }}>
                     {
                       <a
                         href={renderTemaLibre.trabajoPremioUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Descargar PDF
+                        {renderTemaLibre.trabajoPremioUrl ? "Descargar PDF" : "-"}
                       </a>
                     }
-                  </TableCell>
+                  </TableCell> */}
+
+
+
+
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre.lugar}
                   </TableCell>
@@ -180,16 +201,16 @@ const TemasLibresTable = () => {
                   >
                     {renderTemaLibre?.vocalAsignado
                       ? listaVocales.find(
-                          (vocal) => vocal.id == renderTemaLibre.vocalAsignado
-                        )?.label
+                        (vocal) => vocal.id == renderTemaLibre.vocalAsignado
+                      )?.label
                       : "Pendiente"}{" "}
                     {/* */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre?.vocalRevision
                       ? REVISION_ESTADOS.find(
-                          (estado) => estado.id == renderTemaLibre.vocalRevision
-                        )?.label
+                        (estado) => estado.id == renderTemaLibre.vocalRevision
+                      )?.label
                       : "Pendiente"}{" "}
                     {/* */}
                   </TableCell>

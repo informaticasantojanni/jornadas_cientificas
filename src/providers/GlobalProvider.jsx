@@ -13,7 +13,7 @@ const GlobalProvider = ({ children }) => {
         USER: "user",
         TEMAS_LIBRES_VOCAL: "temasLibresVocal",
         TEMAS_LIBRES_PRESIDENTE: "temasLibresPresidente",
-        TEMAS_LIBRES_COMITE: "temasLibresComitr"
+        TEMAS_LIBRES_COMITE: "temasLibresComite"
     }
     
     useEffect(() => {
