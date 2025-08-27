@@ -15,7 +15,7 @@ import { styled } from "@mui/material/styles";
 import DownloadFile from "../components/icons/DownloadFile";
 import { Box } from "@mui/material";
 
-const TemasLibresTable = () => {
+const TemasLibresTable = ({ userData }) => {
   const {
     renderTemasLibres,
     handleProcesarTemaLibre,
@@ -25,7 +25,7 @@ const TemasLibresTable = () => {
     REVISION_ESTADOS,
     handleTableFilter,
     filtrarTrabajos,
-  } = useTemasLibres();
+  } = useTemasLibres(userData);
 
   return (
     <div className="w-full pb-20">
@@ -45,7 +45,7 @@ const TemasLibresTable = () => {
               onChange={handleTableFilter}
             />
 
-              {/* <div className="flex items-center">
+            {/* <div className="flex items-center">
                 <FormControlLabel
                   control={
                     <Checkbox
@@ -203,29 +203,40 @@ const TemasLibresTable = () => {
                       ? listaVocales.find(
                         (vocal) => vocal.id == renderTemaLibre.vocalAsignado
                       )?.label
-                      : "Pendiente"}{" "}
+                      : "Pendiente"}
                     {/* */}
                   </TableCell>
-                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                  <TableCell align="center"
+                    sx={{
+                      fontSize: 12,
+                      color:
+                        renderTemaLibre?.vocalRevision === "2"
+                          ? "green"
+                          : renderTemaLibre?.vocalRevision === "3"
+                            ? "orange"
+                            : renderTemaLibre?.vocalRevision === "4"
+                              ? "red"
+                              : "inherit", // color por defecto
+                    }}
+                  >
                     {renderTemaLibre?.vocalRevision
                       ? REVISION_ESTADOS.find(
                         (estado) => estado.id == renderTemaLibre.vocalRevision
                       )?.label
-                      : "Pendiente"}{" "}
+                      : ""}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre?.vocalRevisionObservaciones ?? ""}
                     {/* */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre?.vocalRevisionObservaciones ?? "Pendiente"}{" "}
-                    {/* */}
+                    {renderTemaLibre?.presentacionDia ?? ""}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre?.presentacionDia ?? "Pendiente"} {/* */}
+                    {renderTemaLibre?.presentacionHora ?? ""}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre?.presentacionHora ?? "Pendiente"} {/* */}
-                  </TableCell>
-                  <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre?.presentacionLugar ?? "Pendiente"} {/* */}
+                    {renderTemaLibre?.presentacionAula ?? ""}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {

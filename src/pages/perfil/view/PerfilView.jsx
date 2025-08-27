@@ -14,23 +14,23 @@ const PerfilView = () => {
   }, []);
 
   const { user } = useAuth();
-  const { userData } = useProfile();
+  const { userData } = useProfile(user.uid);
   const {PERFILES} = useGlobal()
 
   const renderProfile = () => {
+    console.log("user data : ", userData);
     if (!userData?.role) return null; // Evita renderizar hasta tener los datos
-    const userRole = userData.role;
 
     switch (userData.role) {
       case PERFILES.ADMIN:
         return <AdminPagos userId={user.uid} />;
       case PERFILES.TEMAS_LIBRES_PRESIDENTE:
         return (
-          <AdminTemasLibresView />
+          <AdminTemasLibresView userData = {userData}/>
         )
       case PERFILES.TEMAS_LIBRES_VOCAL:
         return (
-          <AdminTemasLibresView />
+          <AdminTemasLibresView userData = {userData}/>
         )
       case PERFILES.USER:
       default:
