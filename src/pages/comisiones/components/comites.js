@@ -72,11 +72,10 @@ export const comites = [
         "mostrarCargos": "true",
         "presidenteNombre": "Aldana Rondinela ",
         "presidenteGenero": "Dra.",
-        "secretarioNombre": "Mónica Sierra",
-        "secretarioGenero": "",
-        "vocales": [
-            { "nombre": "Sandra Gonzales" , "genero": "Dra." },
-            { "nombre": "Fernando García" , "genero": "Dr." }
+        "secretarioNombre": "Monica Sierra",
+        "secretarioGenero": "Dra.",
+        "vocales": [{ "nombre": "Sandra Gonzales", "genero": "Dra." },
+        { "nombre": "Fernando Garcia", "genero": "Dr." }
         ]
     },
     {
@@ -96,7 +95,7 @@ export const comites = [
     {
         "comiteNombre": "Comité de Recepción y Actos Públicos",
         "mostrarCargos": "true",
-        "presidenteNombre": "Sandra Petruceli",
+        "presidenteNombre": "Sandra Petruzzelli",
         "presidenteGenero": "Dra.",
         "secretarioNombre": "Lic. María Inés Marquez | Dra. Victoria Bronzatti",
         "secretarioGenero": "",
@@ -142,9 +141,13 @@ export const comites = [
         "mostrarCargos": "true",
         "presidenteNombre": "Sandra Eidner",
         "presidenteGenero": "Dra.",
-        "secretarioNombre": "",
-        "secretarioGenero": "",
-        "vocales": []
+        "secretarioNombre": "Andrea Berra",
+        "secretarioGenero": "Lic.",
+        "vocales": [
+            { "nombre": "Leticia Andina", "genero": "Dra." },
+            { "nombre": "Liliana Bustos", "genero": "Dra." },
+            { "nombre": "Carla Santomaso", "genero": "Lic." }
+        ]
     },
     {
         "comiteNombre": "Comité Residentes y Concurrentes",

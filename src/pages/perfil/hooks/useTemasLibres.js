@@ -99,9 +99,9 @@ export const useTemasLibres = (userData) => {
                 );
                 console.log("Vocales: ", usersVocales);
                 const vocales = usersVocales.map((vocal) => {
-                    return { id: vocal.id, label: vocal.name + " " + vocal.lastName };
+                    return { id: vocal.id, label: toTitleCase(vocal.name) + " " + toTitleCase(vocal.lastName) };
                 });
-
+                vocales.sort((a, b) => a.label.localeCompare(b.label));
                 setListaVocales(vocales);
             } catch (error) {
                 console.error("Error: ", error);
@@ -205,7 +205,7 @@ export const useTemasLibres = (userData) => {
         setShowSpinner(true);
         let error = "";
         let userInput = null;
-
+        console.log("Form Data: ", formData);
         // TO DO:
         // Antes de guardar agregar un pop de confirmación
 
@@ -322,6 +322,16 @@ export const useTemasLibres = (userData) => {
         return response;
     };
 
+
+    function toTitleCase(str) {
+        return str
+            .toLowerCase()
+            .split(" ")
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(" ");
+    }
+
+
     const tableItems = [
         "Título",
         "Servicios",
@@ -343,6 +353,32 @@ export const useTemasLibres = (userData) => {
         "Procesar",
     ];
 
+    const PRESENTACION_DIAS = [
+        { id: 1, label: "Lunes - 29/9/2025" },
+        { id: 2, label: "Martes - 30/09/2025" },
+        { id: 3, label: "Miércoles - 1/10/2025" },
+        { id: 4, label: "Jueves - 2/10/2025" },
+        { id: 5, label: "Viernes - 3/10/2025" },
+    ];
+
+    const PRESENTACION_HORARIOS = [
+        { id: 1, label: "08:00" },
+        { id: 2, label: "09:00" },
+        { id: 3, label: "10:00" },
+        { id: 4, label: "11:00" },
+    ];
+
+    const PRESENTACION_AULAS = [
+        { id: 1, label: "Piso 2 - Aulas A-B" },
+        { id: 2, label: "Piso 3 - Aula C" },
+        { id: 3, label: "Piso 3 - Aula D" },
+        { id: 4, label: "Piso 4 - Aula E" },
+        { id: 5, label: "Piso 4 - Aula F" },
+
+    ];
+
+
+
     return {
         renderTemasLibres,
         handleProcesarTemaLibre,
@@ -358,6 +394,9 @@ export const useTemasLibres = (userData) => {
         REVISION_ESTADOS,
         handleTableFilter,
         filtrarTrabajos,
-        userData
+        userData,
+        PRESENTACION_DIAS,
+        PRESENTACION_HORARIOS,
+        PRESENTACION_AULAS,
     };
 };
