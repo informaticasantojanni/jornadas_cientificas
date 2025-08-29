@@ -72,11 +72,10 @@ export const comites = [
         "mostrarCargos": "true",
         "presidenteNombre": "Aldana Rondinela ",
         "presidenteGenero": "Dra.",
-        "secretarioNombre": "Mónica Sierra",
-        "secretarioGenero": "",
-        "vocales": [
-            { "nombre": "Sandra Gonzales" , "genero": "Dra." },
-            { "nombre": "Fernando García" , "genero": "Dr." }
+        "secretarioNombre": "Monica Sierra",
+        "secretarioGenero": "Dra.",
+        "vocales": [{ "nombre": "Sandra Gonzales", "genero": "Dra." },
+        { "nombre": "Fernando Garcia", "genero": "Dr." }
         ]
     },
     {
