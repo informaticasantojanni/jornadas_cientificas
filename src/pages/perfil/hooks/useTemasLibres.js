@@ -99,9 +99,9 @@ export const useTemasLibres = (userData) => {
                 );
                 console.log("Vocales: ", usersVocales);
                 const vocales = usersVocales.map((vocal) => {
-                    return { id: vocal.id, label: vocal.name + " " + vocal.lastName };
+                    return { id: vocal.id, label: toTitleCase(vocal.name) + " " + toTitleCase(vocal.lastName) };
                 });
-
+                vocales.sort((a, b) => a.label.localeCompare(b.label));
                 setListaVocales(vocales);
             } catch (error) {
                 console.error("Error: ", error);
@@ -321,6 +321,16 @@ export const useTemasLibres = (userData) => {
         }
         return response;
     };
+
+
+    function toTitleCase(str) {
+        return str
+            .toLowerCase()
+            .split(" ")
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(" ");
+    }
+
 
     const tableItems = [
         "Título",
