@@ -8,7 +8,7 @@ import { Typography, Box } from "@mui/material";
 import { useGlobal } from "../../../hooks/useGlobal";
 
 
-const TemasLibresProcess = ({userData}) => {
+const TemasLibresProcess = ({ userData }) => {
   const { PERFILES } = useGlobal();
   const {
     handleGuardarTrabajo,
@@ -17,6 +17,9 @@ const TemasLibresProcess = ({userData}) => {
     handleVolver,
     listaVocales,
     REVISION_ESTADOS,
+    PRESENTACION_DIAS,
+    PRESENTACION_HORARIOS,
+    PRESENTACION_AULAS
   } = useTemasLibres();
 
   return (
@@ -77,7 +80,7 @@ const TemasLibresProcess = ({userData}) => {
             </Typography>
           </Box>
 
-          {/* Asignar */}
+          {/* Asignar Vocal */}
           <div className="flex flex-col mb-5">
             <label className="text-White w-full py-2">Asignar a Vocal</label>
             <select
@@ -103,7 +106,7 @@ const TemasLibresProcess = ({userData}) => {
               name="vocalRevision"
               value={formData.vocalRevision ?? ""}
               onChange={handleChange}
-              disabled={![PERFILES.TEMAS_LIBRES_PRESIDENTE,PERFILES.TEMAS_LIBRES_VOCAL ].includes(userData.role)}
+              disabled={![PERFILES.TEMAS_LIBRES_PRESIDENTE, PERFILES.TEMAS_LIBRES_VOCAL].includes(userData.role)}
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`}
             >
               {REVISION_ESTADOS.map((estado) => (
@@ -114,8 +117,8 @@ const TemasLibresProcess = ({userData}) => {
             </select>
           </div>
 
-          {/* Revision estados */}
-          <div className="flex flex-col mb-5">
+          {/* Revision Comentarios */}
+          <div className="flex flex-col mb-10">
             <label className="text-White w-full pb-2">
               Revisión observaciones
             </label>
@@ -123,13 +126,80 @@ const TemasLibresProcess = ({userData}) => {
               name="vocalRevisionObservaciones"
               value={formData.vocalRevisionObservaciones ?? ""}
               onChange={handleChange}
-              disabled={![PERFILES.TEMAS_LIBRES_PRESIDENTE,PERFILES.TEMAS_LIBRES_VOCAL ].includes(userData.role)}
+              disabled={![PERFILES.TEMAS_LIBRES_PRESIDENTE, PERFILES.TEMAS_LIBRES_VOCAL].includes(userData.role)}
               rows={4} // cantidad de líneas visibles
               className="rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow resize-none"
               placeholder="Escriba sus comentarios aquí..."
             />
           </div>
+
+            <div className="w-full border-t border-White my-5">
+
+            </div>
+
+
+          {/* Asignar Dia Presentacion */}
+          <div className="flex flex-col mb-5">
+            <label className="text-White w-full py-2">Asignar Dia</label>
+            <select
+              name="presentacionDia"
+              value={formData.presentacionDia ?? ""}
+              onChange={handleChange}
+              disabled={![PERFILES.TEMAS_LIBRES_PRESIDENTE, PERFILES.TEMAS_LIBRES_COMITE].includes(userData.role)}
+              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`}
+            >
+              <option value="">Seleccione una opción</option>
+              {PRESENTACION_DIAS.map((dia) => (
+                <option key={dia.id} value={dia.id}>
+                  {dia.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Asignar Horario Presentacion */}
+          <div className="flex flex-col mb-5">
+            <label className="text-White w-full py-2">Asignar Horario</label>
+            <select
+              name="presentacionHora"
+              value={formData.presentacionHora ?? ""}
+              onChange={handleChange}
+              disabled={![PERFILES.TEMAS_LIBRES_PRESIDENTE, PERFILES.TEMAS_LIBRES_COMITE].includes(userData.role)}
+              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`}
+            >
+              <option value="">Seleccione una opción</option>
+              {PRESENTACION_HORARIOS.map((hora) => (
+                <option key={hora.id} value={hora.id}>
+                  {hora.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Asignar Aula Presentacion */}
+          <div className="flex flex-col mb-5">
+            <label className="text-White w-full py-2">Asignar Aula</label>
+            <select
+              name="presentacionAula"
+              value={formData.presentacionAula ?? ""}
+              onChange={handleChange}
+              disabled={![PERFILES.TEMAS_LIBRES_PRESIDENTE, PERFILES.TEMAS_LIBRES_COMITE].includes(userData.role)}
+              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`}
+            >
+              <option value="">Seleccione una opción</option>
+              {PRESENTACION_AULAS.map((aula) => (
+                <option key={aula.id} value={aula.id}>
+                  {aula.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+
+
+
         </div>
+
 
         <div className="w-full flex justify-center pt-5 gap-5">
           <button
