@@ -15,7 +15,7 @@ const PerfilView = () => {
 
   const { user } = useAuth();
   const { userData } = useProfile(user.uid);
-  const {PERFILES} = useGlobal()
+  const { PERFILES } = useGlobal();
 
   const renderProfile = () => {
     console.log("user data : ", userData);
@@ -25,17 +25,14 @@ const PerfilView = () => {
       case PERFILES.ADMIN:
         return <AdminPagos userId={user.uid} />;
       case PERFILES.TEMAS_LIBRES_PRESIDENTE:
-        return (
-          <AdminTemasLibresView userData = {userData}/>
-        )
+        return <AdminTemasLibresView userData={userData} />;
       case PERFILES.TEMAS_LIBRES_VOCAL:
-        return (
-          <AdminTemasLibresView userData = {userData}/>
-        )
+        return <AdminTemasLibresView userData={userData} />;
       case PERFILES.USER:
       default:
         return (
-          <AdminUserProfile />
+          // <AdminUserProfile />
+          <AdminTemasLibresView userData={userData} />
         );
     }
   };
@@ -48,6 +45,5 @@ const PerfilView = () => {
     </>
   );
 };
-
 
 export default PerfilView;
