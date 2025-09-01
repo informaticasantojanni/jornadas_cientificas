@@ -20,6 +20,7 @@ const TemasLibresTable = ({ userData }) => {
     renderTemasLibres,
     handleProcesarTemaLibre,
     formatAutores,
+    sliceString,
     tableItems,
     listaVocales,
     REVISION_ESTADOS,
@@ -29,7 +30,6 @@ const TemasLibresTable = ({ userData }) => {
 
   return (
     <div className="w-full pb-20">
-
       {/* Form filtrar contenido */}
       <div className="w-full pb-10">
         <div className="w-full m-auto rounded-xl p-5 bg-gradient-to-b from-LightGreen to-Green text-white tablet:w-1/2 laptop1:w-1/2 laptop2:w-[500px]">
@@ -134,8 +134,13 @@ const TemasLibresTable = ({ userData }) => {
                       ? formatAutores(renderTemaLibre.autoresList, 1)
                       : "-"}
                   </TableCell>
+
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    <Box display="flex" justifyContent="center" alignItems="center">
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
                       <a
                         href={renderTemaLibre.abstractUrl}
                         target="_blank"
@@ -145,37 +150,30 @@ const TemasLibresTable = ({ userData }) => {
                       </a>
                     </Box>
                   </TableCell>
+
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre.presentaPremio ? "si" : "no"}
                   </TableCell>
 
-
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    <Box display="flex" justifyContent="center" alignItems="center">
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
                       <a
                         href={renderTemaLibre.trabajoPremioUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {renderTemaLibre.trabajoPremioUrl ? <DownloadFile width={20} height={20} /> : "-"}
+                        {renderTemaLibre.trabajoPremioUrl ? (
+                          <DownloadFile width={20} height={20} />
+                        ) : (
+                          "-"
+                        )}
                       </a>
                     </Box>
                   </TableCell>
-
-                  {/* <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {
-                      <a
-                        href={renderTemaLibre.trabajoPremioUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {renderTemaLibre.trabajoPremioUrl ? "Descargar PDF" : "-"}
-                      </a>
-                    }
-                  </TableCell> */}
-
-
-
 
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre.lugar}
@@ -201,34 +199,61 @@ const TemasLibresTable = ({ userData }) => {
                   >
                     {renderTemaLibre?.vocalAsignado
                       ? listaVocales.find(
-                        (vocal) => vocal.id == renderTemaLibre.vocalAsignado
-                      )?.label
+                          (vocal) => vocal.id == renderTemaLibre.vocalAsignado
+                        )?.label
                       : "Pendiente"}
                     {/* */}
                   </TableCell>
-                  <TableCell align="center"
+                  <TableCell
+                    align="center"
                     sx={{
                       fontSize: 12,
                       color:
                         renderTemaLibre?.vocalRevision === "2"
                           ? "green"
                           : renderTemaLibre?.vocalRevision === "3"
-                            ? "orange"
-                            : renderTemaLibre?.vocalRevision === "4"
-                              ? "red"
-                              : "inherit", // color por defecto
+                          ? "orange"
+                          : renderTemaLibre?.vocalRevision === "4"
+                          ? "red"
+                          : "inherit", // color por defecto
                     }}
                   >
                     {renderTemaLibre?.vocalRevision
                       ? REVISION_ESTADOS.find(
-                        (estado) => estado.id == renderTemaLibre.vocalRevision
-                      )?.label
+                          (estado) => estado.id == renderTemaLibre.vocalRevision
+                        )?.label
                       : ""}
                   </TableCell>
+
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre?.vocalRevisionObservaciones ?? ""}
-                    {/* */}
+                    {sliceString(
+                      renderTemaLibre?.vocalRevisionObservaciones ?? "",
+                      70
+                    )}
                   </TableCell>
+
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      {Array.isArray(renderTemaLibre?.abstractRevisionUrlList) &&
+                        renderTemaLibre.abstractRevisionUrlList.map(
+                          (abstractRevisionUrl, idx) => (
+                            <a
+                              key={idx}
+                              href={abstractRevisionUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <DownloadFile width={20} height={20} />
+                            </a>
+                          )
+                        )}
+                    </Box>
+                  </TableCell>
+
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre?.presentacionDia ?? ""}
                   </TableCell>
