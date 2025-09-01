@@ -9,6 +9,7 @@ import { useGlobal } from "../../../hooks/useGlobal";
 import { updateTrabajo } from "../../../services/firebase.services";
 import Swal from "sweetalert2";
 import { useAuth } from "../../../core/auth/hooks/useAuth";
+import { uploadPdf } from "../../../services/firebase.services";
 
 export const useTemasLibres = (userData) => {
     const {
@@ -17,7 +18,7 @@ export const useTemasLibres = (userData) => {
         setInternalView,
         processTrabajoId,
         setProcessTrabajoId,
-        PERFILES
+        PERFILES,
     } = useGlobal();
 
     const eventId = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
@@ -27,6 +28,8 @@ export const useTemasLibres = (userData) => {
         titulo: "",
         serviciosList: [],
         autoresList: [],
+        abstractUrl: "",
+        abstractRevisionUrlList: [],
         vocalAsignado: "",
         vocalRevision: "",
         vocalRevisionObservaciones: "",
@@ -37,7 +40,7 @@ export const useTemasLibres = (userData) => {
         presentacionHora: "",
         presentacionAula: "",
         trabajoEvaluacion: "",
-        trabajoEvaluacionObservaciones: ""
+        trabajoEvaluacionObservaciones: "",
     });
     const [selectedValue, setSelectedValue] = useState("");
     const [listaVocales, setListaVocales] = useState([]);
@@ -46,6 +49,7 @@ export const useTemasLibres = (userData) => {
         pendientesAsignacion: false,
         pendientesRevision: false,
     });
+    const [abstractFile, setAbstractFile] = useState(null);
     const urlFetchAPI =
         "https://script.google.com/macros/s/AKfycby_hX8CP5S-dn8JIbBe37JmL2sBKjNhH5V0p2dixtfDkSKuM6L4zXVSinWoPImhYvSNEQ/exec";
 
@@ -55,6 +59,8 @@ export const useTemasLibres = (userData) => {
         { id: 3, label: "Observado" },
         { id: 4, label: "Rechazado" },
     ];
+
+    const EVENT_ID_2025 = "3lZN9Pf5Jvdgc3GX4h2e";
 
     useEffect(() => {
         const fetchTemasLibres = async () => {
@@ -69,19 +75,25 @@ export const useTemasLibres = (userData) => {
                         temasLibresResponse.error
                     );
                 } else {
-                    if (userData?.role == "temasLibresPresidente") {
+                    if (
+                        userData?.role == "temasLibresPresidente" ||
+                        userData?.role == "temasLibresComite"
+                    ) {
                         setRenderTemasLibres(temasLibresResponse.data);
                         setListaTemasLibres(temasLibresResponse.data);
                     } else if (userData?.role == "temasLibresVocal") {
-                        console.log("Temas Libres Data: ", temasLibresResponse.data);
                         setRenderTemasLibres(
                             temasLibresResponse.data.filter(
                                 (trabajo) => trabajo.vocalAsignado == userData.id
                             )
                         );
-                        setListaTemasLibres(
+                    } else if (userData?.role == "user") {
+                        temasLibresResponse.data.forEach(async (trabajo) => {
+                            trabajo.vocalAsignado = "-"
+                        });
+                        setRenderTemasLibres(
                             temasLibresResponse.data.filter(
-                                (trabajo) => trabajo.vocalAsignado == userData.id
+                                (trabajo) => trabajo.contactoEmail === userData.email
                             )
                         );
                     }
@@ -99,14 +111,16 @@ export const useTemasLibres = (userData) => {
                 );
                 console.log("Vocales: ", usersVocales);
                 const vocales = usersVocales.map((vocal) => {
-                    return { id: vocal.id, label: toTitleCase(vocal.name) + " " + toTitleCase(vocal.lastName) };
+                    return {
+                        id: vocal.id,
+                        label: toTitleCase(vocal.name) + " " + toTitleCase(vocal.lastName),
+                    };
                 });
                 vocales.sort((a, b) => a.label.localeCompare(b.label));
                 setListaVocales(vocales);
             } catch (error) {
                 console.error("Error: ", error);
-            }
-            finally {
+            } finally {
                 setShowSpinner(false);
             }
         };
@@ -135,9 +149,12 @@ export const useTemasLibres = (userData) => {
                         titulo: trabajo?.titulo ?? "",
                         autoresList: trabajo?.autoresList ?? "",
                         serviciosList: trabajo?.serviciosList ?? "",
+                        abstractUrl: trabajo?.abstractUrl ?? "",
+                        abstractRevisionUrlList: trabajo?.abstractRevisionUrlList ?? [],
                         vocalAsignado: trabajo?.vocalAsignado ?? "",
                         vocalRevision: trabajo?.vocalRevision ?? "",
-                        vocalRevisionObservaciones: trabajo?.vocalRevisionObservaciones ?? "",
+                        vocalRevisionObservaciones:
+                            trabajo?.vocalRevisionObservaciones ?? "",
                         contactoNombre: trabajo?.contactoNombre ?? "",
                         contactoApellido: trabajo?.contactoApellido ?? "",
                         contactoEmail: trabajo?.contactoEmail ?? "",
@@ -145,7 +162,8 @@ export const useTemasLibres = (userData) => {
                         presentacionHora: trabajo?.presentacionHora ?? "",
                         presentacionAula: trabajo?.presentacionAula ?? "",
                         trabajoEvaluacion: trabajo?.trabajoEvaluacion ?? "",
-                        trabajoEvaluacionObservaciones: trabajo?.trabajoEvaluacionObservaciones ?? "",
+                        trabajoEvaluacionObservaciones:
+                            trabajo?.trabajoEvaluacionObservaciones ?? "",
                     });
                     setInternalView("procesarTemasLibres");
                 }
@@ -170,16 +188,21 @@ export const useTemasLibres = (userData) => {
         const filterTemasLibres = () => {
             const query = normalizeText(filtrarTrabajos.query);
 
-            const filtered = listaTemasLibres.filter((tema) =>
-                normalizeText(tema.titulo).includes(query) ||
-                (Array.isArray(tema.autoresList) &&
-                    tema.autoresList.some((autor) => normalizeText(autor).includes(query))) ||
-                (Array.isArray(tema.serviciosList) &&
-                    tema.serviciosList.some((servicio) => normalizeText(servicio).includes(query))) ||
-                normalizeText(tema.contactoNombre).includes(query) ||
-                normalizeText(tema.contactoApellido).includes(query) ||
-                normalizeText(tema.contactoEmail).includes(query) ||
-                normalizeText(tema.contactoCelular).includes(query)
+            const filtered = listaTemasLibres.filter(
+                (tema) =>
+                    normalizeText(tema.titulo).includes(query) ||
+                    (Array.isArray(tema.autoresList) &&
+                        tema.autoresList.some((autor) =>
+                            normalizeText(autor).includes(query)
+                        )) ||
+                    (Array.isArray(tema.serviciosList) &&
+                        tema.serviciosList.some((servicio) =>
+                            normalizeText(servicio).includes(query)
+                        )) ||
+                    normalizeText(tema.contactoNombre).includes(query) ||
+                    normalizeText(tema.contactoApellido).includes(query) ||
+                    normalizeText(tema.contactoEmail).includes(query) ||
+                    normalizeText(tema.contactoCelular).includes(query)
             );
 
             setRenderTemasLibres(filtered);
@@ -205,15 +228,37 @@ export const useTemasLibres = (userData) => {
         setShowSpinner(true);
         let error = "";
         let userInput = null;
-        console.log("Form Data: ", formData);
+        let formDataProcesado = {
+            ...formData,
+        };
+        console.log("Form Data: ", formDataProcesado);
+
         // TO DO:
         // Antes de guardar agregar un pop de confirmación
 
         try {
+            //Si adjuntaron Abstract Revision guardarlo en el Storage
+            if (abstractFile) {
+                const resUploadAbstract = await handleUpload(abstractFile);
+                if (resUploadAbstract.status) {
+                    formDataProcesado = {
+                        ...formDataProcesado,
+                        abstractRevisionUrlList: [
+                            ...(Array.isArray(formDataProcesado.abstractRevisionUrlList)
+                                ? formDataProcesado.abstractRevisionUrlList
+                                : []),
+                            resUploadAbstract.data, // 👉 nueva URL
+                        ],
+                    };
+                } else {
+                    throw new Error(resUploadAbstract.error);
+                }
+            }
+
             const updateTrabajoresponse = await updateTrabajo(
                 eventId,
                 processTrabajoId,
-                formData
+                formDataProcesado
             );
             if (!updateTrabajoresponse.status) {
                 error = updateTrabajoresponse.error;
@@ -259,6 +304,11 @@ export const useTemasLibres = (userData) => {
         return arr.length > n
             ? sliced.join(", ") + ` y ${arr.length - n} más`
             : arr.map(truncate).join(", ");
+    };
+
+    const sliceString = (str, n = 30) => {
+        if (typeof str !== "string") return "-";
+        return str.length > n ? str.slice(0, n) + "…" : str;
     };
 
     const handleVolver = () => {
@@ -322,15 +372,45 @@ export const useTemasLibres = (userData) => {
         return response;
     };
 
-
     function toTitleCase(str) {
         return str
             .toLowerCase()
             .split(" ")
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
             .join(" ");
     }
 
+    /*
+      Metodo para actualizar el estado del archivo seleccionado
+      */
+    const handleAbstractFileChange = (e) => {
+        setAbstractFile(e.target.files[0]);
+        console.log("Archivo seleccionado:", e.target.files[0]);
+    };
+
+    /*
+      Metodo para subir un archivo PDF a la carpete asociada al Evento
+      Por eso paso como argumento path = EVENT_ID_2025
+      */
+    const handleUpload = async (uploadFile) => {
+        const respuesta = {
+            status: false,
+            data: null,
+            error: null,
+        };
+        try {
+            if (!uploadFile) throw new Error("No se proporcionó ningún archivo");
+
+            const pdfUrl = await uploadPdf(uploadFile, EVENT_ID_2025);
+            respuesta.status = true;
+            respuesta.data = pdfUrl;
+        } catch (error) {
+            console.error("Error al subir el PDF:", error);
+            respuesta.error = error.message;
+        } finally {
+            return respuesta;
+        }
+    };
 
     const tableItems = [
         "Título",
@@ -347,6 +427,7 @@ export const useTemasLibres = (userData) => {
         "Vocal Asignado",
         "Revisión",
         "Observaciones",
+        "Abstracts corregidos",
         "Dia Presentación",
         "Hora Presentación",
         "Aula Presentación",
@@ -374,10 +455,7 @@ export const useTemasLibres = (userData) => {
         { id: 3, label: "Piso 3 - Aula D" },
         { id: 4, label: "Piso 4 - Aula E" },
         { id: 5, label: "Piso 4 - Aula F" },
-
     ];
-
-
 
     return {
         renderTemasLibres,
@@ -388,6 +466,7 @@ export const useTemasLibres = (userData) => {
         formData,
         REVISION_ESTADOS,
         formatAutores,
+        sliceString,
         handleVolver,
         tableItems,
         listaVocales,
@@ -398,5 +477,6 @@ export const useTemasLibres = (userData) => {
         PRESENTACION_DIAS,
         PRESENTACION_HORARIOS,
         PRESENTACION_AULAS,
+        handleAbstractFileChange,
     };
 };
