@@ -188,7 +188,7 @@ export const useTemasLibres = (userData) => {
         const filterTemasLibres = () => {
             const query = normalizeText(filtrarTrabajos.query);
 
-            const filtered = listaTemasLibres.filter(
+            let filtered = listaTemasLibres.filter(
                 (tema) =>
                     normalizeText(tema.titulo).includes(query) ||
                     (Array.isArray(tema.autoresList) &&
@@ -205,11 +205,24 @@ export const useTemasLibres = (userData) => {
                     normalizeText(tema.contactoCelular).includes(query)
             );
 
+            if (filtrarTrabajos.pendientesAsignacion) {
+                filtered = filtered.filter(
+                    (tema) => !tema.vocalAsignado || tema.vocalAsignado === ""
+                );
+            }
+
+            if (filtrarTrabajos.pendientesRevision) {
+                filtered = filtered.filter(
+                    (tema) => !tema.vocalRevision || tema.vocalRevision === ""
+                );
+            }
+
+
             setRenderTemasLibres(filtered);
         };
 
         filterTemasLibres();
-    }, [filtrarTrabajos.query, filtrarTrabajos.pendientesAsignacion]);
+    }, [filtrarTrabajos.query, filtrarTrabajos.pendientesAsignacion, filtrarTrabajos.pendientesRevision]);
 
     const handleProcesarTemaLibre = async (id) => {
         setProcessTrabajoId(id);

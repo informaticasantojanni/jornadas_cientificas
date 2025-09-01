@@ -45,34 +45,33 @@ const TemasLibresTable = ({ userData }) => {
               onChange={handleTableFilter}
             />
 
-            {/* <div className="flex items-center">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      name="pendientesAsignacion"
-                      checked={filtrarTrabajos.pendientesAsignacion}
-                      onChange={handleTableFilter}
-                      sx={{ "&.Mui-checked": { color: "#FFF" } }}
-                    />
-                  }
-                />
-                <p>Pendientes asignacion</p>
-              </div> */}
+            <div className="flex items-center">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="pendientesAsignacion"
+                    checked={filtrarTrabajos.pendientesAsignacion}
+                    onChange={handleTableFilter}
+                    sx={{ "&.Mui-checked": { color: "#FFF" } }}
+                  />
+                }
+              />
+              <p className="text-White">Pendientes asignacion</p>
+            </div>
 
-            {/* <div className="flex items-center">
+            <div className="flex items-center">
               <FormControlLabel
                 control={
                   <Checkbox
                     name="pendientesRevision"
-                    type="checkbox"
                     checked={filtrarTrabajos.pendientesRevision}
                     onChange={handleTableFilter}
                     sx={{ "&.Mui-checked": { color: "#FFF" } }}
                   />
                 }
               />
-              <p>Pendientes Revisiôn</p>
-            </div> */}
+              <p className="text-White">Pendientes revisión</p>
+            </div>
 
             <p className="text-White mt-5">
               Mostrando: {renderTemasLibres?.length} registros
@@ -190,6 +189,7 @@ const TemasLibresTable = ({ userData }) => {
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre.contactoCelular} {/* */}
                   </TableCell>
+
                   <TableCell
                     align="center"
                     sx={{
@@ -199,11 +199,12 @@ const TemasLibresTable = ({ userData }) => {
                   >
                     {renderTemaLibre?.vocalAsignado
                       ? listaVocales.find(
-                          (vocal) => vocal.id == renderTemaLibre.vocalAsignado
-                        )?.label
+                        (vocal) => vocal.id == renderTemaLibre.vocalAsignado
+                      )?.label
                       : "Pendiente"}
                     {/* */}
                   </TableCell>
+
                   <TableCell
                     align="center"
                     sx={{
@@ -212,16 +213,16 @@ const TemasLibresTable = ({ userData }) => {
                         renderTemaLibre?.vocalRevision === "2"
                           ? "green"
                           : renderTemaLibre?.vocalRevision === "3"
-                          ? "orange"
-                          : renderTemaLibre?.vocalRevision === "4"
-                          ? "red"
-                          : "inherit", // color por defecto
+                            ? "orange"
+                            : renderTemaLibre?.vocalRevision === "4"
+                              ? "red"
+                              : "inherit", // color por defecto
                     }}
                   >
                     {renderTemaLibre?.vocalRevision
                       ? REVISION_ESTADOS.find(
-                          (estado) => estado.id == renderTemaLibre.vocalRevision
-                        )?.label
+                        (estado) => estado.id == renderTemaLibre.vocalRevision
+                      )?.label
                       : ""}
                   </TableCell>
 
