@@ -211,12 +211,12 @@ export const useInscripcionForm = () => {
             formErrors.abstract = "Debe subir un archivo PDF del Abstract";
         }
 
-        // Trabajo a premio validation
-        if (formData.presentaPremio) {
-            if (!trabajoPremioFile) {
-                formErrors.trabajoPremio = "Debe subir un archivo PDF del Trabajo a Premio";
-            }
-        }
+        // Trabajo a premio validation por el momento no se exige subir el PDF
+        // if (formData.presentaPremio) {
+        //     if (!trabajoPremioFile) {
+        //         formErrors.trabajoPremio = "Debe subir un archivo PDF del Trabajo a Premio";
+        //     }
+        // }
 
         // Lugar vallidation
         if (!formData.lugar || formData.lugar.trim() === "") {
