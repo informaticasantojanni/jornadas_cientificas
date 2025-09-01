@@ -57,10 +57,20 @@ const TemasLibresProcess = ({ userData }) => {
             }}
           >
             <Typography variant="body1" sx={{ wordBreak: "break-word" }}>
-              {formData.serviciosList || (
-                <Typography color="text.secondary">Sin título</Typography>
+              {formData.serviciosList && formData.serviciosList.length > 0 ? (
+                formData.serviciosList.map((servicio, index) => (
+                  <span key={index}>
+                    ({index + 1}) {servicio}
+                    {index < formData.serviciosList.length - 1 && ", "}
+                  </span>
+                ))
+              ) : (
+                <Typography component="span" color="text.secondary">
+                  Sin servicio
+                </Typography>
               )}
             </Typography>
+
           </Box>
 
           {/* Autores */}
@@ -75,10 +85,20 @@ const TemasLibresProcess = ({ userData }) => {
             }}
           >
             <Typography variant="body1" sx={{ wordBreak: "break-word" }}>
-              {formData.autoresList || (
-                <Typography color="text.secondary">Sin título</Typography>
+              {formData.autoresList && formData.autoresList.length > 0 ? (
+                formData.autoresList.map((autor, index) => (
+                  <span key={index}>
+                    ({index + 1}) {autor}
+                    {index < formData.autoresList.length - 1 && ", "}
+                  </span>
+                ))
+              ) : (
+                <Typography component="span" color="text.secondary">
+                  Sin autores
+                </Typography>
               )}
             </Typography>
+
           </Box>
 
           {/* Abstracts */}
@@ -186,7 +206,7 @@ const TemasLibresProcess = ({ userData }) => {
                   PERFILES.TEMAS_LIBRES_VOCAL,
                 ].includes(userData.role)
               }
-              rows={4} // cantidad de líneas visibles
+              rows={6} // cantidad de líneas visibles
               className="rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow resize-none"
               placeholder="Escriba sus comentarios aquí..."
             />
