@@ -107,7 +107,7 @@ const TemasLibresProcess = ({ userData }) => {
           </div>
 
           {/* Subir Abstract */}
-          {userData.role == PERFILES.USER && (
+          {(userData.role == PERFILES.USER || userData.role == PERFILES.TEMAS_LIBRES_PRESIDENTE) && (
             <div className="flex flex-col mb-5">
               <label className="text-White w-full pb-2">
                 Subir PDF del Abstract corregido:
