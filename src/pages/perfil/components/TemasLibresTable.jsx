@@ -14,6 +14,8 @@ import Checkbox from "@mui/material/Checkbox";
 import { styled } from "@mui/material/styles";
 import DownloadFile from "../components/icons/DownloadFile";
 import { Box } from "@mui/material";
+import FilterIcon from "../components/icons/FilterIcon";
+import { useGlobal } from "../../../hooks/useGlobal";
 
 const TemasLibresTable = ({ userData }) => {
   const {
@@ -26,59 +28,94 @@ const TemasLibresTable = ({ userData }) => {
     REVISION_ESTADOS,
     handleTableFilter,
     filtrarTrabajos,
+    serviciosEnListaTemasLibres,
+    handleResetFilter,
   } = useTemasLibres(userData);
 
+  const { PERFILES } = useGlobal();
+
   return (
-    <div className="w-full pb-20">
+    <div className="w-full pb-5">
       {/* Form filtrar contenido */}
-      <div className="w-full pb-10">
-        <div className="w-full m-auto rounded-xl p-5 bg-gradient-to-b from-LightGreen to-Green text-white tablet:w-1/2 laptop1:w-1/2 laptop2:w-[500px]">
-          <div className="flex flex-col">
-            <label htmlFor="email" className="w-full text-White pb-2">
-              Filtrar contenido
-            </label>
-            <input
-              id="query"
-              name="query"
-              type="text"
-              className="w-full px-2 py-2 mb-5  rounded-lg shadow-lightShadowGrey"
-              onChange={handleTableFilter}
-            />
+      {userData.role != PERFILES.USER && (
+        <div className="w-full pb-10">
+          <div className="w-full m-auto rounded-xl p-5 bg-gradient-to-b from-LightGreen to-Green text-white tablet:w-1/2 laptop1:w-1/2 laptop2:w-[500px]">
+            <div className="flex flex-col">
+              <label htmlFor="email" className="w-full text-White pb-2">
+                <div className="flex items-center justify-between">
+                  <p>Filtrar por contenido</p>
 
-            <div className="flex items-center">
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    name="pendientesAsignacion"
-                    checked={filtrarTrabajos.pendientesAsignacion}
-                    onChange={handleTableFilter}
-                    sx={{ "&.Mui-checked": { color: "#FFF" } }}
-                  />
-                }
+                  <button
+                    onClick={handleResetFilter}
+                    className="flex items-center gap-2"
+                  >
+                    <p>Reset Filtro</p>
+                    <FilterIcon width={20} />
+                  </button>
+                </div>
+              </label>
+              <input
+                id="query"
+                placeholder="Ingrese texto a buscar"
+                name="query"
+                type="text"
+                value={filtrarTrabajos.query}
+                className="w-full px-2 py-2 mb-5  rounded-lg shadow-lightShadowGrey"
+                onChange={handleTableFilter}
               />
-              <p className="text-White">Pendientes asignacion</p>
-            </div>
 
-            <div className="flex items-center">
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    name="pendientesRevision"
-                    checked={filtrarTrabajos.pendientesRevision}
-                    onChange={handleTableFilter}
-                    sx={{ "&.Mui-checked": { color: "#FFF" } }}
-                  />
-                }
-              />
-              <p className="text-White">Pendientes revisión</p>
-            </div>
+              <label className="text-White w-full pb-2">
+                Filtrar por servicio
+              </label>
+              <select
+                name="servicio"
+                value={filtrarTrabajos.servicio}
+                onChange={handleTableFilter}
+                className="rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-5 focus:outline-none focus:shadow-lightShadow"
+              >
+                <option value="">Seleccione un servicio</option>
+                {serviciosEnListaTemasLibres.map((servicio, idx) => (
+                  <option key={idx} value={servicio}>
+                    {servicio}
+                  </option>
+                ))}
+              </select>
 
-            <p className="text-White mt-5">
-              Mostrando: {renderTemasLibres?.length} registros
-            </p>
+              <div className="flex items-center">
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      name="pendientesAsignacion"
+                      checked={filtrarTrabajos.pendientesAsignacion}
+                      onChange={handleTableFilter}
+                      sx={{ "&.Mui-checked": { color: "#FFF" } }}
+                    />
+                  }
+                />
+                <p className="text-White">Pendientes asignacion</p>
+              </div>
+
+              <div className="flex items-center">
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      name="pendientesRevision"
+                      checked={filtrarTrabajos.pendientesRevision}
+                      onChange={handleTableFilter}
+                      sx={{ "&.Mui-checked": { color: "#FFF" } }}
+                    />
+                  }
+                />
+                <p className="text-White">Pendientes revisión</p>
+              </div>
+
+              <p className="text-White mt-5">
+                Mostrando: {renderTemasLibres?.length} registros
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       <TableContainer
         component={Paper}
@@ -199,8 +236,8 @@ const TemasLibresTable = ({ userData }) => {
                   >
                     {renderTemaLibre?.vocalAsignado
                       ? listaVocales.find(
-                        (vocal) => vocal.id == renderTemaLibre.vocalAsignado
-                      )?.label
+                          (vocal) => vocal.id == renderTemaLibre.vocalAsignado
+                        )?.label
                       : "Pendiente"}
                     {/* */}
                   </TableCell>
@@ -213,16 +250,16 @@ const TemasLibresTable = ({ userData }) => {
                         renderTemaLibre?.vocalRevision === "2"
                           ? "green"
                           : renderTemaLibre?.vocalRevision === "3"
-                            ? "orange"
-                            : renderTemaLibre?.vocalRevision === "4"
-                              ? "red"
-                              : "inherit", // color por defecto
+                          ? "orange"
+                          : renderTemaLibre?.vocalRevision === "4"
+                          ? "red"
+                          : "inherit", // color por defecto
                     }}
                   >
                     {renderTemaLibre?.vocalRevision
                       ? REVISION_ESTADOS.find(
-                        (estado) => estado.id == renderTemaLibre.vocalRevision
-                      )?.label
+                          (estado) => estado.id == renderTemaLibre.vocalRevision
+                        )?.label
                       : ""}
                   </TableCell>
 
@@ -239,7 +276,9 @@ const TemasLibresTable = ({ userData }) => {
                       justifyContent="center"
                       alignItems="center"
                     >
-                      {Array.isArray(renderTemaLibre?.abstractRevisionUrlList) &&
+                      {Array.isArray(
+                        renderTemaLibre?.abstractRevisionUrlList
+                      ) &&
                         renderTemaLibre.abstractRevisionUrlList.map(
                           (abstractRevisionUrl, idx) => (
                             <a

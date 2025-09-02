@@ -41,13 +41,13 @@ const PopupInscripcion = () => {
             </div>
 
             <h2 className="text-2xl font-bold mb-4 text-Violet">
-              Ultima Prórroga Trabajos Temas Libres hasta el 1 de septiembre!
+              Presentación de Temas Libres: se ha cerrado la inscripción
             </h2>
 
             <p className="my-5 font-semiBold text-lg p-3 text-Violet">
-              Inicia sesion con tu cuenta de correo, inscribite y subi el Abstract de tu Trabajo Científico.
+              En caso que necesites actualizar la versión de tu Abstract, hacelo desde tu perfil.
             </p>
-            <LinkToVioletMD to={"/login"} label={"Adelante!"} />
+            <LinkToVioletMD to={"/login"} label={"Acceder!"} />
           </div>
         </div>
       )}
