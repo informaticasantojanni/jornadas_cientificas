@@ -53,6 +53,7 @@ export const useTemasLibres = (userData) => {
     pendientesRevision: false,
   });
   const [abstractFile, setAbstractFile] = useState(null);
+  const [generatingReportTemasLibres, setGeneratingReportTemasLibres] = useState(false);
   const urlFetchAPI =
     "https://script.google.com/macros/s/AKfycby_hX8CP5S-dn8JIbBe37JmL2sBKjNhH5V0p2dixtfDkSKuM6L4zXVSinWoPImhYvSNEQ/exec";
 
@@ -486,14 +487,11 @@ export const useTemasLibres = (userData) => {
   ];
 
   const PRESENTACION_HORARIOS = [
-    { id: 1, label: "08:00" },
-    { id: 2, label: "09:00" },
-    { id: 3, label: "10:00" },
-    { id: 4, label: "11:00" },
+    { id: 1, label: "08:00 - 09:00" }
   ];
 
   const PRESENTACION_AULAS = [
-    { id: 1, label: "Piso 2 - Aulas A-B" },
+    { id: 1, label: "Piso 1 - Aula Obstetricia" },
     { id: 2, label: "Piso 3 - Aula C" },
     { id: 3, label: "Piso 3 - Aula D" },
     { id: 4, label: "Piso 4 - Aula E" },
@@ -523,5 +521,7 @@ export const useTemasLibres = (userData) => {
     handleAbstractFileChange,
     serviciosEnListaTemasLibres,
     handleResetFilter,
+    generatingReportTemasLibres,
+    setGeneratingReportTemasLibres
   };
 };
