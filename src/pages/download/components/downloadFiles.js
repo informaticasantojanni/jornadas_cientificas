@@ -24,4 +24,9 @@ export const downloadFiles = [
     filename: "Instructivo para temas libres versión 2025",
     url: "https://drive.google.com/uc?id=1TB0_H0Kct2Z2zUHfIG-P0-F7dUQFaplM&export=download",
   },
+  {
+    id: 6,
+    filename: "Template PPT Jornadas 2025",
+    url: "public/ppt/Template_ppt_2025.pptx",
+  },
 ];
