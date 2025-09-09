@@ -27,6 +27,6 @@ export const downloadFiles = [
   {
     id: 6,
     filename: "Template PPT Jornadas 2025",
-    url: "public/ppt/Template_ppt_2025.pptx",
+    url: "/public/ppt/Template_ppt_2025.pptx",
   },
 ];
