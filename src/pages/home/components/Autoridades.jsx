@@ -14,7 +14,7 @@ const Autoridades = () => {
     { title: "Vicepresidente", name: "Dra. Silvina Lucilli" },
     { title: "Secretario General", name: "Dr. José Retamoso" },
     { title: "Secretario Adjunto", name: "Dr. Lucas Landolfi" },
-    { title: "Tesorero", name: "Dr. Sergio Brandemburgo" },
+    { title: "Tesorero", name: "Dr. Sergio Brandeburgo" },
   ];
 
   return (

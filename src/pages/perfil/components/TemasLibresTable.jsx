@@ -16,6 +16,7 @@ import DownloadFile from "../components/icons/DownloadFile";
 import { Box } from "@mui/material";
 import FilterIcon from "../components/icons/FilterIcon";
 import { useGlobal } from "../../../hooks/useGlobal";
+import { useReports } from "../hooks/useReports";
 
 const TemasLibresTable = ({ userData }) => {
   const {
@@ -30,9 +31,14 @@ const TemasLibresTable = ({ userData }) => {
     filtrarTrabajos,
     serviciosEnListaTemasLibres,
     handleResetFilter,
+    generatingReportTemasLibres,
+    PRESENTACION_DIAS,
+    PRESENTACION_HORARIOS,
+    PRESENTACION_AULAS
   } = useTemasLibres(userData);
 
   const { PERFILES } = useGlobal();
+  const { generateReportTemasLibres } = useReports();
 
   return (
     <div className="w-full pb-5">
@@ -236,10 +242,9 @@ const TemasLibresTable = ({ userData }) => {
                   >
                     {renderTemaLibre?.vocalAsignado
                       ? listaVocales.find(
-                          (vocal) => vocal.id == renderTemaLibre.vocalAsignado
-                        )?.label
+                        (vocal) => vocal.id == renderTemaLibre.vocalAsignado
+                      )?.label
                       : "Pendiente"}
-                    {/* */}
                   </TableCell>
 
                   <TableCell
@@ -250,16 +255,16 @@ const TemasLibresTable = ({ userData }) => {
                         renderTemaLibre?.vocalRevision === "2"
                           ? "green"
                           : renderTemaLibre?.vocalRevision === "3"
-                          ? "orange"
-                          : renderTemaLibre?.vocalRevision === "4"
-                          ? "red"
-                          : "inherit", // color por defecto
+                            ? "orange"
+                            : renderTemaLibre?.vocalRevision === "4"
+                              ? "red"
+                              : "inherit", // color por defecto
                     }}
                   >
                     {renderTemaLibre?.vocalRevision
                       ? REVISION_ESTADOS.find(
-                          (estado) => estado.id == renderTemaLibre.vocalRevision
-                        )?.label
+                        (estado) => estado.id == renderTemaLibre.vocalRevision
+                      )?.label
                       : ""}
                   </TableCell>
 
@@ -295,13 +300,28 @@ const TemasLibresTable = ({ userData }) => {
                   </TableCell>
 
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre?.presentacionDia ?? ""}
+                    {/* {renderTemaLibre?.presentacionDia ?? ""} */}
+                    {renderTemaLibre?.vocalAsignado
+                      ? PRESENTACION_DIAS.find(
+                        (dia) => dia.id == renderTemaLibre.presentacionDia
+                      )?.label
+                      : "Pendiente"}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre?.presentacionHora ?? ""}
+                    {/* {renderTemaLibre?.presentacionHora ?? ""} */}
+                    {renderTemaLibre?.presentacionHora
+                      ? PRESENTACION_HORARIOS.find(
+                        (hora) => hora.id == renderTemaLibre.presentacionHora
+                      )?.label
+                      : "Pendiente"}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
-                    {renderTemaLibre?.presentacionAula ?? ""}
+                    {/* {renderTemaLibre?.presentacionAula ?? ""} */}
+                    {renderTemaLibre?.presentacionAula
+                      ? PRESENTACION_AULAS.find(
+                        (aula) => aula.id == renderTemaLibre.presentacionAula
+                      )?.label
+                      : "Pendiente"}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {
@@ -335,6 +355,14 @@ const TemasLibresTable = ({ userData }) => {
           </TableBody>
         </Table>
       </TableContainer>
+
+      {/* Boton generar reporte */}
+      <button
+        className="py-5"
+        onClick={generateReportTemasLibres}>
+        {generatingReportTemasLibres ? "Generando reporte... aguarde" : "Generar reporte"}
+      </button>
+
     </div>
   );
 };
