@@ -9,7 +9,7 @@ const OradorCard = ({ orador }) => {
           {orador.date}
         </p>
         <div className="h-[150px]">
-          <p className="text-xl font-bold text-CardGrayDark font-poppins text-start pt-5">
+          <p className="text-lg font-bold text-CardGrayDark font-poppins text-start pt-5">
             {orador.conference}
           </p>
         </div>
