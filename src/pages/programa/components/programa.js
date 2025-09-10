@@ -1,411 +1,48 @@
 export const programa = [
   {
     categoria: "inscripcion",
-    dia: "8",
+    dia: "29",
     hora: "08:00",
     ubicacion: "AMM",
     descripcion: "Inscripciones",
   },
   {
     categoria: "apertura",
-    dia: "8",
+    dia: "29",
     hora: "09:00",
     ubicacion: "2 Piso Aulas A-B",
     descripcion: "Apertura",
     linkStreaming: "https://youtube.com/live/Y78Ne3PrAWQ",
   },
   {
-    categoria: "temas_libres",
-    dia: "8",
-    hora: "8:00 a 9:00",
-    ubicacion: "Aula 5 Piso ",
-    presidente: "Valeria Barrera",
-    secretario: "Cecilia Ormazábal",
-    trabajos: [
-      {
-        titulo:
-          "5- Consolidar la atención sanitaria a través del trabajo en red: valoración de la participación del banco de sangre del Hospital Santojanni",
-        abstract:
-          "https://drive.google.com/uc?id=17ZzswtrZqdEzfh_CqXT8xL1hGtpsm78H&export=download",
-        autor:
-          "Medicina transfusional (Silvia Birnenbaum, Estela Gonzalez, Andrea Ravettini, Nancy Di Biasi, Gustavo Magaldi)",
-      },
-      {
-        titulo:
-          "8- Prácticas promotoras de la Salud Mental Comunitaria (SMC) desde los equipos de los Centros de Salud del Área Programática del Hospital Santojanni",
-        abstract:
-          "https://drive.google.com/uc?id=1JKxT1PYyO1bJedwYG3a34_CDGSW9yRYe&export=download",
-        autor:
-          "Residencia Interdisciplinaria de Educación y Promoción de la Salud (RIEPS) (Moreschi, Agostina, Ponce Reberte, Sofía, Ruesga, Luisina, Coullery, Antonela)",
-      },
-      {
-        titulo: "60- Desde el ingreso al apto quirúrgico",
-        abstract:
-          "https://drive.google.com/uc?id=1KXVZiEoR8snvUY_SsS6bO6uwJmqmTHuy&export=download",
-        autor:
-          "Servicio de Ortopedia y traumatología (Quiroga Alejandro, Rodríguez Johan, Seoane Lautaro, Agrazo Lucas, Cusolito Victoria)",
-      },
-    ],
-  },
-  {
-    categoria: "temas_libres",
-    dia: "8",
-    hora: "8:00 a 9:00",
-    ubicacion: "Aula 3 Piso ",
-    presidente: "Valeria Garralda Secretario",
-    secretario: "Matias Landi",
-    trabajos: [
-      {
-        titulo:
-          "3-Biopsia renal realizada por nefrologos: experiencia de 5 años en nuestro servicio",
-        abstract:
-          "https://drive.google.com/uc?id=1IgR_uXVSFDdUQR-UmIy8232sjdSiWMgg&export=download",
-        autor:
-          "Servicio de Nefrología y Anatomía Patológica (Paz Wasiuchnik, Vanina Gisela; Dayan, Federico; Labonia, Walter (1), Recalde, Vanina (2))",
-      },
-      {
-        titulo: "72-Fístula peritoneo cutánea por oblito post cesárea",
-        abstract:
-          "https://drive.google.com/uc?id=1jien7dfEM7nInD72ITq0fj1ct2k02Apg&export=download",
-        autor:
-          "Servicio de Cirugía General (Dra. Coulomme Gabriela, Dra. Garralda Valeria, Dra. Ceriana Paula, Dr. Casavilla Gustavo, Dra. Crocitta Carla)",
-      },
-      {
-        titulo:
-          "60-Terapia endoscópica de vacío para manejo de defectos transmurales en el tracto digestivo superior como alternativa terapéutica costo efectiva",
-        abstract:
-          "https://drive.google.com/uc?id=1cSebphRj3yk3jSw0PoNxh3JnO4ooYKF6&export=download",
-        autor:
-          "Servicio de Cirugía Percutánea (Dr. Córdoba Juan Pablo, Dr. Cuello Martín, Dra. Conde María, Dr. Ambrosis Juan Ignacio)",
-      },
-      {
-        titulo:
-          "30-Operación de ravitch para el tratamiento de las malformaciones torácica severas",
-        abstract:
-          "https://drive.google.com/uc?id=1BxD4_UsX05vuXByWG5BUcPwsyaf6fYj5&export=download",
-        autor:
-          "Cirugía de Tórax (Julieta Tortone – Virginia Scarano- Loreley Toresan – Valeria Garralda-Pedro Fulone)",
-      },
-    ],
-  },
-  {
-    categoria: "temas_libres",
-    dia: "8",
-    hora: "8:00 a 9:00",
-    ubicacion: "Aula 219 - 2 Piso ",
-    presidente: "Dra. Silvina Lucilli",
-    secretario: "Dra. Paola Villan",
-    trabajos: [
-      {
-        titulo:
-          "77-Impacto en la intervención de un consultorio especializado en pacientes con asma grave en variables clínicas, funcionales respiratorias, exacerbaciones y uso de corticoides al año de seguimiento",
-        abstract:
-          "https://drive.google.com/uc?id=1kTViCVhFViyUpirskupn7eM0hI5mL_L-&export=download",
-        autor:
-          "Unidad Neumotisiología y Servicio de Kinesiología del Hospital Santojanni (Fernando Saldarini , Brichetti Valeria , Mauro Andreu , Matias Bertozzi , Guzman Cyntia)",
-      },
-      {
-        titulo:
-          "78- Remisión clínica en pacientes con Asma Grave tratados con terapia biológica en el Hospital Santojanni",
-        abstract:
-          "https://drive.google.com/uc?id=1eJop0cN4FZTK_xsz-NUVlT2IYs9ryUMv&export=download",
-        autor:
-          "Unidad Neumotisiología y Servicio de Kinesiología del Hospital Santojanni (Fernando Saldarini , Brichetti Valeria , Mauro Andreu , Matias Bertozzi , Guzman Cyntia)",
-      },
-      {
-        titulo:
-          "89-Epidemiología a nivel local: aumento de casos de tuberculosis en el área del CeSAC 28, características epidemiológicas",
-        abstract:
-          "https://drive.google.com/uc?id=1EJxPiZYMAMn-1IUzN6qhoH7S0dkZPjxO&export=download",
-        autor:
-          "CeSAC 28 (Santomaso, C. Agustina, Bustos, Liliana, Febrer, Daniela, Galetar, María Julieta, Ramírez María Victoria)",
-      },
-      {
-        titulo:
-          "74-Características clínicas y biomarcadores de sujetos con asma grave no T2",
-        abstract:
-          "https://drive.google.com/uc?id=12pP3gDfZ1JtEZRorvnt3DJVtaac2flCg&export=download",
-        autor:
-          "Servicio de Neumonología (Saldarini Fernando, Brichetti Valeria, Andreau Mauro, Bertozzi Matías, Guzmán Matias)",
-      },
-    ],
-  },
-  {
-    categoria: "temas_libres",
-    dia: "8",
-    hora: "8:00 a 9:00",
-    ubicacion: "Aula 1 Piso B",
-    presidente: "Guillermo Keller",
-    secretario: "Noemí Guerra",
-    trabajos: [
-      {
-        titulo:
-          "19- Descripción de la velocidad de onda de pulso en pacientes tabaquistas y ex tabaquistas y uso de herramientas de ia para predicción de riesgos",
-        abstract:
-          "https://drive.google.com/uc?id=1QXEe1kP-TtxqK3T_csAAFnPb2pF2U7gG&export=download",
-        autor:
-          "Consultorios Externos del HDFS, equipo de cesación tabáquica del HDFS y UTN de Buenos Aires (Galli C, Loprete Lucrecia, García, Charterjee P , Celenza Alejandra)",
-      },
-      {
-        titulo:
-          "27-Comunicación en salud: la sala de espera como dispositivo de educación para la salud",
-        abstract:
-          "https://drive.google.com/uc?id=118FR2OwXAz5Ae_QLYsKKJ2WVjiMkv1u9&export=download",
-        autor:
-          "Residencia Interdisciplinaria de Educación y Promoción de la Salud (RIEPS) (Bareille, María Paula, Cerezo, Lucia Daniela, Ponce Reberte, Sofía, Ramos, Delfina, Simoni, Paola)",
-      },
-      {
-        titulo:
-          "35-Evaluación de pacientes en la unidad febril de urgencias: desarrollo de estrategias de screening local",
-        abstract:
-          "https://drive.google.com/uc?id=1bH4IqVmY9B5FyeG_6aeDEn4qF6fpII9p&export=download",
-        autor:
-          "Departamento de Urgencias del HDFS (Jorge Alejandro Aimar, Guadalupe Vernetti, Patricia Mariana Delnero, Carlos Hurtado, Guillermo Alberto Keller.",
-      },
-    ],
-  },
-  {
     categoria: "conferencia",
-    dia: "8",
+    dia: "29",
     hora: "10:30",
     ubicacion: "2 Piso Aulas A-B",
     titulo:
-      "Sistema de salud en la Argentina en crisis. Qué papel debe jugar el hospital público.",
-    orador: "Dr. Ruben Luca",
+      "Rol del Dpto Quirúrgico Htal Santojanni periodo 1985-2025, utilizando la ciencia para formar, transformar y cuidar la Salud Pública.",
+    orador: "Dr. Pedro Fullone",
     isStreaming: true,
-    linkStreaming: "https://youtube.com/live/BQX-8Xgu7fs",
+    linkStreaming: "Pending",
   },
   {
     categoria: "vino_de_honor",
-    dia: "8",
+    dia: "29",
     hora: "12:00",
     ubicacion: "2 Piso Aulas A-B",
   },
   {
-    categoria: "temas_libres",
-    dia: "12",
-    hora: "8:00 a 9:00",
-    ubicacion: "Aula 4 Piso ",
-    presidente: "Dra. Mara De Bernardi",
-    secretario: "Dra. Claudia Alfonso",
-    trabajos: [
-      {
-        titulo: "73-Retinitis por Citomegalovirus, a propósito de un caso",
-        abstract:
-          "https://drive.google.com/uc?id=1QgYclAj8lI0yb5KzFT8Rxk8Xf6oh0YIb&export=download",
-        autor:
-          "Servicio de Infectología HDFS (Silva Romero María Fernanda, Campos Ruiz Alexandra, Garcia Martin, Scapellato Pablo)",
-      },
-      {
-        titulo: "84-Absceso esplénico por Salmonella typhi",
-        abstract:
-          "https://drive.google.com/uc?id=1VtFGkYUdfIgD-1omeii4shovntwRrG8S&export=download",
-        autor:
-          "Terapia Intensiva HDFS (Juan Pablo Rodriguez, Dimar Barrios Medina, Alvarez Vilariño Federico)",
-      },
-      {
-        titulo: "57-Fungemias por levaduras en el Hospital Santojanni",
-        abstract:
-          "https://drive.google.com/uc?id=15jvdu0tUQQaHPf9RQa2MV8QcGn-F0JHK&export=download",
-        autor:
-          "Bacteriología HDFS (Marucco, Andrea ; Marino, Silvia; Yernazian, Valeria; Ruiz O´Neill; Moira; Ormazabal, Cecilia)",
-      },
-      {
-        titulo:
-          "17-Epidemiología a nivel local: aumento de casos de tuberculosis en el área del CeSAC 28, características epidemiológicas",
-        abstract:
-          "https://drive.google.com/uc?id=1dBfrRtJ6rBS76OAmkmPGmiTvIMI9xV4X&export=download",
-        autor:
-          "CeSAC 28 (Carla Agustina Santomaso, Daniela Febrer Valverde, María Victoria Ramírez, Julieta Galetar, Liliana Bustos)",
-      },
-      {
-        titulo: "83-MIOCARDIOPATÍA SÉPTICA: A PROPÓSITO DE UN CASO",
-        abstract:
-          "https://drive.google.com/uc?id=1SeNGwTswjWskfjoVkCUIiCmizmkHZEoO&export=download",
-        autor:
-          "Terapia Intensiva HDFS (Burgos Jesica, Yeimi Tordecilla, Cruz Ramos Omar Nicolas, Alvarez Vilariño Federico Matias)",
-      },
-    ],
-  },
-  {
-    categoria: "temas_libres",
-    dia: "12",
-    hora: "8:00 a 9:00",
-    ubicacion: "Aula 4 Piso A",
-    presidente: "Dr. Analía Yufra",
-    secretario: "Dra. Sonia Smodlaka",
-    trabajos: [
-      {
-        titulo:
-          "41- SUPLEMENTACIÓN NUTRICIONAL DE VITAMINA D EN PACIENTES CON ENFERMEDAD RENAL CRONICA EN HEMODIALISIS",
-        abstract:
-          "https://drive.google.com/uc?id=1Jrm4lgmprzBhQPAVqvoaxY417wsQcR8a&export=download",
-        autor:
-          "Servicio de Nefrología-Hemodiálisis (Paz Wasiuchnik, Vanina Gisela; Nogales Lopez, Erika Estefanía)",
-      },
-      {
-        titulo: "34-ENFERMEDAD RELACIONADA CON IgG4: ¿Qué hay que saber?",
-        abstract:
-          "https://drive.google.com/uc?id=1IcVeUpq6xbKVwfgB7ioldp2jrkqdwuJX&export=download",
-        autor:
-          "Nefrología (Luisa Bascope, Santiago Ripa Alsina, Vanina Recalde, Vanina Paz Wasiuchnik)",
-      },
-      {
-        titulo:
-          "49- Leucemia de células plasmáticas (LCP), un desafío hematológico. A propósito de un caso",
-        abstract:
-          "https://drive.google.com/uc?id=1Tt5oMSbKD8qRHnoTwfiZDqktCv64JXg7&export=download",
-        autor:
-          "Clínica médica y Hematología HDFS (Mosquera G., Lipera V., Sanguinetti E., Reynoso I., Guazzaroni)",
-      },
-      {
-        titulo: "33-Hemocromatosis: más allá del algoritmo",
-        abstract:
-          "https://drive.google.com/uc?id=1yvUlvbj60qQc8U3xS_XgVfmqEC3hdBuf&export=download",
-        autor:
-          "Diabetología HDFS. (Caruso, O.*, Arakaki, H*., Guralnik, M.*, Picarelli, Ma.P**, Landolfi, L)",
-      },
-      {
-        titulo: "43-SÍNDROME DE VENA CAVA SUPERIOR",
-        abstract:
-          "https://drive.google.com/uc?id=1E4uCFveC-clWUOiScYmFhK6v2-2xglto&export=download",
-        autor:
-          "Clínica Médica HDFS (Bolivar Marlon, Campanari Antonella, Captcha Anthony, Donadio Macarena, Flores Paola)",
-      },
-      {
-        titulo:
-          "22-Tuberculosis en primera persona: La experiencia de niños, niñas y adolescentes y referentes familiares, que realizaron su atención por tuberculosis en hospital de día de pediatría en el periodo 2022-2023.",
-        abstract:
-          "https://drive.google.com/uc?id=1Yw9m683QRxSuRUn2-G-xonzXwrJoy5-7&export=download",
-        autor: "Servicio Social HDFS (Lic. Maria Cecilia Montenegro)",
-      },
-    ],
-  },
-  {
-    categoria: "temas_libres",
-    dia: "12",
-    hora: "8:00 a 9:00",
-    ubicacion: "Aula 3 Piso",
-    presidente: "Dr. Marcelo Estrin",
-    secretario: "Dra Patricia Delnero",
-    trabajos: [
-      {
-        titulo:
-          "56- Hematoma extradural secundario a metástasis craneal de carcinoma de esófago",
-        abstract:
-          "https://drive.google.com/uc?id=13n2DbnA4leBSTxjK1iLAF7Spf7xPPQsA&export=download",
-        autor:
-          "Servicio de Neurocirugía (Lederhos, Nicolás; Jara, Pablo; Di Francesco, Romina; Iturrieta, Pablo; Folmer, Sofía)",
-      },
-      {
-        titulo: "54- Reporte de casos de Schwannomas Espinales.",
-        abstract:
-          "https://drive.google.com/uc?id=1h6Zm6b4D3yYgNbTmvjFD3d74OrwWRgFF&export=download",
-        autor:
-          "Servicio de Neurocirugía ( Fernández Demczuk, Nerina; Alberione, Federico; Correa, Rubén; Riffo, Joaquín; Folmer, Sofia)",
-      },
-      {
-        titulo: "62- Lesiones inveteradas de Aquiles.",
-        abstract:
-          "https://drive.google.com/uc?id=1FoiLLrPYS77YRyWjm2aE7Vdo4kJ0nEOU&export=download",
-        autor:
-          "Servicio de Ortopedia y Traumatología (Lucas Agrazo, Luciano Mariani, Lautaro Seoane, Victoria Cusolito, Johan Rodriguez.)",
-      },
-      {
-        titulo:
-          "38- Abordajes clínico y jurídico de las heridas de armas de fuego de las extremidades.",
-        abstract:
-          "https://drive.google.com/uc?id=15jaFg_oojg84F3rZ7RB3SY-dBQwDaRYZ&export=download",
-        autor:
-          "Departamento de Urgencias (Sproviero Jorge José María, Giménez Matías Ricardo, Sukarevicius Federico Norberto)",
-      },
-      {
-        titulo:
-          "39- Escaldadura de ambos hallux en paciente diabético: abordaje interdisciplinario",
-        abstract:
-          "https://drive.google.com/uc?id=15fyxB4OqOTDCppSexL_Tgb1Ao_4HejD_&export=download",
-        autor:
-          "Departamento de Urgencias (Ruiz Natacha, Giménez Matías, Loresi Marcela, Méndez Raúl, Sproviero Jorge José María)",
-      },
-      {
-        titulo:
-          "68-“terapéutica conjunta de la fístula biliar compleja: abordaje quirúrgico y percutáneo",
-        abstract:
-          "https://drive.google.com/uc?id=1ySUE5pKH4Kko21PX6d3WDtfCEejx3pEc&export=download",
-        autor:
-          "Dr. Ambrosis Juan Ignacio, Dra. Yesenia Maldonado Torrez, Dra. Conde María de los Ángeles, Dra. Barbani Betiana, Dr. Cordoba Juan Pablo",
-      },
-    ],
-  },
-  {
-    categoria: "temas_libres",
-    dia: "12",
-    hora: "8:00 a 9:00",
-    ubicacion: "Aula 1 Piso",
-    presidente: "Dr. Noelia Citate",
-    secretario: "Lic. Florencia Gregorio",
-    trabajos: [
-      {
-        titulo:
-          "46- EVALUACIÓN DE LA ADECUACIÓN ENTRE LOS REQUERIMIENTOS Y DISPONIBILIDAD DE CAMAS DE INTERNACIÓN POR ESPECIALIDAD Y SU RELACIÓN CON EL OVERCROWDING DEL SERVICIO DE URGENCIAS.",
-        abstract:
-          "https://drive.google.com/uc?id=1TJqITCf711bradlsgsko3e2M4oce9EFQ&export=download",
-        autor:
-          "Departamento de Urgencias del HDFS. (Patricia Delnero, Jorge Alejandro Aimar, Carlos Hurtado, Guillermo Alberto Keller)",
-      },
-      {
-        titulo:
-          "50- Pares Acompañantes. Experiencia y recorrido del proyecto de acompañamiento a personas con VIH en el Hospital D.F. Santojanni",
-        abstract:
-          "https://drive.google.com/uc?id=1mOVxfetDIHZyIOcfNOd09HGFWWW6iUic&export=download",
-        autor:
-          "Servicio Social HDFS (Lic. Luciana Faraone, Lic. Nadia Roussilian, Lic. Agustina Soncini, Dr. Edgardo Bottaro).",
-      },
-      {
-        titulo:
-          "71-ESTUDIO DE COSTOS DIRECTOS DE HOSPITALIZACIÓN POR INFECCIÓN SEVERA POR VIRUS SINCICIAL RESPIRATORIO EN ADULTOS EN DOS HOSPITALES PÚBLICOS DE LA CIUDAD AUTÓNOMA DE BUENOS AIRES",
-        abstract:
-          "https://drive.google.com/uc?id=13u_yPNKpZGgjFd0N0yS1yIwbY6q5pK0h&export=download",
-        autor:
-          "Neumonología /Bacteriología HDFS (Saldarini Fernando, Ortuño Katerine, Ormazabal Cecilia, Sivori Martin)",
-      },
-      {
-        titulo:
-          "82-Prevalencia de controles periódicos de salud en pacientes internados en el Hospital DonaciónFrancisco Santojanni en el período de septiembre - octubre 2024.",
-        abstract:
-          "https://drive.google.com/uc?id=1vcihDYpG86w5F6bGfbLvcepS9b9P0D5Q&export=download",
-        autor:
-          "Medicina Interna HDFS (Zoanni C.; Ferrera E.; Benitez S.; Frank Captcha A.; Gualino E.; Guzman Y.; Antolini L.; Daher J)",
-      },
-      {
-        titulo:
-          "6- El camino de la educación como estrategia para visibilizar el Comité de Bioética en el Hospital Público",
-        abstract:
-          "https://drive.google.com/uc?id=1tLbSif4lwppYnzvgl2P7qba5Iw7uz9jo&export=download",
-        autor:
-          "Comité de bioética HDFS (Silvia Birnenbaum, Lenin de Janon Quevedo, Sandra Arcieri, María Inés Lopez)",
-      },
-      {
-        titulo: "45-Atención integral de VIH en el primer nivel de atención.",
-        abstract:
-          "https://drive.google.com/uc?id=1UrhcMqEGbUU0MepazAz1NgT029QsEIIW&export=download",
-        autor:
-          "Presentación de casos atendidos en el CeSAC 28 a partir de la articulación con el servicio de infectología del Hospital Santojanni Lucía Quiroga, Clara Noceti, Carla Agustina Santomaso, Edgardo Bottaro",
-      },
-    ],
-  },
-  {
     categoria: "conferencia",
-    dia: "12",
+    dia: "30",
     hora: "9:30",
     ubicacion: "2 Piso Aulas A-B",
-    titulo: "El acto médico bajo la lupa de la justicia.",
-    orador: "Dr. Vadim Mischanchuk",
+    titulo: "Escenarios Actuales e Intervención en lo Social",
+    orador: "Prof. Dr. Alfredo Juan Manuel Carballeda",
     isStreaming: true,
-    linkStreaming: "https://youtube.com/live/oCQr84GVhUQ",
+    linkStreaming: "Pending",
   },
   {
-    dia: "12",
+    dia: "30",
     categoria: "break",
     hora: "10:30 - 11:00",
   },
