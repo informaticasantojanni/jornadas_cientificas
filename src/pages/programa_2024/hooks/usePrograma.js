@@ -17,8 +17,10 @@ export const usePrograma = () => {
     setCurrentDayIndex,
   } = useContext(ProgramaContext);
 
+
   useEffect(() => {
-    const programaFilter = programa.filter((item) => item.dia == programaDay);
+    const programaFilter = programa
+      .filter((item) => item.dia == programaDay)
     setProgramaFiltrado(programaFilter);
   }, [programaDay]);
 
