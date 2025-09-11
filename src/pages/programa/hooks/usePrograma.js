@@ -18,13 +18,17 @@ export const usePrograma = () => {
   } = useContext(ProgramaContext);
 
   useEffect(() => {
-    const programaFilter = programa.filter((item) => item.dia == programaDay);
+    const programaFilter = programa
+      .filter((item) => item.dia == programaDay)
+      .sort((a, b) => a.time - b.time);
     setProgramaFiltrado(programaFilter);
   }, [programaDay]);
 
   useEffect(() => {
     if (searchTerm == "") {
-      const programaFilter = programa.filter((item) => item.dia == programaDay);
+      const programaFilter = programa
+        .filter((item) => item.dia == programaDay)
+        .sort((a, b) => a.time - b.time);
       setProgramaFiltrado(programaFilter);
     } else {
       const programaFilterByDay = programa.filter(
