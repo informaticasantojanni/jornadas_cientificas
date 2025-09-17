@@ -22,29 +22,43 @@ export const usePrograma = () => {
   } = useContext(ProgramaContext);
   const { setShowSpinner } = useGlobal();
 
+  const parseHoraToMinutes = (time) => {
+    const [h, m] = time.split(":").map(Number);
+    return h * 60 + m;
+  };
+
   //Pull Temas libres y hacer un merge con el programa
-  useEffect(() => {
-    const fetchTemasLibres = async () => {
-      setShowSpinner(true); // Mostrar el spinner al iniciar la carga
+  // useEffect(() => {
+  //   const fetchTemasLibres = async () => {
+  //     setShowSpinner(true); // Mostrar el spinner al iniciar la carga
 
-      try {
-        const temasLibresResponse = await getTemasLibres(eventId)
-        if (!temasLibresResponse.status) {
-          throw new Error('Error al obtener los temas libres');
-        } else {
-          const temasLibres = temasLibresResponse.data;
-          console.log('Temas libres obtenidos:', temasLibres);
-          temasLibres.forarch((tema) => { });
-        }
+  //     try {
+  //       const temasLibresResponse = await getTemasLibres(eventId)
+  //       if (!temasLibresResponse.status) {
+  //         throw new Error('Error al obtener los temas libres');
+  //       } else {
+  //         const temasLibres = temasLibresResponse.data;
+  //         console.log('Temas libres obtenidos:', temasLibres);
+  //         temasLibres.forarch((temaLibre) => {
+  //           const temaLibrePrep = {
+  //             categoria: "temas_libres",
+  //             dia: temaLibre.dia,
+  //             mes: temaLibre.mes,
+  //             hora: temaLibre.hora,
+  //             time: parseHoraToMinutes("09:00"),
+  //             ubicacion: temaLibre.lugar,
+  //           }
+  //         });
+  //       }
 
-      } catch (error) {
-        console.error('Error al obtener los temas libres:', error);
-      } finally {
-        setShowSpinner(false); // Ocultar el spinner al finalizar la carga
-      }
-    }
-    fetchTemasLibres();
-  }, []);
+  //     } catch (error) {
+  //       console.error('Error al obtener los temas libres:', error);
+  //     } finally {
+  //       setShowSpinner(false); // Ocultar el spinner al finalizar la carga
+  //     }
+  //   }
+  //   fetchTemasLibres();
+  // }, []);
 
 
   //Update programaFilter cuando cambia el dia

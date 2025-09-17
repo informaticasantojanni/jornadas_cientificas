@@ -113,6 +113,410 @@ export const programa = [
     descripcion: "Cierre de Jornadas",
     linkStreaming: "",
   },
+  {
+    categoria: "mesa_redonda",
+    dia: "30",
+    hora: "11:00",
+    time: parseHoraToMinutes("11:00"),
+    ubicacion: "3 Piso Aula C|D",
+    titulo: "Avances en el Manejo Multidisciplinario del Pie Diabético",
+    presidente: {
+      nombre: "Dr. Lucas Landolfi",
+      servicio: "Servicio de Diabetes",
+    }, secretario: {
+      titulo: "Secretaria",
+      secretarios: [{
+        nombre: "Dra. Patricia Del Nero",
+        servicio: "Departamento de Urgencias"
+      }]
+    },
+    disertantes: [{
+      nombre: "",
+      servicio: "",
+      tema: ""
+    }]
+  },
+  {
+    categoria: "mesa_redonda",
+    dia: "30",
+    hora: "11:00",
+    time: parseHoraToMinutes("11:00"),
+    ubicacion: "3 Piso Aula C|D",
+    titulo: "Experiencias de articulación entre equipos de cesac y servicios hospitalarios",
+    presidente: {
+      nombre: "Dra. Leticia Andina",
+      servicio: " Jefa de Servicio CESAC Nro 7",
+    }, secretario: {
+      titulo: "Secretaria",
+      secretarios: [{
+        nombre: "Lic. Andrea Berra",
+        servicio: "Jefa de Servicio CESAC Nro 5"
+      }]
+    },
+    disertantes: [
+      {
+        nombre: "Dra. Valeria Barrera",
+        servicio: "Jefa de División Laboratorio - Hospital Santojanni",
+        tema: ""
+      },
+      {
+        nombre: "Dra. Viviana Mazur",
+        servicio: "Referente acceso IVE ILE del programa de SSyR - Médica de CESAC Nro 7 - miembro del equipo organizador de la estrategia de rastreo HPV - Ca cervicouterino",
+        tema: ""
+      },
+      {
+        nombre: "Dr. Edgardo Bottaro",
+        servicio: "Médico infectólogo - Hospital Santojanni",
+        tema: ""
+      },
+      {
+        nombre: "Lic. Carla Santomaso",
+        servicio: "Socióloga - CESAC 28",
+        tema: ""
+      },
+    ]
+  },
+  {
+    categoria: "mesa_redonda",
+    dia: "30",
+    hora: "11:00",
+    time: parseHoraToMinutes("11:00"),
+    ubicacion: "4 Piso Aula C|D",
+    titulo: "Código rojo: participación multidisciplinaria de una urgencia en sala de partos",
+    presidente: {
+      nombre: "Dra. Pechini, Silvia",
+      servicio: "",
+    }, secretario: {
+      titulo: "Secretaria",
+      secretarios: [{
+        nombre: "Dra. Inacio, Analía",
+        servicio: ""
+      }]
+    },
+    disertantes: [
+      {
+        nombre: "Dr. Martinez Soler, Javier",
+        servicio: "Obstetricia",
+        tema: ""
+      },
+      {
+        nombre: "Dra. Di Biasi, Nancy",
+        servicio: "Hemoterapia",
+        tema: ""
+      },
+      {
+        nombre: "Dr. Alvarez Vilariño, Federico",
+        servicio: "Terapia Intensiva",
+        tema: ""
+      }
+    ]
+  },
+  {
+    categoria: "mesa_redonda",
+    dia: "1",
+    hora: "11:00",
+    time: parseHoraToMinutes("11:00"),
+    ubicacion: "3 Piso Aula C|D",
+    titulo: "Vapeo y Tabaco: amenazas silenciosas para la Salud Pública",
+    presidente: {
+      nombre: "Dra. Lucrecia Loprete",
+      servicio: "Médica Neumonóloga",
+    }, secretario: {
+      titulo: "Secretaria",
+      secretarios: [{
+        nombre: "Dra. Valeria Dávila",
+        servicio: "Médica Alergista"
+      }]
+    },
+    disertantes: [
+      {
+        nombre: "Dra. Cristina Borrajo",
+        servicio: "Coordinadora de Sección Tabaquismo de la Asociación Argentina de Medicina Respiratoria (AAMR) Tema: “El vapeo y sus riesgos en la población joven”",
+        tema: ""
+      },
+      {
+        nombre: "Dra. Sandra Galarza",
+        servicio: "Coordinadora del Programa de Cesación Tabáquica del Ministerio de Salud de la Ciudad Autónoma de Buenos Aires Tema: “Programa de Cesación Tabáquica del Gobierno de la Ciudad Autónoma de Buenos Aires: nuevos desafíos”",
+        tema: ""
+      },
+      {
+        nombre: "Lic. Marta Murray",
+        servicio: "Miembro del Equipo coordinador del Programa de Cesación Tabáquica del Hospital Santojanni “Mi Fortaleza Siempre”, Jefa de Sección Consultorios Externos, División Servicio Social Tema: “Herramientas no farmacológicas para el tratamiento del tabaquismo: experiencia en el Hospital Santojanni”",
+        tema: ""
+      }
+    ]
+  },
+  {
+    categoria: "mesa_redonda",
+    dia: "1",
+    hora: "11:00",
+    time: parseHoraToMinutes("11:00"),
+    ubicacion: "3 Piso Aula C|D",
+    titulo: "Protocolo de recuperación postoperatorio optimizado - (ERAS)",
+    presidente: {
+      nombre: "Gabriela Coulomme",
+      servicio: "Cirugía General",
+    }, secretario: {
+      titulo: "Secretaria",
+      secretarios: [{
+        nombre: "Maria Laura Morici",
+        servicio: " Cirugía general"
+      }]
+    },
+    disertantes: [
+      {
+        nombre: "Agostina Gentini",
+        servicio: "Ginecología",
+        tema: ""
+      },
+      {
+        nombre: "Gaston Camejo",
+        servicio: "Anestesiología",
+        tema: ""
+      },
+      {
+        nombre: "Hubner Escalera Sejas",
+        servicio: "Depto de Urgencias",
+        tema: ""
+      },
+      {
+        nombre: "Matias Caradonti",
+        servicio: "Urología",
+        tema: ""
+      }
+    ]
+  },
+  {
+    categoria: "mesa_redonda",
+    dia: "1",
+    hora: "11:00",
+    time: parseHoraToMinutes("11:00"),
+    ubicacion: "4 Piso Aula C|D",
+    titulo: "Intervenciones en medicina de estilo de vida saludable",
+    presidente: {
+      nombre: " Dra. Noemi Susana Guerra",
+      servicio: "Médica de planta de clínica médica , Hospital Santojanni",
+    }, secretario: {
+      titulo: "Secretario",
+      secretarios: [{
+        nombre: "Dr Gonzalo Barbieri",
+        servicio: "Medico de planta de clinica médica - Hospital santojanni"
+      }]
+    },
+    disertantes: [
+      {
+        nombre: "Dra. Mariana Lozana",
+        servicio: "Servicio de cardiología - Hospital Santojanni",
+        tema: ""
+      },
+      {
+        nombre: "Lic. María Paula Picarelli",
+        servicio: "Servicio de alimentación, Hospital Santojanni",
+        tema: ""
+      },
+      {
+        nombre: "Lic. Karina Ogdano",
+        servicio: "Servicio de kinesiología - Hospital Santojanni",
+        tema: ""
+      },
+      {
+        nombre: "Lic. Nadia Tomasello",
+        servicio: "Servicio de Salud Mental, Hospital Santojanni",
+        tema: ""
+      }
+    ]
+  },
+  {
+    categoria: "mesa_redonda",
+    dia: "1",
+    hora: "11:00",
+    time: parseHoraToMinutes("11:00"),
+    ubicacion: "4 Piso Aula C|D",
+    titulo: "Exposiciones invisibles, efectos visibles: ambiente y neurodesarrollo infantojuvenil",
+    presidente: {
+      nombre: "Dra. Beatriz Lauge",
+      servicio: "Pediatría - Hospital de día",
+    }, secretario: {
+      titulo: "Secretaria",
+      secretarios: [{
+        nombre: "Lic. Nadia Roussilian",
+        servicio: "Trabajo Social"
+      }]
+    },
+    disertantes: [
+      {
+        nombre: "Dra. Susana González",
+        servicio: "Pediatría - Salud Infantojuvenil y ambiente",
+        tema: ""
+      },
+      {
+        nombre: "Dra. Sheila Hocsman",
+        servicio: "Pediatría. Esp. en Neurodesarrollo - Neurodesarrollo en riesgo: el impacto del ambiente en la infancia",
+        tema: ""
+      },
+      {
+        nombre: "Dra. Laura Nieto",
+        servicio: " Pediatría - Consultorio de acompañamiento de infancias diversas - Mil formas de crecer: acompañamiento de niñeces diversas",
+        tema: ""
+      }
+    ]
+  },
+  {
+    categoria: "mesa_redonda",
+    dia: "2",
+    hora: "11:00",
+    time: parseHoraToMinutes("11:00"),
+    ubicacion: "3 Piso Aula C|D",
+    titulo: "Manejo interdisciplinario de comunicación oroantral",
+    presidente: {
+      nombre: "Dra. Ayos Mariana",
+      servicio: "Otorrinolaringologia",
+    }, secretario: {
+      titulo: "Secretaria",
+      secretarios: [{
+        nombre: "Dra. Dimitra Farace Tsardikos",
+        servicio: "Otorrinolaringologia"
+      }]
+    },
+    disertantes: [
+      {
+        nombre: "Dr. Parisi Guillermo",
+        servicio: "Odontología",
+        tema: ""
+      },
+      {
+        nombre: "Dra. Tapia Lucia",
+        servicio: "Otorrinolaringología",
+        tema: ""
+      },
+      {
+        nombre: "Dr. Ingratta Christian",
+        servicio: "Otorrinolaringología",
+        tema: ""
+      }
+    ]
+  },
+  {
+    categoria: "mesa_redonda",
+    dia: "2",
+    hora: "11:00",
+    time: parseHoraToMinutes("11:00"),
+    ubicacion: "3 Piso Aula C|D",
+    titulo: "Residencias hoy: aprender, cuidar y sostenerse en un sistema en tensión",
+    presidente: {
+      nombre: " Dra. Geronazzo Veronica",
+      servicio: "CODEI",
+    }, secretario: {
+      titulo: "Secretaria",
+      secretarios: [{
+        nombre: "",
+        servicio: ""
+      }]
+    },
+    disertantes: [
+      {
+        nombre: "Dr. Pablo Casado",
+        servicio: "Coordinador general de las residencia médicas con orientación. Situación actual de la residencias medicas en GCABA",
+        tema: ""
+      },
+      {
+        nombre: "Dr. Federico Picas",
+        servicio: "Coordinador general de las residencia médicas con orientación. Situación actual de la residencias medicas en GCABA",
+        tema: ""
+      },
+      {
+        nombre: "Dr. Facundo Lombardi",
+        servicio: "Coordinador local de las residencia médica de Cardiologia. Situación actual de la residencias medicas en Hospital Santojanni",
+        tema: ""
+      },
+      {
+        nombre: "Dra. Valeria Garralda",
+        servicio: "Coordinador local de las residencia quirurgica de Cirugia General. Situación actual de la residencias quirurgicas en Hospital Santojanni",
+        tema: ""
+      }
+    ]
+  },
+  {
+    categoria: "mesa_redonda",
+    dia: "2",
+    hora: "11:00",
+    time: parseHoraToMinutes("11:00"),
+    ubicacion: "4 Piso Aula C|D",
+    titulo: "Enfoque multidisciplinario del Síndrome de ovario poliquístico, para la prevención diagnóstico y tratamiento del riesgo cardiovascular",
+    presidente: {
+      nombre: "Nicole Alfaro Cazón",
+      servicio: "",
+    }, secretario: {
+      titulo: "Secretaria",
+      secretarios: [{
+        nombre: "",
+        servicio: ""
+      }]
+    },
+    disertantes: [
+      {
+        nombre: "Dra. González Sandra",
+        servicio: "",
+        tema: ""
+      },
+      {
+        nombre: "Dr. Cataño Fernando",
+        servicio: "",
+        tema: ""
+      },
+      {
+        nombre: "Dra. Glassmann Rocio",
+        servicio: "",
+        tema: ""
+      }
+    ]
+  },
+  {
+    categoria: "mesa_redonda",
+    dia: "2",
+    hora: "11:00",
+    time: parseHoraToMinutes("11:00"),
+    ubicacion: "4 Piso Aula C|D",
+    titulo: "Adulto mayor en la internación. desde la evaluación gerontológica hasta el sindrome confusional agudo",
+    presidente: {
+      nombre: "Dr. Marcelo Katz",
+      servicio: "Servicio de Neurología",
+    }, secretario: {
+      titulo: "Secretario",
+      secretarios: [{
+        nombre: "Lic. Nadia Tomasello",
+        servicio: " Servicio de Salud Mental"
+      }]
+    },
+    disertantes: [
+      {
+        nombre: "Lic. Gisela Sesa",
+        servicio: "Servicio Social",
+        tema: ""
+      },
+      {
+        nombre: "Lic. Vanesa Benegas",
+        servicio: "Servicio Social",
+        tema: ""
+      },
+      {
+        nombre: "Lic. Nadia Bigas",
+        servicio: "Servicio de Pediatría",
+        tema: ""
+      },
+      {
+        nombre: "Dra. Paula Terraza",
+        servicio: "Servicio de Neurología",
+        tema: ""
+      },
+      {
+        nombre: "Dra. María Marta Giani",
+        servicio: "Guardia de Emergencias (Psiquiatría)",
+        tema: ""
+      }
+    ]
+  }
+
 ];
 
 /**
