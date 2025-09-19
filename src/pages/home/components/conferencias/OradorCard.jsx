@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import PlayIcon from "./PlayIcon";
+import ButtonVioletSM from "../../../../components/buttons/ButtonVioletSM";
 
 const OradorCard = ({ orador }) => {
+  const [cvFullHeight, setCvFullHeight] = useState(false);
+
   return (
     <div className="w-[300px] h-[660px] p-2 rounded-xl">
-      <div className="bg-White opacity-90 h-full py-5 px-2 hover:opacity-100">
-        <p className="text-lg text-start font-semiBold text-Green text-center">
-          {orador.date}
-        </p>
+      <div className="relative bg-White opacity-90 h-full py-5 px-2 hover:opacity-100">
+        <div className="flex items-center justify-between">
+          <p className="text-lg text-start font-semiBold text-Green">
+            {orador.date}
+          </p>
+          <button className="items-center text-lg bg-Green rounded-full p-1 text-White">
+            <a
+              href={orador.linkStreaming ? orador.linkStreaming : "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+            ><PlayIcon width="30px" height="30px" />
+            </a>
+          </button>
+        </div>
+
         <div className="h-[150px]">
           <p className="text-lg font-bold text-CardGrayDark font-poppins text-start pt-5">
             {orador.conference}
@@ -27,20 +41,34 @@ const OradorCard = ({ orador }) => {
             {orador.name}
           </p>
         </div>
-        <p className="py-10 text-sm h-[200px]">{orador.cv}</p>
+
         <div className="flex justify-center">
-          <a
-            href={orador.linkStreaming ? orador.linkStreaming : "#"}
-            target="_blank"
-            rel="noopener noreferrer"
+        </div>
+
+
+        {/* Box CV */}
+        <div className="absolute bottom-[60px] left-0 h-full w-full flex items-end pl-2">
+          <div
+            className={
+              cvFullHeight
+                ? " h-[90%] overflow-hidden  bg-White ps-1 pt-5 pe-3 text-justify transition-all duration-500 ease-in-out border-t-PauGreenDark "
+                : " h-[25%] overflow-hidden  bg-White ps-1 pe-3 text-justify transition-all duration-500 ease-in-out border-t-PauGreenDark "
+            }
           >
-            <button className="flex items-center text-lg bg-Violet rounded-full px-5 py-1 text-White">
-              Stream
-              <PlayIcon width="30px" height="30px" />
-            </button>
-          </a>
+            <p className="py-2 text-sm h-[200px]">{orador.cv}</p>
+          </div>
         </div>
       </div>
+
+      <div className="flex justify-center">
+        <button
+          className="absolute bottom-[20px] w-[50%] text-sm py-1 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
+          onClick={() => setCvFullHeight(!cvFullHeight)}>
+            {cvFullHeight ? "Leer menos  ▼" : "Leer más  ▲"}
+            </button>
+      </div>
+
+
     </div>
   );
 };
