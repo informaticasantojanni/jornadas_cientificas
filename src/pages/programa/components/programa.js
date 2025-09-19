@@ -107,10 +107,19 @@ export const programa = [
   {
     categoria: "clausura",
     dia: "3",
-    hora: "11:30",
-    time: parseHoraToMinutes("11:30"),
+    hora: "11:45",
+    time: parseHoraToMinutes("11:45"),
     ubicacion: "2 Piso Aulas A-B",
-    descripcion: "Cierre de Jornadas",
+    descripcion: "Entrega premios cultura",
+    linkStreaming: "",
+  },
+  {
+    categoria: "clausura",
+    dia: "3",
+    hora: "12:30",
+    time: parseHoraToMinutes("12:30"),
+    ubicacion: "2 Piso Aulas A-B",
+    descripcion: "Cierre de Jornadas y entrega de premios",
     linkStreaming: "",
   },
   {
@@ -118,7 +127,7 @@ export const programa = [
     dia: "30",
     hora: "11:00",
     time: parseHoraToMinutes("11:00"),
-    ubicacion: "3 Piso Aula C|D",
+    ubicacion: "3 Piso Aula D",
     titulo: "Avances en el Manejo Multidisciplinario del Pie Diabético",
     presidente: {
       nombre: "Dr. Lucas Landolfi",
@@ -141,7 +150,7 @@ export const programa = [
     dia: "30",
     hora: "11:00",
     time: parseHoraToMinutes("11:00"),
-    ubicacion: "3 Piso Aula C|D",
+    ubicacion: "3 Piso Aula C",
     titulo: "Experiencias de articulación entre equipos de cesac y servicios hospitalarios",
     presidente: {
       nombre: "Dra. Leticia Andina",
@@ -181,7 +190,7 @@ export const programa = [
     dia: "30",
     hora: "11:00",
     time: parseHoraToMinutes("11:00"),
-    ubicacion: "4 Piso Aula C|D",
+    ubicacion: "4 Piso Aula F",
     titulo: "Código rojo: participación multidisciplinaria de una urgencia en sala de partos",
     presidente: {
       nombre: "Dra. Pechini, Silvia",
@@ -216,7 +225,7 @@ export const programa = [
     dia: "1",
     hora: "11:00",
     time: parseHoraToMinutes("11:00"),
-    ubicacion: "3 Piso Aula C|D",
+    ubicacion: "3 Piso Aula D",
     titulo: "Vapeo y Tabaco: amenazas silenciosas para la Salud Pública",
     presidente: {
       nombre: "Dra. Lucrecia Loprete",
@@ -251,7 +260,7 @@ export const programa = [
     dia: "1",
     hora: "11:00",
     time: parseHoraToMinutes("11:00"),
-    ubicacion: "3 Piso Aula C|D",
+    ubicacion: "3 Piso Aula C",
     titulo: "Protocolo de recuperación postoperatorio optimizado - (ERAS)",
     presidente: {
       nombre: "Gabriela Coulomme",
@@ -288,10 +297,10 @@ export const programa = [
   },
   {
     categoria: "mesa_redonda",
-    dia: "1",
+    dia: "30",
     hora: "11:00",
     time: parseHoraToMinutes("11:00"),
-    ubicacion: "4 Piso Aula C|D",
+    ubicacion: "4 Piso Aula E",
     titulo: "Intervenciones en medicina de estilo de vida saludable",
     presidente: {
       nombre: " Dra. Noemi Susana Guerra",
@@ -331,7 +340,7 @@ export const programa = [
     dia: "1",
     hora: "11:00",
     time: parseHoraToMinutes("11:00"),
-    ubicacion: "4 Piso Aula C|D",
+    ubicacion: "4 Piso Aula F",
     titulo: "Exposiciones invisibles, efectos visibles: ambiente y neurodesarrollo infantojuvenil",
     presidente: {
       nombre: "Dra. Beatriz Lauge",
@@ -366,7 +375,7 @@ export const programa = [
     dia: "2",
     hora: "11:00",
     time: parseHoraToMinutes("11:00"),
-    ubicacion: "3 Piso Aula C|D",
+    ubicacion: "3 Piso Aula D",
     titulo: "Manejo interdisciplinario de comunicación oroantral",
     presidente: {
       nombre: "Dra. Ayos Mariana",
@@ -401,7 +410,7 @@ export const programa = [
     dia: "2",
     hora: "11:00",
     time: parseHoraToMinutes("11:00"),
-    ubicacion: "3 Piso Aula C|D",
+    ubicacion: "3 Piso Aula C",
     titulo: "Residencias hoy: aprender, cuidar y sostenerse en un sistema en tensión",
     presidente: {
       nombre: " Dra. Geronazzo Veronica",
@@ -441,7 +450,7 @@ export const programa = [
     dia: "2",
     hora: "11:00",
     time: parseHoraToMinutes("11:00"),
-    ubicacion: "4 Piso Aula C|D",
+    ubicacion: "4 Piso Aula F",
     titulo: "Enfoque multidisciplinario del Síndrome de ovario poliquístico, para la prevención diagnóstico y tratamiento del riesgo cardiovascular",
     presidente: {
       nombre: "Nicole Alfaro Cazón",
@@ -476,7 +485,7 @@ export const programa = [
     dia: "2",
     hora: "11:00",
     time: parseHoraToMinutes("11:00"),
-    ubicacion: "4 Piso Aula C|D",
+    ubicacion: "4 Piso Aula E",
     titulo: "Adulto mayor en la internación. desde la evaluación gerontológica hasta el sindrome confusional agudo",
     presidente: {
       nombre: "Dr. Marcelo Katz",

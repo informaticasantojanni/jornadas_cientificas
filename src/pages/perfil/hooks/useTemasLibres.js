@@ -376,10 +376,20 @@ export const useTemasLibres = (userData) => {
 
     // Step 1: Create a new object to avoid modifying the original formData
     // and set the vocalRevision property correctly.
+    // formateamos tambien 
     const userDataPrep = {
       ...formData,
       vocalRevision:
         REVISION_ESTADOS.find((estado) => estado.id == formData.vocalRevision)
+          ?.label || "",
+      presentacionDia:
+        PRESENTACION_DIAS.find((item) => item.id == formData.presentacionDia)
+          ?.label || "",
+      presentacionHora:
+        PRESENTACION_HORARIOS.find((item) => item.id == formData.presentacionHora)
+          ?.label || "",
+      presentacionAula:
+        PRESENTACION_AULAS.find((item) => item.id == formData.presentacionAula)
           ?.label || "",
     };
 
