@@ -1,9 +1,10 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import PagesBannerView from "../../../components/pagesBanner/view/PagesBannerView";
 import ProgramaContainer from "../components/ProgramaContainer";
 import NavPrograma from "../components/NavPrograma";
 import ProgramaProvider from "../provider/ProgramaProvider";
 import SearchProgram from "../components/SearchProgram";
+import Spinner from "../../../components/spinner/Spinner";
 
 const ProgramaView = () => {
   useEffect(() => {
@@ -21,7 +22,9 @@ const ProgramaView = () => {
           <ProgramaContainer />
         </section>
       </div>
+      <Spinner />
     </ProgramaProvider>
+
   );
 };
 

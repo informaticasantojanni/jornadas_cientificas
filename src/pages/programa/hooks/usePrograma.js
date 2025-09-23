@@ -80,7 +80,7 @@ export const usePrograma = () => {
       }
     };
     fetchTemasLibres();
-  }, [programaDay]);
+  }, []);
 
   //Update programaFilter cuando cambia el dia
   useEffect(() => {
