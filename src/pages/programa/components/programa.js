@@ -504,7 +504,7 @@ export const programa = [
       titulo: "Secretaria",
       secretarios: [
         {
-          nombre: "",
+          nombre: "Natalia Jiménez",
           servicio: "",
         },
       ],
@@ -522,6 +522,16 @@ export const programa = [
       },
       {
         nombre: "Dra. Glassmann Rocio",
+        servicio: "",
+        tema: "",
+      },
+      {
+        nombre: "Dra. Mendez Jesica",
+        servicio: "",
+        tema: "",
+      },
+      {
+        nombre: "Dr. Castillo Javier",
         servicio: "",
         tema: "",
       },
