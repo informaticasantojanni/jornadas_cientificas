@@ -21,45 +21,66 @@ export const usePrograma = () => {
     setCurrentDayIndex,
   } = useContext(ProgramaContext);
   const { setShowSpinner } = useGlobal();
+  const convertirDia = {
+    1: "29",
+    2: "30",
+    3: "1",
+    4: "2",
+    5: "3",
+  };
+  const convertirAula = {
+    1: "S/A",
+    2: "Piso 3 - Aula C",
+    3: "Piso 3 - Aula D",
+    4: "Piso 4 - Aula E",
+    5: "Piso 4 - Aula F",
+  };
 
   const parseHoraToMinutes = (time) => {
     const [h, m] = time.split(":").map(Number);
     return h * 60 + m;
   };
 
-  //Pull Temas libres y hacer un merge con el programa
-  // useEffect(() => {
-  //   const fetchTemasLibres = async () => {
-  //     setShowSpinner(true); // Mostrar el spinner al iniciar la carga
+  // Pull Temas libres y hacer un merge con el programa
+  useEffect(() => {
+    const fetchTemasLibres = async () => {
+      setShowSpinner(true); // Mostrar el spinner al iniciar la carga
 
-  //     try {
-  //       const temasLibresResponse = await getTemasLibres(eventId)
-  //       if (!temasLibresResponse.status) {
-  //         throw new Error('Error al obtener los temas libres');
-  //       } else {
-  //         const temasLibres = temasLibresResponse.data;
-  //         console.log('Temas libres obtenidos:', temasLibres);
-  //         temasLibres.forarch((temaLibre) => {
-  //           const temaLibrePrep = {
-  //             categoria: "temas_libres",
-  //             dia: temaLibre.dia,
-  //             mes: temaLibre.mes,
-  //             hora: temaLibre.hora,
-  //             time: parseHoraToMinutes("09:00"),
-  //             ubicacion: temaLibre.lugar,
-  //           }
-  //         });
-  //       }
+      try {
+        const temasLibresResponse = await getTemasLibres(eventId);
+        if (!temasLibresResponse.status) {
+          throw new Error("Error al obtener los temas libres");
+        } else {
+          const temasLibres = temasLibresResponse.data;
+          console.log("Temas libres obtenidos:", temasLibres);
 
-  //     } catch (error) {
-  //       console.error('Error al obtener los temas libres:', error);
-  //     } finally {
-  //       setShowSpinner(false); // Ocultar el spinner al finalizar la carga
-  //     }
-  //   }
-  //   fetchTemasLibres();
-  // }, []);
+          const mesasTemasLibres = programa.filter(
+            (item) => item.categoria == "temas_libres"
+          );
 
+          mesasTemasLibres.forEach((mesaTemasLibres) => {
+            const temasLibresTrabajos = temasLibres
+              .filter(
+                (temaLibre) =>
+                  convertirDia[temaLibre.presentacionDia] == mesaTemasLibres.dia &&
+                  convertirAula[temaLibre.presentacionAula] == mesaTemasLibres.ubicacion
+              )
+              .map((temaLibre) => ({
+                titulo: temaLibre.titulo,
+                autor: temaLibre.autoresList,
+                abstract: temaLibre.abstractRevisionUrlList?.at(-1) ?? temaLibre.abstractUrl
+              }));
+            mesaTemasLibres.trabajos = temasLibresTrabajos;
+          });
+        }
+      } catch (error) {
+        console.error("Error al obtener los temas libres:", error);
+      } finally {
+        setShowSpinner(false); // Ocultar el spinner al finalizar la carga
+      }
+    };
+    fetchTemasLibres();
+  }, [programaDay]);
 
   //Update programaFilter cuando cambia el dia
   useEffect(() => {
@@ -68,7 +89,6 @@ export const usePrograma = () => {
       .sort((a, b) => a.time - b.time);
     setProgramaFiltrado(programaFilter);
   }, [programaDay]);
-
 
   //Update programaFilter cuando cambia el searchTerm
   useEffect(() => {
