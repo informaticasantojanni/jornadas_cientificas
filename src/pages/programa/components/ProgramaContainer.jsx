@@ -15,7 +15,7 @@ const ProgramaContainer = () => {
   const { programaFiltrado } = usePrograma();
 
   return (
-    <div className="w-full max-w-[350px] p-4 text-sm rounded-tl-xl rounded-tr-xl bg-gradient-to-r from-PauGreenLight to-PauGreenDark laptop1:p-10 laptop1:max-w-[700px] mb-20">
+    <div className="w-full max-w-[700px] p-4 text-sm rounded-tl-xl rounded-tr-xl bg-gradient-to-r from-PauGreenLight to-PauGreenDark laptop1:p-10 laptop1:max-w-[700px] mb-20">
       {programaFiltrado?.map((item, index) =>
         item.categoria == "mesa_redonda" ? (
           <CardMesaRedonda key={index} data={item} />
