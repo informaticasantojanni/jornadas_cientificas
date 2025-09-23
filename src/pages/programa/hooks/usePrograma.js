@@ -21,6 +21,7 @@ export const usePrograma = () => {
     setCurrentDayIndex,
   } = useContext(ProgramaContext);
   const { setShowSpinner } = useGlobal();
+
   const convertirDia = {
     1: "29",
     2: "30",
@@ -28,6 +29,7 @@ export const usePrograma = () => {
     4: "2",
     5: "3",
   };
+  
   const convertirAula = {
     1: "S/A",
     2: "Piso 3 - Aula C",
