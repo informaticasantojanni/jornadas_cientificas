@@ -10,6 +10,7 @@ import PopupStreaming from "../components/PopupStreaming";
 import PopupCertificados from "../components/PopupCertificados";
 import PopupInscripcion from "../components/PopupInscripcion";
 import PopupArte from "../components/PopupArte";
+import PopupUpload from "../components/PopupUpload";
 
 const HomeView = () => {
 
@@ -30,7 +31,8 @@ const HomeView = () => {
       <Conferencias />
       <Colaboran />
       {/* <PopupInscripcion /> */}
-      <PopupArte />
+      {/* <PopupArte /> */}
+      <PopupUpload />
     </div>
   );
 };
