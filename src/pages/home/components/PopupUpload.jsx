@@ -44,7 +44,7 @@ const PopupUpload = () => {
               </h2>
               <a href="https://drive.google.com/drive/folders/1g0wAjk6wNzpl89uwyiNXRZsMhIB-cYV6?usp=sharing" target="_blank"><UploadIcon width={100} /></a>
               <a href="https://drive.google.com/drive/folders/1g0wAjk6wNzpl89uwyiNXRZsMhIB-cYV6?usp=sharing" target="_blank" className= "font-bold text-xl p-3 text-Violet">
-                Hace click aquí para subir tu trabajo
+                Hace click aquí para subir tu Presentación
               </a>
             </div>
 
