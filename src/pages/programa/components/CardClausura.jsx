@@ -16,7 +16,7 @@ console.log("data card clausura: ", data);
         <p className="font-bold ps-3 text-PauGreenDark">{data.hora}</p>
       </div>
 
-      <h2 className="font-semiBold text-PauGreenDark pb-3">{categorias[data.categoria]}</h2>
+      <h2 className="font-semiBold text-PauGreenDark pb-3">{data.titulo}</h2>
       <h3 className="font-semiBold pb-3">{data.descripcion}</h3>
 
       <div className="flex justify-center items-center py-3">
