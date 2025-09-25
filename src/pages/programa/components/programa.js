@@ -146,8 +146,33 @@ export const programa = [
     },
     disertantes: [
       {
-        nombre: "",
-        servicio: "",
+        nombre: "Lic Nora Brizuela",
+        servicio: "Servicio de Enfermería de Guardia",
+        tema: "",
+      },
+      {
+        nombre: "Dr Federico Labanca",
+        servicio: "Departamento de Urgencias",
+        tema: "",
+      },
+      {
+        nombre: "Dr Javier Castillo",
+        servicio: "Servicio de Clínica Médica",
+        tema: "",
+      },
+      {
+        nombre: "Dra Verónica Alonso",
+        servicio: "Servicio de Cirugía Vascular",
+        tema: "",
+      },
+      {
+        nombre: "Dra Marcela Guralnik",
+        servicio: "Servicio de Diabetes",
+        tema: "",
+      },
+      {
+        nombre: "Dr Luciano Mariani",
+        servicio: "Servico de Traumatología",
         tema: "",
       },
     ],
@@ -506,7 +531,7 @@ export const programa = [
       titulo: "Secretaria",
       secretarios: [
         {
-          nombre: "Natalia Jiménez",
+          nombre: "A confirmar",
           servicio: "",
         },
       ],
@@ -526,17 +551,7 @@ export const programa = [
         nombre: "Dra. Glassmann Rocio",
         servicio: "",
         tema: "",
-      },
-      {
-        nombre: "Dra. Mendez Jesica",
-        servicio: "",
-        tema: "",
-      },
-      {
-        nombre: "Dr. Castillo Javier",
-        servicio: "",
-        tema: "",
-      },
+      }
     ],
   },
   {
