@@ -7,7 +7,7 @@ export const oradoresList = [
     image: "/images/invitados/PedroFulonePS.png",
     name: "Dr. Pedro Fullone",
     cv: "MEDICO ESPECIALISTA EN CIRUGIA GENERAL Y TORACICA MEDICO LEGISTA Jefe de Division Cirugia General Hospital Santojanni Encargado de enseñanza cirugia UBA. Unidad Docente Htal Santojanni",
-    linkStreaming: "Pending",
+    linkStreaming: "https://youtube.com/live/r2GRZQsK78M?feature=share",
   },
   {
     id: "2",
