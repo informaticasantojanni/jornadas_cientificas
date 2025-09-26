@@ -21,7 +21,7 @@ export const programa = [
     time: parseHoraToMinutes("07:30"),
     ubicacion: "2 Piso Aulas A-B",
     descripcion: "Apertura",
-    linkStreaming: "Pending",
+    linkStreaming: "https://youtube.com/live/r2GRZQsK78M?feature=share",
   },
   {
     categoria: "vino_de_honor",

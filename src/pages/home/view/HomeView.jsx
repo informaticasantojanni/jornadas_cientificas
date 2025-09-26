@@ -33,6 +33,7 @@ const HomeView = () => {
       {/* <PopupInscripcion /> */}
       {/* <PopupArte /> */}
       <PopupUpload />
+      {/* <PopupStreaming /> */}
     </div>
   );
 };
