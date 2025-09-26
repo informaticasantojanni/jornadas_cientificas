@@ -42,7 +42,7 @@ const PopupStreaming = () => {
               Ahora: Streaming en Vivo
             </h2>
             <a
-              href="https://youtube.com/live/GkYQ5gGNQ0Y"
+              href="https://youtube.com/live/r2GRZQsK78M?feature=share"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center"

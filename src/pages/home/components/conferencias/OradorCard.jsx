@@ -12,14 +12,13 @@ const OradorCard = ({ orador }) => {
           <p className="text-lg text-start font-semiBold text-Green">
             {orador.date}
           </p>
-          <button className="items-center text-lg bg-Green rounded-full p-1 text-White">
-            <a
-              href={orador.linkStreaming ? orador.linkStreaming : "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-            ><PlayIcon width="30px" height="30px" />
-            </a>
-          </button>
+          <a
+            href={orador.linkStreaming ? orador.linkStreaming : "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative z-50 inline-flex items-center text-lg bg-Green rounded-full p-1 text-White">
+            <PlayIcon width="30px" height="30px" />
+          </a>
         </div>
 
         <div className="h-[150px]">
@@ -64,8 +63,8 @@ const OradorCard = ({ orador }) => {
         <button
           className="absolute bottom-[20px] w-[50%] text-sm py-1 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
           onClick={() => setCvFullHeight(!cvFullHeight)}>
-            {cvFullHeight ? "Leer menos  ▼" : "Leer más  ▲"}
-            </button>
+          {cvFullHeight ? "Leer menos  ▼" : "Leer más  ▲"}
+        </button>
       </div>
 
 
