@@ -12,11 +12,19 @@ export const oradoresList = [
   {
     id: "2",
     date: "Martes 30/09 | 09:30 hs",
-    conference: "Escenarios Actuales e Intervención en lo Social",
-    image: "/images/invitados/AlfredoCarballedaPS.jpg",
-    name: "Prof. Dr. Alfredo Juan Manuel Carballeda",
-    cv: 'Alfredo Juan Manuel Carballeda es un trabajador social, docente e investigador. A lo largo de su carrera se ha dedicado al trabajo institucional y al asesoramiento en la planificación de políticas públicas a nivel nacional y regional. Es un experto en el campo de la salud, con un énfasis particular en la salud mental y la justicia. Carballeda es licenciado en Servicio Social por la Universidad de Buenos Aires (UBA), tiene un Diploma Superior en Ciencias Sociales con mención en Sociología (FLACSO) y es Magíster en Trabajo Social (UNLP/PUC de San Pablo). Además, es doctor en Trabajo Social. Ha publicado numerosos trabajos y ha colaborado en el diseño e implementación de la carrera de Licenciatura en Trabajo Social en varias universidades. Fue el creador de la Revista de Trabajo Social y Ciencias Sociales "Margen". Sus escritos y libros abordan temas como la intervención social, la exclusión, la integración y la evolución de la "cuestión social" en América Latina. Ha dictado seminarios de posgrado en diversas universidades de Argentina y otros países.',
-    linkStreaming: "Pending",
+    conference: "Sistema Nacional de Emergencias Sanitarias",
+    image: "",
+    name: "Dra. Ernestina Sarmiento",
+    cv: `Médica Pediatra del Hospital de Niños Dr Ricardo Gutiérrez (CABA). 
+- Docente Adscripta del Departamento de Patología. Facultad de Medicina. Universidad de Buenos Aires.  
+- Coordinadora de la Central de Monitoreo y Análisis de Datos. Dirección Nacional de Emergencias Sanitarias. Ministerio de Salud de la Nación. 
+- Diploma of Advanced Studies in Biomedical Sciences. Universidad de Friburgo. (Alemania).
+- Ex - JTP del Departamento de Pediatría. Facultad de Medicina. Universidad de Buenos Aires. 
+- Ex - Docente Asistente del Departamento de Pediatría. Facultad de Medicina. Universidad del Salvador. 
+En curso:
+- Maestría Internacional en Ciencias Biomédicas. Universidad de Buenos Aires / Universidad de Friburgo (Alemania). 
+- Carrera de Especialización en Estadística para Ciencias de la Salud. Facultad de Ciencias Exactas. Universidad de Buenos Aires.`,
+    linkStreaming: "https://www.youtube.com/live/APi6RtZ_8xs",
   },
   {
     id: "3",

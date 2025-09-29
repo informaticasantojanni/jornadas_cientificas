@@ -73,10 +73,10 @@ export const programa = [
     hora: "09:30",
     time: parseHoraToMinutes("9:30"),
     ubicacion: "2 Piso Aulas A-B",
-    titulo: "Escenarios Actuales e Intervención en lo Social",
-    orador: "Prof. Dr. Alfredo Juan Manuel Carballeda",
+    titulo: "Sistema Nacional de Emergencias Sanitarias",
+    orador: "Dra. Ernestina Sarmiento",
     isStreaming: true,
-    linkStreaming: "Pending",
+    linkStreaming: "https://www.youtube.com/live/APi6RtZ_8xs",
   },
   {
     categoria: "conferencia",
@@ -524,14 +524,14 @@ export const programa = [
     titulo:
       "Enfoque multidisciplinario del Síndrome de ovario poliquístico, para la prevención diagnóstico y tratamiento del riesgo cardiovascular",
     presidente: {
-      nombre: "Nicole Alfaro Cazón",
+      nombre: "Natalia jiménez",
       servicio: "",
     },
     secretario: {
       titulo: "Secretaria",
       secretarios: [
         {
-          nombre: "A confirmar",
+          nombre: "Nicole Alfaro Cazón",
           servicio: "",
         },
       ],
