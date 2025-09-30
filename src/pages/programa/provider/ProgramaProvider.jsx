@@ -11,7 +11,7 @@ const ProgramaProvider = ({ children }) => {
     "Jueves 2",
     "Viernes 3",
   ];
-  const [programaDay, setProgramaDay] = useState(calendario[0]);
+  const [programaDay, setProgramaDay] = useState(calendario[1]);
   const [programaFiltrado, setProgramaFiltrado] = useState();
   const [searchTerm, setSearchTerm] = useState("");
 
