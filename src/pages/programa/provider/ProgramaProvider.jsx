@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ProgramaContext } from "../context/ProgramaContext";
 
 const ProgramaProvider = ({ children }) => {
-  const [currentDayIndex, setCurrentDayIndex] = useState(0);
+  const [currentDayIndex, setCurrentDayIndex] = useState(1);
   const calendario = ["29", "30", "1", "2", "3"];
   const calendarioMuestra = [
     "Lunes 29",
