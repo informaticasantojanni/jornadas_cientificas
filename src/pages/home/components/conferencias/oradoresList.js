@@ -13,7 +13,7 @@ export const oradoresList = [
     id: "2",
     date: "Martes 30/09 | 09:30 hs",
     conference: "Sistema Nacional de Emergencias Sanitarias",
-    image: "",
+    image: "/images/invitados/Ernestina.png",
     name: "Dra. Ernestina Sarmiento",
     cv: `Médica Pediatra del Hospital de Niños Dr Ricardo Gutiérrez (CABA). 
 - Docente Adscripta del Departamento de Patología. Facultad de Medicina. Universidad de Buenos Aires.  
