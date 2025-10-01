@@ -34,7 +34,7 @@ En curso:
     image: "/images/invitados/RaulReyPS.png",
     name: "Prof. Dr. Raúl C. Rey",
     cv: 'El Dr. Raúl C. Rey es un médico neurólogo, profesor y jefe de división Neurología del Hospital José María Ramos Mejía en Buenos Aires. Es Profesor Titular de la Cátedra de Neurología de la Facultad de Medicina de la Universidad de Buenos Aires (UBA) y director de la Carrera de Médico Especialista en Neurología de la UBA. El Dr. Rey ha publicado trabajos y libros sobre neurología, como "Neurología Clínica", y ha colaborado en la investigación en el campo de las neurociencias. Es una figura destacada en la neurología argentina, especialmente en el ámbito de la docencia y la investigación clínica.',
-    linkStreaming: "Pending",
+    linkStreaming: "https://www.youtube.com/live/XxQU-TGz1ro",
   },
   {
     id: "4",
