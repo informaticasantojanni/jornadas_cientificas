@@ -538,17 +538,32 @@ export const programa = [
     },
     disertantes: [
       {
-        nombre: "Dra. González Sandra",
-        servicio: "",
-        tema: "",
-      },
-      {
         nombre: "Dr. Cataño Fernando",
         servicio: "",
         tema: "",
       },
       {
+        nombre: "Dra. González Sandra",
+        servicio: "",
+        tema: "",
+      },
+      {
+        nombre: "Dra. Mendez Jesica",
+        servicio: "",
+        tema: "",
+      },
+      {
         nombre: "Dra. Glassmann Rocio",
+        servicio: "",
+        tema: "",
+      },
+      {
+        nombre: "Dr. Castillo Javier",
+        servicio: "",
+        tema: "",
+      },
+      {
+        nombre: "Dra. Gonzalez Sandra",
         servicio: "",
         tema: "",
       }
@@ -806,7 +821,7 @@ export const programa = [
     presidente: "Macarena Donadio (Clínica Médica)",
     secretario: "Emilio Pisapio (Cardiología)",
     coordinador: "Daniela Rey / Fernanda Aseijas Rubio (Clínica Médica)",
-    colaboradores: ["Clínica Médica: Marlon Bolivar, Nicolas Lavaise Lanzillota", "Hematología: Gabriela Mosquera" , "Neumología: Giovanni Avila , Lisseth Mora Crespo", "Cardiología: Camila Algañaraz, Emilio Pisapio", "Ginecología: Mauro Perlov, Julieta Salas Apaza, Marina Fernandez, Rolando Candelaria"],
+    colaboradores: ["Clínica Médica: Marlon Bolivar, Nicolas Lavaise Lanzillota", "Hematología: Gabriela Mosquera", "Neumología: Giovanni Avila , Lisseth Mora Crespo", "Cardiología: Camila Algañaraz, Emilio Pisapio", "Ginecología: Mauro Perlov, Julieta Salas Apaza, Marina Fernandez, Rolando Candelaria"],
     presentadores: ["Clínica Médica: Nicolas Lavaise Lanzillota", "Hematología: Gabriela Mosquera", "Neumología: Lisseth Mora Crespo", "Cardiología: Camila Algañaraz", "Ginecología: Marina Fernandez"],
   },
   {

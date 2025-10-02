@@ -12,7 +12,7 @@ const OradoresCarousel = () => {
         loop={false}
         centeredSlides={true}
         navigation={{ clickable: true }} // Properly configure pagination
-        initialSlide={1} // Muestra el segundo slide al cargar
+        initialSlide={3} // Muestra el segundo slide al cargar
         modules={[Navigation]} // Add the Navigation module
         breakpoints={{
           300: {
