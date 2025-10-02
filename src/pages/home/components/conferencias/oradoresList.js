@@ -44,6 +44,6 @@ En curso:
     image: "/images/invitados/RicardoBarciaPS.png",
     name: "Dr. Ricardo Barcía",
     cv: 'El Dr. Ricardo E. Barcia es médico especialista en medicina interna, jefe de sala de internación en el Hospital de Clínicas José de San Martín, y docente de la Universidad de Buenos Aires. Obtuvo su título de Doctor en Medicina en la Universidad de Buenos Aires (UBA) con la tesis "Evaluación de un programa de interacciones medicamentosas para limitar la polifarmacia". Ha publicado trabajos de investigación sobre temas como la polifarmacia y las interacciones entre medicamentos.',
-    linkStreaming: "Pending",
+    linkStreaming: "https://youtube.com/live/N6vKB2Bmxn4",
   },
 ];
