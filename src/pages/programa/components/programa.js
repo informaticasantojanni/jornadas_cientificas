@@ -538,33 +538,28 @@ export const programa = [
     },
     disertantes: [
       {
-        nombre: "Dr. Cataño Fernando",
-        servicio: "",
+        nombre: "Dr. Cattaneo Fernando",
+        servicio: "Servicio de Endrocrinología",
         tema: "",
       },
       {
         nombre: "Dra. González Sandra",
-        servicio: "",
+        servicio: "Servicio de Clínica Médica",
         tema: "",
       },
       {
         nombre: "Dra. Mendez Jesica",
-        servicio: "",
+        servicio: "Servicio de Endrocrinología",
         tema: "",
       },
       {
         nombre: "Dra. Glassmann Rocio",
-        servicio: "",
+        servicio: "Servicio de Ginecología",
         tema: "",
       },
       {
         nombre: "Dr. Castillo Javier",
-        servicio: "",
-        tema: "",
-      },
-      {
-        nombre: "Dra. Gonzalez Sandra",
-        servicio: "",
+        servicio: "Servicio de Clínica Médica",
         tema: "",
       }
     ],
