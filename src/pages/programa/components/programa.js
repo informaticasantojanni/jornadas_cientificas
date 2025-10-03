@@ -844,6 +844,8 @@ export const programa = [
     coordinador: "",
     colaboradores: [""],
     presentadores: [""],
+    isStreaming: true,
+    linkStreaming: "https://youtube.com/live/GPiJvmWD2tc",
   },
   {
     categoria: "jornadas_residentes",
