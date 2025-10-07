@@ -800,7 +800,7 @@ export const programa = [
     time: parseHoraToMinutes("09:00"),
     ubicacion: "Piso 4 - Aula E",
     tema: "Enfermedad de POTT",
-    presidente: "Evelyn Carral (Anatomía patológica)",
+    presidente: "Marlon Bolivar",
     secretario: "Analía Dorrego (Infectología)",
     coordinador: "Daniela Rey / Fernanda Aseijas Rubio (Clínica Médica)",
     colaboradores: ["Clínica Médica: Johanna Saldungaray", "Carlos Chaparro, Valera", "Infectología: Alexandra Campos, Paula Menotti, Analia Dorrego", "Neurocirugía: Nicolas Facchin, Sofia Folmer", "Traumatología: Karina Mendez, Agustin Zilliotto", "Anatomía patológica: Evelyn Carral, Agustin Elizondo"],
