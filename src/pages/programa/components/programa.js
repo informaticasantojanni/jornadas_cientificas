@@ -804,7 +804,7 @@ export const programa = [
     secretario: "Analía Dorrego (Infectología)",
     coordinador: "Daniela Rey / Fernanda Aseijas Rubio (Clínica Médica)",
     colaboradores: ["Clínica Médica: Johanna Saldungaray", "Carlos Chaparro, Valera", "Infectología: Alexandra Campos, Paula Menotti, Analia Dorrego", "Neurocirugía: Nicolas Facchin, Sofia Folmer", "Traumatología: Karina Mendez, Agustin Zilliotto", "Anatomía patológica: Evelyn Carral, Agustin Elizondo"],
-    presentadores: ["Clínica Médica: Paredes Chaparro Carlos Manuel", "Infectología: Alexandra Campos", "Neurocirugía: Nicolas Facchin", "Traumatología: Agustin Zilliotto", "Anatomía patológica: Evelyn Carral"],
+    presentadores: ["Clínica Médica: Paredes Chaparro Carlos Manuel", "Infectología: Alexandra Campos", "Neurocirugía: Nicolas Facchin", "Traumatología: Agustin Zilliotto", "Anatomía patológica: Evelyn Carral", "Nicolas Facchin (Neurocirugía)"],
   },
   {
     categoria: "jornadas_residentes",
