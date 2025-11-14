@@ -94,8 +94,20 @@ export const useGenerateCertificados = () => {
         text = `Por cuanto: ${certificado.autoridad} ha participado como ${certificado.titulo}`;
         generateCertificadoPDF(text);
         break;
+      case "secretario_jornada_residente":
+        text = `Por cuanto: ${certificado.autoridad} ha participado como ${certificado.titulo}`;
+        generateCertificadoPDF(text);
+        break;
       case "coordinador_jornada_residente":
         text = `Por cuanto: ${certificado.autoridad} ha participado como ${certificado.titulo}`;
+        generateCertificadoPDF(text);
+        break;
+      case "colaborador_jornada_residente":
+        text = `Por cuanto: ${certificado.autoridad} ha/han participado como ${certificado.titulo}`;
+        generateCertificadoPDF(text);
+        break;
+      case "presentador_jornada_residente":
+        text = `Por cuanto: ${certificado.autoridad} ha/han participado como ${certificado.titulo}`;
         generateCertificadoPDF(text);
         break;
       case "disertante_jornada_residente":
