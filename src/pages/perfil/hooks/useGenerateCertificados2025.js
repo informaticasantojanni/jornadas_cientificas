@@ -2,11 +2,11 @@ import { useState } from "react";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 import { saveAs } from "file-saver";
 
-export const useGenerateCertificados = () => {
+export const useGenerateCertificados2025 = () => {
   const generatePDF = async (userData) => {
     // Cargar la plantilla PDF existente
     const existingPdfBytes = await fetch(
-      "/pdf/template_certificado_jornadas_2024.pdf"
+      "/pdf/template_certificado_jornadas_2025.pdf"
     ).then((res) => res.arrayBuffer());
 
     // Crear un nuevo documento a partir de la plantilla
@@ -43,7 +43,7 @@ export const useGenerateCertificados = () => {
       });
       currentY -= textSize + 4; // Espaciado entre líneas
     });
-    page.drawText("Se extiende el presente certificado el día 15 de noviembre de 2024.", {
+    page.drawText("Se extiende el presente certificado el día 7 de octubre de 2025.", {
       x: 100, // Ajusta las coordenadas x
       y: currentY - 20, // Ajusta la posición vertical para cada línea
       size: textSize,
@@ -179,7 +179,7 @@ export const useGenerateCertificados = () => {
   const generateCertificadoPDF = async (text) => {
     // Cargar la plantilla PDF existente
     const existingPdfBytes = await fetch(
-      "/pdf/template_certificado_jornadas_2024.pdf"
+      "/pdf/template_certificado_jornadas_2025.pdf"
     ).then((res) => res.arrayBuffer());
 
     // Crear un nuevo documento a partir de la plantilla
@@ -190,7 +190,7 @@ export const useGenerateCertificados = () => {
 
     // Insertar texto personalizado
     const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
-    const textSize = 14;
+    const textSize = 16;
     const color = rgb(0, 0, 0);
     const maxWidth = 700;
 
@@ -204,7 +204,7 @@ export const useGenerateCertificados = () => {
     );
 
     //Completa con nombre y apellido de la autoridad
-    let currentY = 330;
+    let currentY = 360;
     textLines.forEach((line) => {
       page.drawText(line, {
         x: 100, // Ajusta las coordenadas x
@@ -213,9 +213,9 @@ export const useGenerateCertificados = () => {
         font: timesRomanFont,
         color: color,
       });
-      currentY -= textSize + 4; // Espaciado entre líneas
+      currentY -= textSize + 8; // Espaciado entre líneas
     });
-    page.drawText("Se extiende el presente certificado el día 15 de noviembre de 2024.", {
+    page.drawText("Se extiende el presente certificado el 7 de octubre de 2025.", {
       x: 100, // Ajusta las coordenadas x
       y: currentY - 20, // Ajusta la posición vertical para cada línea
       size: textSize,
@@ -237,7 +237,7 @@ export const useGenerateCertificados = () => {
   const generateCertificadoSecretarioTemasLibres = async (certificado) => {
     // Cargar la plantilla PDF existente
     const existingPdfBytes = await fetch(
-      "/pdf/template_certificado_jornadas_2024.pdf"
+      "/pdf/template_certificado_jornadas_2025.pdf"
     ).then((res) => res.arrayBuffer());
 
     // Crear un nuevo documento a partir de la plantilla
@@ -306,7 +306,7 @@ export const useGenerateCertificados = () => {
   const generateCertificadoAutoresTemasLibres = async (certificado) => {
     // Cargar la plantilla PDF existente
     const existingPdfBytes = await fetch(
-      "/pdf/template_certificado_jornadas_2024.pdf"
+      "/pdf/template_certificado_jornadas_2025.pdf"
     ).then((res) => res.arrayBuffer());
 
     // Crear un nuevo documento a partir de la plantilla
@@ -386,7 +386,7 @@ export const useGenerateCertificados = () => {
   const generateCertificadoPresidenteMesaRedonda = async (certificado) => {
     // Cargar la plantilla PDF existente
     const existingPdfBytes = await fetch(
-      "/pdf/template_certificado_jornadas_2024.pdf"
+      "/pdf/template_certificado_jornadas_2025.pdf"
     ).then((res) => res.arrayBuffer());
 
     // Crear un nuevo documento a partir de la plantilla
@@ -455,7 +455,7 @@ export const useGenerateCertificados = () => {
   const generateCertificadoSecretarioMesaRedonda = async (certificado) => {
     // Cargar la plantilla PDF existente
     const existingPdfBytes = await fetch(
-      "/pdf/template_certificado_jornadas_2024.pdf"
+      "/pdf/template_certificado_jornadas_2025.pdf"
     ).then((res) => res.arrayBuffer());
 
     // Crear un nuevo documento a partir de la plantilla
@@ -524,7 +524,7 @@ export const useGenerateCertificados = () => {
   const generateCertificadoDisertanteMesaRedonda = async (certificado) => {
     // Cargar la plantilla PDF existente
     const existingPdfBytes = await fetch(
-      "/pdf/template_certificado_jornadas_2024.pdf"
+      "/pdf/template_certificado_jornadas_2025.pdf"
     ).then((res) => res.arrayBuffer());
 
     // Crear un nuevo documento a partir de la plantilla
@@ -614,7 +614,7 @@ export const useGenerateCertificados = () => {
   const generateCertificadoPresidenteJornadaResidente = async (certificado) => {
     // Cargar la plantilla PDF existente
     const existingPdfBytes = await fetch(
-      "/pdf/template_certificado_jornadas_2024.pdf"
+      "/pdf/template_certificado_jornadas_2025.pdf"
     ).then((res) => res.arrayBuffer());
 
     // Crear un nuevo documento a partir de la plantilla
@@ -683,7 +683,7 @@ export const useGenerateCertificados = () => {
   const generateCertificadoSecretarioJornadaResidente = async (certificado) => {
     // Cargar la plantilla PDF existente
     const existingPdfBytes = await fetch(
-      "/pdf/template_certificado_jornadas_2024.pdf"
+      "/pdf/template_certificado_jornadas_2025.pdf"
     ).then((res) => res.arrayBuffer());
 
     // Crear un nuevo documento a partir de la plantilla
@@ -752,7 +752,7 @@ export const useGenerateCertificados = () => {
   const generateCertificadoDisertanteJornadaResidente = async (certificado) => {
     // Cargar la plantilla PDF existente
     const existingPdfBytes = await fetch(
-      "/pdf/template_certificado_jornadas_2024.pdf"
+      "/pdf/template_certificado_jornadas_2025.pdf"
     ).then((res) => res.arrayBuffer());
 
     // Crear un nuevo documento a partir de la plantilla
@@ -822,7 +822,7 @@ export const useGenerateCertificados = () => {
   const generateCertificadoOradorConferencia = async (certificado) => {
     // Cargar la plantilla PDF existente
     const existingPdfBytes = await fetch(
-      "/pdf/template_certificado_jornadas_2024.pdf"
+      "/pdf/template_certificado_jornadas_2025.pdf"
     ).then((res) => res.arrayBuffer());
 
     // Crear un nuevo documento a partir de la plantilla

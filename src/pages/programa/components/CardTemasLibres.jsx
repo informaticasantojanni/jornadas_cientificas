@@ -30,7 +30,7 @@ const CardTemasLibres = ({ data }) => {
       {data.trabajos.map((trabajo, index) => (
         <div key={index}>
           <p className="pb-1 font-semiBold">{trabajo.titulo}</p>
-          <p className="pb-2 ps-5">{trabajo.autor}</p>
+          <p className="pb-2 ps-5">{trabajo.autor.join(", ")}</p>
           <div className="flex items-center pb-4 ps-5">
             <DownloadIcon width={"25px"} height={"25px"} />
             <a href={trabajo.abstract}>Abstract</a>
