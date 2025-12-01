@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import PagesBannerView from "../../../components/pagesBanner/view/PagesBannerView";
 import Table from "../components/Table";
 import DescargarCertificados from "../components/DecargarCertificados";
+import DescargarCertificados2025 from "../components/DecargarCertificados2025";
 
 
 
@@ -14,12 +15,16 @@ const DownloadView = () => {
   return (
     <div>
       <PagesBannerView title="Descargas" />
-      <section className=" mt-3 py-10 px-2 rounded-tl-xl bg-White flex flex-col items-center laptop1:ms-40">
-        <Table />
+      <section className="py-10 px-2 bg-White flex flex-col items-center laptop1:ms-40">
+        <DescargarCertificados2025 />
       </section>
+      {/* <section className=" mt-3 py-10 px-2 rounded-tl-xl bg-White flex flex-col items-center laptop1:ms-40">
+        <Table />
+      </section> */}
       <section className="py-10 px-2 bg-White flex flex-col items-center laptop1:ms-40">
         <DescargarCertificados />
       </section>
+
     </div>
   );
 };
