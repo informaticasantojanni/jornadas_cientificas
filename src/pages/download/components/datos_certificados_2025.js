@@ -31,8 +31,8 @@ export const datos_certificados = [
     },
     {
         tipo: "autores_temas_libres",
-        autores: "Maribel Carbajal, Vanina Paz Wasiuchnik, Leslie Lizano, Mariana Zancai, María José Moraca",
-        titulo: "Evaluación nutricional en pacientes con enfermedad renal crónica en hemodiálisis por ecografía y dinamometría"
+        autores: "Pincay, IlianaCapo, AgustinaPaz Wasiuchnik, Vanina",
+        titulo: "Prevalencia del hiperaparatiroidismo secundario en pacientes con enfermedad renal crónica en hemodiálisis"
     },
     {
         tipo: "autores_temas_libres",
@@ -66,11 +66,6 @@ export const datos_certificados = [
     },
     {
         tipo: "autores_temas_libres",
-        autores: "",
-        titulo: ""
-    },
-    {
-        tipo: "autores_temas_libres",
         autores: "Dr. Apraez Acosta Daniel Esteban, Dra. Maldonado Torrez Yesenia, Dra. Conde María de Los Ángeles, Dr. Cerda Cristian Mauricio, Dr. Cordoba Juan Pablo.",
         titulo: '“DILATACION PERCUTANEA DE ESTENOSIS DE HEPATOYEYUNOANASTOMOSIS (HYA): NUESTRA EXPERIENCIA”'
     },
@@ -83,16 +78,6 @@ export const datos_certificados = [
         tipo: "autores_temas_libres",
         autores: "Andrade, F.; Caradonti, M; Acosta, M; Toledo, E; Guerricagoitia, A.; Vazquez, S.; Del Re; Norberto",
         titulo: "Perforación vesical con lesión por empalamiento rectal."
-    },
-    {
-        tipo: "presidente_temas_libres",
-        autoridad: "Gustavo Lanosa",
-        titulo: "Presidente de Temas Libres"
-    },
-    {
-        tipo: "secretario_temas_libres",
-        autoridad: "Vanina Recalde",
-        titulo: "Secretario de Temas Libres"
     },
     {
         tipo: "orador_conferencia",
@@ -233,11 +218,6 @@ export const datos_certificados = [
         tipo: "autores_temas_libres",
         autores: "Luengo, S.; Caroprese, M.; Perlov, M.; Carou, J.; Bergamo, N.; Faranna, M.D.; Pesado, A.",
         titulo: "ALTERACIONES DEL SUEÑO DURANTE LA TRANSICIÓN MENOPÁUSICA"
-    },
-    {
-        tipo: "autores_temas_libres",
-        autores: "MELINA MARTINEZ LOPEZ, SILVIA PECHINI, LORENA CLAUS, FLORENCIA TUCILLO, NATALIA BATTO",
-        titulo: "SÍNTOMAS GENITOURINARIOS Y TRASTORNOS DEL SUELO PÉLVICO TRAS PARTO VAGINAL"
     },
     {
         tipo: "autores_temas_libres",
@@ -414,7 +394,7 @@ export const datos_certificados = [
     {
         tipo: "secretario_temas_libres",
         autoridad: "Laura Morisi",
-        titulo: "Secretario de Temas Libres"
+        titulo: "Secretaria de Temas Libres"
     },
     {
         tipo: "autores_temas_libres",
@@ -444,7 +424,7 @@ export const datos_certificados = [
     {
         tipo: "secretario_temas_libres",
         autoridad: "Mariana Lozana",
-        titulo: "Secretario de Temas Libres"
+        titulo: "Secretaria de Temas Libres"
     },
     {
         tipo: "autores_temas_libres",
