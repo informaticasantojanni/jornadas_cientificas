@@ -45,7 +45,7 @@ const DescargarCertificados = () => {
 
     return (
         <div className='flex flex-col items-center'>
-            <h1 className="main-title text-center py-5">Descarga tu certificado</h1>
+            <h1 className="main-title text-center py-5">Descarga tu certificado 2024</h1>
 
             <div className="w-[330px] p-5 mb-10 bg-CardGrayLight rounded-xl">
                 <form

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { datos_certificados } from './datos_certificados'
+import { datos_certificados } from './datos_certificados_2025'
 import ButtonVioletSM from '../../../components/buttons/ButtonVioletSM'
-import { useGenerateCertificados } from '../../perfil/hooks/useGenerateCertificados'
+import { useGenerateCertificados2025 } from '../../perfil/hooks/useGenerateCertificados2025'
 import Swal from "sweetalert2";
 import SearhIcon from './SearchIcon';
 
-const DescargarCertificados = () => {
-    const { generateCertificado } = useGenerateCertificados()
+const DescargarCertificados2025 = () => {
+    const { generateCertificado } = useGenerateCertificados2025()
     const [filteredCertificados, setFilteredCertificados] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
     const [searchResult, setSearchResult] = useState("")
@@ -45,7 +45,7 @@ const DescargarCertificados = () => {
 
     return (
         <div className='flex flex-col items-center'>
-            <h1 className="main-title text-center py-5">Descarga tu certificado</h1>
+            <h1 className="main-title text-center py-5">Descarga tu certificado 2025</h1>
 
             <div className="w-[330px] p-5 mb-10 bg-CardGrayLight rounded-xl">
                 <form
@@ -99,4 +99,4 @@ const DescargarCertificados = () => {
 }
 
 
-export default DescargarCertificados
+export default DescargarCertificados2025
