@@ -531,7 +531,7 @@ export const datos_certificados = [
         autores: "García Jorge; Cervetto Camila; Fernandez Leandro; Rocca Marcelo; Lopez Dafne",
         titulo: "Correlación clínica, imagenológica y anatomopatológica del fibroma cemento osificante, una entidad rara y poco frecuente, a propósito de un caso."
     },
-     {
+    {
         tipo: "autores_temas_libres",
         autores: "Tortone Julieta; Crocitta Carla; Morici Laura; Pereyra Carlos; Ochoa Fabricio",
         titulo: "Cuerpo extraño en recto, resolución de dos casos por vía transanal"
@@ -633,6 +633,267 @@ export const datos_certificados = [
     },
     {
         tipo: "presidente_temas_libres",
+        autoridad: "Améstica Guillermina",
+        titulo: "Presidenta de Temas Libres"
+    },
+    {
+        tipo: "secretario_temas_libres",
+        autoridad: "Echeverz Maria",
+        titulo: "Secretario de Temas Libres"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Juana Poli, Gauna Tatiana, Miguel Huespe, Davison Hector",
+        titulo: "HEMATOMA HEPÁTICO COMO COMPLICACIÓN DE SÍNDROME HELLP: A PROPÓSITO DE UN CASO"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "De la Casa R., Blanco L., Echeverz M., Retamozo J., Améstica G.",
+        titulo: "Epidemiología del cáncer de mama y embarazo en nuestra institución"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Baleztena Aranza Sel, Acosta Maria Emilia, Esteban Lucía, Domingorena Elizabeth, Vilchez Débora",
+        titulo: "La mirada del paciente sobre el abordaje del acompañamiento del duelo perinatal brindado por el personal de salud"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Roxana Calfuqueo",
+        titulo: "Satisfacción en la atención del parto por obstetricas"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "De la Casa Romina, Blanco Lila, Gregorio Florencia, Rivera Julia, Mirel Rosi Gisela",
+        titulo: "Determinantes sociales asociados al abandono del tratamiento oncológico en mujeres jóvenes con cáncer de mama"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "CITTERIO LUISINA MARINE, LUCA RUBEN, ANTUNES DANIELA, DANIELA GIL MACARENA TILLI VERDAGUER",
+        titulo: "CHAGAS CONGENITO: A PROPOSITO DE UN CASO"
+    },
+    {
+        tipo: "presidente_temas_libres",
+        autoridad: "Sarabia Eduardo",
+        titulo: "Presidente de Temas Libres"
+    },
+    {
+        tipo: "secretario_temas_libres",
+        autoridad: "Sonia Smodlaka",
+        titulo: "Secretaria de Temas Libres"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Candelaria Felicci, Casavilla Gustavo, Carlos Pereyra, Garralda Valeria",
+        titulo: "ABDOMEN AGUDO OBSTRUCTIVO SECUNDARIO A HERNIA DE SPIEGEL"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Tortone Julieta, Crocitta, Carla, Ochoa Fabricio, Pereyra Carlos, Morici, Laura",
+        titulo: "Perforación uterina por dispositivo intrauterino con migración a colon y extracción endoscópica: reporte de caso"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Ivana Guendjian, Loreley Toresan, Julieta Tortone, Valeria Garralda, Pedro Fullone",
+        titulo: "RELEVAMIENTO DE CANCER DE PULMON EN EL HOSPITAL GENERAL DE AGUDOS FRANCISCO SANTOJANNI"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Acosta Macarena, Vazquez Sofia, Saldaño Joaquin, Caradonti Matias, Del Re Norberto",
+        titulo: "Adenocarcinoma uretral: a propósito de un caso"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Ledesma Fiorella, Moi Karin, Nieto Laura, Morgado Lila, Lauge Beatriz",
+        titulo: "¿Ha cambiado la epidemiología de las infecciones virales respiratorias en pediatría?"
+    },
+    {
+        tipo: "presidente_temas_libres",
+        autoridad: "Liliana Gagliardi",
+        titulo: "Presidenta de Temas Libres"
+    },
+    {
+        tipo: "secretario_temas_libres",
+        autoridad: "Aldana Rondinella",
+        titulo: "Secretaria de Temas Libres"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Bigas, Nadia; Casado Daniela; Pasarin, Silvina",
+        titulo: "Perfil neurocognitivo en pacientes entre 9 y 16 años con diagnóstico de TEA, asistidos en el consultorio de neurodesarrollo entre junio 2024 a junio 2025."
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Dra. Cusolito Victoria, Dr. Sproviero Jorge, Dr. Sukarevicius Federico, Dr. Giménez Matías",
+        titulo: "Lesiones de las falanges ungüeales de la mano: experiencia inicial con la clasificación PNB"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Dra. Guaman Carolina, Dra. Martinez Laura, Dr. Alania Carlos Ricardo, Dr. Penalba Luis Manuel, Dr. Kalousek Marcelo.",
+        titulo: "VARICE GASTRICA GIGANTE; TRATAMIENTO ENDOSCOPICO"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Jessica Brigitte Burgos Melendres, Federico Matias Alvarez Vilariño, Amhad Hamze Sabra",
+        titulo: "MENINGITIS TUBERCULOSA"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Oswaldo Moreno, Dimitra Farace, Ariel Bermudez, Lucia Tapia",
+        titulo: "Radioterapia y el precio oculto: Carcinoma Adenoquistico Rinosinusal como efecto tardío"
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Ángel Rosado Castillo",
+        titulo: "Presentación bilateral de trombosis del seno cavernoso: reporte de un caso."
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Sabatini Alejandro, Alvarez Vilariño Federico Matías, Ahmad Hamze Sabra, Sabatini Alejandro",
+        titulo: "Sensibilidad y especificidad del análisis físico químico de líquido cefalorraquídeo para el diagnóstico de Meningitis postquirúrgica en el Hospital Donación Santojanni. Estudio de valoración diagnóstica."
+    },
+    {
+        tipo: "autores_temas_libres",
+        autores: "Tamayo Torres Miriam, Ortiz José, Yumi Pinzón Ivone, Carlos Nicasio Daona, Marcelo Kalousek",
+        titulo: "Screening de Cáncer Colorrectal"
+    },
+    {
+        tipo: "orador_conferencia",
+        orador: "Dr. Ricardo Barcía",
+        titulo: "Impacto de herramientas informáticas en la seguridad del paciente."
+    },
+    {
+        tipo: "presidente_mesa_redonda",
+        autoridad: "Dra. Ayos Mariana",
+        titulo: "Presidente de Mesa Redonda: Manejo interdisciplinario de comunicación oroantral"
+    },
+    {
+        tipo: "secretario_mesa_redonda",
+        autoridad: "Dra. Dimitra Farace Tsardikos",
+        titulo: "Secretaria de Mesa Redonda: Manejo interdisciplinario de comunicación oroantral"
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Dr. Parisi Guillermo",
+        titulo: "Disertante de Mesa Redonda: Manejo interdisciplinario de comunicación oroantral",
+        tema: ""
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Dra. Tapia Lucia",
+        titulo: "Disertante de Mesa Redonda: Manejo interdisciplinario de comunicación oroantral",
+        tema: ""
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Dr. Ingratta Christian",
+        titulo: "Disertante de Mesa Redonda: Manejo interdisciplinario de comunicación oroantral",
+        tema: ""
+    },
+    {
+        tipo: "presidente_mesa_redonda",
+        autoridad: "Dra. Geronazzo Veronica",
+        titulo: "Presidente de Mesa Redonda: Residencias hoy: aprender, cuidar y sostenerse en un sistema en tensión"
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Dr. Pablo Casado",
+        titulo: "Disertante de Mesa Redonda: Residencias hoy: aprender, cuidar y sostenerse en un sistema en tensión",
+        tema: ""
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Dr. Federico Picas",
+        titulo: "Disertante de Mesa Redonda: Residencias hoy: aprender, cuidar y sostenerse en un sistema en tensión",
+        tema: ""
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Dr. Facundo Lombardi",
+        titulo: "Disertante de Mesa Redonda: Residencias hoy: aprender, cuidar y sostenerse en un sistema en tensión",
+        tema: ""
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Dra. Valeria Garralda",
+        titulo: "Disertante de Mesa Redonda: Residencias hoy: aprender, cuidar y sostenerse en un sistema en tensión",
+        tema: ""
+    },
+    {
+        tipo: "presidente_mesa_redonda",
+        autoridad: "Natalia jiménez",
+        titulo: "Presidente de Mesa Redonda: Enfoque multidisciplinario del Síndrome de ovario poliquístico, para la prevención diagnóstico y tratamiento del riesgo cardiovascular"
+    },
+    {
+        tipo: "secretario_mesa_redonda",
+        autoridad: "Nicole Alfaro Cazón",
+        titulo: "Secretaria de Mesa Redonda: Enfoque multidisciplinario del Síndrome de ovario poliquístico, para la prevención diagnóstico y tratamiento del riesgo cardiovascular"
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Dr. Cattaneo Fernando",
+        titulo: "Disertante de Mesa Redonda: Enfoque multidisciplinario del Síndrome de ovario poliquístico, para la prevención diagnóstico y tratamiento del riesgo cardiovascular",
+        tema: ""
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Dra. González Sandra",
+        titulo: "Disertante de Mesa Redonda: Enfoque multidisciplinario del Síndrome de ovario poliquístico, para la prevención diagnóstico y tratamiento del riesgo cardiovascular",
+        tema: ""
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Dra. Mendez Jesica",
+        titulo: "Disertante de Mesa Redonda: Enfoque multidisciplinario del Síndrome de ovario poliquístico, para la prevención diagnóstico y tratamiento del riesgo cardiovascular",
+        tema: ""
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Dr. Castillo Javier",
+        titulo: "Disertante de Mesa Redonda: Enfoque multidisciplinario del Síndrome de ovario poliquístico, para la prevención diagnóstico y tratamiento del riesgo cardiovascular",
+        tema: ""
+    },
+    {
+        tipo: "presidente_mesa_redonda",
+        autoridad: "Dr. Marcelo Katz",
+        titulo: "Presidente de Mesa Redonda: Adulto mayor en la internación. desde la evaluación gerontológica hasta el sindrome confusional agudo"
+    },
+    {
+        tipo: "secretario_mesa_redonda",
+        autoridad: "Lic. Nadia Tomasello",
+        titulo: "Secretaria de Mesa Redonda: Adulto mayor en la internación. desde la evaluación gerontológica hasta el sindrome confusional agudo"
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Lic. Gisela Sesa",
+        titulo: "Disertante de Mesa Redonda: Adulto mayor en la internación. desde la evaluación gerontológica hasta el sindrome confusional agudo",
+        tema: ""
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Lic. Vanesa Benegas",
+        titulo: "Disertante de Mesa Redonda: Adulto mayor en la internación. desde la evaluación gerontológica hasta el sindrome confusional agudo",
+        tema: ""
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Lic. Nadia Bigas",
+        titulo: "Disertante de Mesa Redonda: Adulto mayor en la internación. desde la evaluación gerontológica hasta el sindrome confusional agudo",
+        tema: ""
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Dra. Paula Terraza",
+        titulo: "Disertante de Mesa Redonda: Adulto mayor en la internación. desde la evaluación gerontológica hasta el sindrome confusional agudo",
+        tema: ""
+    },
+    {
+        tipo: "disertante_mesa_redonda",
+        disertante: "Dra. María Marta Giani",
+        titulo: "Disertante de Mesa Redonda: Adulto mayor en la internación. desde la evaluación gerontológica hasta el sindrome confusional agudo",
+        tema: ""
+    },
+    {
+        tipo: "presidente_temas_libres",
         autoridad: "Marcelo Katz",
         titulo: "Presidente de Temas Libres"
     },
@@ -666,7 +927,7 @@ export const datos_certificados = [
         autores: "Fernandez Demczuk Nerina Ester, Facchin Nicolas, Lederhos Nicolas, Riffo Joaquin, Lopez Bertha, Figoni Maria Jimena",
         titulo: "Evolución y repermeabilización de aneurismas cerebrales tratados mediante coiling en periodo agudo"
     },
-     {
+    {
         tipo: "autores_temas_libres",
         autores: "Mastandrea, Martín; Barnes, Manuel; Boer, Mariela; Cardoso, Jorgelina; Challiol, Vanesa; Gomez, María Isabel; Herbón, Ángel; Machero, Matías; Noseda, Juan Pablo; Poletti, Mariano; Ramirez, Alexis; Tassi, Ailén; Wirszke, Ailen",
         titulo: "Impacto de la fuerza de prensión en la evolución del Índice de Barthel en sujetos con cirugía de cadera: Estudio prospectivo a 3 y 6 meses del alta hospitalaria"
@@ -706,7 +967,7 @@ export const datos_certificados = [
         autores: "Pamela Rossi, Cyntia Guzmán, Joan Manuel Dapeña, Fernando Saldarini, Mauro Federico Andreu, Andrea Verónica Suarez, Alejandra Celenza, Sandra Petruzelli",
         titulo: "Prevalencia y factores asociados a progresión de fibrosis en enfermedad pulmonar intersticial"
     },
-     {
+    {
         tipo: "autores_temas_libres",
         autores: "SALDARINI FERNANDO, ORTUÑO KATERINE, AVILA TORRES GIOVANNI, GOMEZ GASTON, CERVINO NAHUEL, ANDREU MAURO, BERTOZZI MATIAS, ROSSI PAMELA, CSIPKA PAULA, CELENZA ALEJANDRA",
         titulo: "Fenotipo exacerbador en EPOC: perfil clínico y cardiopulmonar en práctica real. (estudio SANTOEPOC)"
@@ -746,17 +1007,17 @@ export const datos_certificados = [
         autores: "Montero Camila, Rocca Daniela B, Fabiana L Durante, Pefaure Joaquin",
         titulo: "Opciones terapéuticas en la reconstrucción del cuero cabelludo"
     },
-     {
+    {
         tipo: "autores_temas_libres",
         autores: "Guendjian Ivana A., Tortone Julieta, Toresan Lorelay, Garralda Valeria, Fullone Pedro",
         titulo: "DERRAME PLEURAL TUBERCULOSO: ANÁLISIS RETROSPECTIVO EN UN HOSPITAL GENERAL DE LA CIUDAD DE BUENOS AIRES"
     },
-     {
+    {
         tipo: "autores_temas_libres",
         autores: "GARRALDA VALERIA , LORELEY TORESAN",
         titulo: "CAUSAS Y PREVENCION DEL NEUMOTORAX IATROGENICO EN NUESTRO HOSPITAL"
     },
-     {
+    {
         tipo: "autores_temas_libres",
         autores: "Rolando Candelaria, Vazquez Sofia, Luengo Shirley, Saldaño Joaquín, Vendramini Agustina, Pesado Analia, Del Re Norberto, Retamozo Jose",
         titulo: "ESTUDIO COMPARATIVO SOBRE LA DEPRESIÓN EN MUJERES CON DISFUNCIÓN DEL PISO PELVIANO"
@@ -796,17 +1057,17 @@ export const datos_certificados = [
         autores: "Clara Noceti, médica generalista CeSAC 28, Romina Ledesma, médica pediatra CeSAC 28, María Agustina Pirker, pediatra CeSAC 28, Lucía Quiroga, médica generalista CeSAC 28, Carla Agustina Santomaso, socióloga",
         titulo: "Tuberculosis en el ámbito escolar: desafíos en un nuevo escenario epidemiológico novedoso"
     },
-     {
+    {
         tipo: "autores_temas_libres",
         autores: "Cusolito Victoria, Agrazo Lucas, Rodriguez Johan, Mariani Luciano, Salas Branconi Jorge",
         titulo: "Amputación tipo Dickson en el tratamiento de lesiones digitales en pacientes diabéticos"
     },
-     {
+    {
         tipo: "autores_temas_libres",
         autores: "GARRALDA VALERIA , LORELEY TORESAN",
         titulo: "CAUSAS Y PREVENCION DEL NEUMOTORAX IATROGENICO EN NUESTRO HOSPITAL"
     },
-     {
+    {
         tipo: "autores_temas_libres",
         autores: "Rolando Candelaria, Vazquez Sofia, Luengo Shirley, Saldaño Joaquín, Vendramini Agustina, Pesado Analia, Del Re Norberto, Retamozo Jose",
         titulo: "ESTUDIO COMPARATIVO SOBRE LA DEPRESIÓN EN MUJERES CON DISFUNCIÓN DEL PISO PELVIANO"
