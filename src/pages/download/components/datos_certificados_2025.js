@@ -71,7 +71,7 @@ export const datos_certificados = [
     },
     {
         tipo: "autores_temas_libres",
-        autores: "Giselle Montee",
+        autores: "Giselle Montee, Angel Rosado Castillo, Noelia Liotti, Andrea Ferrari",
         titulo: "Tumor selar con alteración visual: reporte de un caso."
     },
     {
@@ -561,13 +561,13 @@ export const datos_certificados = [
         tipo: "disertante_mesa_redonda",
         disertante: "Dra. Sandra Galarza",
         titulo: "Disertante de Mesa Redonda: Vapeo y Tabaco: amenazas silenciosas para la Salud Pública",
-        tema: "Programa de Cesación Tabáquica del Gobierno de la Ciudad Autónoma de Buenos Aires: nuevos desafíos"
+        tema: "El vapeo y sus riesgos en la población joven"
     },
     {
         tipo: "disertante_mesa_redonda",
         disertante: "Lic. Marta Murray",
         titulo: "Disertante de Mesa Redonda: Vapeo y Tabaco: amenazas silenciosas para la Salud Pública",
-        tema: "Herramientas no farmacológicas para el tratamiento del tabaquismo: experiencia en el Hospital Santojanni"
+        tema: "El vapeo y sus riesgos en la población joven"
     },
     {
         tipo: "presidente_mesa_redonda",
@@ -663,7 +663,7 @@ export const datos_certificados = [
     },
     {
         tipo: "autores_temas_libres",
-        autores: "De la Casa Romina, Blanco Lila, Gregorio Florencia, Rivera Julia, Mirel Rosi Gisela",
+        autores: "De la Casa Romina, Blanco Lila, Gregorio Florencia, Rovere Julia, Morel Rosi Gisela",
         titulo: "Determinantes sociales asociados al abandono del tratamiento oncológico en mujeres jóvenes con cáncer de mama"
     },
     {
@@ -743,7 +743,7 @@ export const datos_certificados = [
     },
     {
         tipo: "autores_temas_libres",
-        autores: "Ángel Rosado Castillo",
+        autores: "Angel Rosado Castillo, Giselle Montee, Noelia Liotti, Andrea Ferrari",
         titulo: "Presentación bilateral de trombosis del seno cavernoso: reporte de un caso."
     },
     {
@@ -1034,7 +1034,7 @@ export const datos_certificados = [
     },
     {
         tipo: "autores_temas_libres",
-        autores: "Arcieri Sandra, Birnenbaum Silvia, Cappiello María Laura, De Janon Quevedo Lenin, Errea Sylvia, Murray Marta, Novello Mónica, Siciliano María Alejandra, Vedovato, Eduardo",
+        autores: "Arcieri Sandra, Birnenbaum Silvia, Cappiello María Laura, De Janon Quevedo Lenin, Errea Sylvia, Murray Marta, Novello Mónica, Siciliano María Alejandra, Vedovato Eduardo",
         titulo: "RESOLUCIÓN ÁGIL DE DILEMAS CLÍNICO-BIOÉTICOS VÍA MENSAJERÍA INSTANTÁNEA: METODOLOGÍA Y EXPERIENCIA DE UN COMITÉ HOSPITALARIO"
     },
     {
