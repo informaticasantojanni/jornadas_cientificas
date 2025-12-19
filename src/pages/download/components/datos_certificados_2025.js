@@ -71,7 +71,7 @@ export const datos_certificados = [
     },
     {
         tipo: "autores_temas_libres",
-        autores: "Giselle Montee, Angel Rosado Castillo, Noelia Liotti, Andrea Ferrari",
+        autores: "Giselle Montee, Angel Rosado Castillo, Noelia Liotti, Juan Antonelli, Andrea Ferrari",
         titulo: "Tumor selar con alteración visual: reporte de un caso."
     },
     {
