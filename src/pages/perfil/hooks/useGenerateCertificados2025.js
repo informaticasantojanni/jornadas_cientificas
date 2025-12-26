@@ -22,7 +22,7 @@ export const useGenerateCertificados2025 = () => {
     const maxWidth = 700;
     const fullName = userData.name + " " + userData.lastName;
 
-    const text = `Por cuanto: ${fullName} ha participado como "Asistente" en las XXXIX Jornadas Científicas del Hospital Santojanni.`;
+    const text = `Por cuanto: ${fullName} ha participado como "Asistente" en las XL Jornadas Científicas del Hospital Santojanni.`;
 
     const textLines = splitTextIntoLines(
         text,

@@ -32,8 +32,9 @@ const HomeView = () => {
       <Colaboran />
       {/* <PopupInscripcion /> */}
       {/* <PopupArte /> */}
-      <PopupUpload />
+      {/* <PopupUpload /> */}
       {/* <PopupStreaming /> */}
+      <PopupCertificados />
     </div>
   );
 };
