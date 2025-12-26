@@ -3,6 +3,7 @@ import UserDatos from '../components/UserDatos'
 import Registration from '../components/Registration'
 import TemasLibres from '../components/TemasLibres'     
 import Certificates from '../components/Certificates'
+import Certificates2025 from '../components/Certificates2025'
 
 const AdminUserProfile = () => {    
     return (
@@ -11,6 +12,7 @@ const AdminUserProfile = () => {
             <Registration />
             <TemasLibres />
             <Certificates />
+            <Certificates2025 />
         </div>
     )
 }
