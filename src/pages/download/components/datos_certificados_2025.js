@@ -1223,142 +1223,142 @@ export const datos_certificados = [
         titulo: "Presidente Jornada Residente: Taller RCP"
     },
     {
-        tipo: "Secretario_jornada_residente",
+        tipo: "secretario_jornada_residente",
         autoridad: "Lic Ailen Tassi",
         titulo: "Secretario Jornada Residente: Taller RCP"
     },
     {
-        tipo: "Presidente_jornada_residente",
+        tipo: "presidente_jornada_residente",
         autoridad: "Gabriela Mosquera",
         titulo: "Presidente Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Secretario_jornada_residente",
+        tipo: "secretario_jornada_residente",
         autoridad: "Sofía Folmer ",
         titulo: "Secretario Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Coordinador_jornada_residente",
+        tipo: "coordinador_jornada_residente",
         autoridad: "Daniela Rey",
         titulo: "Coordinadora Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Colaborador_jornada_residente",
+        tipo: "colaborador_jornada_residente",
         autoridad: "Gabriela Mosquera, Andrei Flores",
         titulo: "Colaboradora Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Colaborador_jornada_residente",
+        tipo: "colaborador_jornada_residente",
         autoridad: "Nicolas Lederhos; Sofía Folmer",
         titulo: "Colaboradora Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Colaborador_jornada_residente",
+        tipo: "colaborador_jornada_residente",
         autoridad: "Felici; Ivana Guendjian",
         titulo: "Colaboradora Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Colaborador_jornada_residente",
+        tipo: "colaborador_jornada_residente",
         autoridad: "Lucas Agrazo; Xavier Nuñez",
         titulo: "Colaboradores Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Colaborador_jornada_residente",
+        tipo: "colaborador_jornada_residente",
         autoridad: "Julieta Salas, Marina Werner, Natalia Batto Demattei, Mauro Perlov",
         titulo: "Colaboradores Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Colaborador_jornada_residente",
+        tipo: "colaborador_jornada_residente",
         autoridad: "Ivan Troyes; Gaston Camejo",
         titulo: "Colaboradores Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Presentador_jornada_residente",
+        tipo: "presentador_jornada_residente",
         autoridad: "Andrei Flores",
         titulo: "Presentador Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Presentador_jornada_residente",
+        tipo: "presentador_jornada_residente",
         autoridad: "Nicolás Lederhos",
         titulo: "Presentador Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Presentador_jornada_residente",
+        tipo: "presentador_jornada_residente",
         autoridad: "Candelaria Felici",
         titulo: "Presentadora Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Presentador_jornada_residente",
+        tipo: "presentador_jornada_residente",
         autoridad: "Xavier Nuñez",
         titulo: "Presentador Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Presentador_jornada_residente",
+        tipo: "presentador_jornada_residente",
         autoridad: "Natalia Batto Demattei",
         titulo: "Presentadora Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Presentador_jornada_residente",
+        tipo: "presentador_jornada_residente",
         autoridad: "Ivan Troyes",
         titulo: "Presentadora Jornada Residente: Anticoagulación en el paciente quirúrgico"
     },
     {
-        tipo: "Presidente_jornada_residente",
+        tipo: "presidente_jornada_residente",
         autoridad: "Luciana Castillo",
         titulo: "Presidente Jornada Residente: Sindrome cardiorrenal"
     },
     {
-        tipo: "Secretario_jornada_residente",
+        tipo: "secretario_jornada_residente",
         autoridad: "Pablo Herbas",
         titulo: "Secretario Jornada Residente: Sindrome cardiorrenal"
     },
     {
-        tipo: "Coordinador_jornada_residente",
+        tipo: "coordinador_jornada_residente",
         autoridad: "Daniela Rey",
         titulo: "Coordinadora Jornada Residente: Sindrome cardiorrenal"
     },
     {
-        tipo: "Coordinador_jornada_residente",
+        tipo: "coordinador_jornada_residente",
         autoridad: "Fernanda Aseijas Rubio",
         titulo: "Coordinadora Jornada Residente: Sindrome cardiorrenal"
     },
     {
-        tipo: "Colaborador_jornada_residente",
+        tipo: "colaborador_jornada_residente",
         autoridad: "Joaquin Molina, Luciana Castillo",
         titulo: "Colaboradores Jornada Residente: Sindrome cardiorrenal"
     },
     {
-        tipo: "Colaborador_jornada_residente",
+        tipo: "colaborador_jornada_residente",
         autoridad: "Pablo Herbas, Iliana Pincay, Leslie Lizano, Maribel Carbajal",
         titulo: "Colaboradores Jornada Residente: Sindrome cardiorrenal"
     },
     {
-        tipo: "Colaborador_jornada_residente",
+        tipo: "colaborador_jornada_residente",
         autoridad: "Jessica Alvarado",
         titulo: "Colaboradora Jornada Residente: Sindrome cardiorrenal"
     },
     {
-        tipo: "Colaborador_jornada_residente",
+        tipo: "colaborador_jornada_residente",
         autoridad: "Agostina Caruso, Melanie Mahia",
         titulo: "Colaboradores Jornada Residente: Sindrome cardiorrenal"
     },
     {
-        tipo: "Presentador_jornada_residente",
+        tipo: "presentador_jornada_residente",
         autoridad: "Joaquin Molina",
         titulo: "Presentadora Jornada Residente: Sindrome cardiorrenal"
     },
     {
-        tipo: "Presentador_jornada_residente",
+        tipo: "presentador_jornada_residente",
         autoridad: "Leslie Lizano",
         titulo: "Presentadora Jornada Residente: Sindrome cardiorrenal"
     },
     {
-        tipo: "Presentador_jornada_residente",
+        tipo: "presentador_jornada_residente",
         autoridad: "Jessica Alvarado",
         titulo: "Presentadora Jornada Residente: Sindrome cardiorrenal"
     },
     {
-        tipo: "Presentador_jornada_residente",
+        tipo: "presentador_jornada_residente",
         autoridad: "Melanie Mahia",
         titulo: "Presentadora Jornada Residente: Sindrome cardiorrenal"
     },
