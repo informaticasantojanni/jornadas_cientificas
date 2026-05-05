@@ -18,7 +18,7 @@ const Intro = () => {
         </h2>
 
         <div className="w-full laptop1:w-3/4 m-auto">
-          <div className="font-poppins space-y-4 pb-10">
+          {/* <div className="font-poppins space-y-4 pb-10">
             <p className="text-indent indent-6 text-justify font-poppins text-[14px] laptop1:text-[18px]">
               ¡Hola a todas y todos!
             </p>
@@ -46,35 +46,26 @@ const Intro = () => {
             </p>
 
 
-          </div>
+          </div> */}
 
           <div className="flex items-center justify-center tablet:justify-start flex-wrap pb-20">
             <img
               className="rounded-full w-[150px]"
-              src="/images/Daniel_Coso.jpg"
+              src="/images/Albaro.jpg"
               alt="Presidente Jornadas"
             />
             <div className="ps-10 flex flex-col items-center">
-              {/* <img className="w-[150px]" src="/images/signature.png" alt="" /> */}
-              <p className="pt-5 tablet:pt-24">Presidente XL Jornadas Científicas</p>
-              <p>Dr. Daniel Coso</p>
+              <img className="w-[150px]" src="/images/signature.png" alt="" />
+              <p className="pt-5 tablet:pt-24">Presidente XLI Jornadas Científicas</p>
+              <p>Dr. Alvaro Otreras</p>
             </div>
           </div>
-          {/* 
-          <div
-            className="items-center flex justify-center bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out w-[250px] m-auto p-2"
-            onClick={openModal}
-          >
-            <button className="w-full flex justify-center items-center   ">
-              <CamaraIcon width="25px" height="25px" />
-              <p className="text-xl font-bold ps-2">Ver video</p>
-            </button>
-          </div> */}
           <ModalVideo
             show={isModalOpen}
             onClose={closeModal}
           />
         </div>
+
       </div>
     </section>
   );

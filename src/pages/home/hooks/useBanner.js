@@ -34,8 +34,9 @@ export const useBanner = () => {
       title: `Aranceles`,
       html: `
       <div class="flex flex-col items-start ps-10">
-        <p class="pe-5 pb-3">Médicos: <span></span>20.000 pesos</p>
-        <p class="pe-5 pb-3">Residentes: <span></span>10.000 pesos</p>
+        <p class="pe-5 pb-3">Médicos: <span></span>30.000 pesos</p>
+        <p class="pe-5 pb-3">Residentes: <span></span>20.000 pesos</p>
+        <p class="pe-5 pb-3">Enfermería y profesiones a fin: <span></span>20.000 pesos</p>
         <p class="pe-5">Estudiantes: <span></span>sin costo</p>
       </div>
     `,

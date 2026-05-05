@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import PagesBannerView from "../../../components/pagesBanner/view/PagesBannerView";
 import ProgramaContainer from "../components/ProgramaContainer";
 import NavPrograma from "../components/NavPrograma";
 import ProgramaProvider from "../provider/ProgramaProvider";
 import SearchProgram from "../components/SearchProgram";
-import Spinner from "../../../components/spinner/Spinner";
 
 const ProgramaView = () => {
   useEffect(() => {
@@ -19,12 +18,10 @@ const ProgramaView = () => {
         <section className="mt-3 rounded-tl-xl bg-White flex flex-col items-center px-3 laptop1:ms-40">
           <NavPrograma />
           <SearchProgram />
-          {/* <ProgramaContainer /> */}
+          <ProgramaContainer />
         </section>
       </div>
-      <Spinner />
     </ProgramaProvider>
-
   );
 };
 

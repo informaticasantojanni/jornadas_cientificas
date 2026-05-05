@@ -5,7 +5,7 @@ import { useEventRegistrations } from "../hooks/useEventRegistrations";
 import { useReports } from "../hooks/useReports";
 
 const AdminPagos = ({ userId }) => {
-  const { generateReport } = useReports();
+  const { generateReport, generateReportAllUsers } = useReports();
   const { userData } = useProfile(userId);
   const [searchDni, setSearchDni] = useState("");
   const dniInputRef = useRef(null);
@@ -55,8 +55,19 @@ const AdminPagos = ({ userId }) => {
 
       <EventRegistrationsTable searchDni={searchDni} />
 
-      <div>
-        <button onClick={generateReport}>Generar Reporte</button>
+      <div className="w-full flex justify-center gap-4 py-6">
+        <button
+          onClick={generateReport}
+          className="w-[180px] text-sm font-bold px-5 py-3 bg-LightGreen text-White rounded-full hover:bg-Green hover:shadow-lg transition duration-300 ease-in-out"
+        >
+          Reporte Registrados
+        </button>
+        <button
+          onClick={generateReportAllUsers}
+          className="w-[180px] text-sm font-bold px-5 py-3 bg-LightGreen text-White rounded-full hover:bg-Green hover:shadow-lg transition duration-300 ease-in-out"
+        >
+          Generar All Users
+        </button>
       </div>
     </div>
   );

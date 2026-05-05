@@ -8,12 +8,12 @@ const Autoridades = () => {
     { title: "Subdirector HDFS", name: "Dr. Carlos Falco" },
     {
       title: "President AMM Filial Santojanni",
-      name: "Dr. Marcelo Struminger",
+      name: "Dr. Lucas Landolfi",
     },
-    { title: "Presidente", name: "Dr. Daniel Coso" },
-    { title: "Vicepresidente", name: "Dra. Silvina Lucilli" },
-    { title: "Secretario General", name: "Dr. José Retamoso" },
-    { title: "Secretario Adjunto", name: "Dr. Lucas Landolfi" },
+    { title: "Presidente", name: "Dr. Alvaro Otreras" },
+    { title: "Vicepresidente", name: "" },
+    { title: "Secretario General", name: "" },
+    { title: "Secretario Adjunto", name: "" },
     { title: "Tesorero", name: "Dr. Sergio Brandeburgo" },
   ];
 

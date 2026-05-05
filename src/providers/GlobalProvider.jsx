@@ -3,11 +3,10 @@ import { GlobalContext } from "../context/GlobalContext";
 
 const GlobalProvider = ({ children }) => {
 
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const [desktopView, setDesktopView] = useState(false);
-    const [showSpinner, setShowSpinner] = useState(false)
-    const [internalView, setInternalView] = useState("temasLibres");
-    const [processTrabajoId, setProcessTrabajoId] = useState("");
+    // Declaración de constantes
+    const EVENT_ID = "hKAIOceT9XY855FSbXL2"; //eventId Jornadas 2026
+    // const EVENT_ID = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
+    // const eventId = "ZbclMy93Cs9jzEYAgVui"; //eventId Jornadas 2024
     const PERFILES = {
         ADMIN: "admin",
         USER: "user",
@@ -15,6 +14,14 @@ const GlobalProvider = ({ children }) => {
         TEMAS_LIBRES_PRESIDENTE: "temasLibresPresidente",
         TEMAS_LIBRES_COMITE: "temasLibresComite"
     }
+
+    // Declaración de hook states
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [desktopView, setDesktopView] = useState(false);
+    const [showSpinner, setShowSpinner] = useState(false)
+    const [internalView, setInternalView] = useState("temasLibres");
+    const [processTrabajoId, setProcessTrabajoId] = useState("");
+
 
     useEffect(() => {
         function handleResize() {
@@ -40,7 +47,8 @@ const GlobalProvider = ({ children }) => {
                     setInternalView,
                     processTrabajoId,
                     setProcessTrabajoId,
-                    PERFILES
+                    PERFILES,
+                    EVENT_ID
                 }
             }>
 

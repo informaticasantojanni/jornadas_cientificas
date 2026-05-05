@@ -28,13 +28,13 @@ const HomeView = () => {
       <JornadasNumeros />
       <Autoridades />
       {/* <Invitados /> */}
-      <Conferencias />
+      {/* <Conferencias /> */}
       <Colaboran />
       {/* <PopupInscripcion /> */}
       {/* <PopupArte /> */}
       {/* <PopupUpload /> */}
       {/* <PopupStreaming /> */}
-      <PopupCertificados />
+      {/* <PopupCertificados /> */}
     </div>
   );
 };

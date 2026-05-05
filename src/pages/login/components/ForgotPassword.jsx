@@ -9,10 +9,10 @@ const ForgotPassword = () => {
       <form onSubmit={resetPassword}>
         <div className="w-full m-auto rounded-xl p-10 bg-gradient-to-b from-LightGreen to-Green text-white tablet:w-1/2 laptop1:w-1/2 laptop2:w-[500px]">
           <div className="flex flex-col mb-5">
-            <label className="w-full text-White pb-2">Correo electrónico:</label>
+            <label className="w-full text-White pb-2">DNI:</label>
             <input
-              type="email"
-              name="email"
+              type="dni"
+              name="dni"
               className="w-full px-2 py-2 mb-5 rounded-lg shadow-lightShadowGrey"
               required
             />

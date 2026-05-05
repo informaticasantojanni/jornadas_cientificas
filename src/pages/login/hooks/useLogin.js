@@ -10,6 +10,13 @@ import Swal from "sweetalert2";
 import { getUserById } from "../../../services/firebase.services";
 import { useGlobal } from "../../../hooks/useGlobal";
 
+import { getFunctions, httpsCallable } from "firebase/functions";
+import { app } from "../../../core/config/firebase.config.js";
+
+const functions = getFunctions(app);
+const recoverPasswordByDni = httpsCallable(functions, "recoverPasswordByDni");
+
+
 export const useLogin = () => {
   const navigate = useNavigate();
   const [isRegistered, setIsRegistered] = useState(true);
@@ -116,11 +123,19 @@ export const useLogin = () => {
 
     try {
       const form = new FormData(event.target);
-      const { email } = Object.fromEntries(form.entries());
-      const response = await recoverPassword(email);
-      console.log(response)
+      const { dni } = Object.fromEntries(form.entries());
+      // Aqui incluimos el codigo para recuperar el email a partir del dni, y luego ejecutar la función recoverPassword con el email recuperado
 
-      if (response.status) {
+      const res = await recoverPasswordByDni({
+        dni: dni
+      });
+
+      console.log(res.data);
+
+      // const response = await recoverPassword(email);
+      // console.log(response)
+
+      if (res.data.ok) {
         await Swal.fire({
           title: `Email enviado`,
           text: "Revisa tu casilla de correo electrónico (no olvides revisar también en Spam o Correo no deseado",
@@ -134,34 +149,21 @@ export const useLogin = () => {
         });
 
         window.location.reload()
-      } else {
-        const error = response.error;
-        Swal.fire({
-          title: `Ups, algo salió mal`,
-          text: { error },
-          background: "#FAFAFA",
-          color: "#025951",
-          iconColor: "#DC143C",
-          icon: "error",
-          width: "36em",
-          confirmButtonText: "Aceptar",
-          confirmButtonColor: "#038C7F",
-        });
       }
     } catch (error) {
-      if (response.status) {
-        Swal.fire({
-          title: `Ups, algo salió mail`,
-          text: { error },
-          background: "#FAFAFA",
-          color: "#025951",
-          iconColor: "#DC143C",
-          icon: "error",
-          width: "36em",
-          confirmButtonText: "Aceptar",
-          confirmButtonColor: "#038C7F",
-        });
-      }
+      console.log(error);
+      Swal.fire({
+        title: `Ups, algo salió mail`,
+        text: { error },
+        background: "#FAFAFA",
+        color: "#025951",
+        iconColor: "#DC143C",
+        icon: "error",
+        width: "36em",
+        confirmButtonText: "Aceptar",
+        confirmButtonColor: "#038C7F",
+      });
+
     }
   }
 

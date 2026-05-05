@@ -5,10 +5,37 @@ import {
 import { useRegistration } from "./useRegistration";
 import { getTemasLibres } from "../../../services/firebase.services";
 import { useTemasLibres } from "./useTemasLibres";
+import { useGlobal } from "../../../hooks/useGlobal";
 
 export const useReports = () => {
-  const EVENT_ID = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
+const {EVENT_ID} = useGlobal() //eventId Jornadas 2025
 const {setGeneratingReportTemasLibres} = useTemasLibres();
+
+  // Hook para generar reporte de todos los usuarios
+  const generateReportAllUsers = async () => {
+    const urlFetchAPI = "https://script.google.com/macros/s/AKfycbwekcJg2LokWFi7W_tyNGLcoDQcloqm-kiw3WUEdRK3U7iSBIVTCwD8lOwFieE1ZqLDhA/exec"
+    try {
+      console.log("Generating report...");
+      const users = await getAllUsers();
+      console.log("Done")
+      console.log(users)
+
+      // Send data to Google Script
+      const response = await fetch(urlFetchAPI, {
+        method: "POST",
+        redirect: "follow",
+        dataType: "json",
+        accepts: "application/json",
+        body: JSON.stringify(users),
+      });
+
+      // Handle the response from the Google Apps Script endpoint
+      const responseObject = await response.json();
+      console.log("Response status: ", responseObject);
+    } catch (error) {
+      console.log("Error generando reporte de usuarios:", error);
+    }
+  };
 
   // Hook de registro para obtener la función getRegistration
   const generateReport = async () => {
@@ -93,6 +120,7 @@ const {setGeneratingReportTemasLibres} = useTemasLibres();
   };
 
   return {
+    generateReportAllUsers,
     generateReport,
     generateReportTemasLibres
   };
