@@ -13,6 +13,7 @@ import { useGlobal } from "../../../hooks/useGlobal";
 import { getFunctions, httpsCallable } from "firebase/functions";
 import { app } from "../../../core/config/firebase.config.js";
 
+
 const functions = getFunctions(app);
 const recoverPasswordByDni = httpsCallable(functions, "recoverPasswordByDni");
 
@@ -130,15 +131,10 @@ export const useLogin = () => {
         dni: dni
       });
 
-      console.log(res.data);
-
-      // const response = await recoverPassword(email);
-      // console.log(response)
-
       if (res.data.ok) {
         await Swal.fire({
           title: `Email enviado`,
-          text: "Revisa tu casilla de correo electrónico (no olvides revisar también en Spam o Correo no deseado",
+          text: res.data.message,
           background: "#FAFAFA",
           color: "#025951",
           iconColor: "#DC143C",

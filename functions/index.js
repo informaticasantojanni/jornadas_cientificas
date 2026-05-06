@@ -3,15 +3,17 @@ const admin = require("firebase-admin");
 
 admin.initializeApp();
 
-exports.recoverPasswordByDni = onCall(async (request) => {
+const APPS_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycby7UEKG0qsW81lVPB8Cx7rG96bGSqW9lsS5GQdKZTXLwh-0XJCUtnUOJQB0mwJtgI4FPA/exec";
+
+exports.recoverPasswordByDni = onCall({ cors: ["http://localhost:5173", "https://jornadascientificassantojanni.com"] }, async (request) => {
   try {
     const { dni } = request.data;
 
-    if (!dni ) {
+    if (!dni) {
       throw new Error("Datos incompletos");
     }
 
-    // 🔎 Buscar usuario
     const snap = await admin
       .firestore()
       .collection("users")
@@ -19,7 +21,6 @@ exports.recoverPasswordByDni = onCall(async (request) => {
       .limit(1)
       .get();
 
-    // ⚠️ Siempre responder genérico (seguridad)
     if (snap.empty) {
       return {
         ok: true,
@@ -31,17 +32,20 @@ exports.recoverPasswordByDni = onCall(async (request) => {
     const user = snap.docs[0].data();
     const email = user.email;
 
-    // 🔗 Generar link de reset
     const link = await admin.auth().generatePasswordResetLink(email);
 
-    console.log("Reset link:", link);
-
-    // 📧 Acá podrías enviar email con SendGrid / Brevo / etc.
+    await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      redirect: "follow",
+      body: JSON.stringify({
+        userData: { email, name: user.name, lastName: user.lastName, link },
+        action: "recover_password",
+      }),
+    });
 
     return {
       ok: true,
-      message:
-        "Si los datos coinciden con una cuenta registrada, recibirás un email.",
+      message: `Revisa tu casilla de correo electrónico ${email} (no olvides revisar también en Spam o Correo no deseado).`,
     };
   } catch (error) {
     console.error(error);
