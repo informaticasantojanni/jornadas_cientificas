@@ -22,6 +22,7 @@ export const useLogin = () => {
   const navigate = useNavigate();
   const [isRegistered, setIsRegistered] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -123,6 +124,7 @@ export const useLogin = () => {
     event.preventDefault();
 
     try {
+      setLoading(true);
       const form = new FormData(event.target);
       const { dni } = Object.fromEntries(form.entries());
       // Aqui incluimos el codigo para recuperar el email a partir del dni, y luego ejecutar la función recoverPassword con el email recuperado
@@ -160,6 +162,8 @@ export const useLogin = () => {
         confirmButtonColor: "#038C7F",
       });
 
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -170,6 +174,7 @@ export const useLogin = () => {
     signInEmail,
     showPassword,
     togglePasswordVisibility,
-    resetPassword
+    resetPassword,
+    loading
   };
 };

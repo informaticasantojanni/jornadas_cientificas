@@ -56,10 +56,10 @@ const Banner = () => {
         <h2 className="text-White text-xl text-center  font-bold pb-4">
           19 al 23 de octubre de 2026
         </h2>
-        <h2 className="text-White text-center  font-bold laptop1:text-5xl">
+        <h2 className="text-White text-center font-bold laptop1:text-5xl">
           El futuro de la salud:
         </h2>
-        <h2 className="text-White font-bold mb-10 laptop1:text-5xl">
+        <h2 className="text-White text-center font-bold mb-10 laptop1:text-5xl">
           precisión, innovación y equipos interdisciplinarios
         </h2>
         {/* Countdown box */}

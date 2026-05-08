@@ -2,7 +2,7 @@ import React from "react";
 import { useLogin } from "../hooks/useLogin";
 
 const ForgotPassword = () => {
-  const { resetPassword } = useLogin();
+  const { resetPassword, loading } = useLogin();
 
   return (
     <div className="w-full ">
@@ -21,15 +21,22 @@ const ForgotPassword = () => {
 
         <div className="w-full flex justify-center pt-5">
           <button
-            className="w-[150px] text-xl font-bold px-5 py-3 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
+            className={`
+                w-[150px] text-xl font-bold px-5 py-3 rounded-full transition duration-300 ease-in-out
+                ${loading
+                ? "bg-DarkGrey cursor-not-allowed opacity-70"
+                : "bg-LightViolet text-White hover:bg-Violet hover:shadow-lg"
+              }
+          `}
             type={"submit"}
             label={"Enviar"}
+            disabled={loading}
           >
-            Enviar
+            {loading ? "Procesando..." : "Enviar"}
           </button>
         </div>
-      </form>
-    </div>
+      </form >
+    </div >
   );
 };
 
