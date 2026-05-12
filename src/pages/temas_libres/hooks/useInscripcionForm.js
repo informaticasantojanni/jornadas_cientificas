@@ -11,10 +11,8 @@ import { sendEmail, sendEmailActions } from "../../../services/gmail.services";
 
 
 export const useInscripcionForm = () => {
-
-    const EVENT_ID_2025 = "3lZN9Pf5Jvdgc3GX4h2e";
-
-    const { showSpinner, setShowSpinner } = useGlobal();
+    // const EVENT_ID_2025 = "3lZN9Pf5Jvdgc3GX4h2e";
+    const { showSpinner, setShowSpinner, EVENT_ID } = useGlobal();
 
     // Form Data
     const [formData, setFormData] = useState({
@@ -176,7 +174,7 @@ export const useInscripcionForm = () => {
         try {
             if (!uploadFile) throw new Error("No se proporcionó ningún archivo");
 
-            const pdfUrl = await uploadPdf(uploadFile, EVENT_ID_2025);
+            const pdfUrl = await uploadPdf(uploadFile, EVENT_ID);
             respuesta.status = true;
             respuesta.data = pdfUrl;
         } catch (error) {
@@ -310,7 +308,7 @@ export const useInscripcionForm = () => {
                 trabajoPremioUrl: trabajoPremioUrl // agreamos la URL del trabajo a premio
             };
 
-            const respuesta = await setInscripcionTemasLibres(EVENT_ID_2025, formDataFiltrado);
+            const respuesta = await setInscripcionTemasLibres(EVENT_ID, formDataFiltrado);
             if (!respuesta.status) {
                 throw new Error(respuesta.error);
             }

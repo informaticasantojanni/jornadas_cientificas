@@ -107,7 +107,7 @@ export const useRegistration = () => {
       ) {
         Swal.fire({
           title: `Registración exitosa!`,
-          html: "<p>Te enviamos un correo electrónico con la confirmación</p><p>Si sos Médico o Residente, recordá pasar por AMM para abonar el arancel</p>",
+          html: "<p>Te enviamos un correo electrónico con la confirmación</p><p>Recordá pasar por AMM para abonar el arancel (estudiantes exentos)</p>",
           background: "#FAFAFA",
           color: "#025951",
           iconColor: "#025951",

@@ -42,7 +42,7 @@ export const useSignUpForm = () => {
     e.preventDefault();
     setShowSpinner(true);
     try {
-      const formErrors = validate();
+      const { formErrors, cleanedData } = validate();
       if (Object.keys(formErrors).length != 0) {
         throw new Error("Hay campos vacios");
       }
@@ -51,7 +51,7 @@ export const useSignUpForm = () => {
         throw new Error("Debe completar el Captcha");
       }
 
-      const responseSignUpEmail = await signUpEmail(formData);
+      const responseSignUpEmail = await signUpEmail(cleanedData);
 
       if (responseSignUpEmail.status) {
         const userInput = await Swal.fire({
@@ -128,7 +128,11 @@ export const useSignUpForm = () => {
       formErrors.dni = "DNI es requerido";
     } else {
       const clearDni = formData.dni.replace(/[.\-\s]/g, "");
-      cleanedData.dni = clearDni;
+      if (!/^\d{8}$/.test(clearDni)) {
+        formErrors.dni = "El DNI debe contener exactamente 8 números";
+      } else {
+        cleanedData.dni = clearDni;
+      }
     }
 
     // Cell phone validation
@@ -170,12 +174,12 @@ export const useSignUpForm = () => {
     // Set errors and return them
     setErrors(formErrors);
 
-    // If no errors, update formData with cleaned values
-    if (Object.keys(formErrors).length === 0) {
-      setFormData(cleanedData);
-    }
+    // // If no errors, update formData with cleaned values
+    // if (Object.keys(formErrors).length === 0) {
+    //   setFormData(cleanedData);
+    // }
 
-    return formErrors;
+    return { formErrors, cleanedData };
   };
 
   const handleCaptchaChange = (value) => {
