@@ -83,14 +83,13 @@ const {setGeneratingReportTemasLibres} = useTemasLibres();
   };
 
   const generateReportTemasLibres = async () => {
-    const urlFetchAPI =
-      "https://script.google.com/macros/s/AKfycbyNRWWt61kwoedc9600F67w1JfYDeqqCSvdWGpSuZ72nzMnm-05A-OkBfHwNJhy0t2EyA/exec";
+    const urlFetchAPI = "https://script.google.com/macros/s/AKfycbwbDqfcLQtcjQ3steSY-0RypLC735d2hDStNiFAiFArU3GWU7d78lVmRZM2YCzAWaCr/exec";
 
     setGeneratingReportTemasLibres(true);
     try {
       console.log("Leyendo Temas Libres de Firebase...");
       // Llamar al servicio para obtener los temas libres
-      const temasLibresResponse = await getTemasLibres(EVENT_ID); // Asegúrate de definir esta función
+      const temasLibresResponse = await getTemasLibres("3lZN9Pf5Jvdgc3GX4h2e"); // Asegúrate de definir esta función
       if (!temasLibresResponse.status) {
         throw new Error(
           "Error leyendo temas libres: ",
