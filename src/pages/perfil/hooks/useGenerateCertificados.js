@@ -25,11 +25,11 @@ export const useGenerateCertificados = () => {
     const text = `Por cuanto: ${fullName} ha participado como "Asistente" en las XXXIX Jornadas Científicas del Hospital Santojanni.`;
 
     const textLines = splitTextIntoLines(
-        text,
-        maxWidth,
-        timesRomanFont,
-        textSize
-      );
+      text,
+      maxWidth,
+      timesRomanFont,
+      textSize
+    );
 
     //Completa con nombre y apellido de la autoridad
     let currentY = 330;
@@ -66,6 +66,10 @@ export const useGenerateCertificados = () => {
   const generateCertificado = (certificado) => {
     let text;
     switch (certificado.tipo) {
+      case "jurado_temas_libres":
+        text = `Por cuanto: ${certificado.autoridad} ha participado como Jurado de Temas libres`;
+        generateCertificadoPDF(text);
+        break;
       case "presidente_temas_libres":
         text = `Por cuanto: ${certificado.autoridad} ha participado como Presidente de Temas libres`;
         generateCertificadoPDF(text);

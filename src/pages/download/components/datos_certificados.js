@@ -1494,6 +1494,11 @@ export const datos_certificados = [
         autoridad: "Dra. Antonella Guerrica Goitia",
         titulo: 'Vocal del Comité de Residentes y Concurrentes'
     },
+    {
+        tipo: "comite_residentes_concurrentes",
+        autoridad: "Dra. Luciana María Castillo",
+        titulo: "Coordinadora Jornada Residente: Taller RCP"
+    },
 ]
 
 
