@@ -66,6 +66,10 @@ export const useGenerateCertificados2025 = () => {
   const generateCertificado = (certificado) => {
     let text;
     switch (certificado.tipo) {
+      case "jurado_temas_libres":
+        text = `Por cuanto: ${certificado.autoridad} ha participado como Jurado de Temas libres`;
+        generateCertificadoPDF(text);
+        break;
       case "presidente_temas_libres":
         text = `Por cuanto: ${certificado.autoridad} ha participado como Presidente de Temas libres`;
         generateCertificadoPDF(text);

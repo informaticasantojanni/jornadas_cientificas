@@ -1,5 +1,10 @@
 export const datos_certificados = [
     {
+        tipo: "jurado_temas_libres",
+        autoridad: "Ana Catalini",
+        titulo: "Jurado de Temas Libres"
+    },
+    {
         tipo: "presidente_temas_libres",
         autoridad: "Gustavo Lanosa",
         titulo: "Presidente de Temas Libres"
