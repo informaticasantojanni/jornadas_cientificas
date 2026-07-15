@@ -18,35 +18,31 @@ const Intro = () => {
         </h2>
 
         <div className="w-full laptop1:w-3/4 m-auto">
-          {/* <div className="font-poppins space-y-4 pb-10">
+          <div className="font-poppins space-y-4 pb-10">
             <p className="text-indent indent-6 text-justify font-poppins text-[14px] laptop1:text-[18px]">
-              ¡Hola a todas y todos!
+              A nuestra comunidad hospitalaria:
             </p>
             <p className="text-indent indent-6 text-justify font-poppins text-[14px] laptop1:text-[18px]">
-              Con muchísima alegría les doy la bienvenida a las XL Jornadas Científicas de nuestro querido Hospital Donación F. Santojanni.
+              Con el placer de siempre, les doy la bienvenida a las XLI Jornadas Científicas
+              del Hospital Donación Francisco Santojanni. Tras haber celebrado cuatro décadas de historia,
+              este año nos proyectamos hacia adelante con un lema que nos desafía: precisión,
+              innovación y el poder de los equipos interdisciplinarios.
             </p>
             <p className="text-indent indent-6 text-justify font-poppins text-[14px] laptop1:text-[18px]">
-              Este año nos reunimos bajo un lema que nos inspira profundamente:
-              “Ciencia que forma, transforma y cuida: 40 años de salud pública”.
+              Estas Jornadas son una oportunidad para mostrar cómo nuestro hospital  se transforma hacia
+              el futuro de la salud, sin perder el compromiso colectivo que nos trajo hasta acá.
+              Es una invitación al intercambio de ideas, al debate científico y a fortalecer
+              los lazos entre todas las áreas que hacen grande a nuestra institución.
             </p>
             <p className="text-indent indent-6 text-justify font-poppins text-[14px] laptop1:text-[18px]">
-              Llegar a esta edición tan especial nos llena de orgullo y emoción. Son ya cuatro décadas compartiendo conocimientos, experiencias, desafíos… pero, sobre todo, sosteniendo el compromiso firme y colectivo por una salud pública de calidad.
+              Los invito a participar con entusiasmo y a descubrir la innovación que nace del trabajo en equipo.
             </p>
             <p className="text-indent indent-6 text-justify font-poppins text-[14px] laptop1:text-[18px]">
-              Estas Jornadas son una invitación abierta a seguir aprendiendo, a mostrar el trabajo que hacemos día a día, a intercambiar ideas, a hacernos preguntas… y también a reencontrarnos como equipo, como comunidad.
-            </p>
-            <p className="text-indent indent-6 text-justify font-poppins text-[14px] laptop1:text-[18px]">
-              Es una oportunidad para hacer una pausa en la vorágine cotidiana y regalarnos un momento para pensar, crecer e inspirarnos mutuamente.
-            </p>
-            <p className="text-indent indent-6 text-justify font-poppins text-[14px] laptop1:text-[18px]">
-              Los invito a participar con entusiasmo, con curiosidad, con esa pasión que nos trajo hasta acá. Ya sea presentando un trabajo, asistiendo a una charla, o simplemente compartiendo una conversación en los pasillos… cada aporte suma y enriquece.
-            </p>
-            <p className="text-indent indent-6 text-justify font-poppins text-[14px] laptop1:text-[18px]">
-              Gracias por ser parte de estas Jornadas. ¡Los esperamos con los brazos abiertos para celebrar juntos 40 años de ciencia, trabajo y comunidad!
+              ¡Los esperamos!
             </p>
 
 
-          </div> */}
+          </div>
 
           <div className="flex items-center justify-center tablet:justify-start flex-wrap pb-20">
             <img

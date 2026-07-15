@@ -11,10 +11,10 @@ const Autoridades = () => {
       name: "Dr. Lucas Landolfi",
     },
     { title: "Presidente", name: "Dr. Alvaro Otreras" },
-    { title: "Vicepresidente", name: "" },
-    { title: "Secretario General", name: "" },
-    { title: "Secretario Adjunto", name: "" },
-    { title: "Tesorero", name: "Dr. Sergio Brandeburgo" },
+    { title: "Vicepresidente", name: "Dra. Valeria Garralda" },
+    { title: "Secretario General", name: "Dr. Fernando Saldarini" },
+    { title: "Secretaria Adjunta", name: "Dra. Beatriz Lauge" },
+    { title: "Tesorero", name: "Dr. Guillermo keller" },
   ];
 
   return (
