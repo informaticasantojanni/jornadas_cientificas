@@ -38,6 +38,7 @@ export const useInscripcionForm = () => {
     const [errors, setErrors] = useState({});
     const { user } = useAuth();
 
+
     useEffect(() => {
         const fetchUserData = async () => {
             if (!user || !user.uid) return;
@@ -124,13 +125,27 @@ export const useInscripcionForm = () => {
 
     const handleAddAutor = (e) => {
         e.preventDefault();
+
         const newAutor = formData.autor.trim();
 
-        if (newAutor && !formData.autoresList.includes(newAutor)) {
+        // Patterns para validar autores de temas libres - Formato Pubmed: "Apellido(s) Iniciales del nombre(s)" Ejemplo: "Smith JA"
+        const autorRegex = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ'’-]+(?: [A-Za-zÁÉÍÓÚÜÑáéíóúüñ'’-]+)* [A-Z]{1,3}$/;
+
+        if (newAutor.length > 15) {
+            alert("Ingrese un solo autor con formato 'Apellido I'.");
+            return;
+        }
+
+        if (!autorRegex.test(newAutor)) {
+            alert("Formato inválido. Use 'Apellido I' o 'Apellido II' (ej. García J, Dib Hassan J).");
+            return;
+        }
+
+        if (!formData.autoresList.includes(newAutor)) {
             setFormData({
                 ...formData,
                 autoresList: [...formData.autoresList, newAutor],
-                autor: "" // se resetea en el mismo setFormData
+                autor: ""
             });
         }
     };
