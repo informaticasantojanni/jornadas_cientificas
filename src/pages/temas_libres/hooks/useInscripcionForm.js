@@ -11,10 +11,8 @@ import { sendEmail, sendEmailActions } from "../../../services/gmail.services";
 
 
 export const useInscripcionForm = () => {
-
-    const EVENT_ID_2025 = "3lZN9Pf5Jvdgc3GX4h2e";
-
-    const { showSpinner, setShowSpinner } = useGlobal();
+    // const EVENT_ID_2025 = "3lZN9Pf5Jvdgc3GX4h2e";
+    const { showSpinner, setShowSpinner, EVENT_ID } = useGlobal();
 
     // Form Data
     const [formData, setFormData] = useState({
@@ -39,6 +37,7 @@ export const useInscripcionForm = () => {
     const [captchaValue, setCaptchaValue] = useState(null);
     const [errors, setErrors] = useState({});
     const { user } = useAuth();
+
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -126,13 +125,27 @@ export const useInscripcionForm = () => {
 
     const handleAddAutor = (e) => {
         e.preventDefault();
+
         const newAutor = formData.autor.trim();
 
-        if (newAutor && !formData.autoresList.includes(newAutor)) {
+        // Patterns para validar autores de temas libres - Formato Pubmed: "Apellido(s) Iniciales del nombre(s)" Ejemplo: "Smith JA"
+        const autorRegex = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ'’-]+(?: [A-Za-zÁÉÍÓÚÜÑáéíóúüñ'’-]+)* [A-Z]{1,3}$/;
+
+        if (newAutor.length > 15) {
+            alert("Ingrese un solo autor con formato 'Apellido I'.");
+            return;
+        }
+
+        if (!autorRegex.test(newAutor)) {
+            alert("Formato inválido. Use 'Apellido I' o 'Apellido II' (ej. García J, Dib Hassan J).");
+            return;
+        }
+
+        if (!formData.autoresList.includes(newAutor)) {
             setFormData({
                 ...formData,
                 autoresList: [...formData.autoresList, newAutor],
-                autor: "" // se resetea en el mismo setFormData
+                autor: ""
             });
         }
     };
@@ -176,7 +189,7 @@ export const useInscripcionForm = () => {
         try {
             if (!uploadFile) throw new Error("No se proporcionó ningún archivo");
 
-            const pdfUrl = await uploadPdf(uploadFile, EVENT_ID_2025);
+            const pdfUrl = await uploadPdf(uploadFile, EVENT_ID);
             respuesta.status = true;
             respuesta.data = pdfUrl;
         } catch (error) {
@@ -310,7 +323,7 @@ export const useInscripcionForm = () => {
                 trabajoPremioUrl: trabajoPremioUrl // agreamos la URL del trabajo a premio
             };
 
-            const respuesta = await setInscripcionTemasLibres(EVENT_ID_2025, formDataFiltrado);
+            const respuesta = await setInscripcionTemasLibres(EVENT_ID, formDataFiltrado);
             if (!respuesta.status) {
                 throw new Error(respuesta.error);
             }

@@ -14,7 +14,7 @@ export const useRegistration = () => {
    * DECLARACION DE VARIABLES
    *******************************************************/
   // const eventId = "ZbclMy93Cs9jzEYAgVui"; //eventId Jornadas 2024
-  const eventId = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
+  // const eventId = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
 
   const [userRegistration, setUserRegistration] = useState(null);
   const [reload, setReload] = useState(false);
@@ -22,6 +22,7 @@ export const useRegistration = () => {
   const { user } = useAuth();
   const { userData } = useProfile(user.uid);
   const { setShowSpinner } = useGlobal();
+  const {EVENT_ID} = useGlobal()
 
   //Creo este object hook state para registrar las acciones de useRegistration y generar el reporte final.
   const registrationActions = {
@@ -44,7 +45,7 @@ export const useRegistration = () => {
       if (!user.uid) return;
 
       try {
-        const res = await getRegistration(eventId, user.uid);
+        const res = await getRegistration(EVENT_ID, user.uid);
         setUserRegistration(res.data);
       } catch (error) {
         console.log("Unable to retrieve user inscription");
@@ -63,7 +64,7 @@ export const useRegistration = () => {
       setIsSubmitting(true);
       setShowSpinner(true);
 
-      const setRegistrationResponse = await setRegistration(eventId, userData);
+      const setRegistrationResponse = await setRegistration(EVENT_ID, userData);
 
       if (setRegistrationResponse.status) {
         registrationActions.setRegistrationStatus = true;
@@ -106,7 +107,7 @@ export const useRegistration = () => {
       ) {
         Swal.fire({
           title: `Registración exitosa!`,
-          html: "<p>Te enviamos un correo electrónico con la confirmación</p><p>Si sos Médico o Residente, recordá pasar por AMM para abonar el arancel</p>",
+          html: "<p>Te enviamos un correo electrónico con la confirmación</p><p>Recordá pasar por AMM para abonar el arancel (estudiantes exentos)</p>",
           background: "#FAFAFA",
           color: "#025951",
           iconColor: "#025951",

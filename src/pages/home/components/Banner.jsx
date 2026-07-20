@@ -37,10 +37,9 @@ const Banner = () => {
       {/* Titles */}
       <div className="relative flex flex-col items-center justify-center h-full">
         <div className="flex flex-col laptop1:flex-row items-center justify-center mt-[3rem]">
-          {/* <img className="w-[200px]" src="images/logo_40_aniversario.svg" alt="" /> */}
-          <img className="w-[160px] laptop1:w-[200px]" src="images/logo_40_aniversario_allWhite.svg" alt="" />
-          <div className="w-1 h-[90%] bg-White"></div>
-          <div className="flex flex-col text-3xl laptop1:text-4xl items-center justify-center ml-5">
+          {/* <img className="w-[400px]" src="images/logo_jornadas.png" alt="" /> */}
+          {/* <div className="w-1 h-[90%] bg-White"></div> */}
+          <div className="flex flex-col text-3xl laptop1:text-4xl items-center justify-center">
             <h1 className="text-center text-White font-bold laptop1:text-6xl">
               JORNADAS
             </h1>
@@ -55,13 +54,13 @@ const Banner = () => {
           HOSPITAL SANTOJANNI
         </h1>
         <h2 className="text-White text-xl text-center  font-bold pb-4">
-          29 de septiembre al 3 de octubre de 2025
+          19 al 23 de octubre de 2026
         </h2>
-        <h2 className="text-White text-center  font-bold laptop1:text-5xl">
-          Ciencia que forma, transforma y cuida:
+        <h2 className="text-White text-center font-bold laptop1:text-5xl">
+          El futuro de la salud:
         </h2>
-        <h2 className="text-White font-bold mb-5 laptop1:text-5xl">
-          40 años de salud pública
+        <h2 className="text-White text-center font-bold mb-10 laptop1:text-5xl">
+          precisión, innovación y equipos interdisciplinarios
         </h2>
         {/* Countdown box */}
         {/* <div className="flex pb-5 space-x-3">

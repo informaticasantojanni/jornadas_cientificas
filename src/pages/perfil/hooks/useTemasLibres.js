@@ -19,9 +19,10 @@ export const useTemasLibres = (userData) => {
     processTrabajoId,
     setProcessTrabajoId,
     PERFILES,
+    EVENT_ID
   } = useGlobal();
 
-  const eventId = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
+  //const eventId = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
   const [renderTemasLibres, setRenderTemasLibres] = useState([]);
   const [listaTemasLibres, setListaTemasLibres] = useState([]);
   const [formData, setFormData] = useState({
@@ -55,8 +56,8 @@ export const useTemasLibres = (userData) => {
   const [abstractFile, setAbstractFile] = useState(null);
   const [generatingReportTemasLibres, setGeneratingReportTemasLibres] = useState(false);
   const urlFetchAPI =
-    "https://script.google.com/macros/s/AKfycby_hX8CP5S-dn8JIbBe37JmL2sBKjNhH5V0p2dixtfDkSKuM6L4zXVSinWoPImhYvSNEQ/exec";
-
+    "https://script.google.com/macros/s/AKfycby7UEKG0qsW81lVPB8Cx7rG96bGSqW9lsS5GQdKZTXLwh-0XJCUtnUOJQB0mwJtgI4FPA/exec";
+    
   const REVISION_ESTADOS = [
     { id: 1, label: "Pendiente" },
     { id: 2, label: "Aceptado" },
@@ -64,7 +65,7 @@ export const useTemasLibres = (userData) => {
     { id: 4, label: "Rechazado" },
   ];
 
-  const EVENT_ID_2025 = "3lZN9Pf5Jvdgc3GX4h2e";
+  // const EVENT_ID_2025 = "3lZN9Pf5Jvdgc3GX4h2e";
 
   useEffect(() => {
     const fetchTemasLibres = async () => {
@@ -72,7 +73,7 @@ export const useTemasLibres = (userData) => {
       console.log("User Data en fetch Temas Libres: ", userData);
       try {
         // Llamar al servicio para obtener los temas libres
-        const temasLibresResponse = await getTemasLibres(eventId); // Asegúrate de definir esta función
+        const temasLibresResponse = await getTemasLibres(EVENT_ID); // Asegúrate de definir esta función
         if (!temasLibresResponse.status) {
           throw new Error(
             "Error leyendo temas libres: ",
@@ -144,7 +145,7 @@ export const useTemasLibres = (userData) => {
       setShowSpinner(true);
       try {
         const trabajoResponse = await getTemasLibresById(
-          eventId,
+          EVENT_ID,
           processTrabajoId
         );
         if (!trabajoResponse.status) {
@@ -291,7 +292,7 @@ export const useTemasLibres = (userData) => {
       }
 
       const updateTrabajoresponse = await updateTrabajo(
-        eventId,
+        EVENT_ID,
         processTrabajoId,
         formDataProcesado
       );
@@ -455,7 +456,7 @@ export const useTemasLibres = (userData) => {
     try {
       if (!uploadFile) throw new Error("No se proporcionó ningún archivo");
 
-      const pdfUrl = await uploadPdf(uploadFile, EVENT_ID_2025);
+      const pdfUrl = await uploadPdf(uploadFile, EVENT_ID);
       respuesta.status = true;
       respuesta.data = pdfUrl;
     } catch (error) {

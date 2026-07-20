@@ -17,7 +17,7 @@ const TemasLibres = () => {
           ) : (
             <WarningIcon width={"40px"} height={"40px"} />
           )}
-          <h1 className="text-xl ps-5">Temas Libres 2025</h1>
+          <h1 className="text-xl ps-5">Temas Libres 2026</h1>
         </div>
         <div className="p-5">
           {userRegistration ? (
@@ -28,12 +28,12 @@ const TemasLibres = () => {
               >
                 Presentar Trabajos
               </Link> */}
-              <p>La inscripción de Trabajos de Temas Libres para las Jornadas 2025 ha finalizado.</p>
+              <p>La inscripción comenzará proximamente.</p>
             </div>
           ) : (
             <div className="flex justify-center items-center">
               {/* <p>Para presentar trabajos de Temas Libres, por favor inscríbete.</p> */}
-              <p>La inscripción de Trabajos de Temas Libres para las Jornadas 2025 ha finalizado.</p>
+              {/* <p>La inscripción de Trabajos de Temas Libres para las Jornadas 2025 ha finalizado.</p> */}
             </div>
           )}
         </div>
