@@ -22,13 +22,13 @@ const TemasLibres = () => {
         <div className="p-5">
           {userRegistration ? (
             <div className="flex justify-center">
-              <Link
+              {/* <Link
                 className="w-[250px] text-center text-lg font-semiBol px-5 py-1 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
                 to={"/temasLibres"}
               >
                 Presentar Trabajos
-              </Link>
-              {/* <p>La inscripción de Trabajos de Temas Libres para las Jornadas 2025 ha finalizado.</p> */}
+              </Link> */}
+              <p>La inscripción comenzará proximamente.</p>
             </div>
           ) : (
             <div className="flex justify-center items-center">

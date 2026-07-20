@@ -45,13 +45,13 @@ const Intro = () => {
           </div>
 
           <div className="flex items-center justify-center tablet:justify-start flex-wrap pb-20">
-            <img
+            {/* <img
               className="rounded-full w-[150px]"
               src="/images/Albaro.jpg"
               alt="Presidente Jornadas"
-            />
+            /> */}
             <div className="ps-10 flex flex-col items-center">
-              <img className="w-[150px]" src="/images/signature.png" alt="" />
+              {/* <img className="w-[150px]" src="/images/signature.png" alt="" /> */}
               <p className="pt-5 tablet:pt-24">Presidente XLI Jornadas Científicas</p>
               <p>Dr. Alvaro Otreras</p>
             </div>
