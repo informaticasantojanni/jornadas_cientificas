@@ -40,22 +40,37 @@ const Intro = () => {
             <p className="text-indent indent-6 text-justify font-poppins text-[14px] laptop1:text-[18px]">
               ¡Los esperamos!
             </p>
-
-
           </div>
 
-          <div className="flex items-center justify-center tablet:justify-start flex-wrap pb-20">
-            {/* <img
-              className="rounded-full w-[150px]"
-              src="/images/Albaro.jpg"
-              alt="Presidente Jornadas"
-            /> */}
-            <div className="ps-10 flex flex-col items-center">
+          {/* Avatars presi y vice */}
+          <div className="flex flex-col items-center gap-10 tablet:flex-row tablet:items-start tablet:justify-center tablet:gap-20">
+            <div className="flex flex-col items-center text-center">
+              <img
+                className="rounded-full w-[150px]"
+                src="/images/dr_alvaro_otreras.png"
+                alt="Presidente Jornadas"
+              />
+
               {/* <img className="w-[150px]" src="/images/signature.png" alt="" /> */}
-              <p className="pt-5 tablet:pt-24">Presidente XLI Jornadas Científicas</p>
+              <p className="pt-5">Presidente XLI Jornadas Científicas</p>
               <p>Dr. Alvaro Otreras</p>
             </div>
+            <div className="flex flex-col items-center text-center">
+              <img
+                className="rounded-full w-[150px]"
+                src="/images/dra_valeria_garralda.png"
+                alt="Vice-residente Jornadas"
+              />
+
+              {/* <img className="w-[150px]" src="/images/signature.png" alt="" /> */}
+              <p className="pt-5">Vice-presidenta XLI Jornadas Científicas</p>
+              <p>Dra. Valeria Garralda</p>
+            </div>
           </div>
+
+
+
+
           <ModalVideo
             show={isModalOpen}
             onClose={closeModal}
