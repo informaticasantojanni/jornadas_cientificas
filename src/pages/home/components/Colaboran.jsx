@@ -6,7 +6,7 @@ const colaboradores = [
   // { title: '', image: '/images/colaboradores/laboratorio_1.jpg' },
   // { title: '', image: '/images/colaboradores/laboratorio_2.jpg' },
   { title: '', image: '/images/colaboradores/laboratorio_3.jpg' },
-  // { title: '', image: '/images/colaboradores/laboratorio_4.jpg' },
+  { title: '', image: '/images/colaboradores/laboratorio_4.jpg' },
   // { title: '', image: '/images/colaboradores/laboratorio_5.jpg' },
   // { title: '', image: '/images/colaboradores/laboratorio_6.jpg' },
   // { title: '', image: '/images/colaboradores/laboratorio_7.jpg' },

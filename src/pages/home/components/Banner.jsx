@@ -85,7 +85,7 @@ const Banner = () => {
         <div className="gap-y-5 flex flex-col items-center laptop1:flex-row laptop1:justify-center laptop1:space-x-10">
 
           <ButtonBlueSM onClick={handleClickAranceles} label={"Aranceles"} />
-          <ButtonVioletSM onClick={handleInscripcion} label={"Incribirme"} />
+          <ButtonVioletSM onClick={handleInscripcion} label={"Inscribirme"} />
         </div>
       </div>
     </div>
