@@ -40,7 +40,7 @@ const {setGeneratingReportTemasLibres} = useTemasLibres();
   // Hook de registro para obtener la función getRegistration
   const generateReport = async () => {
     const urlFetchAPI =
-      "https://script.google.com/macros/s/AKfycbzsxURPEfQ1XYdYWEKU9iv4xhL1PFl_NBFJVVkMiV0vQwiHxgvFarKvrqbPl9lI9Kcz4g/exec";
+      "https://script.google.com/macros/s/AKfycbyJ6nl2MHae7ELlVjYn0zDrMigLrINXcQhyLo70li3yDrjBjWxS4rb3ubfwZNRrXEgEtQ/exec";
 
     try {
       console.log("Generating report...");
