@@ -7,20 +7,20 @@ export const comites = [
         "secretarioNombre": "Florencia Gregorio",
         "secretarioGenero": "",
         "vocales": [
-            { "nombre": "Agustin Diomedi", "genero": "" },
             { "nombre": "Alejandra Pombo", "genero": "" },
             { "nombre": "Ana Bonafe", "genero": "" },
             { "nombre": "Anabella Rubio", "genero": "" },
-            { "nombre": "Cecilia Ormazábal", "genero": "" },
-            { "nombre": "Eugenia Wamba", "genero": "" },
-            { "nombre": "Federico Álvarez", "genero": " " },
-            { "nombre": "Joaquín Saldaño", "genero": " " },
-            { "nombre": "Josefina Dib Hassan", "genero": "" },
             { "nombre": "Karim Moi", "genero": "" },
-            { "nombre": "Lucía Tapia", "genero": "" },
+            { "nombre": "Sylvia Errea", "genero": "" },
+            { "nombre": "Josefina Dib Hasan", "genero": "" },
+            { "nombre": "Federico Álvarez", "genero": "" },
             { "nombre": "Pamela Rossi", "genero": "" },
             { "nombre": "Paola Ozuna", "genero": "" },
-            { "nombre": "Sylvia Errea", "genero": "" }
+            { "nombre": "Cecilia Ormazábal", "genero": "" },
+            { "nombre": "Joaquín Saldaño", "genero": "" },
+            { "nombre": "Lucía Tapia", "genero": "" },
+            { "nombre": "Agustín Diomedi", "genero": "" },
+            { "nombre": "Eugenia Wamba", "genero": "" }
         ]
     },
     {
@@ -34,7 +34,7 @@ export const comites = [
             { "nombre": "Dafne López", "genero": "" },
             { "nombre": "Sandra Arcieri", "genero": "" },
             { "nombre": "Vanesa Senin", "genero": "" },
-            { "nombre": "Marta Murray", "genero": "." },
+            { "nombre": "Marta Murray", "genero": "" }
         ]
     },
     {
@@ -49,14 +49,13 @@ export const comites = [
         ]
     },
     {
-        "comiteNombre": "Comité de Temas Libres",
+        "comiteNombre": "Comité de Trabajos Libres",
         "mostrarCargos": "true",
         "presidenteNombre": "Maximiliano Danni",
         "presidenteGenero": "",
         "secretarioNombre": "Lucía Pez",
         "secretarioGenero": "",
         "vocales": [
-            { "nombre": "Lucía Pez", "genero": "" },
             { "nombre": "Alejandro Baltazar Manuel", "genero": "" },
             { "nombre": "Soledad Brito", "genero": "" },
             { "nombre": "Flavia Scibetta", "genero": "" }
@@ -78,14 +77,12 @@ export const comites = [
     {
         "comiteNombre": "Comité de Informática y Redes Sociales",
         "mostrarCargos": "true",
-        "presidenteNombre": "Paola Lo Schiavo",
+        "presidenteNombre": "",
         "presidenteGenero": "",
-        "secretarioNombre": "Santiago Fiorino",
+        "secretarioNombre": "",
         "secretarioGenero": "",
         "vocales": [
-            { "nombre": "Lucia Lioi", "genero": "" },
-            { "nombre": "Marcelo Corigliano", "genero": "" },
-            { "nombre": "Julian Nardi", "genero": "" },
+            { "nombre": "Julián Nardi", "genero": "" },
             { "nombre": "Juan Pablo Rigotti", "genero": "" }
         ]
     },
@@ -126,28 +123,28 @@ export const comites = [
         ]
     },
     {
-        "comiteNombre": "Comité de Area Programática",
+        "comiteNombre": "Comité de Área Programática",
         "mostrarCargos": "true",
         "presidenteNombre": "Claudia Falótico",
         "presidenteGenero": "",
         "secretarioNombre": "Sandra Eidner",
-        "secretarioGenero": ".",
+        "secretarioGenero": "",
         "vocales": [
-            { "nombre": "Agustina Santomaso", "genero": "." },
             { "nombre": "Clara Noceti", "genero": "" },
-            { "nombre": "Veronica Botta", "genero": "." },
+            { "nombre": "Agustina Santomaso", "genero": "" },
+            { "nombre": "Veronica Botta", "genero": "" }
         ]
     },
     {
-        "comiteNombre": "Comité Residentes y Concurrentes",
+        "comiteNombre": "Comité de Residentes y Concurrentes",
         "mostrarCargos": "true",
-        "coordinadorGeneral": "",
+        "coordinadorGeneral": "Laura Nieto, Gonzalo Barbieri y Lourdes Laurens",
         "presidenteNombre": "",
         "presidenteGenero": "",
         "secretarioNombre": "",
         "secretarioGenero": "",
         "vocales": [
-            { "nombre": "", "genero": "" }
+            { "nombre": "Dana Glantz", "genero": "" }
         ]
     }
 ];

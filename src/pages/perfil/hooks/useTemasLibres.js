@@ -301,11 +301,11 @@ export const useTemasLibres = (userData) => {
         throw new Error(error);
       }
 
-      const enviarEmailResponse = await enviarEmailRevisionTemasLibres();
-      if (!enviarEmailResponse.status) {
-        error = enviarEmailResponse.error;
-        throw new Error(error);
-      }
+      // const enviarEmailResponse = await enviarEmailRevisionTemasLibres();
+      // if (!enviarEmailResponse.status) {
+      //   error = enviarEmailResponse.error;
+      //   throw new Error(error);
+      // }
     } catch (e) {
       error = e;
       console.error("Error saving trabajo: ", error);
