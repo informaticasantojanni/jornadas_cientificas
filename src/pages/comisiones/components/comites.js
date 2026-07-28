@@ -2,7 +2,7 @@ export const comites = [
     {
         "comiteNombre": "Comité Científico",
         "mostrarCargos": "true",
-        "presidenteNombre": "Daniela D Alessandro",
+        "presidenteNombre": "Daniela D'Alessandro",
         "presidenteGenero": "",
         "secretarioNombre": "Florencia Gregorio",
         "secretarioGenero": "",
@@ -51,14 +51,14 @@ export const comites = [
     {
         "comiteNombre": "Comité de Trabajos Libres",
         "mostrarCargos": "true",
-        "presidenteNombre": "Maximiliano Danni",
+        "presidenteNombre": "Maximiliano D'Anni",
         "presidenteGenero": "",
-        "secretarioNombre": "Lucía Pez",
+        "secretarioNombre": "Federico Labanca",
         "secretarioGenero": "",
         "vocales": [
-            { "nombre": "Alejandro Baltazar Manuel", "genero": "" },
-            { "nombre": "Soledad Brito", "genero": "" },
-            { "nombre": "Flavia Scibetta", "genero": "" }
+            { "nombre": "Betiana Barbani", "genero": "" },
+            { "nombre": "Ornella Caruso", "genero": "" },
+            { "nombre": "Soledad Brito", "genero": "" }
         ]
     },
     {
