@@ -42,6 +42,8 @@ const {setGeneratingReportTemasLibres} = useTemasLibres();
     const urlFetchAPI =
       "https://script.google.com/macros/s/AKfycbyJ6nl2MHae7ELlVjYn0zDrMigLrINXcQhyLo70li3yDrjBjWxS4rb3ubfwZNRrXEgEtQ/exec";
 
+      
+
     try {
       console.log("Generating report...");
       const users = await getAllUsers();
@@ -52,12 +54,14 @@ const {setGeneratingReportTemasLibres} = useTemasLibres();
           usersRegistration.push({
             ...user,
             registro: "inscripto",
+            fechaRegistro: registrationResponse.data.registrationTime,
             pago: registrationResponse.data.payment, // Adds the payment data
           });
         } else {
           usersRegistration.push({
             ...user,
             registro: "pending",
+            fechaRegistro: "pending",
             pago: "pending", // Adds the payment data
           });
         }

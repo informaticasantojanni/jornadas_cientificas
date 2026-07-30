@@ -37,13 +37,13 @@ const TemasLibresTable = ({ userData }) => {
     PRESENTACION_AULAS
   } = useTemasLibres(userData);
 
-  const { PERFILES } = useGlobal();
+  const { ROLES } = useGlobal();
   const { generateReportTemasLibres } = useReports();
 
   return (
     <div className="w-full pb-5">
       {/* Form filtrar contenido */}
-      {userData.role != PERFILES.USER && (
+      {userData.role != ROLES.USER && (
         <div className="w-full pb-10">
           <div className="w-full m-auto rounded-xl p-5 bg-gradient-to-b from-LightGreen to-Green text-white tablet:w-1/2 laptop1:w-1/2 laptop2:w-[500px]">
             <div className="flex flex-col">

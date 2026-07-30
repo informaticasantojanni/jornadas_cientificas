@@ -6,11 +6,14 @@ export const useGlobal = () => {
         desktopView,
         showSpinner,
         setShowSpinner,
+        perfilView,
+        setPerfilView,
         internalView,
         setInternalView,
         processTrabajoId,
         setProcessTrabajoId,
-        PERFILES,
+        ROLES,
+        VISTAS_PERFIL,
         EVENT_ID
     } = useContext(GlobalContext)
 
@@ -18,11 +21,14 @@ export const useGlobal = () => {
         desktopView,
         showSpinner,
         setShowSpinner,
+        perfilView,
+        setPerfilView,
         internalView,
         setInternalView,
         processTrabajoId,
         setProcessTrabajoId,
-        PERFILES,
+        VISTAS_PERFIL,
+        ROLES,
         EVENT_ID
     };
 }
