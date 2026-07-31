@@ -14,6 +14,7 @@ export const useGlobal = () => {
         setProcessTrabajoId,
         ROLES,
         VISTAS_PERFIL,
+        VISTAS_TEMAS_LIBRES,
         EVENT_ID
     } = useContext(GlobalContext)
 
@@ -28,6 +29,7 @@ export const useGlobal = () => {
         processTrabajoId,
         setProcessTrabajoId,
         VISTAS_PERFIL,
+        VISTAS_TEMAS_LIBRES,
         ROLES,
         EVENT_ID
     };

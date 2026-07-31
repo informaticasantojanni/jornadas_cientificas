@@ -30,6 +30,13 @@ const GlobalProvider = ({ children }) => {
         MESAS_REDONDAS_PROCESAR_TRABAJOS: "mesasRedondasProcesarTrabajos"
     }
 
+    const VISTAS_TEMAS_LIBRES = {
+        PRESENTAR_TRABAJOS: "presentarTrabajos",
+        GESTIONAR_TRABAJOS: "gestionarTrabajos",
+        VER_TRABAJOS: "verTrabajos",
+        PROCESAR_TRABAJOS: "procesarTrabajos"
+    }
+
     // Declaración de hook states
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [desktopView, setDesktopView] = useState(false);
@@ -68,6 +75,7 @@ const GlobalProvider = ({ children }) => {
                     setProcessTrabajoId,
                     ROLES,
                     VISTAS_PERFIL,
+                    VISTAS_TEMAS_LIBRES,
                     EVENT_ID
                 }
             }>

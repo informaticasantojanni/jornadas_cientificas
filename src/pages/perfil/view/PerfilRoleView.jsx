@@ -4,6 +4,7 @@ import TemasLibresView from './TemasLibresView';
 import { useAuth } from '../../../core/auth/hooks/useAuth';
 import ButtonVioletSM from '../../../components/buttons/ButtonVioletSM';
 import { useGlobal } from '../../../hooks/useGlobal';
+import { Link } from 'react-router-dom';
 
 const PerfilRoleView = ({ userData }) => {
     const { ROLES, VISTAS_PERFIL, internalView, perfilView, setPerfilView } = useGlobal();
@@ -13,18 +14,37 @@ const PerfilRoleView = ({ userData }) => {
             <div>
                 {perfilView === "" && (
                     <div className="flex flex-col items-center gap-5">
-                        <ButtonVioletSM
+                        <Link
+                            className="w-[250px] text-center text-lg font-semiBol px-5 py-1 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
+                            to={"/misDatos"}
+                        >
+                            Mis Datos
+                        </Link>
+                        <Link
+                            className="w-[250px] text-center text-lg font-semiBol px-5 py-1 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
+                            to={"/temasLibres"}
+                        >
+                            Temas Libres
+                        </Link>
+                        <Link
+                            className="w-[250px] text-center text-lg font-semiBol px-5 py-1 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
+                            to={"/mesasRedondas"}
+                        >
+                            Mesas Redondas
+                        </Link>
+
+                        {/* <ButtonVioletSM
                             onClick={() => setPerfilView(VISTAS_PERFIL.USUARIO)}
-                            label="Mi Perfil"
-                        />
-                        <ButtonVioletSM
+                            label="Mi datos"
+                        /> */}
+                        {/* <ButtonVioletSM
                             onClick={() => setPerfilView(VISTAS_PERFIL.TEMAS_LIBRES)}
                             label="Temas Libres"
-                        />
-                        <ButtonVioletSM
+                        /> */}
+                        {/* <ButtonVioletSM
                             onClick={() => setPerfilView(VISTAS_PERFIL.MESAS_REDONDAS)}
                             label="Mesas Redondas"
-                        />
+                        /> */}
                     </div>
                 )}
 
