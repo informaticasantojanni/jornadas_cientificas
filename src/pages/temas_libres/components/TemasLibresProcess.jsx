@@ -3,13 +3,13 @@
 // import { serviciosList } from "./serviciosList"; // Assuming you have a list of services
 // import AddIcon from "../svgIcons/AddIcon";
 // import DeleteIcon from "../svgIcons/DeleteIcon"; // Assuming you have a delete icon
-import { useTemasLibres } from "../hooks/useTemasLibres";
+import { useTemasLibres } from "../../perfil/hooks/useTemasLibres";
 import { Typography, Box } from "@mui/material";
 import { useGlobal } from "../../../hooks/useGlobal";
 import DownloadFile from "./icons/DownloadFile";
 
 const TemasLibresProcess = ({ userData }) => {
-  const { PERFILES } = useGlobal();
+  const { ROLES } = useGlobal();
   const {
     handleGuardarTrabajo,
     formData,
@@ -127,7 +127,7 @@ const TemasLibresProcess = ({ userData }) => {
           </div>
 
           {/* Subir Abstract */}
-          {(userData.role == PERFILES.USER || userData.role == PERFILES.TEMAS_LIBRES_PRESIDENTE) && (
+          {(userData.role == ROLES.USER || userData.role == ROLES.TEMAS_LIBRES_PRESIDENTE) && (
             <div className="flex flex-col mb-5">
               <label className="text-White w-full pb-2">
                 Subir PDF del Abstract corregido:
@@ -144,7 +144,7 @@ const TemasLibresProcess = ({ userData }) => {
           )}
 
           {/* Asignar Vocal */}
-          {userData.role != PERFILES.USER && (
+          {userData.role != ROLES.USER && (
             <div className="flex flex-col mb-5">
               <label className="text-White w-full py-2">Asignar a Vocal</label>
               <select
@@ -152,7 +152,7 @@ const TemasLibresProcess = ({ userData }) => {
                 value={formData.vocalAsignado ?? ""}
                 onChange={handleChange}
                 disabled={
-                  ![PERFILES.TEMAS_LIBRES_PRESIDENTE].includes(userData.role)
+                  ![ROLES.TEMAS_LIBRES_PRESIDENTE].includes(userData.role)
                 }
                 className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`}
               >
@@ -177,8 +177,8 @@ const TemasLibresProcess = ({ userData }) => {
               onChange={handleChange}
               disabled={
                 ![
-                  PERFILES.TEMAS_LIBRES_PRESIDENTE,
-                  PERFILES.TEMAS_LIBRES_VOCAL,
+                  ROLES.TEMAS_LIBRES_PRESIDENTE,
+                  ROLES.TEMAS_LIBRES_VOCAL,
                 ].includes(userData.role)
               }
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`}
@@ -202,8 +202,8 @@ const TemasLibresProcess = ({ userData }) => {
               onChange={handleChange}
               disabled={
                 ![
-                  PERFILES.TEMAS_LIBRES_PRESIDENTE,
-                  PERFILES.TEMAS_LIBRES_VOCAL,
+                  ROLES.TEMAS_LIBRES_PRESIDENTE,
+                  ROLES.TEMAS_LIBRES_VOCAL,
                 ].includes(userData.role)
               }
               rows={6} // cantidad de líneas visibles
@@ -223,8 +223,8 @@ const TemasLibresProcess = ({ userData }) => {
               onChange={handleChange}
               disabled={
                 ![
-                  PERFILES.TEMAS_LIBRES_PRESIDENTE,
-                  PERFILES.TEMAS_LIBRES_COMITE,
+                  ROLES.TEMAS_LIBRES_PRESIDENTE,
+                  ROLES.TEMAS_LIBRES_COMITE,
                 ].includes(userData.role)
               }
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`}
@@ -247,8 +247,8 @@ const TemasLibresProcess = ({ userData }) => {
               onChange={handleChange}
               disabled={
                 ![
-                  PERFILES.TEMAS_LIBRES_PRESIDENTE,
-                  PERFILES.TEMAS_LIBRES_COMITE,
+                  ROLES.TEMAS_LIBRES_PRESIDENTE,
+                  ROLES.TEMAS_LIBRES_COMITE,
                 ].includes(userData.role)
               }
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`}
@@ -271,8 +271,8 @@ const TemasLibresProcess = ({ userData }) => {
               onChange={handleChange}
               disabled={
                 ![
-                  PERFILES.TEMAS_LIBRES_PRESIDENTE,
-                  PERFILES.TEMAS_LIBRES_COMITE,
+                  ROLES.TEMAS_LIBRES_PRESIDENTE,
+                  ROLES.TEMAS_LIBRES_COMITE,
                 ].includes(userData.role)
               }
               className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`}
