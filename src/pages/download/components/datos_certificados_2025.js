@@ -663,7 +663,7 @@ export const datos_certificados = [
     },
     {
         tipo: "autores_temas_libres",
-        autores: "Roxana Calfuqueo",
+        autores: "Menendez Elizabeth, Roxana Calfuqueo",
         titulo: "Satisfacción en la atención del parto por obstetricas"
     },
     {
