@@ -37,6 +37,13 @@ const GlobalProvider = ({ children }) => {
         PROCESAR_TRABAJOS: "procesarTrabajos"
     }
 
+    const VISTAS_MESAS_REDONDAS = {
+        PRESENTAR_MESA: "presentarMesas",
+        GESTIONAR_MESA: "gestionarMesas",
+        VER_MESAS: "verMesas",
+        PROCESAR_MESA: "procesarMesas"
+    }
+
     // Declaración de hook states
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [desktopView, setDesktopView] = useState(false);
@@ -76,6 +83,7 @@ const GlobalProvider = ({ children }) => {
                     ROLES,
                     VISTAS_PERFIL,
                     VISTAS_TEMAS_LIBRES,
+                    VISTAS_MESAS_REDONDAS,
                     EVENT_ID
                 }
             }>

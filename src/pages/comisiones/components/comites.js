@@ -34,7 +34,9 @@ export const comites = [
             { "nombre": "Dafne López", "genero": "" },
             { "nombre": "Sandra Arcieri", "genero": "" },
             { "nombre": "Vanesa Senin", "genero": "" },
-            { "nombre": "Marta Murray", "genero": "" }
+            { "nombre": "Marta Murray", "genero": "" },
+            { "nombre": "Rocío Lourdes Gonzalez", "genero": "" },
+            { "nombre": "Marina Leal", "genero": "" }
         ]
     },
     {
