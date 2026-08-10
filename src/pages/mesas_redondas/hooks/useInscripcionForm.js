@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { setInscripcionTemasLibres } from "../../../services/firebase.services";
+import { setInscripcionMesasRedondas } from "../../../services/firebase.services";
 import { useAuth } from "../../../core/auth/hooks/useAuth";
 import { getUserById } from "../../../services/firebase.services";
 import { useGlobal } from "../../../hooks/useGlobal";
@@ -222,9 +222,9 @@ export const useInscripcionForm = () => {
         setShowSpinner(true);
         try {
             // Validamos el Captcha suspendido
-            if (!captchaValue) {
-                throw new Error("Debe completar el Captcha");
-            }
+            // if (!captchaValue) {
+            //     throw new Error("Debe completar el Captcha");
+            // }
 
             // Validamos los campos del formulario
             const isValid = validate();
@@ -247,16 +247,16 @@ export const useInscripcionForm = () => {
                 Object.entries(formData).filter(([key]) => !camposExcluidos.includes(key))
             );
 
-            const respuesta = await setInscripcionTemasLibres(EVENT_ID, formDataFiltrado);
+            const respuesta = await setInscripcionMesasRedondas(EVENT_ID, formDataFiltrado);
             if (!respuesta.status) {
-                throw new Error(respuesta.error);
+                throw new Error("Function setInscripcionMesasRedondas returned an error: " + respuesta.error);
             }
 
             // Envio exitoso
             console.log("Inscripción exitosa")
 
             // Enviar email de confirmación
-            const sendEmailResponse = await sendEmail(sendEmailActions.recepcion_temas_libres, formDataFiltrado)
+            const sendEmailResponse = await sendEmail(sendEmailActions.recepcion_mesas_redondas, formDataFiltrado)
             if (!sendEmailResponse.sendEmailStatus) {
                 throw new Error(sendEmailResponse.sendEmailError || "Error al enviar el email de confirmación");
             }

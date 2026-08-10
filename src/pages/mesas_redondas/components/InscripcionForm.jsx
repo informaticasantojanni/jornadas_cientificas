@@ -204,7 +204,7 @@ const InscripcionForm = () => {
             >
               {formData.aceptaReglamento ? "✅" : "☐"} Declaro haber leído y aceptado el{" "}
               <a
-                href="/pdf/Reglamento_Mesas_Redondas_2026.pdf"
+                href="/pdf/reglamentoMesasRedondas.pdf"
                 download
                 target="_blank"
                 rel="noopener noreferrer"

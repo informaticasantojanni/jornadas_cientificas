@@ -328,6 +328,43 @@ export const getTemasLibresById = async (eventId, temaLibreId) => {
   return response
 }
 
+/*
+Este metodo inserta un documento en la subcollection registration del evento de las jornadas que se indican con eventId
+*/
+export const setInscripcionMesasRedondas = async (eventId, mesasRedondasData) => {
+  const inscripcionMesasRedondasData = {
+    parentDocId: eventId,
+    childDocId: mesasRedondasData.id,
+    parentCollection: COLLECTIONS.EVENTS,
+    childCollection: COLLECTIONS.MESAS_REDONDAS,
+    persistData: mesasRedondasData
+  };
+  const res = await setSubcollectionDocument(inscripcionMesasRedondasData);
+  return res;
+};
+
+/*
+Este metodo hace un retrieve de todos los documents de la collection mesasRedondas
+*/
+export const getMesasRedondas = async (eventId) => {
+  const response = await getDocumentsFromSubcollection(COLLECTIONS.EVENTS, eventId, COLLECTIONS.MESAS_REDONDAS);
+  return response
+}
+
+/*
+Este metodo hace un retrieve de un documento segun el id de la collection mesasRedondas
+*/
+export const getMesasRedondasById = async (eventId, mesaRedondaId) => {
+  const data = {
+    parentCollection: COLLECTIONS.EVENTS,
+    parentDocId: eventId,
+    childCollection: COLLECTIONS.MESAS_REDONDAS,
+    childDocId: mesaRedondaId,
+  }
+  const response = await getDocumentByIdFromSubcollection(data);
+  return response
+}
+
 
 /*
 Este metodo hace el upload de un documento a Firestore */
