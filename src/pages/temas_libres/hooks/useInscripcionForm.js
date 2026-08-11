@@ -17,6 +17,7 @@ export const useInscripcionForm = () => {
     // Form Data
     const [formData, setFormData] = useState({
         id: "",
+        tipoTrabajo: "",
         titulo: "",
         servicio: "",
         serviciosList: [],
@@ -66,6 +67,7 @@ export const useInscripcionForm = () => {
     const resetFormData = () => {
         setFormData({
             id: "",
+            tipoTrabajo: "",
             titulo: "",
             servicio: "",
             serviciosList: [],
@@ -203,6 +205,11 @@ export const useInscripcionForm = () => {
 
     const validate = () => {
         let formErrors = {};
+
+        // Tipo de trabajo validation
+        if (!formData.tipoTrabajo || formData.tipoTrabajo.trim() === "") {
+            formErrors.tipoTrabajo = "Debe seleccionar el tipo de trabajo";
+        }
 
         // Titulo validation
         if (!formData.titulo || formData.titulo.trim() === "") {

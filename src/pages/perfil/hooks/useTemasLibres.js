@@ -26,6 +26,7 @@ export const useTemasLibres = (userData) => {
   const [renderTemasLibres, setRenderTemasLibres] = useState([]);
   const [listaTemasLibres, setListaTemasLibres] = useState([]);
   const [formData, setFormData] = useState({
+    tipoTrabajo: "",
     titulo: "",
     serviciosList: [],
     autoresList: [],
@@ -157,6 +158,7 @@ export const useTemasLibres = (userData) => {
         } else {
           const trabajo = trabajoResponse.data;
           setFormData({
+            tipoTrabajo: trabajo?.tipoTrabajo ?? "",
             titulo: trabajo?.titulo ?? "",
             autoresList: trabajo?.autoresList ?? "",
             serviciosList: trabajo?.serviciosList ?? "",

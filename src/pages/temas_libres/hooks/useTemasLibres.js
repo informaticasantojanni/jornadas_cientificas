@@ -472,6 +472,7 @@ export const useTemasLibres = (userData) => {
   };
 
   const tableItems = [
+    "Tipo de trabajo",
     "Título",
     "Servicios",
     "Autores",

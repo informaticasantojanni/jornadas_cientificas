@@ -27,6 +27,24 @@ const InscripcionForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="w-full laptop1-w[90%] laptop2-w[90%] desktop:w-[90%] m-auto rounded-xl p-10 bg-gradient-to-b from-LightGreen to-Green text-white ">
 
+          {/* Tipo de trabajo */}
+          <div className="flex flex-col mb-5">
+            <label className="text-White w-full pb-2">Tipo de trabajo:</label>
+            <select
+              name="tipoTrabajo"
+              value={formData.tipoTrabajo ?? ""}
+              onChange={handleChange}
+              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.tipoTrabajo ? "border border-Red" : ""}`}
+            >
+              <option value="">Seleccione tipo de trabajo</option>
+              <option value="Casuística">Casuística</option>
+              <option value="Trabajo de investigación/epidemiológico">Trabajo de investigación/epidemiológico</option>
+            </select>
+            {errors.tipoTrabajo && (
+              <span className="text-sm text-Red">{errors.tipoTrabajo}</span>
+            )}
+          </div>
+
           {/* Título */}
           <div className="flex flex-col mb-5">
             <label className="text-White w-full pb-2">Título del trabajo:</label>

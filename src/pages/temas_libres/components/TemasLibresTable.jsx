@@ -163,8 +163,10 @@ const TemasLibresTable = ({ userData }) => {
                   }}
                 >
                   <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre.tipoTrabajo}{" "}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre.titulo}{" "}
-                    {/* Asumiendo que hay un campo dni */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {Array.isArray(renderTemaLibre.serviciosList)

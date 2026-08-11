@@ -27,6 +27,24 @@ const TemasLibresProcess = ({ userData }) => {
     <div className="w-full">
       <form onSubmit={handleGuardarTrabajo}>
         <div className="w-full laptop1-w[90%] laptop2-w[90%] desktop:w-[90%] m-auto rounded-xl p-10 bg-gradient-to-b from-LightGreen to-Green text-white">
+          {/* Tipo de trabajo */}
+          <label className="text-White w-full py-2">Tipo de trabajo:</label>
+          <Box
+            sx={{
+              p: 1,
+              border: "1px solid",
+              borderColor: "divider",
+              borderRadius: 2,
+              bgcolor: "grey.50",
+            }}
+          >
+            <Typography variant="body1" sx={{ wordBreak: "break-word" }}>
+              {formData.tipoTrabajo || (
+                <Typography color="text.secondary">Sin tipo de trabajo</Typography>
+              )}
+            </Typography>
+          </Box>
+
           {/* Título */}
           <label className="text-White w-full py-2">Título:</label>
           <Box
