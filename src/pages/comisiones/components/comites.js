@@ -7,20 +7,21 @@ export const comites = [
         "secretarioNombre": "Florencia Gregorio",
         "secretarioGenero": "",
         "vocales": [
+            { "nombre": "Agustin Diomedi", "genero": "" },
             { "nombre": "Alejandra Pombo", "genero": "" },
             { "nombre": "Ana Bonafe", "genero": "" },
-            { "nombre": "Anabella Rubio", "genero": "" },
-            { "nombre": "Karim Moi", "genero": "" },
-            { "nombre": "Sylvia Errea", "genero": "" },
-            { "nombre": "Josefina Dib Hasan", "genero": "" },
+            { "nombre": "Cecilia Ormazábal", "genero": "" },
+            { "nombre": "Eugenia Wamba", "genero": "" },
             { "nombre": "Federico Álvarez", "genero": "" },
+            { "nombre": "Federico José Villalba", "genero": "" },
+            { "nombre": "Joaquín Saldaño", "genero": "" },
+            { "nombre": "Josefina Dib Hasan", "genero": "" },
+            { "nombre": "Karim Moi", "genero": "" },
+            { "nombre": "Lucía Tapia", "genero": "" },
             { "nombre": "Pamela Rossi", "genero": "" },
             { "nombre": "Paola Ozuna", "genero": "" },
-            { "nombre": "Cecilia Ormazábal", "genero": "" },
-            { "nombre": "Joaquín Saldaño", "genero": "" },
-            { "nombre": "Lucía Tapia", "genero": "" },
-            { "nombre": "Agustín Diomedi", "genero": "" },
-            { "nombre": "Eugenia Wamba", "genero": "" }
+            { "nombre": "Rocio Rodriguez", "genero": "" },
+            { "nombre": "Sylvia Errea", "genero": "" }
         ]
     },
     {
@@ -32,9 +33,11 @@ export const comites = [
         "secretarioGenero": "",
         "vocales": [
             { "nombre": "Dafne López", "genero": "" },
+            { "nombre": "Marina Leal", "genero": "" },
+            { "nombre": "Marta Murray", "genero": "" },
+            { "nombre": "Rocío Lourdes Gonzalez", "genero": "" },
             { "nombre": "Sandra Arcieri", "genero": "" },
-            { "nombre": "Vanesa Senin", "genero": "" },
-            { "nombre": "Marta Murray", "genero": "" }
+            { "nombre": "Vanesa Serin", "genero": "" }
         ]
     },
     {
@@ -94,10 +97,10 @@ export const comites = [
         "secretarioNombre": "Marcela Cilio",
         "secretarioGenero": "",
         "vocales": [
-            { "nombre": "Rocío Repetto", "genero": "" },
-            { "nombre": "Andrea Suárez", "genero": "" },
             { "nombre": "Alicia Maone", "genero": "" },
-            { "nombre": "Gabriela Britos", "genero": "" }
+            { "nombre": "Andrea Suárez", "genero": "" },
+            { "nombre": "Gabriela Britos", "genero": "" },
+            { "nombre": "Rocío Repetto", "genero": "" }
         ]
     },
     {
@@ -109,8 +112,8 @@ export const comites = [
         "secretarioGenero": "",
         "vocales": [
             { "nombre": "Alejandro Coos Irigoyen", "genero": "" },
+            { "nombre": "Marcela Márquez", "genero": "" },
             { "nombre": "Fernando Kozij", "genero": "" },
-            { "nombre": "Marcela Márquez", "genero": "" }
         ]
     },
     {
