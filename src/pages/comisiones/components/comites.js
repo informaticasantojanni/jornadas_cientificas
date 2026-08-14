@@ -10,16 +10,17 @@ export const comites = [
             { "nombre": "Agustin Diomedi", "genero": "" },
             { "nombre": "Alejandra Pombo", "genero": "" },
             { "nombre": "Ana Bonafe", "genero": "" },
-            { "nombre": "Anabella Rubio", "genero": "" },
             { "nombre": "Cecilia Ormazábal", "genero": "" },
             { "nombre": "Eugenia Wamba", "genero": "" },
             { "nombre": "Federico Álvarez", "genero": " " },
+            { "nombre": "Federico José Villalba", "genero": " " },
             { "nombre": "Joaquín Saldaño", "genero": " " },
             { "nombre": "Josefina Dib Hassan", "genero": "" },
             { "nombre": "Karim Moi", "genero": "" },
             { "nombre": "Lucía Tapia", "genero": "" },
             { "nombre": "Pamela Rossi", "genero": "" },
             { "nombre": "Paola Ozuna", "genero": "" },
+            { "nombre": "Rocio Rodriguez", "genero": "" },
             { "nombre": "Sylvia Errea", "genero": "" }
         ]
     },
