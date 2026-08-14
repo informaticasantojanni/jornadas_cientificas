@@ -84,6 +84,7 @@ export const comites = [
         "secretarioNombre": "Santiago Fiorino",
         "secretarioGenero": "",
         "vocales": [
+            { "nombre": "Amalia Pasos", "genero": "" },
             { "nombre": "Lucia Lioi", "genero": "" },
             { "nombre": "Marcelo Corigliano", "genero": "" },
             { "nombre": "Julian Nardi", "genero": "" },
