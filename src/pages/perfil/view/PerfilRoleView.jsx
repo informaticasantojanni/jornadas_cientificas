@@ -34,23 +34,6 @@ const PerfilRoleView = ({ userData }) => {
 
                     </div>
                 )}
-
-                {/* {perfilRoleView !== "AdminUserProfile" && (
-                    <div className="flex flex-col items-center">
-                        <ButtonVioletSM
-                            onClick={() => setPerfilRoleView("")}
-                            label="Volver"
-                        />
-                    </div>
-                )} */}
-                {/* {(perfilRoleView === "AdminTemasLibres" && internalView == "temasLibres") && (
-                    <div className="flex flex-col items-center">
-                        <ButtonVioletSM
-                            onClick={() => setPerfilRoleView("")}
-                            label="Volver"
-                        />
-                    </div>
-                )} */}
             </div>
 
             {/* Bloque que renderiza las vistas */}
@@ -59,11 +42,7 @@ const PerfilRoleView = ({ userData }) => {
                 {/* {perfilView === VISTAS_PERFIL.TEMAS_LIBRES && <AdminTemasLibres userData={userData} />} */}
                 {perfilView === VISTAS_PERFIL.TEMAS_LIBRES && <TemasLibresView userData={userData} />}
             </div>
-
         </div>
-
-
-
     )
 }
 

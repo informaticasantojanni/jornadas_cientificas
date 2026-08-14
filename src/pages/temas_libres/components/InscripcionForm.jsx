@@ -27,24 +27,6 @@ const InscripcionForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="w-full laptop1-w[90%] laptop2-w[90%] desktop:w-[90%] m-auto rounded-xl p-10 bg-gradient-to-b from-LightGreen to-Green text-white ">
 
-          {/* Tipo de trabajo */}
-          <div className="flex flex-col mb-5">
-            <label className="text-White w-full pb-2">Tipo de trabajo:</label>
-            <select
-              name="tipoTrabajo"
-              value={formData.tipoTrabajo ?? ""}
-              onChange={handleChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.tipoTrabajo ? "border border-Red" : ""}`}
-            >
-              <option value="">Seleccione tipo de trabajo</option>
-              <option value="Casuística">Casuística</option>
-              <option value="Trabajo de investigación/epidemiológico">Trabajo de investigación/epidemiológico</option>
-            </select>
-            {errors.tipoTrabajo && (
-              <span className="text-sm text-Red">{errors.tipoTrabajo}</span>
-            )}
-          </div>
-
           {/* Título */}
           <div className="flex flex-col mb-5">
             <label className="text-White w-full pb-2">Título del trabajo:</label>
@@ -157,23 +139,59 @@ const InscripcionForm = () => {
             )}
           </div>
 
-
-          {/* Presenta a premio */}
-          <div className="flex items-center gap-4 mb-5">
-            <button
-              type="button"
-              name="presentaPremio"
-              onClick={handleChange}
-              className="text-White"
+          {/* Tipo de trabajo */}
+          <div className="flex flex-col mb-5">
+            <label className="text-White w-full pb-2">Tipo de trabajo:</label>
+            <select
+              name="tipoTrabajo"
+              value={formData.tipoTrabajo ?? ""}
+              onChange={handleChange}
+              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.tipoTrabajo ? "border border-Red" : ""}`}
             >
-              {formData.presentaPremio ? "✅ Presenta a premio" : "☐ Presenta a premio"}
-            </button>
+              <option value="">Seleccione tipo de trabajo</option>
+              <option value="Casuística">Casuística</option>
+              <option value="Trabajo de investigación/epidemiológico">Trabajo de investigación/epidemiológico</option>
+            </select>
+            {errors.tipoTrabajo && (
+              <span className="text-sm text-Red">{errors.tipoTrabajo}</span>
+            )}
           </div>
 
+          {/* Presenta a premio */}
+          {formData.tipoTrabajo === "Trabajo de investigación/epidemiológico" && (
+            <div className="flex items-center gap-4 mb-5">
+              <button
+                type="button"
+                name="presentaPremio"
+                onClick={handleChange}
+                disabled={formData.tipoTrabajo === "Casuística"}
+                className="text-White disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {formData.presentaPremio ? "✅ Presenta a premio" : "☐ Presenta a premio"}
+              </button>
+            </div>
+          )}
 
           {/* Trabajo completo (si presenta a premio) */}
-          {formData.presentaPremio && (
+          {formData.presentaPremio && formData.tipoTrabajo === "Trabajo de investigación/epidemiológico" && (
             <div className="flex flex-col mb-5">
+              <label className="text-White w-full pb-2 pt-3">Categoría del Premio:</label>
+              <select
+                name="premioCategoria"
+                value={formData.premioCategoria ?? ""}
+                onChange={handleChange}
+                className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.premioCategoria ? "border border-Red" : ""}`}
+              >
+                <option value="">Seleccione una categoría</option>
+                <option value="Salaberry">Salaberry</option>
+                <option value="Santojanni">Santojanni</option>
+                <option value="Senra Aguirre">Senra Aguirre</option>
+                <option value="Ripoli">Ripoli</option>
+              </select>
+              {errors.premioCategoria && (
+                <span className="text-sm text-Red">{errors.premioCategoria}</span>
+              )}
+
               <label className="text-White w-full pb-2">Subir PDF Trabajo:</label>
               <input
                 type="file"
@@ -186,8 +204,10 @@ const InscripcionForm = () => {
               {errors.trabajoPremio && (
                 <span className="text-sm text-Red">{errors.trabajoPremio}</span>
               )}
+
             </div>
           )}
+
 
           {/* Lugar de realización */}
           <div className="flex flex-col mb-5">

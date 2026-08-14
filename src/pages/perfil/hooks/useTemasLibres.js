@@ -492,11 +492,11 @@ export const useTemasLibres = (userData) => {
   ];
 
   const PRESENTACION_DIAS = [
-    { id: 1, label: "Lunes - 29/9/2025" },
-    { id: 2, label: "Martes - 30/09/2025" },
-    { id: 3, label: "Miércoles - 1/10/2025" },
-    { id: 4, label: "Jueves - 2/10/2025" },
-    { id: 5, label: "Viernes - 3/10/2025" },
+    { id: 1, label: "Lunes - 19/10/2026" },
+    { id: 2, label: "Martes - 30/09/2026" },
+    { id: 3, label: "Miércoles - 1/10/2026" },
+    { id: 4, label: "Jueves - 2/10/2026" },
+    { id: 5, label: "Viernes - 3/10/2026" },
   ];
 
   const PRESENTACION_HORARIOS = [
