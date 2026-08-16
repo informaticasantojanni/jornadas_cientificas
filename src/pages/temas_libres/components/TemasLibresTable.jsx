@@ -359,11 +359,11 @@ const TemasLibresTable = ({ userData }) => {
       </TableContainer>
 
       {/* Boton generar reporte */}
-      <button
+      {/* <button
         className="py-5"
         onClick={generateReportTemasLibres}>
         {generatingReportTemasLibres ? "Generando reporte... aguarde" : "Generar reporte"}
-      </button>
+      </button> */}
 
     </div>
   );

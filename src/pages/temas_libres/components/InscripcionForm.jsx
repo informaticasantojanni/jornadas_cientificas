@@ -43,102 +43,6 @@ const InscripcionForm = () => {
             )}
           </div>
 
-          {/* Servicios */}
-          <div className="flex flex-col mb-5">
-            <label className="w-full text-White pb-2">Agregar Servicios:</label>
-
-            <div className="flex items-center gap-4 mb-1">
-              <select
-                name="servicio"
-                value={formData.servicio} // Assuming you have state in your formData
-                onChange={handleChange}
-                className={`w-[80%] rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.servicio && "focus:outline border border-Red"
-                  }`}
-              >
-                <option value="">Seleccione...</option> {/* Placeholder option */}
-                {serviciosList.map((servicio, index) => (
-                  <option key={index} value={servicio}>{servicio}</option>
-                ))}
-              </select>
-
-              <button
-                onClick={handleAddService}><AddIcon width={35} /></button>
-            </div>
-
-            {/* Error message for servicios */}
-            {errors.servicios && (
-              <span className="text-sm text-Red">{errors.servicios}</span>
-            )}
-
-            {/* Servicios seleecionados */}
-            <div className="mt-2">
-              {formData.serviciosList.length > 0 && (
-                <span className="text-White">Servicios seleccionados:</span>
-              )}
-
-              <ul className="list-disc pl-5">
-                {formData.serviciosList.map((servicio, index) => (
-                  <div key={index}>
-                    <li key={index} className="text-White flex items-center gap-2">{servicio} <button onClick={(e) => handleDeleteService(e, servicio)}><DeleteIcon width={20} /></button></li>
-                  </div>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Autores */}
-          <div className="flex flex-col mb-5">
-            <label className="w-full text-White pb-2">Agregar Autores:</label>
-            <div className="flex items-center gap-4 mb-1">
-              <input
-                name="autor"
-                value={formData.autor ?? ""}
-                onChange={handleChange}
-                rows={3}
-                className={`w-[80%] rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.autores && "focus:outline border border-Red"
-                  }`}
-              />
-              <button
-                onClick={handleAddAutor}><AddIcon width={35} /></button>
-            </div>
-
-            {/* Error message for autores */}
-            {errors.autores && (
-              <span className="text-sm text-Red">{errors.autores}</span>
-            )}
-
-            {/* Seleccionados */}
-            <div className="mt-2">
-              {formData.autoresList.length > 0 && (
-                <span className="text-White">Autores agregados:</span>
-              )}
-              <ul className="list-disc pl-5">
-                {formData.autoresList.map((autor, index) => (
-                  <div key={index}>
-                    <li key={index} className="text-White flex items-center gap-2">{autor} <button onClick={(e) => handleDeleteAutor(e, autor)}><DeleteIcon width={20} /></button></li>
-                  </div>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-
-          {/* Abstract */}
-          <div className="flex flex-col mb-5">
-            <label className="text-White w-full pb-2">Subir PDF del Abstract:</label>
-            <input
-              type="file"
-              name="abstract"
-              accept=".pdf"
-              onChange={handleAbstractFileChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.abstract && "focus:outline border border-Red"
-                }`}
-            />
-            {errors.abstract && (
-              <span className="text-sm text-Red">{errors.abstract}</span>
-            )}
-          </div>
-
           {/* Tipo de trabajo */}
           <div className="flex flex-col mb-5">
             <label className="text-White w-full pb-2">Tipo de trabajo:</label>
@@ -192,7 +96,7 @@ const InscripcionForm = () => {
                 <span className="text-sm text-Red">{errors.premioCategoria}</span>
               )}
 
-              <label className="text-White w-full pb-2">Subir PDF Trabajo:</label>
+              {/* <label className="text-White w-full pb-2">Subir PDF Trabajo:</label>
               <input
                 type="file"
                 name="trabajoCompleto"
@@ -203,11 +107,87 @@ const InscripcionForm = () => {
               />
               {errors.trabajoPremio && (
                 <span className="text-sm text-Red">{errors.trabajoPremio}</span>
-              )}
+              )} */}
 
             </div>
           )}
 
+
+          {/* Autores */}
+          <div className="flex flex-col mb-5">
+            <label className="w-full text-White pb-2">Agregar Autores:</label>
+            <div className="flex items-center gap-4 mb-1">
+              <input
+                name="autor"
+                value={formData.autor ?? ""}
+                onChange={handleChange}
+                className={`w-[80%] rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.autores && "focus:outline border border-Red"
+                  }`}
+              />
+              <button
+                type="button"
+                onClick={handleAddAutor}><AddIcon width={35} /></button>
+            </div>
+
+            {/* Error message for autores */}
+            {errors.autores && (
+              <span className="text-sm text-Red">{errors.autores}</span>
+            )}
+
+            {/* Autores seleccionados */}
+            <div className="mt-2">
+              {formData.autoresList.length > 0 && (
+                <span className="text-White">Autores agregados:</span>
+              )}
+              <ul className="list-disc pl-5">
+                {formData.autoresList.map((autor, index) => (
+                  <li key={index} className="text-White flex items-center gap-2">{autor} <button type="button" onClick={(e) => handleDeleteAutor(e, autor)}><DeleteIcon width={20} /></button></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Servicios */}
+          <div className="flex flex-col mb-5">
+            <label className="w-full text-White pb-2">Agregar Servicios:</label>
+
+            <div className="flex items-center gap-4 mb-1">
+              <select
+                name="servicio"
+                value={formData.servicio} // Assuming you have state in your formData
+                onChange={handleChange}
+                className={`w-[80%] rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.servicio && "focus:outline border border-Red"
+                  }`}
+              >
+                <option value="">Seleccione...</option> {/* Placeholder option */}
+                {serviciosList.map((servicio, index) => (
+                  <option key={index} value={servicio}>{servicio}</option>
+                ))}
+              </select>
+
+              <button
+                type="button"
+                onClick={handleAddService}><AddIcon width={35} /></button>
+            </div>
+
+            {/* Error message for servicios */}
+            {errors.servicios && (
+              <span className="text-sm text-Red">{errors.servicios}</span>
+            )}
+
+            {/* Servicios seleccionados */}
+            <div className="mt-2">
+              {formData.serviciosList.length > 0 && (
+                <span className="text-White">Servicios seleccionados:</span>
+              )}
+
+              <ul className="list-disc pl-5">
+                {formData.serviciosList.map((servicio, index) => (
+                  <li key={index} className="text-White flex items-center gap-2">{servicio} <button type="button" onClick={(e) => handleDeleteService(e, servicio)}><DeleteIcon width={20} /></button></li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
           {/* Lugar de realización */}
           <div className="flex flex-col mb-5">
@@ -222,6 +202,23 @@ const InscripcionForm = () => {
             />
             {errors.lugar && (
               <span className="text-sm text-Red">{errors.lugar}</span>
+            )}
+          </div>
+
+
+          {/* Abstract */}
+          <div className="flex flex-col mb-5">
+            <label className="text-White w-full pb-2">Subir PDF del Abstract:</label>
+            <input
+              type="file"
+              name="abstract"
+              accept=".pdf"
+              onChange={handleAbstractFileChange}
+              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.abstract && "focus:outline border border-Red"
+                }`}
+            />
+            {errors.abstract && (
+              <span className="text-sm text-Red">{errors.abstract}</span>
             )}
           </div>
 
