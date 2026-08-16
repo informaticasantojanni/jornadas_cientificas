@@ -7,18 +7,49 @@ const GlobalProvider = ({ children }) => {
     const EVENT_ID = "hKAIOceT9XY855FSbXL2"; //eventId Jornadas 2026
     // const EVENT_ID = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
     // const eventId = "ZbclMy93Cs9jzEYAgVui"; //eventId Jornadas 2024
-    const PERFILES = {
+    const ROLES = {
         ADMIN: "admin",
         USER: "user",
         TEMAS_LIBRES_VOCAL: "temasLibresVocal",
         TEMAS_LIBRES_PRESIDENTE: "temasLibresPresidente",
-        TEMAS_LIBRES_COMITE: "temasLibresComite"
+        TEMAS_LIBRES_COMITE: "temasLibresComite",
+        MESAS_REDONDAS_VOCAL: "mesasRedondasVocal",
+        MESAS_REDONDAS_PRESIDENTE: "mesasRedondasPresidente",
+        MESAS_REDONDAS_COMITE: "mesasRedondasComite"
+    }
+
+    const VISTAS_PERFIL = {
+        USUARIO: "usuario",
+        TEMAS_LIBRES: "temasLibres",
+        TEMAS_LIBRES_PRESENTAR_TRABAJOS: "temasLibresPresentarTrabajos",
+        TEMAS_LIBRES_VER_TRABAJOS: "temasLibresVerTrabajos",
+        TEMAS_LIBRES_PROCESAR_TRABAJOS: "temasLibresProcesarTrabajos",
+        MESAS_REDONDAS: "mesasRedondas",
+        MESAS_REDONDAS_PRESENTAR_TRABAJOS: "mesasRedondasPresentarTrabajos",
+        MESAS_REDONDAS_VER_TRABAJOS: "mesasRedondasVerTrabajos",
+        MESAS_REDONDAS_PROCESAR_TRABAJOS: "mesasRedondasProcesarTrabajos"
+    }
+
+    const VISTAS_TEMAS_LIBRES = {
+        PRESENTAR_TRABAJOS: "presentarTrabajos",
+        GESTIONAR_TRABAJOS: "gestionarTrabajos",
+        VER_TRABAJOS: "verTrabajos",
+        PROCESAR_TRABAJOS: "procesarTrabajos"
+    }
+
+    const VISTAS_MESAS_REDONDAS = {
+        PRESENTAR_MESA: "presentarMesas",
+        GESTIONAR_MESA: "gestionarMesas",
+        VER_MESAS: "verMesas",
+        PROCESAR_MESA: "procesarMesas"
     }
 
     // Declaración de hook states
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [desktopView, setDesktopView] = useState(false);
     const [showSpinner, setShowSpinner] = useState(false)
+    // perfilRoleView lo usamos para vista de la page perfil segun el rol del usuario
+    const [perfilView, setPerfilView] = useState("");
     const [internalView, setInternalView] = useState("temasLibres");
     const [processTrabajoId, setProcessTrabajoId] = useState("");
 
@@ -43,11 +74,16 @@ const GlobalProvider = ({ children }) => {
                     desktopView,
                     showSpinner,
                     setShowSpinner,
+                    perfilView,
+                    setPerfilView,
                     internalView,
                     setInternalView,
                     processTrabajoId,
                     setProcessTrabajoId,
-                    PERFILES,
+                    ROLES,
+                    VISTAS_PERFIL,
+                    VISTAS_TEMAS_LIBRES,
+                    VISTAS_MESAS_REDONDAS,
                     EVENT_ID
                 }
             }>

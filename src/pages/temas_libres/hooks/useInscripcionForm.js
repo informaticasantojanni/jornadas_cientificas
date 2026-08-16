@@ -17,12 +17,14 @@ export const useInscripcionForm = () => {
     // Form Data
     const [formData, setFormData] = useState({
         id: "",
+        tipoTrabajo: "",
         titulo: "",
         servicio: "",
         serviciosList: [],
         autor: "",
         autoresList: [],
         presentaPremio: false,
+        evaluador: "",
         contactoNombre: "",
         contactoApellido: "",
         contactoCelular: "",
@@ -66,12 +68,14 @@ export const useInscripcionForm = () => {
     const resetFormData = () => {
         setFormData({
             id: "",
+            tipoTrabajo: "",
             titulo: "",
             servicio: "",
             serviciosList: [],
             autor: "",
             autoresList: [],
             presentaPremio: false,
+            evaluador: "",
             lugar: "",
             contactoNombre: "",
             contactoApellido: "",
@@ -92,6 +96,15 @@ export const useInscripcionForm = () => {
                 [name]: !formData.presentaPremio
             });
             setTrabajoPremioFile(null); // Reseteamos el archivo de trabajo a premio si se cambia el estado
+        }
+        else if (name == "tipoTrabajo") {
+            setFormData({
+                ...formData,
+                tipoTrabajo: value,
+                presentaPremio: false,
+                premioCategoria: ""
+            });
+            setTrabajoPremioFile(null); // Reseteamos el archivo de trabajo a premio si cambia el tipo de trabajo
         }
         else {
             setFormData({
@@ -204,6 +217,11 @@ export const useInscripcionForm = () => {
     const validate = () => {
         let formErrors = {};
 
+        // Tipo de trabajo validation
+        if (!formData.tipoTrabajo || formData.tipoTrabajo.trim() === "") {
+            formErrors.tipoTrabajo = "Debe seleccionar el tipo de trabajo";
+        }
+
         // Titulo validation
         if (!formData.titulo || formData.titulo.trim() === "") {
             formErrors.titulo = "El título es obligatorio";
@@ -279,7 +297,15 @@ export const useInscripcionForm = () => {
             //Upload Abstract PDF
             console.log("Evaluo archivo Abstract:", abstractFile);
             if (abstractFile) {
-                const resUpdloadAbstract = await handleUpload(abstractFile);
+                const extension = abstractFile.name.slice(abstractFile.name.lastIndexOf("."));
+                const nombreBase = abstractFile.name.slice(0, abstractFile.name.lastIndexOf("."));
+                const abstractFileRenombrado = new File(
+                    [abstractFile],
+                    `${nombreBase}_resumen${extension}`,
+                    { type: abstractFile.type }
+                );
+
+                const resUpdloadAbstract = await handleUpload(abstractFileRenombrado);
 
                 if (resUpdloadAbstract.status) {
                     abstractUrl = resUpdloadAbstract.data

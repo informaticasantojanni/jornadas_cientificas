@@ -18,7 +18,7 @@ export const useTemasLibres = (userData) => {
     setInternalView,
     processTrabajoId,
     setProcessTrabajoId,
-    PERFILES,
+    ROLES,
     EVENT_ID
   } = useGlobal();
 
@@ -26,7 +26,6 @@ export const useTemasLibres = (userData) => {
   const [renderTemasLibres, setRenderTemasLibres] = useState([]);
   const [listaTemasLibres, setListaTemasLibres] = useState([]);
   const [formData, setFormData] = useState({
-    tipoTrabajo: "",
     titulo: "",
     serviciosList: [],
     autoresList: [],
@@ -69,9 +68,33 @@ export const useTemasLibres = (userData) => {
   // const EVENT_ID_2025 = "3lZN9Pf5Jvdgc3GX4h2e";
 
   useEffect(() => {
+    const fetchVocales = async () => {
+      try {
+        const usersResponse = await getAllUsers();
+        const usersVocales = usersResponse.filter((user) =>
+          user.role.includes("temasLibresVocal")
+        );
+        const vocales = usersVocales.map((vocal) => {
+          return {
+            id: vocal.id,
+            label: toTitleCase(vocal.name) + " " + toTitleCase(vocal.lastName),
+          };
+        });
+        vocales.sort((a, b) => a.label.localeCompare(b.label));
+        setListaVocales(vocales);
+      } catch (error) {
+        console.error("Error: ", error);
+      }
+    };
+    fetchVocales();
+  }, []);
+
+  useEffect(() => {
+    // userData todavía no terminó de cargar (useProfile es async)
+    if (!userData?.role) return;
+
     const fetchTemasLibres = async () => {
       setShowSpinner(true);
-      console.log("User Data en fetch Temas Libres: ", userData);
       try {
         // Llamar al servicio para obtener los temas libres
         const temasLibresResponse = await getTemasLibres(EVENT_ID); // Asegúrate de definir esta función
@@ -112,33 +135,13 @@ export const useTemasLibres = (userData) => {
         }
       } catch (error) {
         console.error("Error: ", error);
-      }
-    };
-
-    const fetchVocales = async () => {
-      try {
-        const usersResponse = await getAllUsers();
-        const usersVocales = usersResponse.filter((user) =>
-          user.role.includes("temasLibresVocal")
-        );
-        console.log("Vocales: ", usersVocales);
-        const vocales = usersVocales.map((vocal) => {
-          return {
-            id: vocal.id,
-            label: toTitleCase(vocal.name) + " " + toTitleCase(vocal.lastName),
-          };
-        });
-        vocales.sort((a, b) => a.label.localeCompare(b.label));
-        setListaVocales(vocales);
-      } catch (error) {
-        console.error("Error: ", error);
       } finally {
         setShowSpinner(false);
       }
     };
-    fetchVocales();
+
     fetchTemasLibres();
-  }, []);
+  }, [userData?.role, userData?.id, userData?.email, EVENT_ID]);
 
   useEffect(() => {
     const fetchTrabajo = async () => {
@@ -158,7 +161,6 @@ export const useTemasLibres = (userData) => {
         } else {
           const trabajo = trabajoResponse.data;
           setFormData({
-            tipoTrabajo: trabajo?.tipoTrabajo ?? "",
             titulo: trabajo?.titulo ?? "",
             autoresList: trabajo?.autoresList ?? "",
             serviciosList: trabajo?.serviciosList ?? "",
@@ -470,6 +472,7 @@ export const useTemasLibres = (userData) => {
   };
 
   const tableItems = [
+    "Tipo de trabajo",
     "Título",
     "Servicios",
     "Autores",

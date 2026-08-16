@@ -16,7 +16,8 @@ export const COLLECTIONS = {
     USERS: "users",
     EVENTS: "events",
     REGISTRATION: "registration",
-    TEMAS_LIBRES: "temasLibres"
+    TEMAS_LIBRES: "temasLibres",
+    MESAS_REDONDAS: "mesasRedondas",
 };
 
 export const DOCUMENTS = {

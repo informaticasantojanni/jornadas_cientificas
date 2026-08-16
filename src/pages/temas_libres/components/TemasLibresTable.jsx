@@ -163,8 +163,10 @@ const TemasLibresTable = ({ userData }) => {
                   }}
                 >
                   <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre.tipoTrabajo}{" "}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
                     {renderTemaLibre.titulo}{" "}
-                    {/* Asumiendo que hay un campo dni */}
                   </TableCell>
                   <TableCell align="center" sx={{ fontSize: 12 }}>
                     {Array.isArray(renderTemaLibre.serviciosList)
@@ -357,11 +359,11 @@ const TemasLibresTable = ({ userData }) => {
       </TableContainer>
 
       {/* Boton generar reporte */}
-      <button
+      {/* <button
         className="py-5"
         onClick={generateReportTemasLibres}>
         {generatingReportTemasLibres ? "Generando reporte... aguarde" : "Generar reporte"}
-      </button>
+      </button> */}
 
     </div>
   );

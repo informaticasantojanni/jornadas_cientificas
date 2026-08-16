@@ -6,6 +6,7 @@ const urlFetchAPI =
 export const sendEmailActions = {
   registration: "registration",
   payment: "payment",
+  recepcion_mesas_redondas: "recepcion_mesas_redondas",
   recepcion_temas_libres: "recepcion_temas_libres",
 }
 

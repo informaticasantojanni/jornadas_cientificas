@@ -11,6 +11,8 @@ import Galeria from "../../pages/galeria/view/GaleriaView";
 import Login from "../../pages/login/view/LoginView";
 import PerfilView from "../../pages/perfil/view/PerfilView";
 import TemasLibresView from "../../pages/temas_libres/view/TemasLibresView";
+import MisDatosView from "../../pages/mis_datos/view/MisDatosView";
+import MesasRedondasView from "../../pages/mesas_redondas/view/MesasRedondasView";
 
 export const appRouter = createHashRouter([
   {
@@ -99,6 +101,26 @@ export const appRouter = createHashRouter([
       <PrivateRoute>
         <Layout>
           <PerfilView />
+        </Layout>
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/misDatos",
+    element: (
+      <PrivateRoute>
+        <Layout>
+          <MisDatosView />
+        </Layout>
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/mesasRedondas",
+    element: (
+      <PrivateRoute>
+        <Layout>
+          <MesasRedondasView />
         </Layout>
       </PrivateRoute>
     ),
