@@ -297,7 +297,15 @@ export const useInscripcionForm = () => {
             //Upload Abstract PDF
             console.log("Evaluo archivo Abstract:", abstractFile);
             if (abstractFile) {
-                const resUpdloadAbstract = await handleUpload(abstractFile);
+                const extension = abstractFile.name.slice(abstractFile.name.lastIndexOf("."));
+                const nombreBase = abstractFile.name.slice(0, abstractFile.name.lastIndexOf("."));
+                const abstractFileRenombrado = new File(
+                    [abstractFile],
+                    `${nombreBase}_resumen${extension}`,
+                    { type: abstractFile.type }
+                );
+
+                const resUpdloadAbstract = await handleUpload(abstractFileRenombrado);
 
                 if (resUpdloadAbstract.status) {
                     abstractUrl = resUpdloadAbstract.data
