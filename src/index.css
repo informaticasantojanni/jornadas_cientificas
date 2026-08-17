@@ -10,7 +10,7 @@
 
 @layer components {
     .main-title {
-        @apply font-poppins font-bold text-[24px] desktop:text-[36px];
+        @apply font-poppins font-bold text-[22px] laptop1:text-[28px] desktop:text-[36px];
     }
 
     .secondary-title {

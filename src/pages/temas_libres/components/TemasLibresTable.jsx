@@ -200,6 +200,10 @@ const TemasLibresTable = ({ userData }) => {
                   </TableCell>
 
                   <TableCell align="center" sx={{ fontSize: 12 }}>
+                    {renderTemaLibre.premioCategoria}{" "}
+                  </TableCell>
+
+                  <TableCell align="center" sx={{ fontSize: 12 }}>
                     <Box
                       display="flex"
                       justifyContent="center"

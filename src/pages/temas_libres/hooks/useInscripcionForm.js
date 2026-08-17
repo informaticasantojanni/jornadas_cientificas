@@ -24,7 +24,7 @@ export const useInscripcionForm = () => {
         autor: "",
         autoresList: [],
         presentaPremio: false,
-        evaluador: "",
+        premioCategoria: "",
         contactoNombre: "",
         contactoApellido: "",
         contactoCelular: "",
@@ -75,7 +75,7 @@ export const useInscripcionForm = () => {
             autor: "",
             autoresList: [],
             presentaPremio: false,
-            evaluador: "",
+            premioCategoria: "",
             lugar: "",
             contactoNombre: "",
             contactoApellido: "",
@@ -93,7 +93,8 @@ export const useInscripcionForm = () => {
         if (name == "presentaPremio") {
             setFormData({
                 ...formData,
-                [name]: !formData.presentaPremio
+                [name]: !formData.presentaPremio,
+                premioCategoria: "",
             });
             setTrabajoPremioFile(null); // Reseteamos el archivo de trabajo a premio si se cambia el estado
         }

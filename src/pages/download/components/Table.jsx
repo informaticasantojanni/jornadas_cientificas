@@ -5,7 +5,8 @@ import DownloadIcon from "./DownloadIcon";
 const Table = () => {
   return (
     <div className="">
-      <table className="rounded-lg">
+      <h1 className="main-title text-center py-5">Bases Trabajos Temas Libres</h1>
+      <table className="mx-auto rounded-lg">
         <thead className="bg-Blue ">
           <tr>
             <th className="p-3 text-White">Documento</th>

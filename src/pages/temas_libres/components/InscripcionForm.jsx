@@ -3,74 +3,37 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { serviciosList } from "./serviciosList"; // Assuming you have a list of services
 import AddIcon from "../svgIcons/AddIcon";
 import DeleteIcon from "../svgIcons/DeleteIcon"; // Assuming you have a delete icon
+import { useGlobal } from "../../../hooks/useGlobal";
 
-
-const InscripcionForm = () => {
-
-  const {
-    handleSubmit,
-    handleChange,
-    formData,
-    errors,
-    handleCaptchaChange,
-    handleAddService,
-    handleDeleteService,
-    handleAddAutor,
-    handleDeleteAutor,
-    handleAbstractFileChange,
-    handleTrabajoPremioFileChange
-  } = useInscripcionForm();
-
-
+const InscripcionForm = ({ setTemasLibresView }) => {
+  const { handleSubmit, handleChange, formData, errors, handleCaptchaChange, handleAddService, handleDeleteService, handleAddAutor, handleDeleteAutor, handleAbstractFileChange, handleTrabajoPremioFileChange } = useInscripcionForm();
+  const { VISTAS_TEMAS_LIBRES } = useGlobal();
   return (
     <div className="w-full">
-      <form onSubmit={handleSubmit}>
+      <form id="inscripcion-form" onSubmit={handleSubmit}>
         <div className="w-full laptop1-w[90%] laptop2-w[90%] desktop:w-[90%] m-auto rounded-xl p-10 bg-gradient-to-b from-LightGreen to-Green text-white ">
-
           {/* Título */}
           <div className="flex flex-col mb-5">
             <label className="text-White w-full pb-2">Título del trabajo:</label>
-            <input
-              type="text"
-              name="titulo"
-              value={formData.titulo ?? ""}
-              onChange={handleChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.titulo ? "border border-Red" : ""}`}
-
-            />
-            {errors.titulo && (
-              <span className="text-sm text-Red">{errors.titulo}</span>
-            )}
+            <input type="text" name="titulo" value={formData.titulo ?? ""} onChange={handleChange} className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.titulo ? "border border-Red" : ""}`} />
+            {errors.titulo && <span className="text-sm text-Red">{errors.titulo}</span>}
           </div>
 
           {/* Tipo de trabajo */}
           <div className="flex flex-col mb-5">
             <label className="text-White w-full pb-2">Tipo de trabajo:</label>
-            <select
-              name="tipoTrabajo"
-              value={formData.tipoTrabajo ?? ""}
-              onChange={handleChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.tipoTrabajo ? "border border-Red" : ""}`}
-            >
+            <select name="tipoTrabajo" value={formData.tipoTrabajo ?? ""} onChange={handleChange} className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.tipoTrabajo ? "border border-Red" : ""}`}>
               <option value="">Seleccione tipo de trabajo</option>
               <option value="Casuística">Casuística</option>
               <option value="Trabajo de investigación/epidemiológico">Trabajo de investigación/epidemiológico</option>
             </select>
-            {errors.tipoTrabajo && (
-              <span className="text-sm text-Red">{errors.tipoTrabajo}</span>
-            )}
+            {errors.tipoTrabajo && <span className="text-sm text-Red">{errors.tipoTrabajo}</span>}
           </div>
 
           {/* Presenta a premio */}
           {formData.tipoTrabajo === "Trabajo de investigación/epidemiológico" && (
             <div className="flex items-center gap-4 mb-5">
-              <button
-                type="button"
-                name="presentaPremio"
-                onClick={handleChange}
-                disabled={formData.tipoTrabajo === "Casuística"}
-                className="text-White disabled:opacity-50 disabled:cursor-not-allowed"
-              >
+              <button type="button" name="presentaPremio" onClick={handleChange} className="text-White disabled:opacity-50 disabled:cursor-not-allowed">
                 {formData.presentaPremio ? "✅ Presenta a premio" : "☐ Presenta a premio"}
               </button>
             </div>
@@ -80,21 +43,14 @@ const InscripcionForm = () => {
           {formData.presentaPremio && formData.tipoTrabajo === "Trabajo de investigación/epidemiológico" && (
             <div className="flex flex-col mb-5">
               <label className="text-White w-full pb-2 pt-3">Categoría del Premio:</label>
-              <select
-                name="premioCategoria"
-                value={formData.premioCategoria ?? ""}
-                onChange={handleChange}
-                className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.premioCategoria ? "border border-Red" : ""}`}
-              >
+              <select name="premioCategoria" value={formData.premioCategoria ?? ""} onChange={handleChange} className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.premioCategoria ? "border border-Red" : ""}`}>
                 <option value="">Seleccione una categoría</option>
                 <option value="Salaberry">Salaberry</option>
                 <option value="Santojanni">Santojanni</option>
                 <option value="Senra Aguirre">Senra Aguirre</option>
                 <option value="Ripoli">Ripoli</option>
               </select>
-              {errors.premioCategoria && (
-                <span className="text-sm text-Red">{errors.premioCategoria}</span>
-              )}
+              {errors.premioCategoria && <span className="text-sm text-Red">{errors.premioCategoria}</span>}
 
               {/* <label className="text-White w-full pb-2">Subir PDF Trabajo:</label>
               <input
@@ -108,40 +64,33 @@ const InscripcionForm = () => {
               {errors.trabajoPremio && (
                 <span className="text-sm text-Red">{errors.trabajoPremio}</span>
               )} */}
-
             </div>
           )}
-
 
           {/* Autores */}
           <div className="flex flex-col mb-5">
             <label className="w-full text-White pb-2">Agregar Autores:</label>
             <div className="flex items-center gap-4 mb-1">
-              <input
-                name="autor"
-                value={formData.autor ?? ""}
-                onChange={handleChange}
-                className={`w-[80%] rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.autores && "focus:outline border border-Red"
-                  }`}
-              />
-              <button
-                type="button"
-                onClick={handleAddAutor}><AddIcon width={35} /></button>
+              <input name="autor" value={formData.autor ?? ""} onChange={handleChange} className={`w-[80%] rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.autores && "focus:outline border border-Red"}`} />
+              <button type="button" onClick={handleAddAutor}>
+                <AddIcon width={35} />
+              </button>
             </div>
 
             {/* Error message for autores */}
-            {errors.autores && (
-              <span className="text-sm text-Red">{errors.autores}</span>
-            )}
+            {errors.autores && <span className="text-sm text-Red">{errors.autores}</span>}
 
             {/* Autores seleccionados */}
             <div className="mt-2">
-              {formData.autoresList.length > 0 && (
-                <span className="text-White">Autores agregados:</span>
-              )}
+              {formData.autoresList.length > 0 && <span className="text-White">Autores agregados:</span>}
               <ul className="list-disc pl-5">
                 {formData.autoresList.map((autor, index) => (
-                  <li key={index} className="text-White flex items-center gap-2">{autor} <button type="button" onClick={(e) => handleDeleteAutor(e, autor)}><DeleteIcon width={20} /></button></li>
+                  <li key={index} className="text-White flex items-center gap-2">
+                    {autor}{" "}
+                    <button type="button" onClick={(e) => handleDeleteAutor(e, autor)}>
+                      <DeleteIcon width={20} />
+                    </button>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -156,34 +105,36 @@ const InscripcionForm = () => {
                 name="servicio"
                 value={formData.servicio} // Assuming you have state in your formData
                 onChange={handleChange}
-                className={`w-[80%] rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.servicio && "focus:outline border border-Red"
-                  }`}
+                className={`w-[80%] rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.servicio && "focus:outline border border-Red"}`}
               >
                 <option value="">Seleccione...</option> {/* Placeholder option */}
                 {serviciosList.map((servicio, index) => (
-                  <option key={index} value={servicio}>{servicio}</option>
+                  <option key={index} value={servicio}>
+                    {servicio}
+                  </option>
                 ))}
               </select>
 
-              <button
-                type="button"
-                onClick={handleAddService}><AddIcon width={35} /></button>
+              <button type="button" onClick={handleAddService}>
+                <AddIcon width={35} />
+              </button>
             </div>
 
             {/* Error message for servicios */}
-            {errors.servicios && (
-              <span className="text-sm text-Red">{errors.servicios}</span>
-            )}
+            {errors.servicios && <span className="text-sm text-Red">{errors.servicios}</span>}
 
             {/* Servicios seleccionados */}
             <div className="mt-2">
-              {formData.serviciosList.length > 0 && (
-                <span className="text-White">Servicios seleccionados:</span>
-              )}
+              {formData.serviciosList.length > 0 && <span className="text-White">Servicios seleccionados:</span>}
 
               <ul className="list-disc pl-5">
                 {formData.serviciosList.map((servicio, index) => (
-                  <li key={index} className="text-White flex items-center gap-2">{servicio} <button type="button" onClick={(e) => handleDeleteService(e, servicio)}><DeleteIcon width={20} /></button></li>
+                  <li key={index} className="text-White flex items-center gap-2">
+                    {servicio}{" "}
+                    <button type="button" onClick={(e) => handleDeleteService(e, servicio)}>
+                      <DeleteIcon width={20} />
+                    </button>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -192,92 +143,43 @@ const InscripcionForm = () => {
           {/* Lugar de realización */}
           <div className="flex flex-col mb-5">
             <label className="text-White w-full pb-2">Lugar donde fue realizado:</label>
-            <input
-              type="text"
-              name="lugar"
-              value={formData.lugar ?? ""}
-              onChange={handleChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.lugar && "focus:outline border border-Red"
-                }`}
-            />
-            {errors.lugar && (
-              <span className="text-sm text-Red">{errors.lugar}</span>
-            )}
+            <input type="text" name="lugar" value={formData.lugar ?? ""} onChange={handleChange} className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.lugar && "focus:outline border border-Red"}`} />
+            {errors.lugar && <span className="text-sm text-Red">{errors.lugar}</span>}
           </div>
-
 
           {/* Abstract */}
           <div className="flex flex-col mb-5">
             <label className="text-White w-full pb-2">Subir PDF del Abstract:</label>
-            <input
-              type="file"
-              name="abstract"
-              accept=".pdf"
-              onChange={handleAbstractFileChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.abstract && "focus:outline border border-Red"
-                }`}
-            />
-            {errors.abstract && (
-              <span className="text-sm text-Red">{errors.abstract}</span>
-            )}
+            <input type="file" name="abstract" accept=".pdf" onChange={handleAbstractFileChange} className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow ${errors.abstract && "focus:outline border border-Red"}`} />
+            {errors.abstract && <span className="text-sm text-Red">{errors.abstract}</span>}
           </div>
 
           {/* Contacto */}
           <div className="flex flex-col mb-5">
             <label className="text-White w-full pb-2">Responsable/Contacto:</label>
-            <input
-              type="text"
-              name="contactoNombre"
-              placeholder="Nombre"
-              value={formData.contactoNombre ?? ""}
-              onChange={handleChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`}
-            />
-            <input
-              type="text"
-              name="contactoApellido"
-              placeholder="Apellido"
-              value={formData.contactoApellido}
-              onChange={handleChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow `}
-            />
-            <input
-              type="text"
-              name="contactoCelular"
-              placeholder="Celular"
-              value={formData.contactoCelular ?? ""}
-              onChange={handleChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow `}
-            />
-            <input
-              type="text"
-              name="contactoEmail"
-              placeholder="Email"
-              value={formData.contactoEmail ?? ""}
-              onChange={handleChange}
-              className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow `}
-            />
+            <input type="text" name="contactoNombre" placeholder="Nombre" value={formData.contactoNombre ?? ""} onChange={handleChange} className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow`} />
+            <input type="text" name="contactoApellido" placeholder="Apellido" value={formData.contactoApellido} onChange={handleChange} className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow `} />
+            <input type="text" name="contactoCelular" placeholder="Celular" value={formData.contactoCelular ?? ""} onChange={handleChange} className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow `} />
+            <input type="text" name="contactoEmail" placeholder="Email" value={formData.contactoEmail ?? ""} onChange={handleChange} className={`rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-1 focus:outline-none focus:shadow-lightShadow `} />
           </div>
         </div>
 
-        {/* CAPTCHA y botón */}
+        {/* CAPTCHA */}
         <div className="w-full flex justify-center pt-5">
-          <ReCAPTCHA
-            sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-            onChange={handleCaptchaChange}
-          />
-        </div>
-        <div className="w-full flex justify-center pt-5">
-          <button
-            className="w-[150px] text-xl font-bold px-5 py-3 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out"
-            type="submit"
-          >
-            Enviar
-          </button>
+          <ReCAPTCHA sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} onChange={handleCaptchaChange} />
         </div>
       </form>
-    </div>
 
+      {/* Botones Cancelar y Enviar (fuera del form) */}
+      <div className="w-full flex justify-center gap-5 pt-5">
+        <button type="button" className="w-[150px] text-xl font-bold px-5 py-3 bg-transparent border-2 border-LightViolet text-LightViolet rounded-full hover:bg-LightViolet hover:text-White hover:shadow-lg transition duration-300 ease-in-out" onClick={() => setTemasLibresView(VISTAS_TEMAS_LIBRES.GESTIONAR_TRABAJOS)}>
+          Cancelar
+        </button>
+        <button type="submit" form="inscripcion-form" className="w-[150px] text-xl font-bold px-5 py-3 bg-LightViolet text-White rounded-full hover:bg-Violet hover:shadow-lg transition duration-300 ease-in-out">
+          Enviar
+        </button>
+      </div>
+    </div>
   );
 };
 

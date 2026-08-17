@@ -1,32 +1,33 @@
 export const downloadFiles = [
   {
     id: 1,
-    filename: "Bases Premio Santojanni 2025",
-    url: "https://drive.google.com/uc?id=1ASvenlOwkOaLgc0ml71gxnx_cJdDkNr6&export=download",
+    filename: "Instructivo para temas libres",
+    url: "https://drive.google.com/uc?id=1CCXiubG0jRTmDYEEyNjmia_NILK8_zcA&export=download",
   },
   {
     id: 2,
-    filename: "Bases Premio Mario Ripoli 2025",
-    url: "https://drive.google.com/uc?id=1tHC3C6RietE5azg6onddMvdbCym85GsV&export=download",
+    filename: "Bases Premio Mario Ripoli",
+    url: "https://drive.google.com/uc?id=1c2pffy5HE3Ip6vUAymFBWo-iKjAPRdhP&export=download",
   },
   {
     id: 3,
-    filename: "Bases Premio Senra Aguirre versión 2025",
-    url: "https://drive.google.com/uc?id=1moczG-Ig43_uAsNJn6fuDxTC8hB2PJ7v&export=download",
+    filename: "Bases Premio Salaberry",
+    url: "https://drive.google.com/uc?id=1c2pffy5HE3Ip6vUAymFBWo-iKjAPRdhP&export=download",
   },
   {
     id: 4,
-    filename: "Bases Premio Salaberry versión 2025",
-    url: "https://drive.google.com/uc?id=1kGlqsiuhnK50q0i_qWMqOJP1RseAHmNO&export=download",
+    filename: "Bases Premio Santojanni",
+    url: "https://drive.google.com/uc?id=1jS7BBEOLkIC0Xt83KknuftiMlMn0r_w1&export=download",
   },
+
   {
     id: 5,
-    filename: "Instructivo para temas libres versión 2025",
-    url: "https://drive.google.com/uc?id=1TB0_H0Kct2Z2zUHfIG-P0-F7dUQFaplM&export=download",
+    filename: "Bases Premio Senra Aguirre",
+    url: "https://drive.google.com/uc?id=1PW8NykHjEHAAKEaDSL3xBxkVo2fzZbM_&export=download",
   },
-  {
-    id: 6,
-    filename: "Template PPT Jornadas 2025",
-    url: "/ppt/Template_ppt_2025.pptx",
-  },
+  // {
+  //   id: 6,
+  //   filename: "Template PPT Jornadas",
+  //   url: "/ppt/Template_ppt_2025.pptx",
+  // },
 ];

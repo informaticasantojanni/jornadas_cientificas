@@ -478,6 +478,7 @@ export const useTemasLibres = (userData) => {
     "Autores",
     "Link Abstract",
     "Presenta a premio",
+    "Categoría Premio",
     "Link Premio",
     "Lugar de realización",
     "Contacto Nombre",

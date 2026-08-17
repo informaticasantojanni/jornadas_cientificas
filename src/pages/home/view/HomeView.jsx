@@ -11,6 +11,7 @@ import PopupCertificados from "../components/PopupCertificados";
 import PopupInscripcion from "../components/PopupInscripcion";
 import PopupArte from "../components/PopupArte";
 import PopupUpload from "../components/PopupUpload";
+import TemasLibres from "../components/TemasLibres";
 
 const HomeView = () => {
 
@@ -29,8 +30,9 @@ const HomeView = () => {
       <Autoridades />
       {/* <Invitados /> */}
       {/* <Conferencias /> */}
+      <TemasLibres />
       <Colaboran />
-      {/* <PopupInscripcion /> */}
+      <PopupInscripcion />
       {/* <PopupArte /> */}
       {/* <PopupUpload /> */}
       {/* <PopupStreaming /> */}
