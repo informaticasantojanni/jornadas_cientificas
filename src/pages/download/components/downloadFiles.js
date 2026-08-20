@@ -7,7 +7,7 @@ export const downloadFiles = [
   {
     id: 2,
     filename: "Bases Premio Mario Ripoli",
-    url: "https://drive.google.com/uc?id=1c2pffy5HE3Ip6vUAymFBWo-iKjAPRdhP&export=download",
+    url: "https://drive.google.com/uc?id=1wGoeTM-tWJaCDqZAqwgxdLW3o7USYmAp&export=download",
   },
   {
     id: 3,
