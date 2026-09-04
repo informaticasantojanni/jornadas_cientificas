@@ -5,7 +5,7 @@ import NavPrograma from "../components/NavPrograma";
 import ProgramaProvider from "../provider/ProgramaProvider";
 import SearchProgram from "../components/SearchProgram";
 
-const ProgramaView = () => {
+const ProgramaView2025 = () => {
   useEffect(() => {
     // Scroll al top de la página al cargar
     window.scrollTo(0, 0);
@@ -25,4 +25,4 @@ const ProgramaView = () => {
   );
 };
 
-export default ProgramaView;
+export default ProgramaView2025;
