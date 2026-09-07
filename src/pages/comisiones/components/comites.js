@@ -119,8 +119,10 @@ export const comites = [
         "vocales": [
             { "nombre": "Alicia Maone", "genero": "" },
             { "nombre": "Andrea Suárez", "genero": "" },
-            { "nombre": "Gabriela Britos", "genero": "" },
-            { "nombre": "Rocío Repetto", "genero": "" }
+            { "nombre": "Soledad Britos", "genero": "" },
+            { "nombre": "Rocío Repetto", "genero": "" },
+            { "nombre": "Dimitra Farace", "genero": "" },
+            { "nombre": "María Belén López", "genero": "" }
         ]
     },
     {
