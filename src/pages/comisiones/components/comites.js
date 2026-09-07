@@ -51,19 +51,37 @@ export const comites = [
             { "nombre": "Romina Plafnik", "genero": "" }
         ]
     },
+    // {
+    //     "comiteNombre": "Comité de Trabajos Libres",
+    //     "mostrarCargos": "true",
+    //     "presidenteNombre": "Maximiliano D'Anni",
+    //     "presidenteGenero": "",
+    //     "secretarioNombre": "Federico Labanca",
+    //     "secretarioGenero": "",
+    //     "vocales": [
+    //         { "nombre": "Betiana Barbani", "genero": "" },
+    //         { "nombre": "Ornella Caruso", "genero": "" },
+    //         { "nombre": "Soledad Brito", "genero": "" }
+    //     ]
+    // },
     {
         "comiteNombre": "Comité de Trabajos Libres",
         "mostrarCargos": "true",
         "presidenteNombre": "Maximiliano D'Anni",
         "presidenteGenero": "",
-        "secretarioNombre": "Federico Labanca",
+        "secretarioNombre": "Pablo Santangelo",
         "secretarioGenero": "",
         "vocales": [
+            { "nombre": "Federico Labanca", "genero": "" },
             { "nombre": "Betiana Barbani", "genero": "" },
             { "nombre": "Ornella Caruso", "genero": "" },
-            { "nombre": "Soledad Brito", "genero": "" }
+            { "nombre": "Soledad Britos", "genero": "" },
+            { "nombre": "Guido Mauro", "genero": "" },
+            { "nombre": "Ariel Brezigar", "genero": "" },
+            { "nombre": "Mariana Aguirre", "genero": "" },
+            { "nombre": "Gisella Sesa", "genero": "" }
         ]
-    },
+    }
     {
         "comiteNombre": "Comité de Relaciones Públicas",
         "mostrarCargos": "true",
@@ -143,13 +161,22 @@ export const comites = [
     {
         "comiteNombre": "Comité de Residentes y Concurrentes",
         "mostrarCargos": "true",
-        "coordinadorGeneral": "Laura Nieto, Gonzalo Barbieri y Lourdes Laurens",
-        "presidenteNombre": "",
+        "coordinadorGeneral": "Laura Nieto, Casavilla, Gonzalo Barbieri, Lourdes Laurens",
+        "presidenteNombre": "Paola Flores",
         "presidenteGenero": "",
-        "secretarioNombre": "",
+        "secretarioNombre": "Joan Alvaro Francisco Nuñez Quispe",
         "secretarioGenero": "",
         "vocales": [
-            { "nombre": "Dana Glantz", "genero": "" }
+            { "nombre": "Carla Croccita", "genero": "" },
+            { "nombre": "Agustin Ziliotto", "genero": "" },
+            { "nombre": "Dana Glantz", "genero": "" },
+            { "nombre": "Marina Bustinduy", "genero": "" },
+            { "nombre": "Sofia Vazquez", "genero": "" },
+            { "nombre": "Aldana Sarthes", "genero": "" },
+            { "nombre": "Suare Micaela", "genero": "" },
+            { "nombre": "Natalia Batto Dematei", "genero": "" },
+            { "nombre": "Nicolas Facchin", "genero": "" },
+            { "nombre": "Francisca Arancibia", "genero": "" }
         ]
     }
 ];
