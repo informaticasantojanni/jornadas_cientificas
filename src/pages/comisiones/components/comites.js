@@ -81,7 +81,7 @@ export const comites = [
             { "nombre": "Mariana Aguirre", "genero": "" },
             { "nombre": "Gisella Sesa", "genero": "" }
         ]
-    }
+    },
     {
         "comiteNombre": "Comité de Relaciones Públicas",
         "mostrarCargos": "true",
