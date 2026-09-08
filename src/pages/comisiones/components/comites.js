@@ -37,7 +37,7 @@ export const comites = [
             { "nombre": "Marta Murray", "genero": "" },
             { "nombre": "Rocío Lourdes Gonzalez", "genero": "" },
             { "nombre": "Sandra Arcieri", "genero": "" },
-            { "nombre": "Vanesa Serin", "genero": "" },
+            { "nombre": "Vanesa Senin", "genero": "" },
         ]
     },
     {
@@ -92,6 +92,7 @@ export const comites = [
         "vocales": [
             { "nombre": "Silvia Peccini", "genero": "" },
             { "nombre": "Irma Vega", "genero": "" },
+            { "nombre": "Aldana Rondinella", "genero": "" },
             { "nombre": "Jeanette Tomé", "genero": "" }
         ]
     },
@@ -163,7 +164,7 @@ export const comites = [
     {
         "comiteNombre": "Comité de Residentes y Concurrentes",
         "mostrarCargos": "true",
-        "coordinadorGeneral": "Laura Nieto, Casavilla, Gonzalo Barbieri, Lourdes Laurens",
+        "coordinadorGeneral": "Laura Nieto, Gustavo Casavilla, Gonzalo Barbieri, Lourdes Laurens",
         "presidenteNombre": "Paola Flores",
         "presidenteGenero": "",
         "secretarioNombre": "Joan Alvaro Francisco Nuñez Quispe",
