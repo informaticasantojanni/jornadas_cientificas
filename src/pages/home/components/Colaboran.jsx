@@ -14,6 +14,9 @@ const colaboradores = [
   // { title: '', image: '/images/colaboradores/laboratorio_9.jpg' },
   // { title: '', image: '/images/colaboradores/laboratorio_10.jpg' },
   // { title: '', image: '/images/colaboradores/laboratorio_11.jpg' },
+  { title: '', image: '/images/colaboradores/Bayer.jpg' },
+  { title: '', image: '/images/colaboradores/Gador.png' },
+  { title: '', image: '/images/colaboradores/Andromaco.png' },
 ];
 
 const Colaboran = () => {
