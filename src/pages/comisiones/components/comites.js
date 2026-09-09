@@ -7,7 +7,7 @@ export const comites = [
         "secretarioNombre": "Florencia Gregorio",
         "secretarioGenero": "",
         "vocales": [
-            { "nombre": "Agustin Diomedi", "genero": "" },
+            { "nombre": "Agustín Diomedi", "genero": "" },
             { "nombre": "Alejandra Pombo", "genero": "" },
             { "nombre": "Ana Bonafe", "genero": "" },
             { "nombre": "Cecilia Ormazábal", "genero": "" },
@@ -20,7 +20,7 @@ export const comites = [
             { "nombre": "Lucía Tapia", "genero": "" },
             { "nombre": "Pamela Rossi", "genero": "" },
             { "nombre": "Paola Villan", "genero": "" },
-            { "nombre": "Rocio Rodriguez", "genero": "" },
+            { "nombre": "Rocío Rodriguez", "genero": "" },
             { "nombre": "Sylvia Errea", "genero": "" }
         ]
     },
@@ -37,9 +37,7 @@ export const comites = [
             { "nombre": "Marta Murray", "genero": "" },
             { "nombre": "Rocío Lourdes Gonzalez", "genero": "" },
             { "nombre": "Sandra Arcieri", "genero": "" },
-            { "nombre": "Vanesa Serin", "genero": "" },
-            { "nombre": "Rocío Lourdes Gonzalez", "genero": "" },
-            { "nombre": "Marina Leal", "genero": "" }
+            { "nombre": "Vanesa Senin", "genero": "" },
         ]
     },
     {
@@ -53,17 +51,35 @@ export const comites = [
             { "nombre": "Romina Plafnik", "genero": "" }
         ]
     },
+    // {
+    //     "comiteNombre": "Comité de Trabajos Libres",
+    //     "mostrarCargos": "true",
+    //     "presidenteNombre": "Maximiliano D'Anni",
+    //     "presidenteGenero": "",
+    //     "secretarioNombre": "Federico Labanca",
+    //     "secretarioGenero": "",
+    //     "vocales": [
+    //         { "nombre": "Betiana Barbani", "genero": "" },
+    //         { "nombre": "Ornella Caruso", "genero": "" },
+    //         { "nombre": "Soledad Brito", "genero": "" }
+    //     ]
+    // },
     {
         "comiteNombre": "Comité de Trabajos Libres",
         "mostrarCargos": "true",
         "presidenteNombre": "Maximiliano D'Anni",
         "presidenteGenero": "",
-        "secretarioNombre": "Federico Labanca",
+        "secretarioNombre": "Pablo Santangelo",
         "secretarioGenero": "",
         "vocales": [
+            { "nombre": "Federico Labanca", "genero": "" },
             { "nombre": "Betiana Barbani", "genero": "" },
             { "nombre": "Ornella Caruso", "genero": "" },
-            { "nombre": "Soledad Brito", "genero": "" }
+            { "nombre": "Soledad Britos", "genero": "" },
+            { "nombre": "Guido Mauro", "genero": "" },
+            { "nombre": "Ariel Brezigar", "genero": "" },
+            { "nombre": "Mariana Aguirre", "genero": "" },
+            { "nombre": "Gisella Sesa", "genero": "" }
         ]
     },
     {
@@ -76,20 +92,22 @@ export const comites = [
         "vocales": [
             { "nombre": "Silvia Peccini", "genero": "" },
             { "nombre": "Irma Vega", "genero": "" },
+            { "nombre": "Aldana Rondinella", "genero": "" },
             { "nombre": "Jeanette Tomé", "genero": "" }
         ]
     },
     {
         "comiteNombre": "Comité de Informática y Redes Sociales",
         "mostrarCargos": "true",
-        "presidenteNombre": "",
+        "presidenteNombre": "Paola Loschiavo",
         "presidenteGenero": "",
-        "secretarioNombre": "",
+        "secretarioNombre": "Santiago Fiorino",
         "secretarioGenero": "",
         "vocales": [
-            { "nombre": "Amalia Pasos", "genero": "" },
             { "nombre": "Julián Nardi", "genero": "" },
-            { "nombre": "Juan Pablo Rigotti", "genero": "" }
+            { "nombre": "Juan Pablo Rigotti", "genero": "" },
+            { "nombre": "Marcelo Corigliano", "genero": "" },
+            { "nombre": "Amalia Pasos", "genero": "" }
         ]
     },
     {
@@ -102,8 +120,10 @@ export const comites = [
         "vocales": [
             { "nombre": "Alicia Maone", "genero": "" },
             { "nombre": "Andrea Suárez", "genero": "" },
-            { "nombre": "Gabriela Britos", "genero": "" },
-            { "nombre": "Rocío Repetto", "genero": "" }
+            { "nombre": "Soledad Britos", "genero": "" },
+            { "nombre": "Rocío Repetto", "genero": "" },
+            { "nombre": "Dimitra Farace", "genero": "" },
+            { "nombre": "María Belén López", "genero": "" }
         ]
     },
     {
@@ -116,14 +136,14 @@ export const comites = [
         "vocales": [
             { "nombre": "Alejandro Coos Irigoyen", "genero": "" },
             { "nombre": "Marcela Márquez", "genero": "" },
-            { "nombre": "Fernando Kozij", "genero": "" },
+            { "nombre": "Fernando Kozij", "genero": "" }
         ]
     },
     {
         "comiteNombre": "Comité Asesor",
         "mostrarCargos": "false",
         "asesores": [
-            { "nombre": "Maria Teresa Rodriguez Brieschke", "genero": "" },
+            { "nombre": "María Teresa Rodriguez Brieschke", "genero": "" },
             { "nombre": "Daniel Coso", "genero": "" },
             { "nombre": "Rubén Luca", "genero": "" }
         ]
@@ -138,19 +158,28 @@ export const comites = [
         "vocales": [
             { "nombre": "Clara Noceti", "genero": "" },
             { "nombre": "Agustina Santomaso", "genero": "" },
-            { "nombre": "Veronica Botta", "genero": "" }
+            { "nombre": "Verónica Botta", "genero": "" }
         ]
     },
     {
         "comiteNombre": "Comité de Residentes y Concurrentes",
         "mostrarCargos": "true",
-        "coordinadorGeneral": "Laura Nieto, Gonzalo Barbieri y Lourdes Laurens",
-        "presidenteNombre": "",
+        "coordinadorGeneral": "Laura Nieto, Gustavo Casavilla, Gonzalo Barbieri, Lourdes Laurens",
+        "presidenteNombre": "Paola Flores",
         "presidenteGenero": "",
-        "secretarioNombre": "",
+        "secretarioNombre": "Joan Alvaro Francisco Nuñez Quispe",
         "secretarioGenero": "",
         "vocales": [
-            { "nombre": "Dana Glantz", "genero": "" }
+            { "nombre": "Carla Croccita", "genero": "" },
+            { "nombre": "Agustin Ziliotto", "genero": "" },
+            { "nombre": "Dana Glantz", "genero": "" },
+            { "nombre": "Marina Bustinduy", "genero": "" },
+            { "nombre": "Sofia Vazquez", "genero": "" },
+            { "nombre": "Aldana Sarthes", "genero": "" },
+            { "nombre": "Suare Micaela", "genero": "" },
+            { "nombre": "Natalia Batto Dematei", "genero": "" },
+            { "nombre": "Nicolas Facchin", "genero": "" },
+            { "nombre": "Francisca Arancibia", "genero": "" }
         ]
     }
 ];
