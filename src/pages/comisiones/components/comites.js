@@ -14,13 +14,12 @@ export const comites = [
             { "nombre": "Eugenia Wamba", "genero": "" },
             { "nombre": "Federico Álvarez", "genero": "" },
             { "nombre": "Federico José Villalba", "genero": "" },
-            { "nombre": "Federico José Villalba", "genero": " " },
             { "nombre": "Joaquín Saldaño", "genero": "" },
             { "nombre": "Josefina Dib Hasan", "genero": "" },
-            { "nombre": "Karim Moi", "genero": "" },
+            { "nombre": "Karin Moi", "genero": "" },
             { "nombre": "Lucía Tapia", "genero": "" },
             { "nombre": "Pamela Rossi", "genero": "" },
-            { "nombre": "Paola Ozuna", "genero": "" },
+            { "nombre": "Paola Villan", "genero": "" },
             { "nombre": "Rocio Rodriguez", "genero": "" },
             { "nombre": "Sylvia Errea", "genero": "" }
         ]
@@ -28,9 +27,9 @@ export const comites = [
     {
         "comiteNombre": "Comité de Mesas Redondas",
         "mostrarCargos": "true",
-        "presidenteNombre": "Silvia Birenbaum",
+        "presidenteNombre": "Silvia Birnenbaum",
         "presidenteGenero": "",
-        "secretarioNombre": "Nancy Di Biasi",
+        "secretarioNombre": "Nancy Verónica Di Biasi",
         "secretarioGenero": "",
         "vocales": [
             { "nombre": "Dafne López", "genero": "" },

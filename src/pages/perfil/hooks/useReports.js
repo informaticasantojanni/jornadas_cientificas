@@ -8,8 +8,8 @@ import { useTemasLibres } from "./useTemasLibres";
 import { useGlobal } from "../../../hooks/useGlobal";
 
 export const useReports = () => {
-const {EVENT_ID} = useGlobal() //eventId Jornadas 2025
-const {setGeneratingReportTemasLibres} = useTemasLibres();
+  const { EVENT_ID } = useGlobal() //eventId Jornadas 2025
+  const { setGeneratingReportTemasLibres } = useTemasLibres();
 
   // Hook para generar reporte de todos los usuarios
   const generateReportAllUsers = async () => {
@@ -18,7 +18,7 @@ const {setGeneratingReportTemasLibres} = useTemasLibres();
       console.log("Generating report...");
       const users = await getAllUsers();
       console.log("Done")
-      console.log(users)
+      console.log("All users array: ", users)
 
       // Send data to Google Script
       const response = await fetch(urlFetchAPI, {
@@ -42,32 +42,40 @@ const {setGeneratingReportTemasLibres} = useTemasLibres();
     const urlFetchAPI =
       "https://script.google.com/macros/s/AKfycbyJ6nl2MHae7ELlVjYn0zDrMigLrINXcQhyLo70li3yDrjBjWxS4rb3ubfwZNRrXEgEtQ/exec";
 
-      
-
     try {
       console.log("Generating report...");
       const users = await getAllUsers();
+      console.log("All users array: ", users)
+      console.log("Proceed with checking registration status for each user... Please wait.")
       const usersRegistration = [];
       for (const user of users) {
         const registrationResponse = await getRegistration(EVENT_ID, user.id);
-        if (registrationResponse.data) {
+
+        // console.log(
+        //   `Registration status for user ${user.id}:`,
+        //   JSON.stringify(registrationResponse, null, 2)
+        // );
+
+        const registration = registrationResponse?.data;
+
+        if (registration) {
           usersRegistration.push({
             ...user,
             registro: "inscripto",
-            fechaRegistro: registrationResponse.data.registrationTime,
-            pago: registrationResponse.data.payment, // Adds the payment data
+            fechaRegistro: registration.registrationTime ?? "sin fecha",
+            pago: registration.payment ?? "sin información",
           });
         } else {
           usersRegistration.push({
             ...user,
             registro: "pending",
             fechaRegistro: "pending",
-            pago: "pending", // Adds the payment data
+            pago: "pending",
           });
         }
       }
 
-      console.log(usersRegistration);
+      console.log("Array with user registration data: ", usersRegistration);
 
       // Send data to Google Script
       const response = await fetch(urlFetchAPI, {
