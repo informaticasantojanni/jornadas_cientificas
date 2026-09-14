@@ -59,7 +59,8 @@ const MesasRedondasView = () => {
 
         {/* Bloque que renderiza las vistas */}
         <div className="w-full">
-          {mesasRedondasView === VISTAS_MESAS_REDONDAS.PRESENTAR_MESA && <InscripcionForm />}
+          <p className="text-center py-10">La inscripción a Mesas Redondas ha terminado.</p>
+          {/* {mesasRedondasView === VISTAS_MESAS_REDONDAS.PRESENTAR_MESA && <InscripcionForm />} */}
           {/* {mesasRedondasView === VISTAS_PERFIL.MESAS_REDONDAS && <AdminMesasRedondas userData={userData} />}
           {mesasRedondasView === VISTAS_MESAS_REDONDAS.GESTIONAR_MESA && < AdminMesasRedondas userData={userData} />} */}
         </div>
