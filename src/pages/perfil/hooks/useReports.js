@@ -130,6 +130,42 @@ export const useReports = () => {
     }
   };
 
+  const generateReportMesasRedondas = async () => {
+    const urlFetchAPI = "https://script.google.com/macros/s/AKfycbwbDqfcLQtcjQ3steSY-0RypLC735d2hDStNiFAiFArU3GWU7d78lVmRZM2YCzAWaCr/exec";
+
+    setGeneratingReportTemasLibres(true);
+    try {
+      console.log("Leyendo Temas Libres de Firebase...");
+      // Llamar al servicio para obtener los temas libres
+      const temasLibresResponse = await getTemasLibres("3lZN9Pf5Jvdgc3GX4h2e"); // Asegúrate de definir esta función
+      if (!temasLibresResponse.status) {
+        throw new Error(
+          "Error leyendo temas libres: ",
+          temasLibresResponse.error
+        );
+      } else {
+        console.log("Enviando datos a Google Scripts...", temasLibresResponse.data);
+        // Send data to Google Script
+        const response = await fetch(urlFetchAPI, {
+          method: "POST",
+          redirect: "follow",
+          dataType: "json",
+          accepts: "application/json",
+          body: JSON.stringify(temasLibresResponse.data),
+        });
+
+        // Handle the response from the Google Apps Script endpoint
+        const responseObject = await response.json();
+        console.log("Respuesta de Google Scripts: ", responseObject);
+
+      }
+    } catch (error) {
+      console.error("Error generando Reportes de Temas Libres: ", error);
+    } finally {
+      setGeneratingReportTemasLibres(false);
+    }
+  }
+
   return {
     generateReportAllUsers,
     generateReport,

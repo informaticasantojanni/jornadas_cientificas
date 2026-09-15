@@ -315,6 +315,14 @@ export const getTemasLibres = async (eventId) => {
 }
 
 /*
+Este metodo hace un retrieve de todos los documents de la collection mesasRedondas
+*/
+export const getTemasMesasRedondas = async (eventId) => {
+  const response = await getDocumentsFromSubcollection(COLLECTIONS.EVENTS, eventId, COLLECTIONS.TEMAS_LIBRES);
+  return response
+}
+
+/*
 Este metodo hace un retrieve de un documento segun el id de la collection temasLibres
 */
 export const getTemasLibresById = async (eventId, temaLibreId) => {

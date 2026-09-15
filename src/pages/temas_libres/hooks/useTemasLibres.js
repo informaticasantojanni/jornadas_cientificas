@@ -303,13 +303,15 @@ export const useTemasLibres = (userData) => {
       if (!updateTrabajoresponse.status) {
         error = updateTrabajoresponse.error;
         throw new Error(error);
+      }else{
+        console.log("Update OK")
       }
 
-      // const enviarEmailResponse = await enviarEmailRevisionTemasLibres();
-      // if (!enviarEmailResponse.status) {
-      //   error = enviarEmailResponse.error;
-      //   throw new Error(error);
-      // }
+      const enviarEmailResponse = await enviarEmailRevisionTemasLibres();
+      if (!enviarEmailResponse.status) {
+        error = enviarEmailResponse.error;
+        throw new Error(error);
+      }
     } catch (e) {
       error = e;
       console.error("Error saving trabajo: ", error);
