@@ -39,7 +39,7 @@ const PopupInscripcion = () => {
             </div>
 
             <h2 className="text-2xl font-bold mb-4 text-Violet">Trabajos Temas Libres</h2>
-            <h3 className="text-xl font-bold mb-4 text-Green">Se extendió el plazo hasta el 17/9!</h3>
+            <h3 className="text-xl font-bold mb-4 text-Green">Ultima extensión del plazo para entrega de trabajos: 20/9 a las 23:59hs !</h3>
 
             <div className="flex flex-col items-center justify-center gap-5">
               {/* <p className="mt-5 font-semiBold text-lg px-3 text-Violet">Palabras del Comité Científico:</p>
