@@ -8,9 +8,6 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import { useTemasLibres } from "../hooks/useTemasLibres";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import { styled } from "@mui/material/styles";
 import DownloadFile from "../components/icons/DownloadFile";
 import { Box } from "@mui/material";
@@ -29,12 +26,12 @@ const TemasLibresTable = ({ userData }) => {
     REVISION_ESTADOS,
     handleTableFilter,
     filtrarTrabajos,
-    serviciosEnListaTemasLibres,
     handleResetFilter,
     generatingReportTemasLibres,
     PRESENTACION_DIAS,
     PRESENTACION_HORARIOS,
-    PRESENTACION_AULAS
+    PRESENTACION_AULAS,
+    TIPOS_TRABAJO
   } = useTemasLibres(userData);
 
   const { ROLES } = useGlobal();
@@ -45,77 +42,137 @@ const TemasLibresTable = ({ userData }) => {
       {/* Form filtrar contenido */}
       {userData.role != ROLES.USER && (
         <div className="w-full pb-10">
-          <div className="w-full m-auto rounded-xl p-5 bg-gradient-to-b from-LightGreen to-Green text-white tablet:w-1/2 laptop1:w-1/2 laptop2:w-[500px]">
-            <div className="flex flex-col">
-              <label htmlFor="email" className="w-full text-White pb-2">
-                <div className="flex items-center justify-between">
-                  <p>Filtrar por contenido</p>
-
-                  <button
-                    onClick={handleResetFilter}
-                    className="flex items-center gap-2"
-                  >
-                    <p>Reset Filtro</p>
-                    <FilterIcon width={20} />
-                  </button>
-                </div>
-              </label>
-              <input
-                id="query"
-                placeholder="Ingrese texto a buscar"
-                name="query"
-                type="text"
-                value={filtrarTrabajos.query}
-                className="w-full px-2 py-2 mb-5  rounded-lg shadow-lightShadowGrey"
-                onChange={handleTableFilter}
-              />
-
-              <label className="text-White w-full pb-2">
-                Filtrar por servicio
-              </label>
-              <select
-                name="servicio"
-                value={filtrarTrabajos.servicio}
-                onChange={handleTableFilter}
-                className="rounded-lg shadow-lightShadowGrey appearance-none px-5 py-2 mb-5 focus:outline-none focus:shadow-lightShadow"
+          <div className="w-full m-auto rounded-xl p-6 shadow-lg bg-gradient-to-b from-LightGreen to-Green text-white tablet:w-2/3 laptop1:w-2/3 laptop2:w-[640px]">
+            <div className="flex items-center justify-between pb-4 border-b border-white/30">
+              <p className="text-lg text-White font-semibold">Filtrar trabajos</p>
+              <button
+                onClick={handleResetFilter}
+                className="flex items-center gap-2 text-sm bg-white/10 hover:bg-white/20 transition-colors rounded-lg px-3 py-1.5"
               >
-                <option value="">Seleccione un servicio</option>
-                {serviciosEnListaTemasLibres.map((servicio, idx) => (
-                  <option key={idx} value={servicio}>
-                    {servicio}
-                  </option>
-                ))}
-              </select>
+                <p>Reset filtro</p>
+                <FilterIcon width={16} />
+              </button>
+            </div>
 
-              <div className="flex items-center">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      name="pendientesAsignacion"
-                      checked={filtrarTrabajos.pendientesAsignacion}
-                      onChange={handleTableFilter}
-                      sx={{ "&.Mui-checked": { color: "#FFF" } }}
-                    />
-                  }
+            <div className="flex flex-col gap-4 pt-4">
+              <div className="flex flex-col">
+                <label htmlFor="query" className="text-White text-sm pb-1 w-full">
+                  Buscar por contenido
+                </label>
+                <input
+                  id="query"
+                  placeholder="Título, autor, contacto..."
+                  name="query"
+                  type="text"
+                  value={filtrarTrabajos.query}
+                  className="w-full px-3 py-2 rounded-lg shadow-lightShadowGrey focus:outline-none focus:shadow-lightShadow text-black"
+                  onChange={handleTableFilter}
                 />
-                <p className="text-White">Pendientes asignacion</p>
               </div>
 
-              <div className="flex items-center">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      name="pendientesRevision"
-                      checked={filtrarTrabajos.pendientesRevision}
-                      onChange={handleTableFilter}
-                      sx={{ "&.Mui-checked": { color: "#FFF" } }}
-                    />
-                  }
-                />
-                <p className="text-White">Pendientes revisión</p>
+              <div className="flex flex-col">
+                <label className="text-White text-sm pb-1 w-full">
+                  Tipo de trabajo
+                </label>
+                <select
+                  name="tipoTrabajo"
+                  value={filtrarTrabajos.tipoTrabajo}
+                  onChange={handleTableFilter}
+                  className="w-full rounded-lg shadow-lightShadowGrey appearance-none px-3 py-2 focus:outline-none focus:shadow-lightShadow text-black"
+                >
+                  <option value="">Todos</option>
+                  {TIPOS_TRABAJO.map((tipo, idx) => (
+                    <option key={idx} value={tipo}>
+                      {tipo}
+                    </option>
+                  ))}
+                </select>
               </div>
 
-              <p className="text-White mt-5">
+              <div className="flex flex-col">
+                <label className="text-White text-sm pb-1 w-full">
+                  Presenta a premio
+                </label>
+                <select
+                  name="presentaPremio"
+                  value={filtrarTrabajos.presentaPremio}
+                  onChange={handleTableFilter}
+                  className="w-full rounded-lg shadow-lightShadowGrey appearance-none px-3 py-2 focus:outline-none focus:shadow-lightShadow text-black"
+                >
+                  <option value="">Todos</option>
+                  <option value="si">Sí</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+
+              <div className="flex flex-row gap-20 pt-1]">
+                {[
+                  { name: "pendientesAsignacion", label: "Pendientes asignación" },
+                  { name: "pendientesRevision", label: "Pendientes revisión" },
+                ].map(({ name, label }) => {
+                  const active = filtrarTrabajos[name];
+
+                  return (
+                    <button
+                      key={name}
+                      type="button"
+                      role="switch"
+                      aria-checked={active}
+                      onClick={() =>
+                        handleTableFilter({
+                          target: {
+                            name,
+                            type: "checkbox",
+                            checked: !active,
+                          },
+                        })
+                      }
+                      className="flex items-center gap-3 text-sm font-medium text-White w-[100px]"
+                    >
+                      {/* Switch */}
+                      <span
+                        className={`
+            relative inline-flex
+            w-10 h-5
+            shrink-0
+            rounded-full
+            transition-colors duration-200
+            ${active
+                            ? "bg-White"
+                            : "bg-CardGrayLight"
+                          }
+          `}
+                      >
+                        {/* Círculo desplazable */}
+                        <span
+                          className={`
+              absolute top-0.5
+              w-4 h-4
+              rounded-full
+              transition-all duration-200
+              ${active
+                              ? "left-[22px] bg-LightGreen"
+                              : "left-0.5 bg-PauGreenDark"
+                            }
+            `}
+                        />
+                      </span>
+
+                      <span
+                        className={
+                          active
+                            ? "text-White"
+                            : "text-CardGrayLight"
+                        }
+                      >
+                        {label}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <p className="text-White text-sm pt-2 border-t border-white/30">
                 Mostrando: {renderTemasLibres?.length} registros
               </p>
             </div>

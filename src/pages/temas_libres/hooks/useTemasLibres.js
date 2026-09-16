@@ -49,7 +49,8 @@ export const useTemasLibres = (userData) => {
     useState([]);
   const [filtrarTrabajos, setFiltrarTrabajos] = useState({
     query: "",
-    servicio: "",
+    tipoTrabajo: "",
+    presentaPremio: "",
     pendientesAsignacion: false,
     pendientesRevision: false,
   });
@@ -220,13 +221,19 @@ export const useTemasLibres = (userData) => {
           normalizeText(tema.contactoCelular).includes(query)
       );
 
-      filtered = filtered.filter(
-        (tema) =>
-          Array.isArray(tema.serviciosList) &&
-          tema.serviciosList.some((servicio) =>
-            servicio.includes(filtrarTrabajos.servicio)
-          )
-      );
+      if (filtrarTrabajos.tipoTrabajo) {
+        filtered = filtered.filter(
+          (tema) => tema.tipoTrabajo === filtrarTrabajos.tipoTrabajo
+        );
+      }
+
+      if (filtrarTrabajos.presentaPremio) {
+        filtered = filtered.filter(
+          (tema) =>
+            Boolean(tema.presentaPremio) ===
+            (filtrarTrabajos.presentaPremio === "si")
+        );
+      }
 
       if (filtrarTrabajos.pendientesAsignacion) {
         filtered = filtered.filter(
@@ -248,7 +255,8 @@ export const useTemasLibres = (userData) => {
     filtrarTrabajos.query,
     filtrarTrabajos.pendientesAsignacion,
     filtrarTrabajos.pendientesRevision,
-    filtrarTrabajos.servicio,
+    filtrarTrabajos.tipoTrabajo,
+    filtrarTrabajos.presentaPremio,
   ]);
 
   const handleProcesarTemaLibre = async (id) => {
@@ -371,7 +379,8 @@ export const useTemasLibres = (userData) => {
     setFiltrarTrabajos((prev) => ({
       ...prev,
       query: "",
-      servicio: "",
+      tipoTrabajo: "",
+      presentaPremio: "",
       pendientesAsignacion: false,
       pendientesRevision: false,
     }));
@@ -509,6 +518,11 @@ export const useTemasLibres = (userData) => {
     { id: 1, label: "08:00 - 09:00" }
   ];
 
+  const TIPOS_TRABAJO = [
+    "Casuística",
+    "Trabajo de investigación/epidemiológico",
+  ];
+
   const PRESENTACION_AULAS = [
     { id: 1, label: "Piso 1 - Aula Obstetricia" },
     { id: 2, label: "Piso 3 - Aula C" },
@@ -537,6 +551,7 @@ export const useTemasLibres = (userData) => {
     PRESENTACION_DIAS,
     PRESENTACION_HORARIOS,
     PRESENTACION_AULAS,
+    TIPOS_TRABAJO,
     handleAbstractFileChange,
     serviciosEnListaTemasLibres,
     handleResetFilter,
