@@ -39,7 +39,7 @@ const InscripcionForm = ({ setTemasLibresView }) => {
             </div>
           )}
 
-          {/* Trabajo completo (si presenta a premio) */}
+          {/* Trabajo completo (si presenta a premio)  */}
           {formData.presentaPremio && formData.tipoTrabajo === "Trabajo de investigación/epidemiológico" && (
             <div className="flex flex-col mb-5">
               <label className="text-White w-full pb-2 pt-3">Categoría del Premio:</label>
