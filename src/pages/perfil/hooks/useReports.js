@@ -1,15 +1,16 @@
 import {
   getAllUsers,
+  getMesasRedondas,
   getRegistration,
+  getTemasLibres
 } from "../../../services/firebase.services";
 import { useRegistration } from "./useRegistration";
-import { getTemasLibres } from "../../../services/firebase.services";
 import { useTemasLibres } from "./useTemasLibres";
 import { useGlobal } from "../../../hooks/useGlobal";
 
 export const useReports = () => {
   const { EVENT_ID } = useGlobal() //eventId Jornadas 2025
-  const { setGeneratingReportTemasLibres } = useTemasLibres();
+  const { setGeneratingReportTemasLibres, setGeneratingReportMesasRedondas } = useTemasLibres();
 
   // Hook para generar reporte de todos los usuarios
   const generateReportAllUsers = async () => {
@@ -131,27 +132,27 @@ export const useReports = () => {
   };
 
   const generateReportMesasRedondas = async () => {
-    const urlFetchAPI = "https://script.google.com/macros/s/AKfycbwbDqfcLQtcjQ3steSY-0RypLC735d2hDStNiFAiFArU3GWU7d78lVmRZM2YCzAWaCr/exec";
+    const urlFetchAPI = "https://script.google.com/macros/s/AKfycbxBvRQodhJMqUk0-F3Sz2RbU5KU9dIXuz6yrl_tIqBL7XcZmPZiBqUR6DmX4Wk3jjuA5Q/exec";
 
-    setGeneratingReportTemasLibres(true);
+    setGeneratingReportMesasRedondas(true);
     try {
-      console.log("Leyendo Temas Libres de Firebase...");
+      console.log("Leyendo Mesas Redondas de Firebase...");
       // Llamar al servicio para obtener los temas libres
-      const temasLibresResponse = await getTemasLibres("3lZN9Pf5Jvdgc3GX4h2e"); // Asegúrate de definir esta función
-      if (!temasLibresResponse.status) {
+      const mesasRedondasResponse = await getMesasRedondas("hKAIOceT9XY855FSbXL2"); // Asegúrate de definir esta función
+      if (!mesasRedondasResponse.status) {
         throw new Error(
-          "Error leyendo temas libres: ",
-          temasLibresResponse.error
+          "Error leyendo Mesas Redondas: ",
+          mesasRedondasResponse.error
         );
       } else {
-        console.log("Enviando datos a Google Scripts...", temasLibresResponse.data);
+        console.log("Enviando datos a Google Scripts...", mesasRedondasResponse.data);
         // Send data to Google Script
         const response = await fetch(urlFetchAPI, {
           method: "POST",
           redirect: "follow",
           dataType: "json",
           accepts: "application/json",
-          body: JSON.stringify(temasLibresResponse.data),
+          body: JSON.stringify(mesasRedondasResponse.data),
         });
 
         // Handle the response from the Google Apps Script endpoint
@@ -160,15 +161,16 @@ export const useReports = () => {
 
       }
     } catch (error) {
-      console.error("Error generando Reportes de Temas Libres: ", error);
+      console.error("Error generando Reportes de Mesas Redondas: ", error);
     } finally {
-      setGeneratingReportTemasLibres(false);
+      setGeneratingReportMesasRedondas(false);
     }
   }
 
   return {
     generateReportAllUsers,
     generateReport,
-    generateReportTemasLibres
+    generateReportTemasLibres,
+    generateReportMesasRedondas
   };
 };

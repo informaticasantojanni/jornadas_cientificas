@@ -38,6 +38,7 @@ export const useTemasLibres = (userData) => {
     contactoNombre: "",
     contactoApellido: "",
     contactoEmail: "",
+    presentaPremio: false,
     presentacionDia: "",
     presentacionHora: "",
     presentacionAula: "",
@@ -55,10 +56,13 @@ export const useTemasLibres = (userData) => {
     pendientesRevision: false,
   });
   const [abstractFile, setAbstractFile] = useState(null);
-  const [generatingReportTemasLibres, setGeneratingReportTemasLibres] = useState(false);
+  const [generatingReportTemasLibres,
+    setGeneratingReportTemasLibres] = useState(false);
+  const [generatingReportMesasRedondas,
+    setGeneratingReportMesasRedondas] = useState(false);
   const urlFetchAPI =
     "https://script.google.com/macros/s/AKfycby7UEKG0qsW81lVPB8Cx7rG96bGSqW9lsS5GQdKZTXLwh-0XJCUtnUOJQB0mwJtgI4FPA/exec";
-    
+
   const REVISION_ESTADOS = [
     { id: 1, label: "Pendiente" },
     { id: 2, label: "Aceptado" },
@@ -158,6 +162,7 @@ export const useTemasLibres = (userData) => {
         } else {
           const trabajo = trabajoResponse.data;
           setFormData({
+            presentaPremio: trabajo?.presentaPremio ?? "",
             tipoTrabajo: trabajo?.tipoTrabajo ?? "",
             titulo: trabajo?.titulo ?? "",
             autoresList: trabajo?.autoresList ?? "",
@@ -535,6 +540,7 @@ export const useTemasLibres = (userData) => {
     serviciosEnListaTemasLibres,
     handleResetFilter,
     generatingReportTemasLibres,
-    setGeneratingReportTemasLibres
+    setGeneratingReportTemasLibres,
+    setGeneratingReportMesasRedondas
   };
 };
