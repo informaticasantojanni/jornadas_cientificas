@@ -22,7 +22,7 @@ export const useTemasLibres = (userData) => {
     EVENT_ID
   } = useGlobal();
 
-  //const eventId = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
+  //const eventId = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025 
   const [renderTemasLibres, setRenderTemasLibres] = useState([]);
   const [listaTemasLibres, setListaTemasLibres] = useState([]);
   const [formData, setFormData] = useState({
