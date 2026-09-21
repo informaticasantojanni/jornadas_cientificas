@@ -13,7 +13,7 @@ const TemasLibresView = () => {
   const { user } = useAuth();
   const { userData } = useProfile(user.uid);
   const { VISTAS_TEMAS_LIBRES } = useGlobal();
-  const [temasLibresView, setTemasLibresView] = React.useState(VISTAS_TEMAS_LIBRES.PRESENTAR_TRABAJOS);
+  const [temasLibresView, setTemasLibresView] = React.useState(VISTAS_TEMAS_LIBRES.GESTIONAR_TRABAJOS);
 
   return (
     <div>
@@ -40,7 +40,10 @@ const TemasLibresView = () => {
 
         {/* Bloque que renderiza las vistas */}
         <div className="w-full">
-          {temasLibresView === VISTAS_TEMAS_LIBRES.PRESENTAR_TRABAJOS && <InscripcionForm setTemasLibresView={setTemasLibresView} />}
+          {/* Formulario Temas Libres */}
+          {/* {temasLibresView === VISTAS_TEMAS_LIBRES.PRESENTAR_TRABAJOS && <InscripcionForm setTemasLibresView={setTemasLibresView} />} */}
+          {/* Temas libre cerrado */}
+          {temasLibresView === VISTAS_TEMAS_LIBRES.PRESENTAR_TRABAJOS && <p className="text-center py-10">La inscripción a Trabajos de Temas Libred ha terminado.</p>}
           {/* {temasLibresView === VISTAS_PERFIL.TEMAS_LIBRES && <AdminTemasLibres userData={userData} />} */}
           {temasLibresView === VISTAS_TEMAS_LIBRES.GESTIONAR_TRABAJOS && <AdminTemasLibres userData={userData} />}
         </div>

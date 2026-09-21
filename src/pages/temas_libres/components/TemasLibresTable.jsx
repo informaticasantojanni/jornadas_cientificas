@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import TableSortLabel from "@mui/material/TableSortLabel";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import { useTemasLibres } from "../hooks/useTemasLibres";
@@ -36,6 +37,78 @@ const TemasLibresTable = ({ userData }) => {
 
   const { ROLES } = useGlobal();
   const { generateReportTemasLibres } = useReports();
+
+  // Accessor por columna para poder ordenar. `null` = columna no ordenable.
+  const columnAccessors = [
+    (row) => row.tipoTrabajo,
+    (row) => row.titulo,
+    (row) =>
+      Array.isArray(row.serviciosList) ? row.serviciosList.join(", ") : "",
+    (row) => (Array.isArray(row.autoresList) ? formatAutores(row.autoresList, 1) : ""),
+    null, // Link Abstract
+    (row) => (row.presentaPremio ? 1 : 0),
+    (row) => row.premioCategoria,
+    null, // Link Premio
+    (row) => row.lugar,
+    (row) => row.contactoNombre,
+    (row) => row.contactoApellido,
+    (row) => row.contactoEmail,
+    (row) => row.contactoCelular,
+    (row) =>
+      row?.vocalAsignado
+        ? listaVocales.find((vocal) => vocal.id == row.vocalAsignado)?.label
+        : "",
+    (row) =>
+      row?.vocalRevision
+        ? REVISION_ESTADOS.find((estado) => estado.id == row.vocalRevision)?.label
+        : "",
+    (row) => row?.vocalRevisionObservaciones,
+    null, // Abstracts corregidos
+    (row) =>
+      row?.vocalAsignado
+        ? PRESENTACION_DIAS.find((dia) => dia.id == row.presentacionDia)?.label
+        : "",
+    (row) =>
+      row?.presentacionHora
+        ? PRESENTACION_HORARIOS.find((hora) => hora.id == row.presentacionHora)?.label
+        : "",
+    (row) =>
+      row?.presentacionAula
+        ? PRESENTACION_AULAS.find((aula) => aula.id == row.presentacionAula)?.label
+        : "",
+    null, // Procesar
+  ];
+
+  const [orderBy, setOrderBy] = useState(null);
+  const [order, setOrder] = useState("asc");
+
+  const handleRequestSort = (columnIndex) => {
+    if (!columnAccessors[columnIndex]) return;
+
+    if (orderBy === columnIndex) {
+      setOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
+    } else {
+      setOrderBy(columnIndex);
+      setOrder("asc");
+    }
+  };
+
+  const sortedTemasLibres = useMemo(() => {
+    if (orderBy === null || !renderTemasLibres) return renderTemasLibres;
+
+    const accessor = columnAccessors[orderBy];
+    if (!accessor) return renderTemasLibres;
+
+    return [...renderTemasLibres].sort((a, b) => {
+      const valueA = accessor(a) ?? "";
+      const valueB = accessor(b) ?? "";
+
+      if (valueA < valueB) return order === "asc" ? -1 : 1;
+      if (valueA > valueB) return order === "asc" ? 1 : -1;
+      return 0;
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [renderTemasLibres, orderBy, order]);
 
   return (
     <div className="w-full pb-5">
@@ -199,18 +272,30 @@ const TemasLibresTable = ({ userData }) => {
                     backgroundColor: "#005996",
                   }}
                 >
-                  {header}
+                  {columnAccessors[index] ? (
+                    <TableSortLabel
+                      active={orderBy === index}
+                      direction={orderBy === index ? order : "asc"}
+                      onClick={() => handleRequestSort(index)}
+                      sx={{
+                        color: "#fff !important",
+                        "& .MuiTableSortLabel-icon": {
+                          color: "#fff !important",
+                        },
+                      }}
+                    >
+                      {header}
+                    </TableSortLabel>
+                  ) : (
+                    header
+                  )}
                 </TableCell>
               ))}
             </TableRow>
           </TableHead>
           <TableBody>
-            {console.log(
-              "renderTemasLibres from table component; ",
-              renderTemasLibres
-            )}
-            {renderTemasLibres?.length > 0 ? (
-              renderTemasLibres?.map((renderTemaLibre) => (
+            {sortedTemasLibres?.length > 0 ? (
+              sortedTemasLibres?.map((renderTemaLibre) => (
                 <TableRow
                   key={renderTemaLibre.id}
                   sx={{
