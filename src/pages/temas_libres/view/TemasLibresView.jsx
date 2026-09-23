@@ -41,7 +41,7 @@ const TemasLibresView = () => {
         {/* Bloque que renderiza las vistas */}
         <div className="w-full">
           {/* Formulario Temas Libres */}
-          {temasLibresView === VISTAS_TEMAS_LIBRES.PRESENTAR_TRABAJOS && <InscripcionForm setTemasLibresView={setTemasLibresView} />}
+          {/* {temasLibresView === VISTAS_TEMAS_LIBRES.PRESENTAR_TRABAJOS && <InscripcionForm setTemasLibresView={setTemasLibresView} />} */}
           {/* Temas libre cerrado */}
           {temasLibresView === VISTAS_TEMAS_LIBRES.PRESENTAR_TRABAJOS && <p className="text-center py-10">La inscripción a Trabajos de Temas Libred ha terminado.</p>}
           {/* {temasLibresView === VISTAS_PERFIL.TEMAS_LIBRES && <AdminTemasLibres userData={userData} />} */}
