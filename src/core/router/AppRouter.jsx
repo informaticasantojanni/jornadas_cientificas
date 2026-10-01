@@ -8,6 +8,7 @@ import Programa from "../../pages/programa/view/ProgramaView";
 import Programa2025 from "../../pages/programa_2025/view/ProgramaView2025";
 import Programa2024 from "../../pages/programa_2024/view/ProgramaView2024";
 import Comisiones from "../../pages/comisiones/view/ComisionesView";
+import Comisiones2025 from "../../pages/comisiones_2025/view/ComisionesView2025";
 import Download from "../../pages/download/view/DownloadView";
 import Galeria from "../../pages/galeria/view/GaleriaView";
 import Login from "../../pages/login/view/LoginView";
@@ -73,6 +74,16 @@ export const appRouter = createHashRouter([
       <PublicRoute>
         <Layout>
           <Comisiones />
+        </Layout>
+      </PublicRoute>
+    ),
+  },
+  {
+    path: "/comisiones2025",
+    element: (
+      <PublicRoute>
+        <Layout>
+          <Comisiones2025 />
         </Layout>
       </PublicRoute>
     ),
