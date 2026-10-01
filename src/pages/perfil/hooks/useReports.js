@@ -10,7 +10,7 @@ import { useGlobal } from "../../../hooks/useGlobal";
 
 export const useReports = () => {
   const { EVENT_ID } = useGlobal() //eventId Jornadas 2025
-  const { setGeneratingReportTemasLibres, setGeneratingReportMesasRedondas } = useTemasLibres();
+  const { setGeneratingReportTemasLibres, setGeneratingReportMesasRedondas, REVISION_ESTADOS } = useTemasLibres();
 
   // Hook para generar reporte de todos los usuarios
   const generateReportAllUsers = async () => {
@@ -96,27 +96,35 @@ export const useReports = () => {
   };
 
   const generateReportTemasLibres = async () => {
-    const urlFetchAPI = "https://script.google.com/macros/s/AKfycbwbDqfcLQtcjQ3steSY-0RypLC735d2hDStNiFAiFArU3GWU7d78lVmRZM2YCzAWaCr/exec";
+    const urlFetchAPI = "https://script.google.com/macros/s/AKfycbyWV9YkhWH7vb6MYMlB_rbCzkqQuwS3R-yo2GFDGs_TlghdI7cCY8bg7MHcs1PMrhZF/exec";
 
     setGeneratingReportTemasLibres(true);
     try {
       console.log("Leyendo Temas Libres de Firebase...");
       // Llamar al servicio para obtener los temas libres
-      const temasLibresResponse = await getTemasLibres("3lZN9Pf5Jvdgc3GX4h2e"); // Asegúrate de definir esta función
+      const temasLibresResponse = await getTemasLibres(EVENT_ID); // Asegúrate de definir esta función
       if (!temasLibresResponse.status) {
         throw new Error(
           "Error leyendo temas libres: ",
           temasLibresResponse.error
         );
       } else {
-        console.log("Enviando datos a Google Scripts...", temasLibresResponse.data);
+        const temasLibresData = temasLibresResponse.data.map((temaLibre) => ({
+          ...temaLibre,
+          vocalRevision:
+            REVISION_ESTADOS.find(
+              (estado) => estado.id == temaLibre.vocalRevision
+            )?.label ?? temaLibre.vocalRevision,
+        }));
+
+        console.log("Enviando datos a Google Scripts...", temasLibresData);
         // Send data to Google Script
         const response = await fetch(urlFetchAPI, {
           method: "POST",
           redirect: "follow",
           dataType: "json",
           accepts: "application/json",
-          body: JSON.stringify(temasLibresResponse.data),
+          body: JSON.stringify(temasLibresData),
         });
 
         // Handle the response from the Google Apps Script endpoint
