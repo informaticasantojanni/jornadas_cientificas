@@ -43,6 +43,7 @@ const CardMesaRedonda = ({ data }) => {
       </p>
 
       <h3 className="font-semiBold pt-2 pb-1">{data.secretario.titulo}:</h3>
+      <h3 className="font-semiBold pt-2 pb-1">{data.secretario.titulo}:</h3>
       {data.secretario.secretarios.map((sec, index) => (
         <p key={index}>
           {sec.nombre} - {sec.servicio}

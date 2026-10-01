@@ -3,13 +3,13 @@ import { ProgramaContext } from "../context/ProgramaContext";
 
 const ProgramaProvider = ({ children }) => {
   const [currentDayIndex, setCurrentDayIndex] = useState(4);
-  const calendario = ["29", "30", "1", "2", "3"];
+  const calendario = ["8", "12", "13", "14", "15"];
   const calendarioMuestra = [
-    "Lunes 29",
-    "Martes 30",
-    "Miércoles 1",
-    "Jueves 2",
-    "Viernes 3",
+    "Viernes 8",
+    "Martes 12",
+    "Miércoles 13",
+    "Jueves 14",
+    "Viernes 15",
   ];
   const [programaDay, setProgramaDay] = useState(calendario[4]);
   const [programaFiltrado, setProgramaFiltrado] = useState();

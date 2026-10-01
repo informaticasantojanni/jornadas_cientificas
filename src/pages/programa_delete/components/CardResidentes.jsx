@@ -3,9 +3,8 @@ import React from "react";
 import ClockIcon from "../svgIcons/ClockIcon";
 import LocationIcon from "../svgIcons/LocationIcon";
 import { usePrograma } from "../hooks/usePrograma";
-import DownloadIcon from "../svgIcons/DownloadIcon";
 
-const CardTemasLibres = ({ data }) => {
+const CardResidentes = ({ data }) => {
   const { categorias } = usePrograma();
 
   return (
@@ -19,23 +18,17 @@ const CardTemasLibres = ({ data }) => {
         {categorias[data.categoria]}
       </h2>
 
+      <h2 className="font-semiBold pb-3">{data.tema}</h2>
+
       <h3 className="font-semiBold pt-2 pb-1">Presidente:</h3>
       <p>{data.presidente}</p>
 
-      <h3 className="font-semiBold pt-2 pb-1">Secretario:</h3>
-      <p>{data.secretario}</p>
+      <h3 className="font-semiBold pt-2 pb-1">Coordinador:</h3>
+      <p className="pb-5">{data.coordinador}</p>
 
-      <h2 className="font-semiBold pt-5 pb-1">Trabajos</h2>
-
-      {data.trabajos.map((trabajo, index) => (
-        <div key={index}>
-          <p className="pb-1 font-semiBold">{trabajo.titulo}</p>
-          <p className="pb-2 ps-5">{trabajo.autor.join(", ")}</p>
-          <div className="flex items-center pb-4 ps-5">
-            <DownloadIcon width={"25px"} height={"25px"} />
-            <a href={trabajo.abstract}>Abstract</a>
-          </div>
-        </div>
+      <h3 className="font-semiBold pt-2 pb-1">Disertantes:</h3>
+      {data.disertantes.map((disertante, index) => (
+        <p key={index}>{disertante}</p>
       ))}
 
       <div className="flex justify-center items-center py-3">
@@ -46,4 +39,4 @@ const CardTemasLibres = ({ data }) => {
   );
 };
 
-export default CardTemasLibres;
+export default CardResidentes;

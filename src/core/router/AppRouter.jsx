@@ -6,6 +6,7 @@ import Layout from "../layout/Layout";
 import HomeView from "../../pages/home/view/HomeView";
 import Programa from "../../pages/programa/view/ProgramaView";
 import Programa2025 from "../../pages/programa_2025/view/ProgramaView2025";
+import Programa2024 from "../../pages/programa_2024/view/ProgramaView2024";
 import Comisiones from "../../pages/comisiones/view/ComisionesView";
 import Download from "../../pages/download/view/DownloadView";
 import Galeria from "../../pages/galeria/view/GaleriaView";
@@ -42,6 +43,16 @@ export const appRouter = createHashRouter([
       <PublicRoute>
         <Layout>
           <Programa />
+        </Layout>
+      </PublicRoute>
+    ),
+  },
+  {
+    path: "/programa2024",
+    element: (
+      <PublicRoute>
+        <Layout>
+          <Programa2024 />
         </Layout>
       </PublicRoute>
     ),

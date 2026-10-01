@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import PagesBannerView from "../../../components/pagesBanner/view/PagesBannerView";
 import ProgramaContainer from "../components/ProgramaContainer";
 import NavPrograma from "../components/NavPrograma";
 import ProgramaProvider from "../provider/ProgramaProvider";
 import SearchProgram from "../components/SearchProgram";
-import Spinner from "../../../components/spinner/Spinner";
 
-const ProgramaView2025 = () => {
+const ProgramaView2024 = () => {
   useEffect(() => {
     // Scroll al top de la página al cargar
     window.scrollTo(0, 0);
@@ -22,10 +21,8 @@ const ProgramaView2025 = () => {
           <ProgramaContainer />
         </section>
       </div>
-      <Spinner />
     </ProgramaProvider>
-
   );
 };
 
-export default ProgramaView2025;
+export default ProgramaView2024;
