@@ -5,7 +5,7 @@ import { getTemasLibres } from "../../../services/firebase.services";
 import { useGlobal } from "../../../hooks/useGlobal";
 
 export const usePrograma = () => {
-  const eventId = "3lZN9Pf5Jvdgc3GX4h2e"; //eventId Jornadas 2025
+  const {eventId} = useGlobal(); //eventId Jornadas 2026
 
   const {
     calendario,
@@ -23,11 +23,11 @@ export const usePrograma = () => {
   const { setShowSpinner } = useGlobal();
 
   const convertirDia = {
-    1: "29",
-    2: "30",
-    3: "1",
-    4: "2",
-    5: "3",
+    1: "19",
+    2: "20",
+    3: "21",
+    4: "22",
+    5: "23",
   };
   
   const convertirAula = {
@@ -131,8 +131,8 @@ export const usePrograma = () => {
   const ordenarPrograma = (programa) => {
     return programa.slice().sort((a, b) => {
       // Convertir día y hora a formato comparable
-      const fechaA = new Date(`2024-12-${a.dia}T${a.hora.split(" - ")[0]}`);
-      const fechaB = new Date(`2024-12-${b.dia}T${b.hora.split(" - ")[0]}`);
+      const fechaA = new Date(`2026-10-${a.dia}T${a.hora.split(" - ")[0]}`);
+      const fechaB = new Date(`2026-10-${b.dia}T${b.hora.split(" - ")[0]}`);
 
       // Comparar fechas
       return fechaA - fechaB;
