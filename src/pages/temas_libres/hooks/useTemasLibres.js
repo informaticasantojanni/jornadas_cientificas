@@ -508,10 +508,10 @@ export const useTemasLibres = (userData) => {
 
   const PRESENTACION_DIAS = [
     { id: 1, label: "Lunes - 19/10/2026" },
-    { id: 2, label: "Martes - 30/09/2026" },
-    { id: 3, label: "Miércoles - 1/10/2026" },
-    { id: 4, label: "Jueves - 2/10/2026" },
-    { id: 5, label: "Viernes - 3/10/2026" },
+    { id: 2, label: "Martes - 20/10/2026" },
+    { id: 3, label: "Miércoles - 21/10/2026" },
+    { id: 4, label: "Jueves - 22/10/2026" },
+    { id: 5, label: "Viernes - 23/10/2026" },
   ];
 
   const PRESENTACION_HORARIOS = [
@@ -521,7 +521,7 @@ export const useTemasLibres = (userData) => {
   const TIPOS_TRABAJO = [
     "Casuística",
     "Trabajo de investigación/epidemiológico",
-  ];
+  ]; 
 
   const PRESENTACION_AULAS = [
     { id: 1, label: "Piso 1 - Aula Obstetricia" },
@@ -529,6 +529,8 @@ export const useTemasLibres = (userData) => {
     { id: 3, label: "Piso 3 - Aula D" },
     { id: 4, label: "Piso 4 - Aula E" },
     { id: 5, label: "Piso 4 - Aula F" },
+    { id: 6, label: "Piso 5 - Aula 5to" },
+    { id: 7, label: "Piso 5 - Aula Neuro" },
   ];
 
   return {
