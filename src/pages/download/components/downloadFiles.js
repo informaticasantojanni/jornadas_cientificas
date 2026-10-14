@@ -25,9 +25,9 @@ export const downloadFiles = [
     filename: "Bases Premio Senra Aguirre",
     url: "https://drive.google.com/uc?id=1PW8NykHjEHAAKEaDSL3xBxkVo2fzZbM_&export=download",
   },
-  // {
-  //   id: 6,
-  //   filename: "Template PPT Jornadas",
-  //   url: "/ppt/Template_ppt_2025.pptx",
-  // },
+  {
+    id: 6,
+    filename: "Template PPT Jornadas",
+    url: "https://drive.google.com/uc?export=download&id=1G4J5Y5EA2r7kKYVPVU9SJa4AaZNcIwCu",
+  },
 ];

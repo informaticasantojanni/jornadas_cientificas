@@ -29,7 +29,7 @@ const HomeView = () => {
       <JornadasNumeros />
       <Autoridades />
       {/* <Invitados /> */}
-      {/* <Conferencias /> */}
+      <Conferencias />
       <TemasLibres />
       <Colaboran />
       <PopupInscripcion />
