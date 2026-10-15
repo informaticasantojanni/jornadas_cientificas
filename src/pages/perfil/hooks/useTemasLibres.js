@@ -379,7 +379,7 @@ export const useTemasLibres = (userData) => {
   };
 
   const enviarEmailRevisionTemasLibres = async () => {
-    console.log("Form Data desde enviar email: ", formData);
+    
     const response = { status: true, error: "" };
 
     // Step 1: Create a new object to avoid modifying the original formData
@@ -401,6 +401,7 @@ export const useTemasLibres = (userData) => {
           ?.label || "",
     };
 
+    console.log("Form Data Procesado desde enviar email: ", userDataPrep); 
     // Step 2: Create the fetchData object using the prepared data
     const fetchData = {
       userData: userDataPrep,
