@@ -512,10 +512,10 @@ export const useTemasLibres = (userData) => {
 
   const PRESENTACION_AULAS = [
     { id: 1, label: "Piso 1 - Aula Obstetricia" },
-    { id: 2, label: "Piso 3 - Aula A" },
-    { id: 3, label: "Piso 3 - Aula B" },
-    { id: 4, label: "Piso 4 - Aula A" },
-    { id: 5, label: "Piso 4 - Aula B" },
+    { id: 2, label: "Piso 3 - Aula C" },
+    { id: 3, label: "Piso 3 - Aula D" },
+    { id: 4, label: "Piso 4 - Aula E" },
+    { id: 5, label: "Piso 4 - Aula F" },
     { id: 6, label: "Piso 5 - Aula 5to" },
     { id: 7, label: "Piso 5 - Aula Neuro" },
   ];
