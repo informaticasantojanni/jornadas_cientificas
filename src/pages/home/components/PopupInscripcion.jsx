@@ -38,14 +38,14 @@ const PopupInscripcion = () => {
               </button>
             </div>
 
-            <h2 className="text-2xl font-bold mb-4 text-Violet">Trabajos Temas Libres</h2>
-            <h3 className="text-xl font-bold mb-4 text-Green">Ya podes descargar la plantilla para la presentación!</h3>
+            <h2 className="text-2xl font-bold mb-4 text-Violet">Apertura XLI Jornadas</h2>
+            <h3 className="text-xl font-bold mb-4 text-Green">Lunes 19/10 a las 08:30 Hs</h3>
 
             <div className="flex flex-col items-center justify-center gap-5">
               <p className="mt-5 font-semiBold text-lg px-3 text-Violet"></p>
-              <a href="https://drive.google.com/uc?export=download&id=1G4J5Y5EA2r7kKYVPVU9SJa4AaZNcIwCu" className="px-5 py-2 bg-LightBlue text-White rounded-full">
+              {/* <a href="https://drive.google.com/uc?export=download&id=1G4J5Y5EA2r7kKYVPVU9SJa4AaZNcIwCu" className="px-5 py-2 bg-LightBlue text-White rounded-full">
                 Decargar
-              </a>
+              </a> */}
               {/* <p className="mt-5 font-semiBold text-lg px-3 text-Violet">Te invitamos a ver las bases y presentar trabajos:</p> */}
               {/* <Link to="/descarga" className="w-[220px] text-center text-lg font-semiBol px-5 py-1 bg-LightBlue text-White rounded-full hover:bg-Blue hover:shadow-lg transition duration-300 ease-in-out">
                 Ver Bases
