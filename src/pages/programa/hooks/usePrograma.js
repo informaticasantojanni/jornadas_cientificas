@@ -5,7 +5,7 @@ import { getTemasLibres } from "../../../services/firebase.services";
 import { useGlobal } from "../../../hooks/useGlobal";
 
 export const usePrograma = () => {
-  const {eventId} = useGlobal(); //eventId Jornadas 2026
+  const {EVENT_ID} = useGlobal(); //eventId Jornadas 2026
 
   const {
     calendario,
@@ -31,11 +31,13 @@ export const usePrograma = () => {
   };
   
   const convertirAula = {
-    1: "S/A",
+    1: "Piso 1 - Aula Obstetricia",
     2: "Piso 3 - Aula C",
     3: "Piso 3 - Aula D",
     4: "Piso 4 - Aula E",
     5: "Piso 4 - Aula F",
+    6: "Piso 5 - Aula 5to",
+    7: "Piso 5 - Aula Neuro",
   };
 
   const parseHoraToMinutes = (time) => {
@@ -49,7 +51,7 @@ export const usePrograma = () => {
       setShowSpinner(true); // Mostrar el spinner al iniciar la carga
 
       try {
-        const temasLibresResponse = await getTemasLibres(eventId);
+        const temasLibresResponse = await getTemasLibres(EVENT_ID);
         if (!temasLibresResponse.status) {
           throw new Error("Error al obtener los temas libres");
         } else {
@@ -74,6 +76,13 @@ export const usePrograma = () => {
               }));
             mesaTemasLibres.trabajos = temasLibresTrabajos;
           });
+
+          // Mutar `programa` no dispara un re-render: recalculo el filtrado con un array nuevo
+          setProgramaFiltrado(
+            programa
+              .filter((item) => item.dia == programaDay)
+              .sort((a, b) => a.time - b.time)
+          );
         }
       } catch (error) {
         console.error("Error al obtener los temas libres:", error);

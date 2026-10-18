@@ -63,7 +63,7 @@ const Banner = () => {
           precisión, innovación y equipos interdisciplinarios
         </h2>
         {/* Countdown box */}
-        {/* <div className="flex pb-5 space-x-3">
+        <div className="flex pb-5 space-x-3">
           <div className="w-[60px] h-[60px] flex flex-col items-center justify-center rounded-full shadow-lightShadowGrey bg-White bg-opacity-30 text-White">
             <p className="text-lg">{timeLeft.dias}</p>
             <p className="text-xs">dias</p>
@@ -80,7 +80,7 @@ const Banner = () => {
             <p className="text-lg">{timeLeft.segundos}</p>
             <p className="text-xs">segundos</p>
           </div>
-        </div> */}
+        </div>
 
         <div className="gap-y-5 flex flex-col items-center laptop1:flex-row laptop1:justify-center laptop1:space-x-10">
 
