@@ -515,7 +515,8 @@ export const useTemasLibres = (userData) => {
   ];
 
   const PRESENTACION_HORARIOS = [
-    { id: 1, label: "08:00 - 09:00" }
+    { id: 1, label: "08:00 - 09:00" },
+    { id: 2, label: "10:30 - 11:30" },
   ];
 
   const TIPOS_TRABAJO = [

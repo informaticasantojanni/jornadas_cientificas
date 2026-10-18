@@ -12,6 +12,8 @@ export default {
       'LightGreen': '#33BBC1',
       'Violet': '#584ba0',
       'LightViolet': '#7b4ba0',
+      'VioletSoft': '#A79FD3',
+      'VioletUltraLight': '#EFEDF8',
       'Black': '#000',
       'DarkGrey': '#EEE',
       'White': '#FFF',
