@@ -40,6 +40,12 @@ export const usePrograma = () => {
     7: "Piso 5 - Aula Neuro",
   };
 
+  // Hora de inicio de cada id de PRESENTACION_HORARIOS (temas_libres/hooks/useTemasLibres.js)
+  const convertirHora = {
+    1: "08:00",
+    2: "10:30",
+  };
+
   const parseHoraToMinutes = (time) => {
     const [h, m] = time.split(":").map(Number);
     return h * 60 + m;
@@ -67,7 +73,9 @@ export const usePrograma = () => {
               .filter(
                 (temaLibre) =>
                   convertirDia[temaLibre.presentacionDia] == mesaTemasLibres.dia &&
-                  convertirAula[temaLibre.presentacionAula] == mesaTemasLibres.ubicacion
+                  convertirAula[temaLibre.presentacionAula] == mesaTemasLibres.ubicacion &&
+                  convertirHora[temaLibre.presentacionHora] &&
+                  parseHoraToMinutes(convertirHora[temaLibre.presentacionHora]) == mesaTemasLibres.time
               )
               .map((temaLibre) => ({
                 titulo: temaLibre.titulo,
