@@ -32,7 +32,7 @@ const HomeView = () => {
       <Conferencias />
       <TemasLibres />
       <Colaboran />
-      <PopupInscripcion />
+      {/* <PopupInscripcion /> */}
       {/* <PopupArte /> */}
       {/* <PopupUpload /> */}
       {/* <PopupStreaming /> */}

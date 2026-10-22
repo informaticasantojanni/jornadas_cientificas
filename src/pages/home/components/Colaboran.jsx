@@ -18,6 +18,8 @@ const colaboradores = [
   { title: '', image: '/images/colaboradores/Bayer.jpg' },
   { title: '', image: '/images/colaboradores/Gador.png' },
   { title: '', image: '/images/colaboradores/Andromaco.png' },
+  { title: '', image: '/images/colaboradores/Casasco.jpg' },
+  { title: '', image: '/images/colaboradores/Barrier.jpg' },
 ];
 
 const Colaboran = () => {
