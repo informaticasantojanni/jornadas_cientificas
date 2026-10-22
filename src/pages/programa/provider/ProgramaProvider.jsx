@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ProgramaContext } from "../context/ProgramaContext";
 
 const ProgramaProvider = ({ children }) => {
-  const [currentDayIndex, setCurrentDayIndex] = useState(0);
+  const [currentDayIndex, setCurrentDayIndex] = useState(4);
   const calendario = ["19", "20", "21", "22", "23"];
   const calendarioMuestra = [
     "Lunes 19",
@@ -11,7 +11,7 @@ const ProgramaProvider = ({ children }) => {
     "Jueves 22",
     "Viernes 23",
   ];
-  const [programaDay, setProgramaDay] = useState(calendario[0]);
+  const [programaDay, setProgramaDay] = useState(calendario[4]);
   const [programaFiltrado, setProgramaFiltrado] = useState();
   const [searchTerm, setSearchTerm] = useState("");
 
