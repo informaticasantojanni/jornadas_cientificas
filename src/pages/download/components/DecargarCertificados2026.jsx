@@ -4,9 +4,32 @@ import ButtonVioletSM from '../../../components/buttons/ButtonVioletSM'
 import { useGenerateCertificados2026 } from '../../perfil/hooks/useGenerateCertificados2026'
 import Swal from "sweetalert2";
 import SearhIcon from './SearchIcon';
+import EncuestaModal from './EncuestaModal';
+
+const ENCUESTA_STORAGE_KEY = "encuesta_jornadas_2026_completada";
+
+const leerEncuestaCompletada = () => {
+    try {
+        return localStorage.getItem(ENCUESTA_STORAGE_KEY) === "true";
+    } catch {
+        return false;
+    }
+};
 
 const DescargarCertificados2026 = () => {
     const { generateCertificado } = useGenerateCertificados2026()
+    const [encuestaCompletada, setEncuestaCompletada] = useState(leerEncuestaCompletada)
+    const [showEncuesta, setShowEncuesta] = useState(false)
+
+    const handleEncuestaEnviada = () => {
+        setEncuestaCompletada(true)
+        setShowEncuesta(false)
+        try {
+            localStorage.setItem(ENCUESTA_STORAGE_KEY, "true")
+        } catch {
+            // sin storage: queda habilitado sólo en esta sesión
+        }
+    }
     const [filteredCertificados, setFilteredCertificados] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
     const [searchResult, setSearchResult] = useState("")
@@ -82,8 +105,26 @@ const DescargarCertificados2026 = () => {
                                         )
                                     ))}
                                 </div>
-                                <div className="flex justify-center">
-                                    <ButtonVioletSM onClick={() => generateCertificado(certificado)} label={"Descargar"} />
+                                {!encuestaCompletada && (
+                                    <p className="text-center text-sm text-CardGrayDark pb-3">
+                                        Para descargar el certificado primero debe completar la encuesta.
+                                    </p>
+                                )}
+                                <div className="flex flex-wrap justify-center gap-3">
+                                    {!encuestaCompletada && (
+                                        <button
+                                            type="button"
+                                            onClick={() => setShowEncuesta(true)}
+                                            className="text-lg px-5 py-1 rounded-full border-2 border-LightViolet text-LightViolet hover:bg-VioletUltraLight transition duration-300 ease-in-out"
+                                        >
+                                            Completar encuesta
+                                        </button>
+                                    )}
+                                    <ButtonVioletSM
+                                        onClick={() => generateCertificado(certificado)}
+                                        label={"Descargar"}
+                                        disabled={!encuestaCompletada}
+                                    />
                                 </div>
 
                             </div>
@@ -93,6 +134,12 @@ const DescargarCertificados2026 = () => {
 
                 }
             </div>
+
+            <EncuestaModal
+                isOpen={showEncuesta}
+                onClose={() => setShowEncuesta(false)}
+                onSuccess={handleEncuestaEnviada}
+            />
 
         </div>
     )

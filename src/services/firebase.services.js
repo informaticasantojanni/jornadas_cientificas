@@ -391,3 +391,18 @@ export const updateTrabajo = async (eventId, trabajoId, formData) => {
   const res = updateSubcollectionDocument(data);
   return res;
 };
+/*
+Este metodo guarda una respuesta de la encuesta de satisfacción
+en la subcollection events/{eventId}/encuestas
+*/
+export const setEncuestaJornadas = async (eventId, encuestaData) => {
+  const data = {
+    parentDocId: eventId,
+    childDocId: encuestaData.id,
+    parentCollection: COLLECTIONS.EVENTS,
+    childCollection: COLLECTIONS.ENCUESTAS,
+    persistData: encuestaData
+  };
+  const res = await setSubcollectionDocument(data);
+  return res;
+};
