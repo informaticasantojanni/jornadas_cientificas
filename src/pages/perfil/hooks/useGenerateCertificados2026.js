@@ -1,8 +1,15 @@
 import { useState } from "react";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 import { saveAs } from "file-saver";
+import fontkit from "@pdf-lib/fontkit";
 
 export const useGenerateCertificados2026 = () => {
+  const fechaActual = new Date().toLocaleDateString("es-AR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
   const generatePDF = async (userData) => {
     // Cargar la plantilla PDF existente
     const existingPdfBytes = await fetch(
@@ -25,11 +32,11 @@ export const useGenerateCertificados2026 = () => {
     const text = `Por cuanto: ${fullName} ha participado como "Asistente" en las XL Jornadas Científicas del Hospital Santojanni.`;
 
     const textLines = splitTextIntoLines(
-        text,
-        maxWidth,
-        timesRomanFont,
-        textSize
-      );
+      text,
+      maxWidth,
+      timesRomanFont,
+      textSize
+    );
 
     //Completa con nombre y apellido de la autoridad
     let currentY = 330;
@@ -43,7 +50,7 @@ export const useGenerateCertificados2026 = () => {
       });
       currentY -= textSize + 4; // Espaciado entre líneas
     });
-    page.drawText("Se extiende el presente certificado el día 7 de octubre de 2026.", {
+    page.drawText("Se extiende el presente certificado el ${fechaActual}.", {
       x: 100, // Ajusta las coordenadas x
       y: currentY - 20, // Ajusta la posición vertical para cada línea
       size: textSize,
@@ -193,8 +200,15 @@ export const useGenerateCertificados2026 = () => {
     const page = pdfDoc.getPages()[0];
 
     // Insertar texto personalizado
-    const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
-    const textSize = 16;
+    // const timesRomanFont = await pdfDoc.embedFont(StandardFonts.Courier);
+    // const textSize = 14;
+    pdfDoc.registerFontkit(fontkit);
+
+    const fontBytes = await fetch("/fonts/Montserrat-Regular.ttf")
+      .then(res => res.arrayBuffer());
+    const timesRomanFont = await pdfDoc.embedFont(fontBytes);
+    const textSize = 9;
+
     const color = rgb(0, 0, 0);
     const maxWidth = 700;
 
@@ -208,7 +222,7 @@ export const useGenerateCertificados2026 = () => {
     );
 
     //Completa con nombre y apellido de la autoridad
-    let currentY = 360;
+    let currentY = 300;
     textLines.forEach((line) => {
       page.drawText(line, {
         x: 100, // Ajusta las coordenadas x
@@ -219,7 +233,7 @@ export const useGenerateCertificados2026 = () => {
       });
       currentY -= textSize + 8; // Espaciado entre líneas
     });
-    page.drawText("Se extiende el presente certificado el 7 de octubre de 2026.", {
+    page.drawText(`Se extiende el presente certificado el ${fechaActual}.`, {
       x: 100, // Ajusta las coordenadas x
       y: currentY - 20, // Ajusta la posición vertical para cada línea
       size: textSize,
