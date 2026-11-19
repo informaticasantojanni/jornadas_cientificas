@@ -10,6 +10,7 @@ export const useGenerateCertificados2026 = () => {
     year: "numeric",
   });
 
+  
   const generatePDF = async (userData) => {
     // Cargar la plantilla PDF existente
     const existingPdfBytes = await fetch(
@@ -26,7 +27,7 @@ export const useGenerateCertificados2026 = () => {
     const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
     const textSize = 14;
     const color = rgb(0, 0, 0);
-    const maxWidth = 700;
+    const maxWidth = 400;
     const fullName = userData.name + " " + userData.lastName;
 
     const text = `Por cuanto: ${fullName} ha participado como "Asistente" en las XL Jornadas Científicas del Hospital Santojanni.`;
@@ -199,47 +200,39 @@ export const useGenerateCertificados2026 = () => {
     // Obtener la primera página del PDF
     const page = pdfDoc.getPages()[0];
 
-    // Insertar texto personalizado
-    // const timesRomanFont = await pdfDoc.embedFont(StandardFonts.Courier);
-    // const textSize = 14;
+    // Fuente personalizada
     pdfDoc.registerFontkit(fontkit);
-
-    const fontBytes = await fetch("/fonts/Montserrat-Regular.ttf")
-      .then(res => res.arrayBuffer());
-    const timesRomanFont = await pdfDoc.embedFont(fontBytes);
-    const textSize = 9;
-
-    const color = rgb(0, 0, 0);
-    const maxWidth = 700;
-
-    //Format autores y títulos de trabajos
-
-    const textLines = splitTextIntoLines(
-      text,
-      maxWidth,
-      timesRomanFont,
-      textSize
+    const fontBytes = await fetch("/fonts/Montserrat-Regular.ttf").then((res) =>
+      res.arrayBuffer()
     );
+    const font = await pdfDoc.embedFont(fontBytes);
 
-    //Completa con nombre y apellido de la autoridad
-    let currentY = 300;
-    textLines.forEach((line) => {
-      page.drawText(line, {
-        x: 100, // Ajusta las coordenadas x
-        y: currentY, // Ajusta la posición vertical para cada línea
-        size: textSize,
-        font: timesRomanFont,
-        color: color,
+    // Configuración del bloque de texto
+    const textSize = 11;
+    const lineHeight = textSize + 8; // Espaciado entre líneas
+    const color = rgb(0, 0, 0);
+    const marginX = 100; // Margen izquierdo y derecho
+    const startY = 300;
+
+    // El ancho disponible se calcula a partir del ancho real de la página
+    const { width: pageWidth } = page.getSize();
+    const maxWidth = pageWidth - marginX * 2;
+
+    // Dibuja un texto con word wrapping y devuelve la Y siguiente
+    const drawWrappedText = (content, y) => {
+      const lines = splitTextIntoLines(content, maxWidth, font, textSize);
+      lines.forEach((line) => {
+        page.drawText(line, { x: marginX, y, size: textSize, font, color });
+        y -= lineHeight;
       });
-      currentY -= textSize + 8; // Espaciado entre líneas
-    });
-    page.drawText(`Se extiende el presente certificado el ${fechaActual}.`, {
-      x: 100, // Ajusta las coordenadas x
-      y: currentY - 20, // Ajusta la posición vertical para cada línea
-      size: textSize,
-      font: timesRomanFont,
-      color: color,
-    });
+      return y;
+    };
+
+    let currentY = drawWrappedText(text, startY);
+    drawWrappedText(
+      `Se extiende el presente certificado el ${fechaActual}.`,
+      currentY - 20
+    );
 
     // Guardar el documento PDF modificado
     const pdfBytes = await pdfDoc.save();
@@ -905,24 +898,58 @@ export const useGenerateCertificados2026 = () => {
   };
 
   // Función para dividir texto en varias líneas
+  // - Respeta los saltos de línea explícitos (\n)
+  // - Corta palabras que por sí solas superan el ancho máximo
+  // - Ignora espacios múltiples
   const splitTextIntoLines = (text, maxWidth, font, size) => {
-    const words = text.split(" ");
-    let lines = [];
-    let currentLine = "";
+    const lines = [];
+    const fits = (str) => font.widthOfTextAtSize(str, size) <= maxWidth;
 
-    words.forEach((word) => {
-      const testLine = currentLine ? `${currentLine} ${word}` : word;
-      const testLineWidth = font.widthOfTextAtSize(testLine, size);
-
-      if (testLineWidth <= maxWidth) {
-        currentLine = testLine;
-      } else {
-        lines.push(currentLine);
-        currentLine = word;
+    // Parte una palabra demasiado larga en fragmentos que entren en maxWidth
+    const breakLongWord = (word) => {
+      const chunks = [];
+      let chunk = "";
+      for (const char of word) {
+        if (chunk && !fits(chunk + char)) {
+          chunks.push(chunk);
+          chunk = char;
+        } else {
+          chunk += char;
+        }
       }
-    });
+      if (chunk) chunks.push(chunk);
+      return chunks;
+    };
 
-    if (currentLine) lines.push(currentLine);
+    String(text ?? "")
+      .split(/\r?\n/)
+      .forEach((paragraph) => {
+        const words = paragraph.split(/\s+/).filter(Boolean);
+        let currentLine = "";
+
+        words.forEach((word) => {
+          const testLine = currentLine ? `${currentLine} ${word}` : word;
+
+          if (fits(testLine)) {
+            currentLine = testLine;
+            return;
+          }
+
+          if (currentLine) lines.push(currentLine);
+
+          if (fits(word)) {
+            currentLine = word;
+          } else {
+            const chunks = breakLongWord(word);
+            currentLine = chunks.pop();
+            lines.push(...chunks);
+          }
+        });
+
+        // Un párrafo vacío conserva el salto de línea
+        lines.push(currentLine);
+      });
+
     return lines;
   };
 
