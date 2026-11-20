@@ -13,6 +13,32 @@ export const OPCIONES_CALIFICACION = [
     "No asistió",
 ];
 
+export const PREGUNTAS_SELECCION = [
+    {
+        name: "participacion",
+        label: "Participó como",
+        opciones: {
+            asistente: "Asistente",
+            expositor: "Expositor",
+        },
+    },
+    {
+        name: "categoria",
+        label: "¿A qué categoría pertenece?",
+        opciones: {
+            bioquimico: "Bioquímico/a",
+            estudiante: "Estudiante",
+            enfermero: "Enfermero/a",
+            farmaceutico: "Farmacéutico/a",
+            kinesiologo: "Kinesiologo/a",
+            medico: "Médico/a",
+            residente: "Residente",
+            trabajador_social: "Trabajador/a Social",
+            otros: "Otros profesionales",
+        },
+    },
+];
+
 export const PREGUNTAS_CALIFICACION = [
     { name: "temasLibres", label: "Opinión con respecto a la actividad Temas Libres" },
     { name: "conferencias", label: "Opinión con respecto a Conferencias" },
@@ -30,6 +56,8 @@ export const PREGUNTAS_ABIERTAS = [
 const TEXTO_MAX_CARACTERES = 1000;
 
 const initialFormData = {
+    participacion: "",
+    categoria: "",
     temasLibres: "",
     conferencias: "",
     mesasRedondas: "",
@@ -64,6 +92,12 @@ export const useEncuestaForm = ({ onSuccess }) => {
     const validate = () => {
         const formErrors = {};
 
+        PREGUNTAS_SELECCION.forEach(({ name, opciones }) => {
+            if (!Object.keys(opciones).includes(formData[name])) {
+                formErrors[name] = "Seleccione una opción";
+            }
+        });
+
         PREGUNTAS_CALIFICACION.forEach(({ name }) => {
             if (!OPCIONES_CALIFICACION.includes(formData[name])) {
                 formErrors[name] = "Seleccione una opción";
@@ -87,7 +121,7 @@ export const useEncuestaForm = ({ onSuccess }) => {
             Swal.fire({
                 ...swalBase,
                 title: "Atención",
-                text: "Debe responder todas las preguntas de calificación.",
+                text: "Debe responder todas las preguntas obligatorias.",
                 icon: "warning",
                 iconColor: "#FFC107",
             });

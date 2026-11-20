@@ -3,6 +3,7 @@ import CloseIcon from "../../home/components/svgIcons/CloseIcon";
 import {
     useEncuestaForm,
     OPCIONES_CALIFICACION,
+    PREGUNTAS_SELECCION,
     PREGUNTAS_CALIFICACION,
     PREGUNTAS_ABIERTAS,
 } from "../hooks/useEncuestaForm";
@@ -52,6 +53,27 @@ const EncuestaModal = ({ isOpen, onClose, onSuccess }) => {
                             Complete la encuesta para habilitar la descarga de su certificado.
                             Los campos marcados con <span className="text-Red">*</span> son obligatorios.
                         </p>
+
+                        {PREGUNTAS_SELECCION.map(({ name, label, opciones }) => (
+                            <div key={name} className="flex flex-col pb-5 border-b border-DarkGrey">
+                                <label htmlFor={`encuesta-${name}`} className="w-auto block cursor-default font-semibold mb-2">
+                                    {label} <span className="text-Red">*</span>
+                                </label>
+                                <select
+                                    id={`encuesta-${name}`}
+                                    name={name}
+                                    value={formData[name]}
+                                    onChange={handleChange}
+                                    className="p-2 border border-VioletSoft rounded-md bg-White focus:outline-none focus:border-Violet"
+                                >
+                                    <option value="" disabled>Seleccione una opción</option>
+                                    {Object.entries(opciones).map(([value, texto]) => (
+                                        <option key={value} value={value}>{texto}</option>
+                                    ))}
+                                </select>
+                                {errors[name] && <p className="text-Red text-sm mt-1">{errors[name]}</p>}
+                            </div>
+                        ))}
 
                         {PREGUNTAS_CALIFICACION.map(({ name, label }) => (
                             <fieldset key={name} className="pb-5 border-b border-DarkGrey last:border-b-0">
