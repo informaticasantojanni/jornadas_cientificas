@@ -18,6 +18,7 @@ export const COLLECTIONS = {
     REGISTRATION: "registration",
     TEMAS_LIBRES: "temasLibres",
     MESAS_REDONDAS: "mesasRedondas",
+    ENCUESTAS: "encuestas",
 };
 
 export const DOCUMENTS = {
